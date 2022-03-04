@@ -1,9 +1,11 @@
 import React from 'react';
-import './App.module.sass';
+import styles from './App.module.sass';
+import { Advertising } from './pages/Advertising/Advertising';
 
 function App() {
-  return (
-    <div className="App">
+    return (
+    <div className={styles.App}>
+        <Advertising/>
     </div>
   );
 }
