@@ -1,3 +1,7 @@
+button
+    cursor: pointer
+    &:hover
+        box-shadow: 0 0 20px #fffafac9
 .page_content
     padding: 2.5em 7.5em
     background: linear-gradient(178.39deg, #6877FF 1.37%, #853CFC 51.02%, #9E07FA 94.92%) no-repeat
@@ -6,10 +10,13 @@
         border-radius: 40px
     .upper_content_wrapper
         padding: 1em 6em
-
+    
 .header
     padding: 1.25em 
     .header_wrapper
+        display: flex
+        justify-content: space-between
+        
         
 .logo_wrapper
     display: flex
@@ -43,10 +50,10 @@
         p
             font-size: 23px
     .pict_wrapper
-        margin-left: auto
-        margin-right: 0
+        margin-left: auto;
+        margin-right: 0;
         img 
-            width: 550px
+            width: 700px
               
 .second_title_content
     padding-top: 2em
@@ -57,7 +64,6 @@
         padding-top: 1.5em
         font-size: 40px
     p
-        text-shadow: 0px 0px 30px #b3b9f3b4
         text-align: center
         margin: 0
         padding: 0.3em 2em
@@ -65,25 +71,28 @@
 .registration_button_content
     display: grid
     grid-template-rows: 1fr
-    grid-template-columns: 3fr 6fr 3fr
-    grid-template-areas: "left center right"
+    grid-template-columns: 6fr 6fr
+    grid-template-areas: "left right"
     .left_block
         grid-area: left
-    .center_block
-        grid-area: center
-        margin: 0 auto
-        padding-top: 10em
-
     .right_block
         grid-area: right
     .block_component
         margin-top: 4em
         img 
-            width: 320px
+            width: 100%
         p
+            text-align: center
             font-size: 27px
-            margin: -0.2em
+            margin: -0.1em
+.center_block
+    padding-top: 2em
+    text-align: center
+    .button_wrapper
+        margin-top: -30px
+    p
+        font-size: 50px
 .footer
-    padding: 1em 0
+    padding: 0.25em 0
     .footer_wrapper
-        padding: 1em
+        padding: 0.25em 2em

@@ -1,0 +1,106 @@
+button
+    cursor: pointer
+    &:hover
+        box-shadow: 0 0 20px #fffafac9
+.page_content
+    padding: 2.5em 7.5em
+    background: linear-gradient(178.39deg, #6877FF 1.37%, #853CFC 51.02%, #9E07FA 94.92%) no-repeat
+    .page_content_wrapper
+        background: #222222
+        border-radius: 40px
+    .upper_content_wrapper
+        padding: 1em 6em
+.header
+    display: grid
+    grid-template-rows: 1fr
+    grid-template-columns: 2fr 8fr 2fr
+    grid-template-areas: "menu navbar settings"
+    .menu_wrapper
+        display: flex
+        grid-area: menu
+        img 
+            width: 40px
+            padding: 0 1em 0 0
+        p
+            font-size: 50px
+            margin: 0
+    .navbar_wrapper
+       
+        ul
+            list-style-type: none
+            display: flex
+            li
+                padding: 0 1em
+        grid-area: navbar
+    .settings_wrapper
+        grid-area: settings
+        
+.button_wrapper
+    img 
+        10px
+    button
+        font-size: 17px
+        border-radius: 50px
+        background: #222222
+        padding: 0.70em 1.75em
+        color: white
+        border: 2px solid #6877FF 
+.content_wrapper
+    display: grid
+    grid-template-rows: 1fr
+    grid-template-columns: 6fr 6fr
+    grid-template-areas: "left right"
+    .wrapper_user_avavtar
+        grid-area: left
+
+        img
+            margin: 3em 2em
+            width: 75%
+            border: 15px solid #444444
+            border-radius: 100% 
+    .wrapper_user_info 
+        grid-area: right
+.subscribers_info_wrapper
+    display: flex
+    .subscribers_info
+        line-height: 0
+        padding: 0 1.5em
+        text-align: center
+.table_info
+    width: 100%
+    table
+        tr
+            padding: 1em
+        td
+            padding: 1em 1.5em
+            border: 3px solid #9E07FA
+            border-radius: 50px
+            h2
+                text-align: center
+                font-weight: bold
+                font-size: 24px
+                line-height: 0px
+            p
+                line-height: 0px
+                text-align: center
+                font-size: 50px
+.button_wrapper_content
+    display: flex
+    margin-top: 3em
+    .button_for_lk
+        margin: 0.5em
+        p
+            line-height: 0
+        button
+            width: 11em
+            font-size: 17px
+            border-radius: 50px
+            background: linear-gradient(180deg, #CB00FF 0%, #9E07FA 100%)
+            border-radius: 50px
+            padding: 0.75em
+            color: white
+            border: none
+.footer
+    margin-top: 3em
+    padding: 2em 0
+    
