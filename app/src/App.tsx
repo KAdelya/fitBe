@@ -6,6 +6,7 @@ import { RegistrationPage } from './pages/RegistrationPage/RegistrationPage'
 import { Routes, BrowserRouter as Router, Route } from 'react-router-dom';
 import { SignPage } from './pages/SignPage/SignPage'
 import PersonalArea from './pages/PersonalArea/PersonalArea';
+import {CharitableFoundationPage} from "./pages/CharitableFoundationPage/CharitableFoundationPage";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path='/registration' element={<RegistrationPage />} />
           <Route path='/sign' element={<SignPage />} />
           <Route path='/user' element={<PersonalArea />} />
+          <Route path='/charitable_foundation' element={<CharitableFoundationPage/>}/>
         </Routes>
       </Router>
       {/* <Advertising /> */}
