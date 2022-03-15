@@ -18,6 +18,7 @@ function App() {
           <Route path='/sign' element={<SignPage />} />
           <Route path='/user' element={<PersonalArea />} />
           <Route path='/charitable_foundation' element={<CharitableFoundationPage/>}/>
+          <Route path='/subscription_payment' element={<SubscriptionPaymentPage/>}/>
         </Routes>
       </Router>
       {/* <Advertising /> */}
