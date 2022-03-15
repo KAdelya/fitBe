@@ -7,6 +7,7 @@ import { Routes, BrowserRouter as Router, Route } from 'react-router-dom';
 import { SignPage } from './pages/SignPage/SignPage'
 import PersonalArea from './pages/PersonalArea/PersonalArea';
 import {CharitableFoundationPage} from "./pages/CharitableFoundationPage/CharitableFoundationPage";
+import {SubscriptionPaymentPage} from "./pages/SubscriptionPaymentPage/SubscriptionPaymentPage";
 
 function App() {
   return (
