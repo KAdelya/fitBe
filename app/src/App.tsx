@@ -8,6 +8,7 @@ import { SignPage } from './pages/SignPage/SignPage'
 import PersonalArea from './pages/PersonalArea/PersonalArea';
 import {CharitableFoundationPage} from "./pages/CharitableFoundationPage/CharitableFoundationPage";
 import {SubscriptionPaymentPage} from "./pages/SubscriptionPaymentPage/SubscriptionPaymentPage";
+import { Questionnaire } from './pages/Questionnaire/Questionnaire';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path='/user' element={<PersonalArea />} />
           <Route path='/charitable_foundation' element={<CharitableFoundationPage/>}/>
           <Route path='/subscription_payment' element={<SubscriptionPaymentPage/>}/>
+          <Route path='/questionnaire' element={<Questionnaire/>}/>
         </Routes>
       </Router>
       {/* <Advertising /> */}
