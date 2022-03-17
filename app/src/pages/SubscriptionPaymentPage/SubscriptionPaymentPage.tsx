@@ -3,6 +3,7 @@ import arrow_back from "../../assets/images/arrow_back.svg";
 
 export const SubscriptionPaymentPage = () => {
     return (
+        <div className={styles.main}>
         <div className={styles.page_content}>
             <div className={styles.page_content_wrapper}>
                 <div className={styles.upper_content_wrapper}>
@@ -34,19 +35,22 @@ export const SubscriptionPaymentPage = () => {
                     </div>
                 </div>
             </div>
+        </div>
             <footer>
                 <div className={styles.line}></div>
-                <div>
-                    Twitter
-                </div>
-                <div>
-                    Facebook
-                </div>
-                <div>
-                    Instagram
-                </div>
-                <div>
-                    © 2021 All rights reserved.
+                <div className={styles.footer_wrapper}>
+                    <div className={styles.twitter}>
+                        Twitter
+                    </div>
+                    <div className={styles.facebook}>
+                        Facebook
+                    </div>
+                    <div className={styles.instagram}>
+                        Instagram
+                    </div>
+                    <div className={styles.reserved}>
+                        © 2021 All rights reserved.
+                    </div>
                 </div>
             </footer>
         </div>
