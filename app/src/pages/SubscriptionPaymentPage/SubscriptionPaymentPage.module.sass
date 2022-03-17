@@ -18,31 +18,66 @@
   justify-content: start
 
   p
-    text-shadow: 0px 0px 30px #b3b9f3b4
     font-size: 45px
     margin-left: 2.5em
+    font-weight: 450
 
 .main_wrapper
   display: flex
   flex-direction: column
   justify-content: center
   border-radius: 50px
+  .cards
+    display: flex
+    flex-direction: row
+    justify-content: center
+  .payment_card
+    background: rgba(177, 177, 177, 0.35)
+    width: 454px
+    height: 300px
+    border: 1px dashed #f2f3f4
+    border-radius: 50px
+    margin: 2em
+    .add_card
+      padding: 1em 5em 10em 7.8em
+      font-size: 20px
+      letter-spacing: 0.2px
+      font-weight: 400
+    .button_add_wrapper
+      display: flex
+      flex-direction: row
+      justify-content: center
+      align-items: center
+      border-radius: 120px
+      .button_add
+        margin-top: 6em
+        padding: 1.7em 2.6em 1.7em 2.6em
+        border-radius: 110px
+        background: linear-gradient(180deg, #B348F4 0%, #6877FF 100%)
+        color: white
+        border: none
+      .plus
+        font-size: 34px
   .details
     font-size: 24px
+    margin-bottom: 2em
+    letter-spacing: 0.2px
+    font-weight: 400
   input
     border-radius: 15px
     padding: 0.8em
+    margin-bottom: 2em
 
   textarea
     border-radius: 15px
     padding: 0.8em 0.8em 3em 0.8em
 
   .button_wrapper
-    padding-top: 1em
+    padding-top: 5em
     display: flex
     justify-content: center
 
-    button
+    .subscribe
       font-size: 18px
       border-radius: 50px
       background: linear-gradient(178.39deg, #6877FF 1.37%, #853CFC 51.02%, #9E07FA 94.92%) no-repeat
@@ -55,3 +90,4 @@
 
   .end_text
     text-align: center
+    margin-bottom: 2em

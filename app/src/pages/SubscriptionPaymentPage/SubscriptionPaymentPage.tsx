@@ -1,7 +1,5 @@
 import styles from "../SubscriptionPaymentPage/SubscriptionPaymentPage.module.sass";
 import arrow_back from "../../assets/images/arrow_back.svg";
-import heart from "../../assets/images/heart.svg";
-import dog from "../../assets/images/dog.svg";
 
 export const SubscriptionPaymentPage = () => {
     return (
@@ -17,16 +15,40 @@ export const SubscriptionPaymentPage = () => {
                         </div>
                     </header>
                     <div className={styles.main_wrapper}>
+                        <div className={styles.cards}>
+                            <div className={styles.payment_card}>
+                                <div className={styles.button_add_wrapper}>
+                                    <button className={styles.button_add}>
+                                        <div className={styles.plus}>+</div></button>
+                                </div>
+                                <div className={styles.add_card}>Добавить карту</div>
+                            </div>
+                        </div>
                         <div className={styles.details}>Детали подписки</div>
-                        <input placeholder="Ввести сумму"/>
+                        <input placeholder="Ввести сумму в рублях"/>
                         <textarea placeholder="Отправить сообщение"/>
                         <div className={styles.button_wrapper}>
-                            <button>Подписаться</button>
+                            <button className={styles.subscribe}>Подписаться</button>
                         </div>
                         <div className={styles.end_text}>При желании - подписку можно отключить в личном кабинете</div>
                     </div>
                 </div>
             </div>
+            <footer>
+                <div className={styles.line}></div>
+                <div>
+                    Twitter
+                </div>
+                <div>
+                    Facebook
+                </div>
+                <div>
+                    Instagram
+                </div>
+                <div>
+                    © 2021 All rights reserved.
+                </div>
+            </footer>
         </div>
     )
 }
