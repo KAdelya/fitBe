@@ -29,19 +29,53 @@
 
 .main_wrapper
   display: flex
-  flex-direction: column
-  justify-content: center
+  flex-direction: row
+  justify-content: start
   border-radius: 50px
-
-  .cards
+  margin: 3em 0em 2em 8em
+  .column_digits
+    display: flex
+    flex-direction: column
+    justify-content: start
+    .number
+      padding-right: 1em
+      font-weight: 400
+      font-size: 26px
+      margin-bottom: 1em
+  .column
+    display: flex
+    flex-direction: column
+    justify-content: start
+    border-left: 2px solid white
+    .string
+      display: flex
+      flex-direction: row
+      justify-content: start
+      font-size: 26px
+      font-weight: 400
+      margin-bottom: 1em
+      .place_in_top
+        padding-left: 1em
+      .name
+        padding-left: 1em
+  .people
     display: flex
     flex-direction: row
-    justify-content: center
+    justify-content: end
 
-  .payment_card
-    background: rgba(177, 177, 177, 0.35)
-    width: 454px
-    height: 300px
-    border: 1px dashed #f2f3f4
-    border-radius: 50px
-    margin: 2em
+footer
+  .line
+    border-top: 1px solid white
+  .footer_wrapper
+    display: flex
+    flex-direction: row
+    justify-content: start
+    padding: 1em
+  .twitter
+    margin-left: 2em
+  .facebook
+    margin-left: 1em
+  .instagram
+    margin-left: 1em
+  .reserved
+    margin-left: 60em

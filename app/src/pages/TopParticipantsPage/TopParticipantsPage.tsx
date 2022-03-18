@@ -1,7 +1,13 @@
 import styles from "../TopParticipantsPage/TopParticipantsPage.module.sass";
 import arrow_back from "../../assets/images/arrow_back.svg";
 import {Icon} from "../../components/Icon/Icon";
-import people from "../../assets/images/people.svg"
+import people from "../../assets/images/people.svg";
+import people_avatar from "../../assets/images/people_avatar.svg";
+import people_avatar_2 from "../../assets/images/prople_avatar_2.svg";
+import people_avatar_3 from "../../assets/images/people_avatar_3.svg";
+import people_avatar_4 from "../../assets/images/people_avatar_4.svg";
+import people_avatar_5 from "../../assets/images/people_avatar_5.svg";
+import people_avatar_6 from "../../assets/images/people_avatar_6.svg";
 
 export const TopParticipantsPage = () => {
     return (
@@ -19,22 +25,69 @@ export const TopParticipantsPage = () => {
                             </div>
                         </header>
                         <div className={styles.main_wrapper}>
-                            <div className={styles.cards}>
+                            <div className={styles.column_digits}>
+                                <div className={styles.number}>1</div>
+                                <div className={styles.number}>2</div>
+                                <div className={styles.number}>3</div>
+                                <div className={styles.number}>4</div>
+                                <div className={styles.number}>5</div>
+                                <div className={styles.number}>6</div>
+                                <div className={styles.number}>7</div>
+                                <div className={styles.number}>8</div>
+                                <div className={styles.number}>9</div>
+                                <div className={styles.number}>10</div>
+                            </div>
+                            <div className={styles.column}>
+                                <div className={styles.string}>
+                            <div className={styles.place_in_top}><img src={people_avatar}/></div>
+                            <div className={styles.name}>IvanIvanov</div>
+                                </div>
+                                <div className={styles.string}>
+                            <div className={styles.place_in_top}><img src={people_avatar_2}/></div>
+                            <div className={styles.name}>SuperMan2000</div>
+                                </div>
+                                <div className={styles.string}>
+                                    <div className={styles.place_in_top}><img src={people_avatar_3}/></div>
+                                    <div className={styles.name}>Lena1990291</div>
+                                </div>
+                                <div className={styles.string}>
+                                    <div className={styles.place_in_top}><img src={people_avatar_4}/></div>
+                                    <div className={styles.name}>LeraLeraLera</div>
+                                </div>
+                                <div className={styles.string}>
+                                    <div className={styles.place_in_top}><img src={people_avatar_5}/></div>
+                                    <div className={styles.name}>AdelyaAdelyaAdelya</div>
+                                </div>
+                                <div className={styles.string}>
+                                    <div className={styles.place_in_top}><img src={people_avatar_6}/></div>
+                                    <div className={styles.name}>IvanIvanov</div>
+                                </div>
+                                <div className={styles.string}>
+                                    <div className={styles.place_in_top}><img src={people_avatar_5}/></div>
+                                    <div className={styles.name}>SuperMan20</div>
+                                </div>
+                                <div className={styles.string}>
+                                    <div className={styles.place_in_top}><img src={people_avatar_6}/></div>
+                                    <div className={styles.name}>Lena19</div>
+                                </div>
+                                <div className={styles.string}>
+                                    <div className={styles.place_in_top}><img src={people_avatar_2}/></div>
+                                    <div className={styles.name}>Lera</div>
+                                </div>
+                                <div className={styles.string}>
+                                    <div className={styles.place_in_top}><img src={people_avatar}/></div>
+                                    <div className={styles.name}>Adelya</div>
+                                </div>
+                            </div>
+                            <div className={styles.people}>
                                     <img src={people}/>
                             </div>
-                            <div className={styles.details}>Детали подписки</div>
-                            <input placeholder="Ввести сумму в рублях"/>
-                            <textarea placeholder="Отправить сообщение"/>
-                            <div className={styles.button_wrapper}>
-                                <button className={styles.subscribe}>Подписаться</button>
                             </div>
-                            <div className={styles.end_text}>При желании - подписку можно отключить в личном кабинете</div>
-                        </div>
                     </div>
                 </div>
             </div>
             <footer>
-                <div className={styles.line}></div>
+                <div className={styles.line}/>
                 <div className={styles.footer_wrapper}>
                     <div className={styles.twitter}>
                         Twitter
