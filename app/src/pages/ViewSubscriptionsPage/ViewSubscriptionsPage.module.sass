@@ -85,17 +85,15 @@
       padding: 0.70em 5em
       color: white
       border: 2px solid #6877FF
-      margin-bottom: 1em
+      margin-bottom: 2em
   .row
     display: flex
     flex-direction: row
-    justify-content: start
     .column_digits
       display: flex
       flex-direction: column
       justify-content: start
       .number
-        padding-right: 1em
         font-weight: 400
         font-size: 29px
         margin-bottom: 1em
@@ -106,19 +104,24 @@
       .string
         display: flex
         flex-direction: row
-        justify-content: start
+        justify-content: space-between
         font-size: 29px
         font-weight: 400
         margin-bottom: 1em
-        .paw
-          margin-left: 1em
-          border-radius: 30px
-          border: 2px solid #FFD600
-          padding: 0em 0.7em
-        .place_in_top
+        .place_name_and_paw
+          display: flex
+          flex-direction: row
+          justify-content: start
+          margin-left: 0
+          .paw
+            border-radius: 30px
+            border: 2px solid #FFD600
+            padding: 0em 0.7em
+            margin-left: 1em
+          .name
             padding-left: 1em
-        .name
-          padding-left: 1em
+          .place_in_top
+              padding-left: 1em
         .button_subscribe_wrapper
           display: flex
           .button_subscribe
@@ -149,6 +152,8 @@
 
 
 footer
+  .line
+    border-top: 1px solid white
   .footer_wrapper
     display: flex
     flex-direction: row

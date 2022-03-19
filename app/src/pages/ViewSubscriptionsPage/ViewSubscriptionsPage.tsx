@@ -61,76 +61,96 @@ export const ViewSubscriptionsPage = () => {
                                 </div>
                                 <div className={styles.column}>
                                     <div className={styles.string}>
+                                        <div className={styles.place_name_and_paw}>
                                         <div className={styles.place_in_top}><img src={people_avatar}/></div>
-                                        <div className={styles.name}>IvanIvanov</div>
-                                        <img src={paw} className={styles.paw}/>
+                                            <div className={styles.name}>IvanIvanov</div>
+                                            <img src={paw} className={styles.paw}/>
+                                        </div>
                                         <div className={styles.button_subscribe_wrapper}>
                                             <button className={styles.button_subscribe}>Отписаться</button>
                                         </div>
                                     </div>
                                     <div className={styles.string}>
+                                        <div className={styles.place_name_and_paw}>
                                         <div className={styles.place_in_top}><img src={people_avatar_2}/></div>
-                                        <div className={styles.name}>SuperMan2000</div>
+                                            <div className={styles.name}>SuperMan2000</div>
+                                        </div>
                                         <div className={styles.button_subscribe_wrapper}>
                                         <button className={styles.button_subscribe}>Отписаться</button>
                                         </div>
                                     </div>
                                     <div className={styles.string}>
-                                        <div className={styles.place_in_top}><img src={people_avatar_3}/></div>
-                                        <div className={styles.name}>Lena1990291</div>
-                                        <img src={paw} className={styles.paw}/>
+                                        <div className={styles.place_name_and_paw}>
+                                            <div className={styles.place_in_top}><img src={people_avatar_3}/></div>
+                                            <div className={styles.name}>Lena1990291</div>
+                                            <img src={paw} className={styles.paw}/>
+                                        </div>
                                         <div className={styles.button_subscribe_wrapper}>
                                         <button className={styles.button_subscribe}>Отписаться</button>
                                         </div>
                                     </div>
                                     <div className={styles.string}>
-                                        <div className={styles.place_in_top}><img src={people_avatar_4}/></div>
-                                        <div className={styles.name}>LeraLeraLera</div>
-                                        <img src={paw} className={styles.paw}/>
+                                        <div className={styles.place_name_and_paw}>
+                                            <div className={styles.place_in_top}><img src={people_avatar_4}/></div>
+                                            <div className={styles.name}>LeraLeraLera</div>
+                                            <img src={paw} className={styles.paw}/>
+                                        </div>
                                         <div className={styles.button_subscribe_wrapper}>
                                         <button className={styles.button_subscribe}>Отписаться</button>
                                         </div>
                                     </div>
                                     <div className={styles.string}>
-                                        <div className={styles.place_in_top}><img src={people_avatar_5}/></div>
-                                        <div className={styles.name}>AdelyaAdelyaAdelya</div>
-                                        <img src={paw} className={styles.paw}/>
+                                        <div className={styles.place_name_and_paw}>
+                                            <div className={styles.place_in_top}><img src={people_avatar_5}/></div>
+                                            <div className={styles.name}>AdelyaAdelyaAdelya</div>
+                                            <img src={paw} className={styles.paw}/>
+                                        </div>
                                         <div className={styles.button_subscribe_wrapper}>
                                         <button className={styles.button_subscribe}>Отписаться</button>
                                         </div>
                                     </div>
                                     <div className={styles.string}>
-                                        <div className={styles.place_in_top}><img src={people_avatar_6}/></div>
-                                        <div className={styles.name}>IvanIvanov</div>
+                                        <div className={styles.place_name_and_paw}>
+                                            <div className={styles.place_in_top}><img src={people_avatar_6}/></div>
+                                            <div className={styles.name}>IvanIvanov</div>
+                                        </div>
                                         <div className={styles.button_subscribe_wrapper}>
                                         <button className={styles.button_subscribe}>Отписаться</button>
                                         </div>
                                     </div>
                                     <div className={styles.string}>
-                                        <div className={styles.place_in_top}><img src={people_avatar_5}/></div>
-                                        <div className={styles.name}>SuperMan20</div>
+                                        <div className={styles.place_name_and_paw}>
+                                            <div className={styles.place_in_top}><img src={people_avatar_5}/></div>
+                                            <div className={styles.name}>SuperMan20</div>
+                                        </div>
                                         <div className={styles.button_subscribe_wrapper}>
                                         <button className={styles.button_subscribe}>Отписаться</button>
                                         </div>
                                     </div>
                                     <div className={styles.string}>
-                                        <div className={styles.place_in_top}><img src={people_avatar_6}/></div>
-                                        <div className={styles.name}>Lena19</div>
+                                        <div className={styles.place_name_and_paw}>
+                                            <div className={styles.place_in_top}><img src={people_avatar_6}/></div>
+                                            <div className={styles.name}>Lena19</div>
+                                        </div>
                                         <div className={styles.button_subscribe_wrapper}>
                                         <button className={styles.button_subscribe}>Отписаться</button>
                                         </div>
                                     </div>
                                     <div className={styles.string}>
-                                        <div className={styles.place_in_top}><img src={people_avatar_2}/></div>
-                                        <div className={styles.name}>Lera</div>
+                                        <div className={styles.place_name_and_paw}>
+                                            <div className={styles.place_in_top}><img src={people_avatar_2}/></div>
+                                            <div className={styles.name}>Lera</div>
+                                        </div>
                                         <div className={styles.button_subscribe_wrapper}>
                                         <button className={styles.button_subscribe}>Отписаться</button>
                                         </div>
                                     </div>
                                     <div className={styles.string}>
-                                        <div className={styles.place_in_top}><img src={people_avatar}/></div>
-                                        <div className={styles.name}>Adelya</div>
-                                        <img src={paw} className={styles.paw}/>
+                                        <div className={styles.place_name_and_paw}>
+                                            <div className={styles.place_in_top}><img src={people_avatar}/></div>
+                                            <div className={styles.name}>Adelya</div>
+                                            <img src={paw} className={styles.paw}/>
+                                        </div>
                                         <div className={styles.button_subscribe_wrapper}>
                                         <button className={styles.button_subscribe}>Отписаться</button>
                                         </div>
@@ -142,6 +162,7 @@ export const ViewSubscriptionsPage = () => {
                     </div>
                 </div>
             <footer>
+                <div className={styles.line}/>
                 <div className={styles.footer_wrapper}>
                     <div className={styles.twitter}>
                         Twitter
