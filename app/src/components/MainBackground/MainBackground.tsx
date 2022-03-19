@@ -2,6 +2,6 @@ import styles from './MainBackground.module.sass'
 
 export const MainBackground = () => {
     return (
-        <div className={styles.main_background}></div>
+        <div className={styles.main_background}/>
     );
 }
