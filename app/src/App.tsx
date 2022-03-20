@@ -12,6 +12,7 @@ import { Questionnaire } from './pages/Questionnaire/Questionnaire';
 import { TopParticipantsPage } from "./pages/TopParticipantsPage/TopParticipantsPage";
 import { ViewSubscriptionsPage } from "./pages/ViewSubscriptionsPage/ViewSubscriptionsPage";
 import { Timer } from './pages/Timer/Timer';
+import { TimerSettings } from './pages/TimerSettings/TimerSettings';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path='/subscription_payment' element={<SubscriptionPaymentPage />} />
           <Route path='/questionnaire' element={<Questionnaire />} />
           <Route path='/timer' element={<Timer />} />
+          <Route path='/timer_settings' element={<TimerSettings />} />
         </Routes>
       </Router>
       {/* <Advertising /> */}
