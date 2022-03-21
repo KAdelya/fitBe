@@ -1,5 +1,3 @@
-import React from 'react';
-import { Advertising } from './pages/Advertising/Advertising';
 import styles from './App.module.sass'
 import { MainPage } from './pages/MainPage/MainPage';
 import { RegistrationPage } from './pages/RegistrationPage/RegistrationPage'
@@ -13,6 +11,7 @@ import { TopParticipantsPage } from "./pages/TopParticipantsPage/TopParticipants
 import { ViewSubscriptionsPage } from "./pages/ViewSubscriptionsPage/ViewSubscriptionsPage";
 import { Timer } from './pages/Timer/Timer';
 import { TimerSettings } from './pages/TimerSettings/TimerSettings';
+import { News } from './pages/News/News';
 
 function App() {
   return (
@@ -20,6 +19,7 @@ function App() {
       <Router>
         <Routes>
           <Route path='/' element={<MainPage />} />
+          <Route path='/news' element={<News />} />
           <Route path='/registration' element={<RegistrationPage />} />
           <Route path='/sign' element={<SignPage />} />
           <Route path='/user' element={<PersonalArea />} />
@@ -32,7 +32,6 @@ function App() {
           <Route path='/timer_settings' element={<TimerSettings />} />
         </Routes>
       </Router>
-      {/* <Advertising /> */}
     </div>
   );
 }

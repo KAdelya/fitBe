@@ -26,7 +26,7 @@ const PersonalArea = () => {
                         <div className={styles.settings_wrapper}>
                             <div className={styles.button_wrapper}>
                                 <button>Войти</button>
-                                <img src={settings} />
+                                <img src={settings} width={35}/>
                             </div>
                         </div>
                     </header>
