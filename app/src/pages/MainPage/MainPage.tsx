@@ -6,23 +6,14 @@ import firstPict from '../../assets/images/be_in_shape.jpg';
 import secondPict from '../../assets/images/nutrition.jpg';
 import thirdPict from '../../assets/images/water.jpg';
 import fourthPict from '../../assets/images/willpower.jpg';
+import {HeaderMainAndQuestionnaire} from "../../components/HeaderMainAndQuestionnaire/HeaderMainAndQuestionnaire";
 
 export const MainPage = () => {
     return (
         <div className={styles.page_content}>
             <div className={styles.page_content_wrapper}>
                 <section className={styles.upper_content_wrapper}>
-                    <header className={styles.header}>
-                        <div className={styles.header_wrapper}>
-                            <div className={styles.logo_wrapper}>
-                                <Icon name="logo" width="85" height="62" />
-                                <p>BeFit</p>
-                            </div>
-                            <div className={styles.button_wrapper}>
-                                <button>Войти</button>
-                            </div>
-                        </div>
-                    </header>
+                    <HeaderMainAndQuestionnaire/>
                     <section className={styles.main_content}>
                         <div className={styles.main_content_wrapper}>
                             <div className={styles.title_content}>
@@ -74,7 +65,7 @@ export const MainPage = () => {
                                 <p>Тогда регистрируйся</p>
                                 {/* <img src={arrow} /> */}
                                 <div className={styles.button_wrapper}>
-                                    <button>Регистрация</button>
+                                    <a href='/registration' type='button' className={styles.button_reg}>Регистрация</a>
                                 </div>
                                 <a href='/sign'>Уже зарегистрирован(-а)?</a>
                             </div>
