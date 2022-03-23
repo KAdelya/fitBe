@@ -67,7 +67,7 @@ export const MainPage = () => {
                                 <div className={styles.button_wrapper}>
                                     <a href='/registration' type='button' className={styles.button_reg}>Регистрация</a>
                                 </div>
-                                <a href='/sign'>Уже зарегистрирован(-а)?</a>
+                                <a href='/sign' className={styles.link}>Уже зарегистрирован(-а)?</a>
                             </div>
                         </div>
                     </section>

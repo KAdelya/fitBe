@@ -10,7 +10,7 @@ export const HeaderMainAndQuestionnaire = () => {
                     <p>BeFit</p>
                 </div>
                 <div className={styles.button_wrapper}>
-                    <a type='button' href='/sign'>Войти</a>
+                    <a type='button' href='/sign' className={styles.button_reg}>Войти</a>
                 </div>
             </div>
         </header>
