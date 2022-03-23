@@ -9,7 +9,7 @@ export const Sign = () => {
                 <img src={time} />
             </div>
             <input placeholder='Имя/Email'/>
-            <input placeholder='Пароль' />
+            <input placeholder='Пароль' type='password'/>
             <div className={styles.button_wrapper}>
                 <button>Войти</button>
             </div>

@@ -1,11 +1,11 @@
 import { Icon } from '../../components/Icon/Icon';
 import styles from './../MainPage/MainPage.module.sass';
-import dumbbell from '../../assets/images/main.svg'
-import arrow from '../../assets/images/down.svg'
-import firstPict from '../../assets/images/be_in_shape.jpg'
-import secondPict from '../../assets/images/nutrition.jpg'
-import thirdPict from '../../assets/images/water.jpg'
-import fourthPict from '../../assets/images/willpower.jpg'
+import dumbbell from '../../assets/images/main.svg';
+import arrow from '../../assets/images/down.svg';
+import firstPict from '../../assets/images/be_in_shape.jpg';
+import secondPict from '../../assets/images/nutrition.jpg';
+import thirdPict from '../../assets/images/water.jpg';
+import fourthPict from '../../assets/images/willpower.jpg';
 
 export const MainPage = () => {
     return (
@@ -76,7 +76,7 @@ export const MainPage = () => {
                                 <div className={styles.button_wrapper}>
                                     <button>Регистрация</button>
                                 </div>
-                                <h5>Уже зарегистрирован(-а)?</h5>
+                                <a href='/sign'>Уже зарегистрирован(-а)?</a>
                             </div>
                         </div>
                     </section>
