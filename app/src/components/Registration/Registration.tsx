@@ -7,7 +7,7 @@ export const Registration = () => {
     const [correctPassw, setCorrectPassw] = useState(false)
     const validationsSchema = yup.object().shape({
         name: yup.string().typeError('Должно быть строкой').required('Обязательно')
-            .matches(/[а-яА-я0-9]{3,}/g, 'Введите верное имя на русском'),
+            .matches(/[a-zA-Z0-9]{3,}/g, 'Введите верное имя на английском'),
         email: yup.string().typeError('Должно быть строкой').required('Обязательно')
             .matches(/^[a-zA-Z0-9]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/, 'Введите верный email'),
         password: yup.string().typeError('Должно быть строкой').required('Введите верные данные')
@@ -28,6 +28,8 @@ export const Registration = () => {
                     if (values.password === values.repeat_password) {
                         setCorrectPassw(true);
                     } else {
+                        values.name = '';
+                        values.email = '';
                         values.password = '';
                         values.repeat_password = '';
                         errors.setStatus('Пароли не совпадают');
