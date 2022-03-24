@@ -2,11 +2,11 @@ import { Icon } from "../../components/Icon/Icon";
 import { TimeBlock } from "../../components/TimeBlock/timeBlock";
 import styles from "../Timer/Timer.module.sass";
 import right_arrow from '../../assets/images/arr.svg'
+import refresh from '../../assets/images/refresh.svg'
+import stop from '../../assets/images/stop.svg'
 import left_arrow from '../../assets/images/rarr.svg'
 import line from '../../assets/images/line.svg'
 import React, { useEffect, useRef, useState } from 'react'
-
-
 
 const preparationTime = 55
 const workTime = 10
@@ -26,22 +26,9 @@ const useInterval = (callback: () => void, delay: number | null) => {
             return () => clearInterval(intervalId);
         }
     }, [delay]);
-}; 
+};
 
 export const Timer = () => {
-    // const [seconds, setSeconds] = useState(55);
-    // const [minutes, setMinutes] = useState(0);
-
-    // useEffect(() => {
-    //     let timer = setInterval(() => {
-    //         setSeconds(seconds - 1)
-    //         if (seconds === 0) {
-    //             setMinutes(minutes - 1);
-    //             setSeconds(59);
-    //         }
-    //     }, 500)
-    //     return () => clearInterval(timer);
-    // })
 
     const [currentRound, setCurrentRound] = useState(1)
     const [isWorking, setIsWorking] = useState(true)
@@ -51,7 +38,7 @@ export const Timer = () => {
         const isLastTickInInterval = timeRemainig === 1
         if (isLastTickInInterval) {
             console.log(`${isWorking ? 'Work' : 'Rest'} Interval Complete`)
-            setTimeRemaining(isWorking ? restTime : workTime)
+            setTimeRemaining(isWorking? workTime : restTime)
             setIsWorking((isWorking) => !isWorking)
             const isRestIntervalEnd = isWorking === false
             if (isRestIntervalEnd) {
@@ -76,12 +63,12 @@ export const Timer = () => {
     }
 
     const reset = () => {
-        setTimeRemaining(isWorking ? workTime : restTime)
+        setTimeRemaining(isWorking? workTime : restTime)
     }
 
 
     return (
-        
+
         <div className={styles.page_content}>
             <div className={styles.upper_header}>
                 <div className={styles.logo_wrapper}>
@@ -92,15 +79,22 @@ export const Timer = () => {
             <div className={styles.page_content_wrapper}>
                 <div className={styles.title_wrapper}>
                     {/* <p>Подготовка</p> */}
-                    <p>{isWorking ? 'Работа' : 'Отдых'}</p>
-                    <button onClick={toggleIsTimerRuning}>play/pause</button>
-                    <button onClick={reset} disabled={isTimerRunning}>reset</button>
-                    <img src={right_arrow} width={40} />
+                    <p>{isWorking? 'Работа' : 'Отдых'}</p>
+                    <button className={styles.button_timer_wrapper} onClick={toggleIsTimerRuning}>
+                         {
+                            (isTimerRunning)?
+                            <img src={stop} width={60} />:
+                            <img src={right_arrow} width={30} /> 
+                         }
+                    </button>
+                    <button className={styles.button_timer_wrapper} onClick={reset} disabled={isTimerRunning}>
+                        <img src={refresh} width={60}  />
+                    </button>
                 </div>
                 <div className={styles.time_wrapper}>
                     <p>{timeRemainig}</p>
                 </div>
-                <TimeBlock type="Подготовка" time={55} />
+                <TimeBlock type={isWorking? 'Работа' : 'Отдых'} time={timeRemainig} />
                 <TimeBlock type="Работа" time={55} />
                 <TimeBlock type="Отдых" time={55} />
                 <TimeBlock type="Работа" time={55} />
@@ -118,6 +112,6 @@ export const Timer = () => {
     )
 }
 const useSecondInterval = (callback: () => void, isRunning: boolean) => {
-    const delay = 1000
+    const delay = 400
     useInterval(callback, isRunning ? delay : null)
 }

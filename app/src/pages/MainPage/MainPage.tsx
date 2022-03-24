@@ -6,14 +6,14 @@ import firstPict from '../../assets/images/be_in_shape.jpg';
 import secondPict from '../../assets/images/nutrition.jpg';
 import thirdPict from '../../assets/images/water.jpg';
 import fourthPict from '../../assets/images/willpower.jpg';
-import {HeaderMainAndQuestionnaire} from "../../components/HeaderMainAndQuestionnaire/HeaderMainAndQuestionnaire";
+import { HeaderMainAndQuestionnaire } from "../../components/HeaderMainAndQuestionnaire/HeaderMainAndQuestionnaire";
 
 export const MainPage = () => {
     return (
         <div className={styles.page_content}>
             <div className={styles.page_content_wrapper}>
                 <section className={styles.upper_content_wrapper}>
-                    <HeaderMainAndQuestionnaire/>
+                    <HeaderMainAndQuestionnaire />
                     <section className={styles.main_content}>
                         <div className={styles.main_content_wrapper}>
                             <div className={styles.title_content}>
@@ -22,7 +22,7 @@ export const MainPage = () => {
                             </div>
                             <div className={styles.info_content}>
                                 <div className={styles.text_wrapper}>
-                                    <p>Мы призываем вас  отправиться в
+                                    <p>Мы призываем вас отправиться в
                                         <br />фитнес-путешествие вместе с нашим
                                         <br />приложением!</p>
                                     <p>Мы предлагаем реалистичные

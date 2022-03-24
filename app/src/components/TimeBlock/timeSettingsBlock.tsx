@@ -5,10 +5,10 @@ import plus from '../../assets/images/plus.svg'
 
 interface Props {
     type: string,
-    time: number
+    onChange: any
 }
 
-export const TimeSettingsBlock: FC<Props> = ({ type, time }) => {
+export const TimeSettingsBlock: FC<Props> = ({ type, onChange }) => {
     return (
         <div className={styles.page_content_wrapper}>
             <div>
@@ -18,7 +18,7 @@ export const TimeSettingsBlock: FC<Props> = ({ type, time }) => {
                 <button>
                     <img src={mines} width={30} className={styles.mines_but} />
                 </button>
-                <input value={time}/>
+                <input onChange={onChange}/>
                 <button>
                     <img src={plus} width={30} />
                 </button>
