@@ -3,6 +3,7 @@ import styles from "../News/News.module.sass";
 import menu from '../../assets/images/menu.svg';
 import settings from '../../assets/images/settings.svg';
 import avatar from '../../assets/images/nikita.jpg';
+import notice1 from '../../assets/images/notice1.png';
 
 export const News = () => {
     return (
@@ -26,13 +27,33 @@ export const News = () => {
             </div>
             <div className={styles.main_content}>
                 <div className={styles.page_content_wrapper}>
-                        <img src={avatar} width={60}/>
-                    <input placeholder="Добавить запись" className={styles.castom_input} />
+                    <div className={styles.new_note}>
+                        <div className={styles.avatar_wrapper}>
+                            <img src={avatar} width={60} />
+                        </div>
+                        <div className={styles.castom_input}>
+                            <input placeholder="Добавить запись" />
+                        </div>
+                    </div>
                 </div>
             </div>
             <div className={styles.main_content}>
                 <div className={styles.page_content_wrapper}>
-                    dfgvjbhkl
+                    <div className={styles.lower_navbar_wrapper}>
+                        <ul>
+                            <li>Мои записи</li>
+                            <li>Все записи</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div className={styles.main_content}>
+                <div className={styles.page_content_wrapper}>
+                    <div className={styles.lower_navbar_wrapper}>
+                       <div className={styles.notice_pict_wrapper}>
+                           <img src={notice1} width={800}/>
+                       </div>
+                    </div>
                 </div>
             </div>
         </div>
