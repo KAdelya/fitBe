@@ -12,7 +12,6 @@ import { ViewSubscriptionsPage } from "./pages/ViewSubscriptionsPage/ViewSubscri
 import { Timer } from './pages/Timer/Timer';
 import { TimerSettings } from './pages/TimerSettings/TimerSettings';
 import { News } from './pages/News/News';
-import Tmr from './pages/Timer/t';
 
 function App() {
   return (
@@ -21,7 +20,6 @@ function App() {
         <Routes>
           <Route path='/' element={<MainPage />} />
           <Route path='/news' element={<News />} />
-          <Route path='/t' element={<Tmr />} />
           <Route path='/registration' element={<RegistrationPage />} />
           <Route path='/sign' element={<SignPage />} />
           <Route path='/user' element={<PersonalArea />} />

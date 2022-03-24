@@ -35,6 +35,10 @@ export const Questionnaire = () => {
                         <label>Активность</label>
                         <input />
                     </div>
+                    <div className={styles.block_for_question}>
+                        <label>Желаемое количество тренировок в неделю</label>
+                        <input />
+                    </div>
                 </div>
                 <div className={styles.button_save_content}>
                     <div className={styles.button_wrapper}>

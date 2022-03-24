@@ -33,7 +33,7 @@ export const Sign = () => {
                         <div className={styles.input_and_button_wrapper}>
                             <div className={styles.login_statement}>Время тренироваться!</div>
                             <div className={styles.time}>
-                                <img src={time}/>
+                                {/* <img src={time}/> */}
                             </div>
                             <input placeholder='Email' type='email' name={`email`}
                                    onChange={handleChange}
