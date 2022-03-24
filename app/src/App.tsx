@@ -12,6 +12,7 @@ import { ViewSubscriptionsPage } from "./pages/ViewSubscriptionsPage/ViewSubscri
 import { Timer } from './pages/Timer/Timer';
 import { TimerSettings } from './pages/TimerSettings/TimerSettings';
 import { News } from './pages/News/News';
+import Calculator from './pages/Calculator/Calculator';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path='/questionnaire' element={<Questionnaire />} />
           <Route path='/timer' element={<Timer />} />
           <Route path='/timer_settings' element={<TimerSettings />} />
+          <Route path='/calculator' element={<Calculator />} />
         </Routes>
       </Router>
     </div>
