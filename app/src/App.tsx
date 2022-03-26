@@ -13,12 +13,10 @@ import { Timer } from './pages/Timer/Timer';
 import { TimerSettings } from './pages/TimerSettings/TimerSettings';
 import { News } from './pages/News/News';
 import Calculator from './pages/Calculator/Calculator';
-import axios from 'axios';
-import { useState } from 'react';
 import Training from './pages/Training/Training';
 
 const App = () => {
-
+  
   return (
     <div className={styles.App}>
       <Router>
