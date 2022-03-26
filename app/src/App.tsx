@@ -13,8 +13,12 @@ import { Timer } from './pages/Timer/Timer';
 import { TimerSettings } from './pages/TimerSettings/TimerSettings';
 import { News } from './pages/News/News';
 import Calculator from './pages/Calculator/Calculator';
+import axios from 'axios';
+import { useState } from 'react';
+import Training from './pages/Training/Training';
 
-function App() {
+const App = () => {
+
   return (
     <div className={styles.App}>
       <Router>
@@ -32,6 +36,7 @@ function App() {
           <Route path='/timer' element={<Timer />} />
           <Route path='/timer_settings' element={<TimerSettings />} />
           <Route path='/calculator' element={<Calculator />} />
+          <Route path='/training' element={<Training />} />
         </Routes>
       </Router>
     </div>
@@ -39,3 +44,5 @@ function App() {
 }
 
 export default App;
+
+
