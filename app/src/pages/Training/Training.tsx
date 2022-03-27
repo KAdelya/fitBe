@@ -7,25 +7,33 @@ import example2 from '../../assets/images/example2.svg'
 import example3 from '../../assets/images/example3.svg'
 import example4 from '../../assets/images/example4.svg'
 import axios from 'axios';
+import ExerciseService from '../../services/exercise.service'
+import TrainingCard from './TrainingCard';
 
 const Training = () => {
     const [exercise, setExercise] = useState([]);
-    const getData = async () => {
-        await axios.get('https://wger.de/api/v2/exercise')
-            .then(res => {
-                console.log(res.data)
-                setExercise(res.data.results)
-            })
-            .catch(err => {
-                console.log(err)
-            })
-    }
-    const result = exercise.map((data: any) => <div className={styles.wrapper}>{data.name}</div>)
+    const [image, setImage] = useState([]);
+
+    ExerciseService.getExerciseName().then(res => {
+        console.log(res.data)
+        setExercise(res.data.results)
+    }).catch(err => {
+        console.log(err)
+    })
+
+    ExerciseService.getExercisePicture().then(res => {
+        console.log(res.data.results)
+        setImage(res.data.results)
+    }).catch(err => {
+        console.log(err)
+    })
+   
+
+    const result2 = image.map((data: any) => <div className={styles.wrapper}><img src={data.image} width={100}/></div>)
 
     return (
+
         <div className={styles.content}>
-            <button onClick={getData}>get it!</button>
-            {result}
             <div className={styles.page_content}>
                 <header className={styles.upper_header}>
                     <div className={styles.logo_wrapper}>
@@ -52,22 +60,13 @@ const Training = () => {
                                 Попробуйте бокс, пилатес, йогу и медитацию —
                                 прямо здесь, на нашем сайте — нажмите на иконку чтобы начать.</p>
                         </div>
+
                         <div className={styles.card_content}>
-                            <div className={styles.card_training_wrap}>
-                                <div className={styles.upper_training_card}>
-                                    <img src={example1} width={420} />
-                                </div>
-                                <div className={styles.lower_training_card}>
-                                    <div className={styles.time_training}>
-                                        <Icon name="timer" width="75" height="52" />
-                                        <p className={styles.minutes}>35 МИН</p>
-                                    </div>
-                                    <hr />
-                                    <div className={styles.name_training}>
-                                        <p>Пилатес</p>
-                                    </div>
-                                </div>
-                            </div>
+
+                        {
+                            image.map((data: any) => <TrainingCard picture={data.image} name="" />)
+                        }
+                           
 
                             <div className={styles.card_training_wrap}>
                                 <div className={styles.upper_training_card}>
