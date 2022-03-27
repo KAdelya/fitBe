@@ -1,14 +1,13 @@
-import { Icon } from '../../components/Icon/Icon';
 import styles from './../MainPage/MainPage.module.sass';
 import dumbbell from '../../assets/images/main.svg';
-import arrow from '../../assets/images/down.svg';
 import firstPict from '../../assets/images/be_in_shape.jpg';
 import secondPict from '../../assets/images/nutrition.jpg';
 import thirdPict from '../../assets/images/water.jpg';
 import fourthPict from '../../assets/images/willpower.jpg';
 import { HeaderMainAndQuestionnaire } from "../../components/HeaderMainAndQuestionnaire/HeaderMainAndQuestionnaire";
+import {observer} from "mobx-react";
 
-export const MainPage = () => {
+export const MainPage = observer(() => {
     return (
         <div className={styles.page_content}>
             <div className={styles.page_content_wrapper}>
@@ -81,4 +80,4 @@ export const MainPage = () => {
             </div>
         </div>
     )
-};
+});

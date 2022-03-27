@@ -2,6 +2,9 @@ import styles from './Sign.module.sass';
 import time from "../../assets/images/time.svg";
 import * as yup from "yup";
 import {Formik} from 'formik';
+import {useStore} from "../../utils/use-stores-hook";
+import Modal from "../layouts/Modal";
+import {ModalWelcome} from "../modal/ModalWelcome";
 
 export const Sign = () => {
     const validationsSchema = yup.object().shape({
