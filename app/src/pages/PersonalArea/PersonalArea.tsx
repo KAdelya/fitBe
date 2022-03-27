@@ -3,8 +3,14 @@ import styles from '../PersonalArea/PersonalArea.module.sass';
 import menu from '../../assets/images/menu.svg';
 import settings from '../../assets/images/settings.svg';
 import avatar from '../../assets/images/nikita.jpg';
+import {useStore} from "../../utils/use-stores-hook";
+import Modal from "../../components/layouts/Modal";
+import {ModalWelcome} from "../../components/modal/ModalWelcome";
+import {observer} from "mobx-react";
 
-const PersonalArea = () => {
+const PersonalArea = observer(() => {
+    const { modalStore: { setCurrentModal } } = useStore()
+    setCurrentModal(<Modal children={<ModalWelcome />} />)
     return (
         <div className={styles.page_content}>
             <div className={styles.page_content_wrapper}>
@@ -106,5 +112,5 @@ const PersonalArea = () => {
             </div>
         </div>
     )
-}
+})
 export default PersonalArea;

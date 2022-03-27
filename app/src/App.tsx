@@ -14,6 +14,8 @@ import { TimerSettings } from './pages/TimerSettings/TimerSettings';
 import { News } from './pages/News/News';
 import Calculator from './pages/Calculator/Calculator';
 import Training from './pages/Training/Training';
+import Modal from "./components/layouts/Modal";
+import {ModalWelcome} from "./components/modal/ModalWelcome";
 
 const App = () => {
   

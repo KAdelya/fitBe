@@ -9,8 +9,16 @@ import people_avatar_5 from "../../assets/images/people_avatar_5.svg";
 import people_avatar_6 from "../../assets/images/people_avatar_6.svg";
 import settings from "../../assets/images/settings.svg";
 import paw from "../../assets/images/paw.svg"
+import {useStore} from "../../utils/use-stores-hook";
+import Modal from "../../components/layouts/Modal";
+import {ModalWelcome} from "../../components/modal/ModalWelcome";
+import {ModalUnsubscribe} from "../../components/modal/ModalUnsubscribe";
 
 export const ViewSubscriptionsPage = () => {
+    const { modalStore: { setCurrentModal } } = useStore()
+    const handleModal = () => {
+        setCurrentModal(<Modal children={<ModalUnsubscribe />} />)
+    }
     return (
         <div className={styles.main}>
             <div className={styles.page_wrapper}>
@@ -67,7 +75,7 @@ export const ViewSubscriptionsPage = () => {
                                             <img src={paw} className={styles.paw}/>
                                         </div>
                                         <div className={styles.button_subscribe_wrapper}>
-                                            <button className={styles.button_subscribe}>Отписаться</button>
+                                            <button className={styles.button_subscribe} onClick={handleModal}>Отписаться</button>
                                         </div>
                                     </div>
                                     <div className={styles.string}>
@@ -76,7 +84,7 @@ export const ViewSubscriptionsPage = () => {
                                             <div className={styles.name}>SuperMan2000</div>
                                         </div>
                                         <div className={styles.button_subscribe_wrapper}>
-                                        <button className={styles.button_subscribe}>Отписаться</button>
+                                        <button className={styles.button_subscribe} onClick={handleModal}>Отписаться</button>
                                         </div>
                                     </div>
                                     <div className={styles.string}>
@@ -86,7 +94,7 @@ export const ViewSubscriptionsPage = () => {
                                             <img src={paw} className={styles.paw}/>
                                         </div>
                                         <div className={styles.button_subscribe_wrapper}>
-                                        <button className={styles.button_subscribe}>Отписаться</button>
+                                        <button className={styles.button_subscribe} onClick={handleModal}>Отписаться</button>
                                         </div>
                                     </div>
                                     <div className={styles.string}>
@@ -96,7 +104,7 @@ export const ViewSubscriptionsPage = () => {
                                             <img src={paw} className={styles.paw}/>
                                         </div>
                                         <div className={styles.button_subscribe_wrapper}>
-                                        <button className={styles.button_subscribe}>Отписаться</button>
+                                        <button className={styles.button_subscribe} onClick={handleModal}>Отписаться</button>
                                         </div>
                                     </div>
                                     <div className={styles.string}>
@@ -106,7 +114,7 @@ export const ViewSubscriptionsPage = () => {
                                             <img src={paw} className={styles.paw}/>
                                         </div>
                                         <div className={styles.button_subscribe_wrapper}>
-                                        <button className={styles.button_subscribe}>Отписаться</button>
+                                        <button className={styles.button_subscribe} onClick={handleModal}>Отписаться</button>
                                         </div>
                                     </div>
                                     <div className={styles.string}>
@@ -115,7 +123,7 @@ export const ViewSubscriptionsPage = () => {
                                             <div className={styles.name}>IvanIvanov</div>
                                         </div>
                                         <div className={styles.button_subscribe_wrapper}>
-                                        <button className={styles.button_subscribe}>Отписаться</button>
+                                        <button className={styles.button_subscribe} onClick={handleModal}>Отписаться</button>
                                         </div>
                                     </div>
                                     <div className={styles.string}>
@@ -124,7 +132,7 @@ export const ViewSubscriptionsPage = () => {
                                             <div className={styles.name}>SuperMan20</div>
                                         </div>
                                         <div className={styles.button_subscribe_wrapper}>
-                                        <button className={styles.button_subscribe}>Отписаться</button>
+                                        <button className={styles.button_subscribe} onClick={handleModal}>Отписаться</button>
                                         </div>
                                     </div>
                                     <div className={styles.string}>
@@ -133,7 +141,7 @@ export const ViewSubscriptionsPage = () => {
                                             <div className={styles.name}>Lena19</div>
                                         </div>
                                         <div className={styles.button_subscribe_wrapper}>
-                                        <button className={styles.button_subscribe}>Отписаться</button>
+                                        <button className={styles.button_subscribe} onClick={handleModal}>Отписаться</button>
                                         </div>
                                     </div>
                                     <div className={styles.string}>
@@ -142,7 +150,7 @@ export const ViewSubscriptionsPage = () => {
                                             <div className={styles.name}>Lera</div>
                                         </div>
                                         <div className={styles.button_subscribe_wrapper}>
-                                        <button className={styles.button_subscribe}>Отписаться</button>
+                                        <button className={styles.button_subscribe} onClick={handleModal}>Отписаться</button>
                                         </div>
                                     </div>
                                     <div className={styles.string}>
@@ -152,7 +160,7 @@ export const ViewSubscriptionsPage = () => {
                                             <img src={paw} className={styles.paw}/>
                                         </div>
                                         <div className={styles.button_subscribe_wrapper}>
-                                        <button className={styles.button_subscribe}>Отписаться</button>
+                                        <button className={styles.button_subscribe} onClick={handleModal}>Отписаться</button>
                                         </div>
                                     </div>
                                 </div>

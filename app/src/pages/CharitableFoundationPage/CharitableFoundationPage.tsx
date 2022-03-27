@@ -18,13 +18,13 @@ export const CharitableFoundationPage = () => {
                         </div>
                     </header>
                     <div className={styles.main_wrapper}>
-                        <img src={heart}/>
+                        <img src={heart} style={{'width':'684px', 'height':'557px'}}/>
                         <div className={styles.motto}> Основная цель - помощь нашим братьям меньшим: </div>
                         <div className={styles.text_1}>Животным, попавшим в беду, бездомным, пострадавшим
                             от рук человека, нуждающимся в лечении. Фонд активно
                             развивается и старается оказывать поддержку
                             волонтерам по всему миру.</div>
-                        <img src={dog}/>
+                        <img src={dog} style={{'width':'1179px', 'height':'526px'}}/>
                         <div className={styles.text_2}>Чтобы у вас была мотивация тренироваться - мы
                             предлагаем вам подписку на благотворительный фонд! Вы
                             сами устанавливаете количество тренировок в неделю, а в
