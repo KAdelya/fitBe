@@ -2,15 +2,29 @@ import styles from './Registration.module.sass';
 import {Formik} from 'formik';
 import * as yup from 'yup';
 import React, {useState} from "react";
-import { getDatabase, ref, set, onValue } from "firebase/database";
+import {getDatabase, ref, set, onValue} from "firebase/database";
+import {useStore} from "../../utils/use-stores-hook";
+import Modal from "../layouts/Modal";
+import {ModalUncorrectNameRegistration} from "../modal/ModalUncorrectNameRegistration";
+import {ModalUncorrectPasswordsRegistratiion} from "../modal/ModalUncorrectPasswordsRegistratiion";
+import PersonalArea from "../../pages/PersonalArea/PersonalArea";
+import {Navigate} from "react-router";
+// import { Redirect } from 'react-router';
 // import { getAuth } from "firebase/auth";
+import { Link } from "react-router-dom";
+
 
 export const Registration = () => {
-    // let [count, setCount] = useState(0);
+    let [register, setRegister] = useState(false);
+    function IsRegistrant() {
+        window.open('/user')
+    }
+
     // console.log(name)
     // let textInput = React.createRef()
     // let input = document.getElementById('name').value
     // console.log(input)
+    const {modalStore: {setCurrentModal}} = useStore()
     const [correctPassw, setCorrectPassw] = useState(false)
     const validationsSchema = yup.object().shape({
         name: yup.string().typeError('Должно быть строкой').required('Обязательно')
@@ -25,12 +39,6 @@ export const Registration = () => {
     // function writeUserData() {
     //     const db = getDatabase();
     //     console.log(name)
-    //     set(ref(db, 'users/' + '2'), {
-    //         name: name,
-    //         email: email,
-    //         password: password,
-    //         repeat_password: repeat_password
-    //     });
     // }
     return (
         <div>
@@ -42,55 +50,66 @@ export const Registration = () => {
                     repeat_password: ''
                 }}
                 onSubmit={(values, errors) => {
-                    if (values.password === values.repeat_password) {
-                        setCorrectPassw(true);
-                        const db = getDatabase();
-                        const starCountRef = ref(db, '/users/');
-                        onValue(starCountRef, (snapshot) => {
-                            const data = snapshot.val();
-                            console.log(data)
-                            // console.log(data[values.name])
-                            if (!data[values.name]) {
+                    setCorrectPassw(true);
+                    const db = getDatabase();
+                    const starCountRef = ref(db, '/users/');
+                    // set(ref(db, 'users/name'), {
+                    //     name: 'name',
+                    //     email: 'email',
+                    //     password: 'password',
+                    //     repeat_password: 'password'
+                    // });
+                    onValue(starCountRef, (snapshot) => {
+                        const data = snapshot.val();
+                        console.log(data)
+                        // console.log(data[values.name])
+                        if (values.password === values.repeat_password) {
+                            if (data[values.name]) {
+                                errors.setStatus('Такое имя уже есть');
+                                setCurrentModal(<Modal children={<ModalUncorrectNameRegistration/>}/>)
+                            } else if (!data[values.name]) {
                                 set(ref(db, '/users/' + values.name), {
                                     name: values.name,
                                     email: values.email,
                                     password: values.password,
                                     repeat_password: values.repeat_password
                                 })
+                                setCurrentModal(null)
+                                setRegister(true)
+                                IsRegistrant()
                             }
-                            else {
-                                values.name = '';
-                                values.email = '';
-                                values.password = '';
-                                values.repeat_password = '';
-                                errors.setStatus('Это имя уже используется');
-                                document.write('Это имя уже используется')
-                            }
-                        })
-                        // const postListRef = ref(db, 'users')
-                        // console.log(db)
-                        // const auth = getAuth();
-                        //
-                        // const userId = auth.currentUser.uid;
-                        // setCount(count + 1)
-                        // const starCountRef = ref(db, 'users/' + values.name);
-                        // onValue(starCountRef, (snapshot) => {
-                        //     const data = snapshot.val();
-                        //     if (values.name === data['name']) {
-                        // set(ref(db, 'users/' + values.name), {
-                        //     name: values.name,
-                        //     email: values.email,
-                        //     password: values.password,
-                        //     repeat_password: values.repeat_password
-                        // })
-                            }
-                     else {
-                        values.name = '';
-                        values.email = '';
-                        values.password = '';
-                        values.repeat_password = '';
-                        errors.setStatus('Пароли не совпадают');
-                    }
+                        } else {
+                            values.name = '';
+                            values.email = '';
+                            values.password = '';
+                            values.repeat_password = '';
+                            errors.setStatus('Пароли не совпадают');
+                            setCurrentModal(<Modal children={<ModalUncorrectPasswordsRegistratiion/>}/>)
+                        }
+                    })
+                    // const postListRef = ref(db, 'users')
+                    // console.log(db)
+                    // const auth = getAuth();
+                    //
+                    // const userId = auth.currentUser.uid;
+                    // setCount(count + 1)
+                    // const starCountRef = ref(db, 'users/' + values.name);
+                    // onValue(starCountRef, (snapshot) => {
+                    //     const data = snapshot.val();
+                    //     if (values.name === data['name']) {
+                    // set(ref(db, 'users/' + values.name), {
+                    //     name: values.name,
+                    //     email: values.email,
+                    //     password: values.password,
+                    //     repeat_password: values.repeat_password
+                    // })
+                    //  else {
+                    //     values.name = '';
+                    //     values.email = '';
+                    //     values.password = '';
+                    //     values.repeat_password = '';
+                    //     errors.setStatus('Пароли не совпадают');
+                    // }
                 }}
                 validationSchema={validationsSchema}
             >
