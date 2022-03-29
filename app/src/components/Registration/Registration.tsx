@@ -17,7 +17,7 @@ import { Link } from "react-router-dom";
 export const Registration = () => {
     let [register, setRegister] = useState(false);
     function IsRegistrant() {
-        window.open('/user')
+        window.open('/questionnaire')
     }
 
     // console.log(name)
