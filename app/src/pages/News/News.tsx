@@ -103,7 +103,7 @@ export const News = () => {
                                 <img src={post} />
                             </div>
                             <div className={styles.row_for_comment}>
-                                <pre>2 часа назад</pre>
+                                <pre>2 часа назад hi</pre>
                                 <div className={styles.user_info_wrapper}>
                                     <img src={like} width={27} />
                                     <img src={comment} width={28} />
