@@ -33,8 +33,7 @@ const Training = () => {
 
     return (
 
-        <div className={styles.content}>
-            <div className={styles.page_content}>
+        <>
                 <header className={styles.upper_header}>
                     <div className={styles.logo_wrapper}>
                         <Icon name="logo" width="75" height="52" />
@@ -118,7 +117,6 @@ const Training = () => {
                         </div>
                     </div>
                 </section>
-            </div>
             <footer className={styles.footer}>
                 <hr />
                 <div className={styles.footer_wrapper}>
@@ -126,7 +124,8 @@ const Training = () => {
                     <pre>© 2021 All rights reserved. </pre>
                 </div>
             </footer>
-        </div>
+        
+        </>
     )
 }
 

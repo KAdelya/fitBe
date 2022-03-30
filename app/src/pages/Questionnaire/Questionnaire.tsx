@@ -1,5 +1,7 @@
 import styles from "../Questionnaire/Questionnaire.module.sass";
-import {useState} from "react";
+import { useState } from "react";
+import Button from "../../components/ui/button/button";
+import { Icon } from "../../components/Icon/Icon";
 
 export const Questionnaire = () => {
     const [checked, setChecked] = useState(false);
@@ -7,52 +9,54 @@ export const Questionnaire = () => {
         setChecked(!checked);
     }
     return (
-        <div className={styles.page_content}>
-            <div className={styles.page_content_wrapper}>
-                <p>Для начала ответьте на пару наших вопросов</p>
-                <form>
+        <div className={styles.main_content_wrap}>
+            <div className={styles.logo_wrapper}>
+                <Icon name='logo' width={48} height={48} />
+                <p>BeFit</p>
+            </div>
+            <h1>First, answer a couple of our questions</h1>
+            <form>
                 <div className={styles.question_block_wrapper}>
                     <div className={styles.block_for_question}>
-                        <label>Укажите ваш пол:</label>
+                        <label>Please, enter your gender:</label>
                         <div className={styles.flex_block}>
                             <label>
-                                <input type="radio" className="custom-checkbox" checked={checked} onChange={changeCheckbox}/>
-                                Мужчина
+                                <input type="radio" className="custom-checkbox" checked={checked} onChange={changeCheckbox} />
+                                Man
                             </label>
                             <label>
-                                <input type="radio" className="custom-checkbox" checked={!checked} onChange={changeCheckbox}/>
-                                Женщина
+                                <input type="radio" className="custom-checkbox" checked={!checked} onChange={changeCheckbox} />
+                                Female
                             </label>
                         </div>
                     </div>
                     <div className={styles.block_for_question}>
-                        <label>Ваш вес (кг)</label>
+                        <label>Your weight (kg)</label>
                         <input />
                     </div>
                     <div className={styles.block_for_question}>
-                        <label>Ваш возраст:</label>
+                        <label>Your age:</label>
                         <input />
                     </div>
                     <div className={styles.block_for_question}>
-                        <label>Ваш рост (в см):</label>
+                        <label>Your height (cm):</label>
                         <input />
                     </div>
                     <div className={styles.block_for_question}>
-                        <label>Активность</label>
+                        <label>Activity</label>
                         <input />
                     </div>
                     <div className={styles.block_for_question}>
-                        <label>Желаемое количество тренировок в неделю</label>
+                        <label>Desired number of workouts per week</label>
                         <input />
                     </div>
                 </div>
                 <div className={styles.button_save_content}>
                     <div className={styles.button_wrapper}>
-                        <button type='submit'>Сохранить</button>
+                        <Button text='Save' />
                     </div>
                 </div>
-                </form>
-            </div>
+            </form>
         </div>
     )
 }
