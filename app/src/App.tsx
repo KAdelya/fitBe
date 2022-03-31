@@ -9,6 +9,7 @@ import  Timer  from './pages/Timer/Timer';
 import Calculator from './pages/Calculator/Calculator';
 import Training from './pages/Training/Training';
 import MainLayout from './components/layouts/MainLayout/MainLayout';
+import TrackWeight from './pages/TrackWeight/TrackWeight';
 
 
 const App = () => {
@@ -25,6 +26,7 @@ const App = () => {
             <Route path='/timer' element={<Timer />} />
             <Route path='/calculator' element={<Calculator />} />
             <Route path='/training' element={<Training />} />
+            <Route path='/track' element={<TrackWeight />} />
           </Routes>
         </Router>
       </MainLayout>

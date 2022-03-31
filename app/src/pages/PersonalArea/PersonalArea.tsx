@@ -1,6 +1,4 @@
-import { Icon } from '../../components/Icon/Icon';
 import styles from '../PersonalArea/PersonalArea.module.sass';
-import avatar from '../../assets/images/nikita.jpg';
 import { useStore } from "../../utils/use-stores-hook";
 import Modal from "../../components/layouts/ModalLayout/Modal";
 import { ModalWelcome } from "../../components/modal/ModalWelcome";
@@ -9,6 +7,7 @@ import Button from '../../components/ui/button/button';
 import no_avatar from '../../assets/images/no_avatar.png'
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
+import { NavLink } from 'react-router-dom';
 
 const PersonalArea = observer(() => {
     const { modalStore: { setCurrentModal } } = useStore()
@@ -48,7 +47,9 @@ const PersonalArea = observer(() => {
                     </div>
                     <div className={styles.lower_button_wrapper}>
                         <Button text='MARK THE WORKOUT' />
-                        <Button text='WEIGH YOURSELF' />
+                        <NavLink to='/track'>
+                            <Button text='WEIGH YOURSELF' />
+                        </NavLink>
                     </div>
                 </div>
             </section>
