@@ -4,10 +4,6 @@ import { Icon } from '../Icon/Icon';
 import Button from '../ui/button/button';
 
 
-{/* <li><NavLink className={({ isActive }) => `${styles.location_link}` + (isActive ? " activated" : null)} to='/'>Главная</NavLink></li>
-                        <li><NavLink className={({ isActive }) => `${styles.location_link}` + (isActive ? " activated" : null)} to='/points'>Пункты сбора</NavLink></li>
-                        <li><NavLink className={({ isActive }) => `${styles.location_link}` + (isActive ? " activated" : null)} to='/ecomarket'>ЭкоМаркет</NavLink></li>
-                        <li><NavLink className={({ isActive }) => `${styles.location_link}` + (isActive ? " activated" : null)} to='/services'>О сервисе</NavLink></li> */}
 const Header = () => {
     return (
         <header>
@@ -26,7 +22,9 @@ const Header = () => {
                 </ul>
             </nav>
             <div className={styles.button_wrapper}>
-                <Button text='SIGN OUT' />
+                <NavLink to='/'>
+                    <Button text='SIGN OUT' />
+                </NavLink>
             </div>
         </header>
     )

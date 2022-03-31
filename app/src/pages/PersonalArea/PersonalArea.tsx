@@ -8,6 +8,7 @@ import { observer } from "mobx-react";
 import Button from '../../components/ui/button/button';
 import no_avatar from '../../assets/images/no_avatar.png'
 import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
 
 const PersonalArea = observer(() => {
     const { modalStore: { setCurrentModal } } = useStore()
@@ -41,8 +42,8 @@ const PersonalArea = observer(() => {
                             <p>50</p>
                         </div>
                         <div className={styles.item_blocks}>
-                            <h3>IN THE TOP</h3>
-                            <p>1</p>
+                            <h3>WATER</h3>
+                            <p>250</p>
                         </div>
                     </div>
                     <div className={styles.lower_button_wrapper}>
@@ -51,9 +52,7 @@ const PersonalArea = observer(() => {
                     </div>
                 </div>
             </section>
-            <footer>
-                <p>Copyright © 2022. All rights reserved</p>
-            </footer>
+            <Footer />
         </div>
     )
 })

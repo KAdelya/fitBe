@@ -1,8 +1,6 @@
-import { Icon } from '../../components/Icon/Icon';
 import styles from '../Timer/Timer.module.sass';
 import { useStore } from "../../utils/use-stores-hook";
 import Modal from "../../components/layouts/ModalLayout/Modal";
-import { ModalWelcome } from "../../components/modal/ModalWelcome";
 import { observer } from "mobx-react";
 import Button from '../../components/ui/button/button';
 import line from '../../assets/images/line.svg'
@@ -11,6 +9,7 @@ import rarr from '../../assets/images/rarr.svg'
 import refresh from '../../assets/images/refresh.svg'
 import { ModalTimer } from '../../components/modal/ModalTimer';
 import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
 
 const Timer = observer(() => {
     const { modalStore: { setCurrentModal } } = useStore()
@@ -49,9 +48,7 @@ const Timer = observer(() => {
                 </div>
                
             </section>
-            <footer>
-                <p>Copyright © 2022. All rights reserved</p>
-            </footer>
+            <Footer />
         </div>
     )
 })

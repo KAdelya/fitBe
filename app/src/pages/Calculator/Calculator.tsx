@@ -1,9 +1,7 @@
-import React from 'react';
 import { Icon } from '../../components/Icon/Icon';
 import styles from '../Calculator/Calculator.module.sass'
-import settings from '../../assets/images/settings.svg';
-import Button from '../../components/ui/button/button';
 import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
 
 const Calculator = () => {
     return (
@@ -123,9 +121,7 @@ const Calculator = () => {
                     </div>
                 </section>
             </div>
-            <footer>
-                <p>Copyright © 2022. All rights reserved</p>
-            </footer>
+            <Footer />
         </div>
     )
 }

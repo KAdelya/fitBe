@@ -1,4 +1,5 @@
 import styles from "../SignPage/SignPage.module.sass";
+import { NavLink } from 'react-router-dom';
 import { Icon } from "../../components/Icon/Icon";
 import Button from "../../components/ui/button/button";
 import * as yup from "yup";
@@ -35,8 +36,10 @@ export const SignPage = () => {
                     </div>
                 </div>
                 <div className={styles.button_wrapper}>
-                        <Button text='Sign in' />
-                    </div>
+                    <NavLink to='/user'>
+                        <Button text='SIGN IN' />
+                    </NavLink>
+                </div>
             </section>
         </div>
     )

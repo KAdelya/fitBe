@@ -1,6 +1,7 @@
 import styles from "./RegistrationPage.module.sass";
 import { Icon } from "../../components/Icon/Icon";
 import Button from "../../components/ui/button/button";
+import { NavLink } from 'react-router-dom';
 
 export const RegistrationPage = () => {
     return (
@@ -28,10 +29,12 @@ export const RegistrationPage = () => {
                     </div>
                 </div>
                 <div className={styles.button_wrapper}>
+                    <NavLink to='/questionnaire'>
                         <Button text='REGISTER' />
-                    </div>
+                    </NavLink>
+                </div>
             </section>
-            
+
         </div>
     )
 }

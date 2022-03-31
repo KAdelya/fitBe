@@ -2,6 +2,7 @@ import styles from "../Questionnaire/Questionnaire.module.sass";
 import { useState } from "react";
 import Button from "../../components/ui/button/button";
 import { Icon } from "../../components/Icon/Icon";
+import { NavLink } from 'react-router-dom';
 
 export const Questionnaire = () => {
     const [checked, setChecked] = useState(false);
@@ -53,7 +54,9 @@ export const Questionnaire = () => {
                 </div>
                 <div className={styles.button_save_content}>
                     <div className={styles.button_wrapper}>
-                        <Button text='Save' />
+                        <NavLink to='/user'>
+                            <Button text='SAVE' />
+                        </NavLink>
                     </div>
                 </div>
             </form>

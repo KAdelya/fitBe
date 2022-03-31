@@ -1,23 +1,26 @@
 import styles from './../MainPage/MainPage.module.sass';
 import firstPict from '../../assets/images/fit1.png';
+import { NavLink } from 'react-router-dom';
 import secondPict from '../../assets/images/fit2.png';
 import thirdPict from '../../assets/images/fit3.png';
 import { Icon } from '../../components/Icon/Icon';
 import bacgroundPict from '../../assets/images/background.png'
 import pink_back from '../../assets/images/pink_back.svg'
 import Button from '../../components/ui/button/button';
-import MainLayout from '../../components/layouts/MainLayout/MainLayout';
+import Footer from '../../components/Footer/Footer';
 
 export const MainPage = () => {
     return (
-        <>
+        <div>
             <header>
                 <div className={styles.logo_wrapper}>
                     <Icon name='logo' width={48} height={48} />
                     <p>BeFit</p>
                 </div>
                 <div className={styles.button_wrapper}>
-                    <Button text='SIGN IN' />
+                    <NavLink to='/sign'>
+                        <Button text='SIGN IN' />
+                    </NavLink>
                 </div>
             </header>
             <section className={styles.main_title}>
@@ -30,7 +33,9 @@ export const MainPage = () => {
                         <br />
                         <p>You will learn to take care of yourself gradually changing habits.</p>
                         <div className={styles.button_wrapper}>
-                            <Button text='REGISTRATION' />
+                            <NavLink to='/registration'>
+                                <Button text='REGISTRATION' />
+                            </NavLink>
                         </div>
                     </div>
                     <div className={styles.img_back_wrapper}>
@@ -80,13 +85,15 @@ export const MainPage = () => {
                     <h1>Making health a priority with BeFit</h1>
                     <p>Soriane’s career was skyrocketing, but her unpredictable schedule often meant poor food choices and little time for exercise, which led to weight gain. Now, she works healthy habits into her busy calendar with HIIT workouts and by prepping healthy meals in advance––and she’s glowing as a result.</p>
                     <div className={styles.button_wrapper}>
-                        <Button text='REGISTRATION' />
+                        <NavLink to='/registration'>
+                            <Button text='REGISTRATION' />
+                        </NavLink>
                     </div>
                 </div>
             </section>
-            <footer>
-                <p>Copyright © 2022. All rights reserved</p>
-            </footer>
-        </>
+            <section className={styles.footer}>
+                <Footer />
+            </section>
+        </div>
     )
 };
