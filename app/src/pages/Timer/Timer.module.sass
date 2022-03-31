@@ -1,73 +1,86 @@
-// .logo_wrapper
-//     display: flex
-//     flex-direction: row
-//     justify-content: center
-//     p
-//         text-shadow: 0px 0px 30px #b3b9f3b4
-//         font-size: 45px
-//         margin: 0
-// .page_content_wrapper
-    
-//     background: #222222
-//     border-radius: 40px
-//     padding: 1.5em
-//     justify-content: center
-//     .time_wrapper
-//         justify-content: center
-//         p
-//             text-align: center
-//             padding: 0.2em 0
-//             margin: 0
-//             font-size: 90px
-//     p
-//         text-align: center
-//         padding: 0
-//         margin: 0
-//         font-size: 55px
-// .title_wrapper
-//     display: flex
-//     justify-content: center
-//     p
-//         padding: 0 0.3em
-// .work_time_block
-//     display: flex
-//     justify-content: center
-//     margin: 3em 0
-//     p
-//         font-size: 75px
-//         padding: 0 0.5em
-//     img
-//         padding: 0 0.1em
-
-// .button_timer_wrapper
-//     background: none
-//     border: none
-//     &:hover
-//         box-shadow: none
-h1
-    margin: 0
-    padding: 0
-.page_content_wrapper
-    padding: 0 8em
-    .time
-        font-size: 80px
-        padding: 0
-        margin: 0
-    .settings_wrapper
-        h1
-            margin-right: 0.4em
-            font-size: 70px
-           
+@keyframes timer_content_wrapper
+    0% 
+        border-radius: 30% 70% 70% 30%/30% 30% 70% 70%
+        box-shadow: 15px 15px 50px rgba(0,0,0,0.2)
+    25% 
+        border-radius: 58% 42% 75% 25%/76% 46% 54% 24%
+    50% 
+        border-radius: 50% 50% 33% 67%/55% 27% 73% 45%
+        box-shadow: -10px -5px 50px rgba(0,0,0,0.2)
+    75% 
+        border-radius: 33% 67% 58% 42%/63% 68% 32% 37%
+   
+button
+    cursor: pointer
+header
+    display: flex
+    justify-content: space-between
+    padding: 2em 3em 1em 4em
+    box-shadow: 0px 0.9px 0px rgba(255, 255, 255, 0.192)
+    .logo_wrapper
+        padding-top: 0.3em
         display: flex
-        text-align: center
-        justify-content: center
-        img
+        p
+            margin: 0
+            font-size: 38px  
+    .navbar_wrapper
+        margin: 0 0 0 19em
+        ul
+            display: flex
+            list-style-type: none
+            font-size: 18px
+        li
             cursor: pointer
-        .button_timer_wrapper
-            background: none
-            border: none
-    p
+            padding: 0 1.2em
+
+.content_wrapper
+    padding: 2em 3em
+    display: flex
+    .timer_wrapper
+        margin-left: 4em
+        .timer_content_wrapper
+            width: 370px
+            height: 370px
+            z-index: -2
+            margin: 3em 5em
+            border-radius: 100%
+            padding: 5.5em 6.5em
+            border: 20px solid #6563FF
+            box-sizing: border-box
+            box-shadow: 0px 4px 41px -11px #5465FF
+            animation: timer_content_wrapper 15s infinite
+            p
+                font-size: 100px
+
+    .wrapper_timer_info
+        width: 100%
         text-align: center
         justify-content: center
-        font-size: 42px
-        padding: 1em 0
+        .counter_block
+            margin-top: 2em
+            display: flex
+            width: 100%
+            text-align: center
+            justify-content: center
+            margin-left: -0.5em
+            p
+                padding: 0 0.4em
+                font-size: 100px
+.lower_button_wrapper
+    display: flex
+    justify-content: center
+    text-align: center
+    margin-top: 5.3em
+    button
+        margin-right: 0.5em
+
+.reload_button_wrapper
+    justify-content: center
+    text-align: center
+    display: flex
+    .reload_button
+        button
+            padding: 2em 1em 1em 1em
+            margin: 0
+            border: none
+            background: none

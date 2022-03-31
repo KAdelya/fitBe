@@ -5,7 +5,7 @@ import { Routes, BrowserRouter as Router, Route } from 'react-router-dom';
 import { SignPage } from './pages/SignPage/SignPage'
 import PersonalArea from './pages/PersonalArea/PersonalArea';
 import { Questionnaire } from './pages/Questionnaire/Questionnaire';
-import { Timer } from './pages/Timer/Timer';
+import  Timer  from './pages/Timer/Timer';
 import { TimerSettings } from './pages/TimerSettings/TimerSettings';
 import Calculator from './pages/Calculator/Calculator';
 import Training from './pages/Training/Training';
