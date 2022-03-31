@@ -3,7 +3,7 @@ import time from "../../assets/images/time.svg";
 import * as yup from "yup";
 import {Formik} from 'formik';
 import {useStore} from "../../utils/use-stores-hook";
-import Modal from "../layouts/Modal";
+import Modal from "../layouts/ModalLayout/Modal";
 import {getDatabase, onValue, ref, set} from "firebase/database";
 import React from "react";
 import {ModalUncorrectNameSign} from "../modal/ModalUncorrectNameSign";

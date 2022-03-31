@@ -9,6 +9,8 @@ import example4 from '../../assets/images/example4.svg'
 import axios from 'axios';
 import ExerciseService from '../../services/exercise.service'
 import TrainingCard from './TrainingCard';
+import Button from '../../components/ui/button/button';
+import Header from '../../components/Header/Header';
 
 const Training = () => {
     const [exercise, setExercise] = useState([]);
@@ -27,105 +29,84 @@ const Training = () => {
     }).catch(err => {
         console.log(err)
     })
-   
 
-    const result2 = image.map((data: any) => <div className={styles.wrapper}><img src={data.image} width={100}/></div>)
+
+    const result2 = image.map((data: any) => <div className={styles.wrapper}><img src={data.image} width={100} /></div>)
 
     return (
-
-        <>
-                <header className={styles.upper_header}>
-                    <div className={styles.logo_wrapper}>
-                        <Icon name="logo" width="75" height="52" />
-                        <p>BeFit</p>
+        <div>
+            <Header />
+            <section className={styles.main_content}>
+                <div className={styles.main_content_wrapper}>
+                    <div className={styles.main_title}>
+                        <h1>Try the workouts on our website</h1>
+                        <p>Join our dynamic training team
+                            Try boxing, Pilates, yoga and meditation -
+                            right here on our website - click on the icon to get started.</p>
                     </div>
-                    <nav className={styles.navbar_wrapper}>
-                        <ul>
-                            <li>Обо мне</li>
-                            <li>Главная</li>
-                            <li>Тренировки</li>
-                            <li>Дневник</li>
-                        </ul>
-                    </nav>
-                    <button className={styles.button}>Выйти</button>
-                    <img src={settings} width={30} className={styles.settings} />
-                </header>
 
-                <section className={styles.main_content}>
-                    <div className={styles.main_content_wrapper}>
-                        <div className={styles.main_title}>
-                            <h1>Попробуйте тренировки на нашем сайте</h1>
-                            <p>Присоединяйтесь к нашей команде для динамичных занятий
-                                Попробуйте бокс, пилатес, йогу и медитацию —
-                                прямо здесь, на нашем сайте — нажмите на иконку чтобы начать.</p>
-                        </div>
-
-                        <div className={styles.card_content}>
+                    <div className={styles.card_content}>
 
                         {
                             image.map((data: any) => <TrainingCard picture={data.image} name="" />)
                         }
-                           
 
-                            <div className={styles.card_training_wrap}>
-                                <div className={styles.upper_training_card}>
-                                    <img src={example2} width={420} />
+
+                        <div className={styles.card_training_wrap}>
+                            <div className={styles.upper_training_card}>
+                                <img src={example2} width={450} />
+                            </div>
+                            <div className={styles.lower_training_card}>
+                                <div className={styles.time_training}>
+                                    <Icon name="timer" width="75" height="52" />
+                                    <p className={styles.minutes}>55 min</p>
                                 </div>
-                                <div className={styles.lower_training_card}>
-                                    <div className={styles.time_training}>
-                                        <Icon name="timer" width="75" height="52" />
-                                        <p className={styles.minutes}>55 МИН</p>
-                                    </div>
-                                    <hr />
-                                    <div className={styles.name_training}>
-                                        <p>Тренировка с весом</p>
-                                    </div>
+                                <hr />
+                                <div className={styles.name_training}>
+                                    <p>Тренировка с весом</p>
                                 </div>
                             </div>
+                        </div>
 
-                            <div className={styles.card_training_wrap}>
-                                <div className={styles.upper_training_card}>
-                                    <img src={example3} width={420} />
+                        <div className={styles.card_training_wrap}>
+                            <div className={styles.upper_training_card}>
+                                <img src={example3} width={450} />
+                            </div>
+                            <div className={styles.lower_training_card}>
+                                <div className={styles.time_training}>
+                                    <Icon name="timer" width="75" height="52" />
+                                    <p className={styles.minutes}>1 hour</p>
                                 </div>
-                                <div className={styles.lower_training_card}>
-                                    <div className={styles.time_training}>
-                                        <Icon name="timer" width="75" height="52" />
-                                        <p className={styles.minutes}>1 час</p>
-                                    </div>
-                                    <hr />
-                                    <div className={styles.name_training}>
-                                        <p>Тренировка на все тело</p>
-                                    </div>
+                                <hr />
+                                <div className={styles.name_training}>
+                                    <p>Тренировка на все тело</p>
                                 </div>
                             </div>
+                        </div>
 
-                            <div className={styles.card_training_wrap}>
-                                <div className={styles.upper_training_card}>
-                                    <img src={example4} width={420} />
+                        <div className={styles.card_training_wrap}>
+                            <div className={styles.upper_training_card}>
+                                <img src={example4} width={450} />
+                            </div>
+                            <div className={styles.lower_training_card}>
+                                <div className={styles.time_training}>
+                                    <Icon name="timer" width="75" height="52" />
+                                    <p className={styles.minutes}>1 hour</p>
                                 </div>
-                                <div className={styles.lower_training_card}>
-                                    <div className={styles.time_training}>
-                                        <Icon name="timer" width="75" height="52" />
-                                        <p className={styles.minutes}>1 час</p>
-                                    </div>
-                                    <hr />
-                                    <div className={styles.name_training}>
-                                        <p>Бокс</p>
-                                    </div>
+                                <hr />
+                                <div className={styles.name_training}>
+                                    <p>Бокс</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </section>
-            <footer className={styles.footer}>
-                <hr />
-                <div className={styles.footer_wrapper}>
-                    <pre>Twitter      Facebook      Instagram</pre>
-                    <pre>© 2021 All rights reserved. </pre>
                 </div>
+            </section>
+            <footer >
+                <p>© 2021 All rights reserved. </p>
             </footer>
-        
-        </>
+
+        </div>
     )
 }
 

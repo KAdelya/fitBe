@@ -1,4 +1,4 @@
-import styles from './Modal.module.sass';
+import styles from './../MainLayout/MainLayout.module.sass';
 import { FC } from 'react';
 
 interface Props { }

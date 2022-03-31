@@ -6,7 +6,7 @@ import { Icon } from '../../components/Icon/Icon';
 import bacgroundPict from '../../assets/images/background.png'
 import pink_back from '../../assets/images/pink_back.svg'
 import Button from '../../components/ui/button/button';
-import MainLayout from '../../components/layouts/MainLayout';
+import MainLayout from '../../components/layouts/MainLayout/MainLayout';
 
 export const MainPage = () => {
     return (

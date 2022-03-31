@@ -1,6 +1,4 @@
 import styles from "./RegistrationPage.module.sass";
-import {HeaderSignAndRegistration} from "../../components/HeaderSignAndRegisteration/HeaderSignAndRegistration";
-import {Registration} from "../../components/Registration/Registration";
 import { Icon } from "../../components/Icon/Icon";
 import Button from "../../components/ui/button/button";
 

@@ -2,35 +2,19 @@ import { Icon } from '../../components/Icon/Icon';
 import styles from '../PersonalArea/PersonalArea.module.sass';
 import avatar from '../../assets/images/nikita.jpg';
 import { useStore } from "../../utils/use-stores-hook";
-import Modal from "../../components/layouts/Modal";
+import Modal from "../../components/layouts/ModalLayout/Modal";
 import { ModalWelcome } from "../../components/modal/ModalWelcome";
 import { observer } from "mobx-react";
 import Button from '../../components/ui/button/button';
 import no_avatar from '../../assets/images/no_avatar.png'
+import Header from '../../components/Header/Header';
 
 const PersonalArea = observer(() => {
     const { modalStore: { setCurrentModal } } = useStore()
     setCurrentModal(<Modal children={<ModalWelcome />} />)
     return (
         <div>
-            <header>
-                <div className={styles.logo_wrapper}>
-                    <Icon name='logo' width={48} height={48} />
-                    <p>BeFit</p>
-                </div>
-                <nav className={styles.navbar_wrapper}>
-                    <ul>
-                        <li>Timer</li>
-                        <li>Workout</li>
-                        <li>Diary</li>
-                        <li>Tracker</li>
-                    </ul>
-                </nav>
-                <div className={styles.button_wrapper}>
-                    <Button text='SIGN OUT' />
-                </div>
-            </header>
-
+            <Header />
             <section className={styles.content_wrapper}>
                 <div className={styles.wrapper_user_avavtar}>
                     <div className={styles.avatar_wrapper}>

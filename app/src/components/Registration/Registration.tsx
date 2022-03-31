@@ -4,7 +4,7 @@ import * as yup from 'yup';
 import React, {useState} from "react";
 import {getDatabase, ref, set, onValue} from "firebase/database";
 import {useStore} from "../../utils/use-stores-hook";
-import Modal from "../layouts/Modal";
+import Modal from "../layouts/ModalLayout/Modal";
 import {ModalUncorrectNameRegistration} from "../modal/ModalUncorrectNameRegistration";
 import {ModalUncorrectPasswordsRegistratiion} from "../modal/ModalUncorrectPasswordsRegistratiion";
 import PersonalArea from "../../pages/PersonalArea/PersonalArea";

@@ -1,7 +1,7 @@
 import style from './Modal.module.sass';
 import { FC } from 'react';
-import { useStore } from "../../utils/use-stores-hook";
-import {ModalWelcome} from "../modal/ModalWelcome";
+import { useStore } from "../../../utils/use-stores-hook";
+import {ModalWelcome} from "../../modal/ModalWelcome";
 
 interface Props {}
 

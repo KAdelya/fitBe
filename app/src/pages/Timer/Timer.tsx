@@ -1,7 +1,7 @@
 import { Icon } from '../../components/Icon/Icon';
 import styles from '../Timer/Timer.module.sass';
 import { useStore } from "../../utils/use-stores-hook";
-import Modal from "../../components/layouts/Modal";
+import Modal from "../../components/layouts/ModalLayout/Modal";
 import { ModalWelcome } from "../../components/modal/ModalWelcome";
 import { observer } from "mobx-react";
 import Button from '../../components/ui/button/button';
@@ -10,29 +10,14 @@ import arr from '../../assets/images/arr.svg'
 import rarr from '../../assets/images/rarr.svg'
 import refresh from '../../assets/images/refresh.svg'
 import { ModalTimer } from '../../components/modal/ModalTimer';
+import Header from '../../components/Header/Header';
 
 const Timer = observer(() => {
     const { modalStore: { setCurrentModal } } = useStore()
     setCurrentModal(<Modal children={<ModalTimer />} />)
     return (
         <div>
-            <header>
-                <div className={styles.logo_wrapper}>
-                    <Icon name='logo' width={48} height={48} />
-                    <p>BeFit</p>
-                </div>
-                <nav className={styles.navbar_wrapper}>
-                    <ul>
-                        <li>Timer</li>
-                        <li>Workout</li>
-                        <li>Diary</li>
-                        <li>Tracker</li>
-                    </ul>
-                </nav>
-                <div className={styles.button_wrapper}>
-                    <Button text='SIGN OUT' />
-                </div>
-            </header>
+            <Header />
 
             <section className={styles.content_wrapper}>
 
