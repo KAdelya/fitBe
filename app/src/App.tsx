@@ -6,7 +6,7 @@ import { SignPage } from './pages/SignPage/SignPage'
 import PersonalArea from './pages/PersonalArea/PersonalArea';
 import { CharitableFoundationPage } from "./pages/CharitableFoundationPage/CharitableFoundationPage";
 import { SubscriptionPaymentPage } from "./pages/SubscriptionPaymentPage/SubscriptionPaymentPage";
-import { Questionnaire } from './pages/Questionnaire/Questionnaire';
+import { QuestionnairePage } from './pages/QuestionnairePage/QuestionnairePage';
 import { TopParticipantsPage } from "./pages/TopParticipantsPage/TopParticipantsPage";
 import { ViewSubscriptionsPage } from "./pages/ViewSubscriptionsPage/ViewSubscriptionsPage";
 import { Timer } from './pages/Timer/Timer';
@@ -28,7 +28,7 @@ const App = () => {
           <Route path='/top_participants' element={<TopParticipantsPage />} />
           <Route path='/charitable_foundation' element={<CharitableFoundationPage />} />
           <Route path='/subscription_payment' element={<SubscriptionPaymentPage />} />
-          <Route path='/questionnaire' element={<Questionnaire />} />
+          {/*<Route path='/questionnaire' element={<QuestionnairePage data=""/>} />*/}
           <Route path='/timer' element={<Timer />} />
           <Route path='/timer_settings' element={<TimerSettings />} />
           <Route path='/calculator' element={<Calculator />} />

@@ -32,6 +32,7 @@ export const Sign = () => {
                     const starCountRef = ref(db, '/users/');
                     onValue(starCountRef, (snapshot) => {
                         const data = snapshot.val();
+
                         // console.log(data[values.name].password)
                         // console.log(data)
                         if (data[values.name]) {
@@ -55,16 +56,16 @@ export const Sign = () => {
                   }) => (
                     <form onSubmit={handleSubmit}>
                         <div className={styles.input_and_button_wrapper}>
-                            <div className={styles.login_statement}>Время тренироваться!</div>
+                            <div className={styles.login_statement}>Time to train!</div>
                             <div className={styles.time}>
                                 {/* <img src={time}/> */}
                             </div>
-                            <input placeholder='Имя' type='name' name={`name`}
+                            <input placeholder='Name' type='name' name={`name`}
                                    onChange={handleChange}
                                    onBlur={handleBlur}
                                    value={values.name}/>
                             {touched.name && errors.name && <p style={{'color': 'red'}}>{errors.name}</p>}
-                            <input placeholder='Пароль' type='password' name={"password"}
+                            <input placeholder='Password' type='password' name={"password"}
                                    onChange={handleChange}
                                    onBlur={handleBlur}
                                    value={values.password}/>

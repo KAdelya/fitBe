@@ -10,7 +10,7 @@ import {observer} from "mobx-react";
 
 const PersonalArea = observer(() => {
     const { modalStore: { setCurrentModal } } = useStore()
-    setCurrentModal(<Modal children={<ModalWelcome />} />)
+    // setCurrentModal(<Modal children={<ModalWelcome />} />)
     return (
         <div className={styles.page_content}>
             <div className={styles.page_content_wrapper}>
