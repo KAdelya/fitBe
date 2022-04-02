@@ -1,5 +1,4 @@
 import styles from '../PersonalArea/PersonalArea.module.sass';
-<<<<<<< HEAD
 import { useStore } from "../../utils/use-stores-hook";
 import { observer } from "mobx-react";
 import Button from '../../components/ui/button/button';
@@ -9,15 +8,6 @@ import Footer from '../../components/Footer/Footer';
 import { NavLink } from 'react-router-dom';
 import Modal from '../../components/Layouts/ModalLayout/ModalLayout';
 import { ModalWelcome } from '../../components/Modal/ModalWelcome';
-=======
-import menu from '../../assets/images/menu.svg';
-import settings from '../../assets/images/settings.svg';
-import avatar from '../../assets/images/nikita.jpg';
-import {useStore} from "../../utils/use-stores-hook";
-import Modal from "../../components/layouts/ModalLayout/Modal";
-import {ModalWelcome} from "../../components/modal/ModalWelcome";
-import {observer} from "mobx-react";
->>>>>>> ef55964a32c8e9682578d8c8356250b0d66c4148
 
 const PersonalArea = observer(() => {
     const { modalStore: { setCurrentModal } } = useStore()

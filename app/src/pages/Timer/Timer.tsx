@@ -17,9 +17,7 @@ const Timer = observer(() => {
     return (
         <div>
             <Header />
-
             <section className={styles.content_wrapper}>
-
                 <div className={styles.timer_wrapper}>
                    <div className={styles.timer_content_wrapper}>
                        <p>30</p>

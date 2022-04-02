@@ -1,21 +1,13 @@
 import styles from './Registration.module.sass';
 import { Formik } from 'formik';
 import * as yup from 'yup';
-<<<<<<< HEAD
 import React, { useState } from "react";
 import { getDatabase, ref, set, onValue } from "firebase/database";
 import { useStore } from "../../utils/use-stores-hook";
 import Modal from '../Layouts/ModalLayout/ModalLayout'
 import { ModalUncorrectNameRegistration } from "../Modal/ModalUncorrectNameRegistration";
 import { ModalUncorrectPasswordsRegistratiion } from "../Modal/ModalUncorrectPasswordsRegistratiion";
-=======
-import React, {useState} from "react";
-import {getDatabase, ref, set, onValue} from "firebase/database";
-import {useStore} from "../../utils/use-stores-hook";
-import Modal from "../layouts/ModalLayout/Modal";
-import {ModalUncorrectNameRegistration} from "../modal/ModalUncorrectNameRegistration";
-import {ModalUncorrectPasswordsRegistratiion} from "../modal/ModalUncorrectPasswordsRegistratiion";
->>>>>>> ef55964a32c8e9682578d8c8356250b0d66c4148
+
 import PersonalArea from "../../pages/PersonalArea/PersonalArea";
 import { Navigate } from "react-router";
 // import { Redirect } from 'react-router';

@@ -1,16 +1,9 @@
 import styles from './Sign.module.sass';
 import * as yup from "yup";
-<<<<<<< HEAD
 import { Formik } from 'formik';
 import { useStore } from "../../utils/use-stores-hook";
 import Modal from '../Layouts/ModalLayout/ModalLayout'
 import { getDatabase, onValue, ref, set } from "firebase/database";
-=======
-import {Formik} from 'formik';
-import {useStore} from "../../utils/use-stores-hook";
-import Modal from "../layouts/ModalLayout/Modal";
-import {getDatabase, onValue, ref, set} from "firebase/database";
->>>>>>> ef55964a32c8e9682578d8c8356250b0d66c4148
 import React from "react";
 import { ModalUncorrectNameSign } from "../Modal/ModalUncorrectNameSign";
 import { ModalUncorrectPasswordSign } from "../Modal/ModalUncorrectPasswordSign";
