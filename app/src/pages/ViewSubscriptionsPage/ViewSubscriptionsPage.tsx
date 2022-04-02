@@ -10,7 +10,7 @@ import people_avatar_6 from "../../assets/images/people_avatar_6.svg";
 import settings from "../../assets/images/settings.svg";
 import paw from "../../assets/images/paw.svg"
 import {useStore} from "../../utils/use-stores-hook";
-import Modal from "../../components/layouts/Modal";
+import Modal from "../../components/layouts/ModalLayout/Modal";
 import {ModalWelcome} from "../../components/modal/ModalWelcome";
 import {ModalUnsubscribe} from "../../components/modal/ModalUnsubscribe";
 

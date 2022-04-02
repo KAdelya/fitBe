@@ -1,83 +1,101 @@
 import styles from './../MainPage/MainPage.module.sass';
-import dumbbell from '../../assets/images/main.svg';
-import firstPict from '../../assets/images/be_in_shape.jpg';
-import secondPict from '../../assets/images/nutrition.jpg';
-import thirdPict from '../../assets/images/water.jpg';
-import fourthPict from '../../assets/images/willpower.jpg';
-import { HeaderMainAndQuestionnaire } from "../../components/HeaderMainAndQuestionnaire/HeaderMainAndQuestionnaire";
+import firstPict from '../../assets/images/fit1.png';
+import { NavLink } from 'react-router-dom';
+import secondPict from '../../assets/images/fit2.png';
+import thirdPict from '../../assets/images/fit3.png';
+import { Icon } from '../../components/Icon/Icon';
+import bacgroundPict from '../../assets/images/background.png'
+import pink_back from '../../assets/images/pink_back.svg'
+import Button from '../../components/ui/button/button';
+import Footer from '../../components/Footer/Footer';
 import {observer} from "mobx-react";
 
-export const MainPage = observer(() => {
+export const MainPage = () => {
     return (
-        <div className={styles.page_content}>
-            <div className={styles.page_content_wrapper}>
-                <section className={styles.upper_content_wrapper}>
-                    <HeaderMainAndQuestionnaire />
-                    <section className={styles.main_content}>
-                        <div className={styles.main_content_wrapper}>
-                            <div className={styles.title_content}>
-                                <p>Начни меняться
-                                    <br />вместе с BeFit</p>
-                            </div>
-                            <div className={styles.info_content}>
-                                <div className={styles.text_wrapper}>
-                                    <p>Мы призываем вас отправиться в
-                                        <br />фитнес-путешествие вместе с нашим
-                                        <br />приложением!</p>
-                                    <p>Мы предлагаем реалистичные
-                                        <br /> рекомендации — никаких быстрых
-                                        <br />решений, потому что они просто не
-                                        <br />работают.</p>
-                                    <p>Вы научитесь заботиться о себе,
-                                        <br />постепенно меняя привычки.</p>
-                                </div>
-                                <div className={styles.pict_wrapper}>
-                                    <img src={dumbbell} />
-                                </div>
-                            </div>
-                            <div className={styles.second_title_content}>
-                                <p>Хочешь поменять свою жизнь к лучшему?</p>
-                            </div>
-                            <div className={styles.registration_button_content}>
-                                <div className={styles.left_block}>
-                                    <div className={styles.block_component}>
-                                        <img src={firstPict} />
-                                        <p>Хочешь начать правильно питаться?</p>
-                                    </div>
-                                    <div className={styles.block_component}>
-                                        <img src={secondPict} />
-                                        <p>Быть в форме?</p>
-                                    </div>
-                                </div>
-                                <div className={styles.right_block}>
-                                    <div className={styles.block_component}>
-                                        <img src={thirdPict} />
-                                        <p>Наладить водный баланс?</p>
-                                    </div>
-                                    <div className={styles.block_component}>
-                                        <img src={fourthPict} />
-                                        <p>Стать лучшей версией себя?</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={styles.center_block}>
-                                <p>Тогда регистрируйся</p>
-                                {/* <img src={arrow} /> */}
-                                <div className={styles.button_wrapper}>
-                                    <a href='/registration' type='button' className={styles.button_reg}>Регистрация</a>
-                                </div>
-                                <a href='/sign' className={styles.link}>Уже зарегистрирован(-а)?</a>
-                            </div>
+        <div>
+            <header>
+                <div className={styles.logo_wrapper}>
+                    <Icon name='logo' width={48} height={48} />
+                    <p>BeFit</p>
+                </div>
+                <div className={styles.button_wrapper}>
+                    <NavLink to='/sign'>
+                        <Button text='SIGN IN' />
+                    </NavLink>
+                </div>
+            </header>
+            <section className={styles.main_title}>
+                <h1>Start changing with BeFit</h1>
+                <div className={styles.title_container}>
+                    <div className={styles.text_wrapper}>
+                        <p>We encourage you to go on a fitness journey with our app!</p>
+                        <br />
+                        <p>We offer realistic recommendations - no quick fixes because they just don't work.</p>
+                        <br />
+                        <p>You will learn to take care of yourself gradually changing habits.</p>
+                        <div className={styles.button_wrapper}>
+                            <NavLink to='/registration'>
+                                <Button text='REGISTRATION' />
+                            </NavLink>
                         </div>
-                    </section>
-                </section>
-                <footer className={styles.footer}>
-                    <hr />
-                    <div className={styles.footer_wrapper}>
-                        <p>© 2021 All rights reserved. </p>
                     </div>
-                </footer>
-            </div>
+                    <div className={styles.img_back_wrapper}>
+                        <img src={bacgroundPict} width={550} />
+                    </div>
+                </div>
+            </section>
+            <section className={styles.about}>
+                <div className={styles.pink_back}>
+                    <img src={pink_back} />
+                </div>
+                <div className={styles.about_content}>
+                    <h1>Who We Are</h1>
+                    <div className={styles.text_wrapper}>
+                        <p>We encourage you to go on a fitness journey with our app!</p>
+                        <p>We offer realistic recommendations - no quick fixes because they just don't work.</p>
+                        <p>You will learn to take care of yourself gradually changing habits.</p>
+                    </div>
+                    <div className={styles.picture_content_wrap}>
+                        <div><img src={firstPict} /></div>
+                        <div><img src={secondPict} /></div>
+                    </div>
+                    <div className={styles.block_info_wrapper}>
+                        <div className={styles.block_info}>
+                            <h5>Be Brave</h5>
+                            <p>We are agents of radical change, harnessing creative thinking and daring solutions to make a difference in the world.
+                            </p>
+                        </div>
+                        <div className={styles.block_info}>
+                            <h5>Have Fun</h5>
+                            <p>We are all about finding what feels good and spreading the joy of the journey -- work and working out are about play.
+                            </p>
+                        </div>
+                        <div className={styles.block_info}>
+                            <h5>Have Compassion</h5>
+                            <p>Listening and empathizing with both the people in our organization and the customers we serve is at the core of who we are.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section className={styles.sport_women_wrapper}>
+                <div className={styles.sport_women}>
+                    <img src={thirdPict} />
+                </div>
+                <div className={styles.lower_text_block}>
+                    <h1>Making health a priority with BeFit</h1>
+                    <p>Soriane’s career was skyrocketing, but her unpredictable schedule often meant poor food choices and little time for exercise, which led to weight gain. Now, she works healthy habits into her busy calendar with HIIT workouts and by prepping healthy meals in advance––and she’s glowing as a result.</p>
+                    <div className={styles.button_wrapper}>
+                        <NavLink to='/registration'>
+                            <Button text='REGISTRATION' />
+                        </NavLink>
+                    </div>
+                </div>
+            </section>
+            <section className={styles.footer}>
+                <Footer />
+            </section>
         </div>
+            
     )
-});
+};

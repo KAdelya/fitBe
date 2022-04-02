@@ -1,115 +1,69 @@
-import { Icon } from '../../components/Icon/Icon';
 import styles from '../PersonalArea/PersonalArea.module.sass';
+<<<<<<< HEAD
+import { useStore } from "../../utils/use-stores-hook";
+import { observer } from "mobx-react";
+import Button from '../../components/ui/button/button';
+import no_avatar from '../../assets/images/no_avatar.png'
+import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
+import { NavLink } from 'react-router-dom';
+import Modal from '../../components/Layouts/ModalLayout/ModalLayout';
+import { ModalWelcome } from '../../components/Modal/ModalWelcome';
+=======
 import menu from '../../assets/images/menu.svg';
 import settings from '../../assets/images/settings.svg';
 import avatar from '../../assets/images/nikita.jpg';
 import {useStore} from "../../utils/use-stores-hook";
-import Modal from "../../components/layouts/Modal";
+import Modal from "../../components/layouts/ModalLayout/Modal";
 import {ModalWelcome} from "../../components/modal/ModalWelcome";
 import {observer} from "mobx-react";
+>>>>>>> ef55964a32c8e9682578d8c8356250b0d66c4148
 
 const PersonalArea = observer(() => {
     const { modalStore: { setCurrentModal } } = useStore()
-    // setCurrentModal(<Modal children={<ModalWelcome />} />)
+    setCurrentModal(<Modal children={<ModalWelcome ccal={0} />} />)
     return (
-        <div className={styles.page_content}>
-            <div className={styles.page_content_wrapper}>
-                <div className={styles.upper_content_wrapper}>
-                    <header className={styles.header}>
-                        <div className={styles.menu_wrapper}>
-                            <img src={menu} />
-                            <Icon name="logo" width="85" height="62" />
-                            <p>BeFit</p>
-                        </div>
-                        <nav className={styles.navbar_wrapper}>
-                            <ul>
-                                <li>Обо мне</li>
-                                <li>Главная</li>
-                                <li>Тренировки</li>
-                                <li>Дневник</li>
-                            </ul>
-                        </nav>
-                        <div className={styles.settings_wrapper}>
-                            <div className={styles.button_wrapper}>
-                                <button>Войти</button>
-                                <img src={settings} width={35}/>
-                            </div>
-                        </div>
-                    </header>
-                    <section className={styles.content_wrapper}>
-                        <div className={styles.wrapper_user_avavtar}>
-                            <div>
-                                <img src={avatar} />
-                            </div>
-                            <div className={styles.subscribers_info_wrapper}>
-                                <div className={styles.subscribers_info}>
-                                    <h3>100</h3>
-                                    <h3>Публикации</h3>
-                                </div>
-                                <div className={styles.subscribers_info}>
-                                    <h3>789</h3>
-                                    <h3>Подписки</h3>
-                                </div>
-                                <div className={styles.subscribers_info}>
-                                    <h3>2368</h3>
-                                    <h3>Подписчики</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div className={styles.wrapper_user_info}>
-                            <div className={styles.name_info}>
-                                <h2>Иван Иванов</h2>
-                                <div>
-                                    {/* <Icon ></Icon> */}
-                                </div>
-                            </div>
-                            <div className={styles.nickname_info}>
-                                <p>IvanIvanov</p>
-                            </div>
-                            <div className={styles.table_info}>
-                                <table>
-                                    <tr>
-                                        <td>
-                                            <h2>Текущий вес</h2>
-                                            <p>75</p>
-                                        </td>
-                                        <td>
-                                            <h2>Калории</h2>
-                                            <p>2001</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <h2>Часов потрачено</h2>
-                                            <p>200</p>
-                                        </td>
-                                        <td>
-                                            <h2>Место в топе</h2>
-                                            <p>1</p>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <div className={styles.button_wrapper_content}>
-                                <div className={styles.button_for_lk}>
-                                    <button>Отметить тренировку</button>
-                                    <p>Последняя тренировка - 11.01.2022</p>
-                                </div>
-                                <div className={styles.button_for_lk}>
-                                    <button>Отследить динамику веса</button>
-                                    <p>Последнее взвешивание - 22.02.2022</p>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-                <footer className={styles.footer}>
-                    <hr />
-                    <div className={styles.footer_wrapper}>
-                        <p>Twitter      Facebook      Instagram</p>
+        <div>
+            <Header />
+            <section className={styles.content_wrapper}>
+                <div className={styles.wrapper_user_avavtar}>
+                    <div className={styles.avatar_wrapper}>
+                        <img src={no_avatar} />
                     </div>
-                </footer>
-            </div>
+                    <div className={styles.button_wrapper}>
+                        <Button text='EDIT AVATAR' />
+                    </div>
+                </div>
+                <div className={styles.wrapper_user_info}>
+                    <h2>IvanIvanov</h2>
+                    <p>Ivan Ivanov</p>
+                    <div className={styles.item_blocks_wrap}>
+                        <div className={styles.item_blocks}>
+                            <h3>CURRENT WEIGHT</h3>
+                            <p>75</p>
+                        </div>
+                        <div className={styles.item_blocks}>
+                            <h3>CALORIES</h3>
+                            <p>1750</p>
+                        </div>
+                        <div className={styles.item_blocks}>
+                            <h3>HOURS SPENT</h3>
+                            <p>50</p>
+                        </div>
+                        <div className={styles.item_blocks}>
+                            <h3>WATER</h3>
+                            <p>250</p>
+                        </div>
+                    </div>
+                    <div className={styles.lower_button_wrapper}>
+                        <Button text='MARK THE WORKOUT' />
+                        <NavLink to='/track'>
+                            <Button text='WEIGH YOURSELF' />
+                        </NavLink>
+                    </div>
+                </div>
+            </section>
+            <Footer />
         </div>
     )
 })

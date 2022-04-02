@@ -4,19 +4,36 @@ import { RegistrationPage } from './pages/RegistrationPage/RegistrationPage'
 import { Routes, BrowserRouter as Router, Route } from 'react-router-dom';
 import { SignPage } from './pages/SignPage/SignPage'
 import PersonalArea from './pages/PersonalArea/PersonalArea';
-import { CharitableFoundationPage } from "./pages/CharitableFoundationPage/CharitableFoundationPage";
-import { SubscriptionPaymentPage } from "./pages/SubscriptionPaymentPage/SubscriptionPaymentPage";
 import { QuestionnairePage } from './pages/QuestionnairePage/QuestionnairePage';
-import { TopParticipantsPage } from "./pages/TopParticipantsPage/TopParticipantsPage";
-import { ViewSubscriptionsPage } from "./pages/ViewSubscriptionsPage/ViewSubscriptionsPage";
-import { Timer } from './pages/Timer/Timer';
-import { TimerSettings } from './pages/TimerSettings/TimerSettings';
-import { News } from './pages/News/News';
 import Calculator from './pages/Calculator/Calculator';
 import Training from './pages/Training/Training';
+<<<<<<< HEAD
+import MainLayout from './components/Layouts/MainLayout/MainLayout';
+import Timer from './pages/Timer/Timer';
+import TrackWeight from './pages/TrackWeight/TrackWeight';
+
+=======
+import MainLayout from './components/layouts/MainLayout/MainLayout';
+>>>>>>> ef55964a32c8e9682578d8c8356250b0d66c4148
 const App = () => {
   return (
     <div className={styles.App}>
+      <MainLayout>
+<<<<<<< HEAD
+        <Router>
+          <Routes>
+            <Route path='/' element={<MainPage />} />
+            <Route path='/registration' element={<RegistrationPage />} />
+            <Route path='/sign' element={<SignPage />} />
+            <Route path='/user' element={<PersonalArea />} />
+            <Route path='/questionnaire' element={<QuestionnairePage data="" />} />
+            <Route path='/calculator' element={<Calculator />} />
+            <Route path='/training' element={<Training />} />
+            <Route path='/timer' element={<Timer />} />
+            <Route path='/track' element={<TrackWeight />} />
+          </Routes>
+        </Router>
+=======
       <Router>
         <Routes>
           <Route path='/' element={<MainPage />} />
@@ -35,6 +52,8 @@ const App = () => {
           <Route path='/training' element={<Training />} />
         </Routes>
       </Router>
+>>>>>>> ef55964a32c8e9682578d8c8356250b0d66c4148
+      </MainLayout>
     </div>
   );
 }

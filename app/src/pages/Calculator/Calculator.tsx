@@ -1,61 +1,44 @@
-import React from 'react';
 import { Icon } from '../../components/Icon/Icon';
 import styles from '../Calculator/Calculator.module.sass'
-import settings from '../../assets/images/settings.svg';
+import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
 
 const Calculator = () => {
     return (
-        <div className={styles.content}>
+        <div>
+            <Header />
             <div className={styles.page_content}>
-                <header className={styles.upper_header}>
-                    <div className={styles.logo_wrapper}>
-                        <Icon name="logo" width="75" height="52" />
-                        <p>BeFit</p>
-                    </div>
-                    <nav className={styles.navbar_wrapper}>
-                        <ul>
-                            <li>Обо мне</li>
-                            <li>Главная</li>
-                            <li>Тренировки</li>
-                            <li>Дневник</li>
-                        </ul>
-                    </nav>
-                    <button className={styles.button}>Выйти</button>
-                    <img src={settings} width={30} className={styles.settings} />
-                </header>
                 <section className={styles.main_content}>
                     <div className={styles.main_content_wrapper}>
                         <div className={styles.upper_info}>
-                            <pre className={styles.rec}>Рекомендованная норма:  2000ккал</pre>
-                            <p className={styles.date}>Сегодня</p>
+                            <h1>Today</h1>
                         </div>
                         <div className={styles.calculator_block}>
                             <div>
-                                <p>Жиры</p>
+                                <p>Fats</p>
                                 <pre>34.76</pre>
                             </div>
                             <div>
-                                <p>Углеводы</p>
+                                <p>Carbohydrates</p>
                                 <pre>34.76</pre>
                             </div>
                             <div>
-                                <p>Белки</p>
+                                <p>Squirrels</p>
                                 <pre>34.76</pre>
                             </div>
                             <div>
-                                <p>Калории</p>
+                                <p>Calories</p>
                                 <pre>34.76</pre>
                             </div>
                         </div>
 
                         <div className={styles.block_for_food}>
                             <div className={styles.upper_food_block}>
-                                <p>Завтрак</p>
-                                <div>
+                                <h3>Breakfast</h3>
+                                <div className={styles.icon_wrapper}>
                                     <Icon name="plus" width="50" height="42" />
                                 </div>
                             </div>
-                            <hr />
                             <div className={styles.lower_food_block}>
                             <div>
                                 <pre>34.76</pre>
@@ -74,12 +57,11 @@ const Calculator = () => {
 
                         <div className={styles.block_for_food}>
                             <div className={styles.upper_food_block}>
-                                <p>Обед</p>
-                                <div>
+                                <h3>Lunch</h3>
+                                <div className={styles.icon_wrapper}>
                                     <Icon name="plus" width="50" height="42" />
                                 </div>
                             </div>
-                            <hr />
                             <div className={styles.lower_food_block}>
                             <div>
                                 <pre>34.76</pre>
@@ -98,12 +80,11 @@ const Calculator = () => {
 
                         <div className={styles.block_for_food}>
                             <div className={styles.upper_food_block}>
-                                <p>Ужин</p>
-                                <div>
+                                <h3>Dinner</h3>
+                                <div className={styles.icon_wrapper}>
                                     <Icon name="plus" width="50" height="42" />
                                 </div>
                             </div>
-                            <hr />
                             <div className={styles.lower_food_block}>
                             <div>
                                 <pre>34.76</pre>
@@ -122,8 +103,8 @@ const Calculator = () => {
 
                         <div className={styles.block_for_food}>
                             <div className={styles.upper_food_block}>
-                                <p>Перекус/Другое</p>
-                                <div>
+                                <h3>Snack/Other</h3>
+                                <div className={styles.icon_wrapper}>
                                     <Icon name="plus" width="50" height="42" />
                                 </div>
                             </div>
@@ -131,8 +112,8 @@ const Calculator = () => {
 
                         <div className={styles.block_for_food}>
                             <div className={styles.upper_food_block}>
-                                <p>Трекер воды</p>
-                                <div>
+                                <h3>Water tracker</h3>
+                                <div className={styles.icon_wrapper}>
                                     <Icon name="plus" width="50" height="42" />
                                 </div>
                             </div>
@@ -140,13 +121,7 @@ const Calculator = () => {
                     </div>
                 </section>
             </div>
-            <footer className={styles.footer}>
-                <hr />
-                <div className={styles.footer_wrapper}>
-                    <pre>Twitter      Facebook      Instagram</pre>
-                    <pre>© 2021 All rights reserved. </pre>
-                </div>
-            </footer>
+            <Footer />
         </div>
     )
 }

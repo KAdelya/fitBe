@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'mobx-react';
 import mainStore from './stores/mainStore';
-import {ModalConstructor} from "./components/modal/ModalConstructor";
+import {ModalConstructor} from "./components/Modal/ModalConstructor";
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 

@@ -1,4 +1,4 @@
-import style from "../layouts/Modal.module.sass";
+import style from "../layouts/ModalLayout/Modal.module.sass";
 import {useStore} from "../../utils/use-stores-hook";
 import logo_black from '../../assets/images/logo_black.svg'
 
