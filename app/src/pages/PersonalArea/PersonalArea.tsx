@@ -11,7 +11,7 @@ import { ModalWelcome } from '../../components/Modal/ModalWelcome';
 
 const PersonalArea = observer(() => {
     const { modalStore: { setCurrentModal } } = useStore()
-    setCurrentModal(<Modal children={<ModalWelcome ccal={0} />} />)
+    // setCurrentModal(<Modal children={<ModalWelcome ccal={0} />} />)
     return (
         <div>
             <Header />
