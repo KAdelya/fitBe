@@ -139,7 +139,7 @@ export const Questionnaire: FC<Props> = ({ data }) => {
     else {
         return (
             <div>
-                <Navigate to='/user' />
+                <Navigate to={'/user/'+data} />
             </div>
         )
     }

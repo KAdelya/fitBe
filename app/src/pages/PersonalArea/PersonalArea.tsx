@@ -6,11 +6,13 @@ import no_avatar from '../../assets/images/no_avatar.png'
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import { NavLink } from 'react-router-dom';
+import {useParams} from "react-router-dom";
 import Modal from '../../components/Layouts/ModalLayout/ModalLayout';
 import { ModalWelcome } from '../../components/Modal/ModalWelcome';
 
+
 const PersonalArea = observer(() => {
-    const { modalStore: { setCurrentModal } } = useStore()
+    let { name } = useParams();
     // setCurrentModal(<Modal children={<ModalWelcome ccal={0} />} />)
     return (
         <div>
@@ -25,7 +27,7 @@ const PersonalArea = observer(() => {
                     </div>
                 </div>
                 <div className={styles.wrapper_user_info}>
-                    <h2>IvanIvanov</h2>
+                    <h2>{name}</h2>
                     <p>Ivan Ivanov</p>
                     <div className={styles.item_blocks_wrap}>
                         <div className={styles.item_blocks}>
