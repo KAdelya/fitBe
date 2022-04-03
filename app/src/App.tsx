@@ -10,6 +10,7 @@ import Training from './pages/Training/Training';
 import MainLayout from './components/Layouts/MainLayout/MainLayout';
 import Timer from './pages/Timer/Timer';
 import TrackWeight from './pages/TrackWeight/TrackWeight';
+import Tracker from './pages/Tracker/Tracker';
 
 const App = () => {
   return (
@@ -20,13 +21,14 @@ const App = () => {
             <Route path='/' element={<MainPage />} />
             <Route path='/registration' element={<RegistrationPage />} />
             <Route path='/sign' element={<SignPage />} />
-            {/* <Route path='/user/:name' element={<PersonalArea />} /> */}
-            <Route path='/user' element={<PersonalArea />} />
+            <Route path='/user/:name' element={<PersonalArea />} />
+            {/* <Route path='/user' element={<PersonalArea />} /> */}
             <Route path='/questionnaire' element={<QuestionnairePage data="" />} />
             <Route path='/calculator' element={<Calculator />} />
             <Route path='/training' element={<Training />} />
             <Route path='/timer' element={<Timer />} />
             <Route path='/track' element={<TrackWeight />} />
+            <Route path='/tracker' element={<Tracker />} />
           </Routes>
         </Router>
       </MainLayout>

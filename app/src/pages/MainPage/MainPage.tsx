@@ -8,7 +8,7 @@ import bacgroundPict from '../../assets/images/background.png'
 import pink_back from '../../assets/images/pink_back.svg'
 import Button from '../../components/ui/button/button';
 import Footer from '../../components/Footer/Footer';
-import {observer} from "mobx-react";
+import { observer } from "mobx-react";
 
 export const MainPage = () => {
     return (
@@ -29,9 +29,7 @@ export const MainPage = () => {
                 <div className={styles.title_container}>
                     <div className={styles.text_wrapper}>
                         <p>We encourage you to go on a fitness journey with our app!</p>
-                        <br />
                         <p>We offer realistic recommendations - no quick fixes because they just don't work.</p>
-                        <br />
                         <p>You will learn to take care of yourself gradually changing habits.</p>
                         <div className={styles.button_wrapper}>
                             <NavLink to='/registration'>
@@ -40,13 +38,17 @@ export const MainPage = () => {
                         </div>
                     </div>
                     <div className={styles.img_back_wrapper}>
-                        <img src={bacgroundPict} width={550} />
+                        <div>
+                            <img src={bacgroundPict} />
+                        </div>
                     </div>
                 </div>
             </section>
             <section className={styles.about}>
                 <div className={styles.pink_back}>
-                    <img src={pink_back} />
+                    <div className={styles.pink_back_wrapper}>
+                        <img src={pink_back} />
+                    </div>
                 </div>
                 <div className={styles.about_content}>
                     <h1>Who We Are</h1>
@@ -96,6 +98,6 @@ export const MainPage = () => {
                 <Footer />
             </section>
         </div>
-            
+
     )
 };

@@ -2,7 +2,7 @@ h1
     margin: 0
     text-align: center
     justify-content: center
-    line-height: 132px
+    line-height: 100px
     letter-spacing: 0.12em
     font-size: 55px
 header
@@ -18,7 +18,9 @@ header
         font-size: 38px      
 .main_title
     padding-top: 1.5em
+    margin-bottom: 3em
     h1
+        padding: 0 3em
         text-align: left
         padding-left: 2.5em
 .title_container
@@ -31,16 +33,20 @@ header
         .button_wrapper
             text-align: center
             margin: 3em 1.5em 0 0
+.img_back_wrapper
+    img
+        width: 100%
 .about
-    margin-top: -4em
+    margin-top: -10%
     .pink_back
-        position: absolute
-        img
-            width: 90.1%
-            
+        width: 100%
+        .pink_back_wrapper
+            width: 100%
+            img
+                width: 100%
     .about_content
         text-shadow: 0 0 0.1em grey
-        position: relative
+        margin-top: -50%
         padding: 5em 3em
         .text_wrapper 
             font-size: 19px
@@ -94,3 +100,97 @@ header
 .footer
     background: #0e0e0f
     border-radius: 0 0 40px 40px
+    
+@media only screen and (max-width: 1600px)
+    body
+        width: 100%
+@media only screen and (max-width: 1240px)
+    body
+        width: 70%
+        h1
+            font-size: 50px
+            line-height: 70px
+        p
+            font-size: 20px 
+        button
+            font-size: 14px !important
+        .title_container
+            padding: 1em 4em 1em 4em
+            .button_wrapper
+                text-align: center
+                margin: 2em 0
+        .main_title
+            h1
+                padding-left: 1.5em
+        .lower_text_block
+            padding: 1em 4em !important
+        .block_info
+                padding: 1em !important
+
+@media only screen and (max-width: 1024px)
+    body
+        h1
+            font-size: 47px
+            line-height: 63px
+        p
+            font-size: 18px 
+        .block_info
+                padding: 0.3em !important
+@media only screen and (max-width: 768px)
+    body
+        h1
+            font-size: 45px
+            line-height: 60px
+        p
+            font-size: 16px 
+        .title_container
+            flex-wrap: wrap
+        .img_back_wrapper
+            margin-top: 5em
+        .about
+            margin-top: -14%
+        .block_info
+            padding: 0.2em !important
+        .lower_text_block
+            padding: 1em 2em !important
+        button
+            font-size: 12px !important
+        .footer
+            border-radius: 0em !important
+@media only screen and (max-width: 590px)
+    body
+        h1
+            font-size: 32px
+            line-height: 40px
+        header
+            padding: 1em !important
+        .main_title
+            padding-top: 1em
+            margin-bottom: 2em
+            h1
+                padding: 0 1em
+                text-align: left
+                padding-left: 0.7em
+        .title_container
+            padding: 1.5em
+            flex-wrap: wrap
+            .button_wrapper
+                text-align: center !important
+                justify-content: center !important
+        .img_back_wrapper
+            margin-top: 3em
+        .about
+            margin-top: -20%
+            .about_content
+                margin-top: -57%
+                padding: 4em 1em 2em 1em
+        .block_info_wrapper
+            flex-wrap: wrap
+            .block_info
+                margin: 0.3em 0 !important
+        .lower_text_block
+            padding: 0.3em !important
+        footer 
+            text-align: center !important
+        .footer
+            border-radius: 0 !important

@@ -18,7 +18,7 @@ const Header = () => {
                     <li><NavLink to='/timer'>Timer</NavLink></li>
                     <li><NavLink to='/training'>Workout</NavLink></li>
                     <li><NavLink to='/calculator'>Diary</NavLink></li>
-                    <li><NavLink to=''>Tracker</NavLink></li>
+                    <li><NavLink to='/tracker'>Tracker</NavLink></li>
                 </ul>
             </nav>
             <div className={styles.button_wrapper}>
