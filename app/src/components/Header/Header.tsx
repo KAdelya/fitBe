@@ -1,10 +1,18 @@
 import { NavLink } from 'react-router-dom';
 import styles from '../Header/Header.module.sass'
 import { Icon } from '../Icon/Icon';
+import Menu from '../Menu/Menu';
+
 import Button from '../ui/button/button';
 
 
 const Header = () => {
+    const items = [
+        { value: 'Timer', href: '/timer' },
+        { value: 'Workout', href: '/training' },
+        { value: 'Diary', href: '/calculator' },
+        { value: 'Tracker', href: '/tracker' }
+    ];
     return (
         <header>
             <NavLink to='/user'>
@@ -25,6 +33,9 @@ const Header = () => {
                 <NavLink to='/'>
                     <Button text='SIGN OUT' />
                 </NavLink>
+            </div>
+            <div className={styles.menu_wrapper}>
+                <Menu items={items} />
             </div>
         </header>
     )
