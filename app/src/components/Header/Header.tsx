@@ -17,12 +17,15 @@ const Header = () => {
     const [menuActive, setMenuActive] = useState(false);
     return (
         <header>
-            <NavLink to='/user'>
+            <button className={styles.menu_button} onClick={()=>setMenuActive(!menuActive)}>
+                <img src={menuBut} />
+            </button>
+            {/* <NavLink to='/user'>
                 <div className={styles.logo_wrapper}>
                     <Icon name='logo' width={48} height={48} />
                     <p>BeFit</p>
                 </div>
-            </NavLink>
+            </NavLink> */}
             <nav className={styles.navbar_wrapper}>
                 <ul>
                     <li><NavLink to='/timer'>Timer</NavLink></li>
@@ -35,12 +38,16 @@ const Header = () => {
                 <NavLink to='/'>
                     {/* <Button text='SIGN OUT' /> */}
                 </NavLink>
-                {/* <button className={styles.menu_button}>
-                    <img src={menuBut} />
-                </button> */}
+
             </div>
             <div className={styles.menu_wrapper}>
-                <Menu items={items} active={menuActive} setActive={setMenuActive}/>
+                <NavLink to='/user'>
+                    <div className={styles.logo_wrapper}>
+                        <Icon name='logo' width={48} height={48} />
+                        <p>BeFit</p>
+                    </div>
+                </NavLink>
+                <Menu items={items} active={menuActive} setActive={setMenuActive} />
             </div>
         </header>
     )
