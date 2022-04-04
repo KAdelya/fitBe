@@ -1,3 +1,10 @@
+.menu_button
+    background: none
+    border: none
+    padding: 1.3em 0 !important
+    margin: 0.5em 1.5em !important
+    img
+        width: 60%
 a
     color: white
     text-decoration: none
@@ -39,11 +46,26 @@ header
             font-size: 14px !important  
 
 @media only screen and (max-width: 1024px)
+    header
+        padding: 0.5em
     .navbar_wrapper
-        display: none !important
+        margin: 0!important
+    p
+        font-size: 10px  
+    .button_wrapper
+        button
+            margin: 1em 0
+            font-size: 12px !important
+            padding: 0.7em !important  
+
+@media only screen and (max-width: 768px)
+    .navbar_wrapper
+        display: none
     .menu_wrapper
         display: contents !important
 
 @media only screen and (max-width: 590px)
+    .navbar_wrapper
+        display: none
     .menu_wrapper
         display: contents !important

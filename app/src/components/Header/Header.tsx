@@ -1,9 +1,10 @@
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from '../Header/Header.module.sass'
 import { Icon } from '../Icon/Icon';
 import Menu from '../Menu/Menu';
-
 import Button from '../ui/button/button';
+import menuBut from '../../assets/images/men.svg';
 
 
 const Header = () => {
@@ -13,6 +14,7 @@ const Header = () => {
         { value: 'Diary', href: '/calculator' },
         { value: 'Tracker', href: '/tracker' }
     ];
+    const [menuActive, setMenuActive] = useState(false);
     return (
         <header>
             <NavLink to='/user'>
@@ -31,11 +33,14 @@ const Header = () => {
             </nav>
             <div className={styles.button_wrapper}>
                 <NavLink to='/'>
-                    <Button text='SIGN OUT' />
+                    {/* <Button text='SIGN OUT' /> */}
                 </NavLink>
+                {/* <button className={styles.menu_button}>
+                    <img src={menuBut} />
+                </button> */}
             </div>
             <div className={styles.menu_wrapper}>
-                <Menu items={items} />
+                <Menu items={items} active={menuActive} setActive={setMenuActive}/>
             </div>
         </header>
     )

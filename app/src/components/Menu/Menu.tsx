@@ -4,9 +4,11 @@ import styles from '../Menu/Menu.module.sass'
 
 interface Props {
     items: any
+    active: any,
+    setActive: any
 }
 
-const Menu: FC<Props> = ({ items }) => {
+const Menu: FC<Props> = ({ items, active, setActive}) => {
     return (
         <div className={styles.menu}>
             <div className={styles.blur}>
