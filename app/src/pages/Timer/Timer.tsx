@@ -17,8 +17,8 @@ const Timer = observer(() => {
     return (
         <div>
             <Header />
-            <section className={styles.content_wrapper}>
-                <div className={styles.timer_wrapper}>
+            <section className={styles.wrapper}>
+                <div className={styles.timer}>
                    <div className={styles.timer_content_wrapper}>
                        <p>30</p>
                    </div>
@@ -26,13 +26,13 @@ const Timer = observer(() => {
                 <div className={styles.wrapper_timer_info}>
                     <div className={styles.reload_button_wrapper}>
                     <h1>Work</h1>
-                    <div className={styles.reload_button}>
+                    <div className={styles.reload}>
                         <button>
                             <img src={refresh} width={75}/>
                         </button>
                     </div>
                     </div>
-                    <div className={styles.counter_block}>
+                    <div className={styles.set}>
                         <img src={line}  width={5}/>
                         <img src={rarr} width={35}/>
                         <p> 1/5</p>
