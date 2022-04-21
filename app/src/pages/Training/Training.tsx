@@ -8,7 +8,9 @@ import axios from 'axios';
 import ExerciseService from '../../services/exercise.service'
 import TrainingCard from './TrainingCard';
 import Header from '../../components/Header/Header';
-import Footer from '../../components/Footer/Footer'
+import Footer from '../../components/Footer/Footer';
+
+
 
 const Training = () => {
     const [exercise, setExercise] = useState([]);
@@ -44,59 +46,9 @@ const Training = () => {
                     </div>
 
                     <div className={styles.card_content}>
-
                         {
                             image.map((data: any) => <TrainingCard picture={data.image} name="" />)
                         }
-
-
-                        <div className={styles.card_training_wrap}>
-                            <div className={styles.upper_training_card}>
-                                <img src={example2} width={450} />
-                            </div>
-                            <div className={styles.lower_training_card}>
-                                <div className={styles.time_training}>
-                                    <Icon name="timer" width="75" height="52" />
-                                    <p className={styles.minutes}>55 min</p>
-                                </div>
-                                <hr />
-                                <div className={styles.name_training}>
-                                    <p>Тренировка с весом</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className={styles.card_training_wrap}>
-                            <div className={styles.upper_training_card}>
-                                <img src={example3} width={450} />
-                            </div>
-                            <div className={styles.lower_training_card}>
-                                <div className={styles.time_training}>
-                                    <Icon name="timer" width="75" height="52" />
-                                    <p className={styles.minutes}>1 hour</p>
-                                </div>
-                                <hr />
-                                <div className={styles.name_training}>
-                                    <p>Тренировка на все тело</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className={styles.card_training_wrap}>
-                            <div className={styles.upper_training_card}>
-                                <img src={example4} width={450} />
-                            </div>
-                            <div className={styles.lower_training_card}>
-                                <div className={styles.time_training}>
-                                    <Icon name="timer" width="75" height="52" />
-                                    <p className={styles.minutes}>1 hour</p>
-                                </div>
-                                <hr />
-                                <div className={styles.name_training}>
-                                    <p>Бокс</p>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </section>

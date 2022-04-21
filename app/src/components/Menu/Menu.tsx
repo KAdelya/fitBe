@@ -11,7 +11,7 @@ interface Props {
 
 const Menu: FC<Props> = ({ items, active, setActive }) => {
     return (
-        <div className={active? `${styles.menu_active}` : `${styles.menu}`}>
+        <div className={active ? `${styles.menu_active}`:`${styles.menu}`}>
             <div className={styles.blur}>
                 <div className={styles.menu_content}>
                     <ul>
@@ -20,7 +20,7 @@ const Menu: FC<Props> = ({ items, active, setActive }) => {
                                 <NavLink to={el.href}>{el.value}</NavLink>
                             </li>)}
                         <li>
-                            <div className={styles.button_wrapper}>
+                            <div className={styles.button}>
                                 <NavLink to='/'>
                                     <Button text='SIGN OUT' />
                                 </NavLink>

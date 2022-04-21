@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import styles from '../Header/Header.module.sass'
 import { Icon } from '../Icon/Icon';
 import Menu from '../Menu/Menu';
-import Button from '../ui/button/button';
 import menuBut from '../../assets/images/men.svg';
 
 
@@ -26,7 +25,7 @@ const Header = () => {
                     <p>BeFit</p>
                 </div>
             </NavLink> */}
-            <nav className={styles.navbar_wrapper}>
+            <nav className={styles.navbar}>
                 <ul>
                     <li><NavLink to='/timer'>Timer</NavLink></li>
                     <li><NavLink to='/training'>Workout</NavLink></li>
@@ -40,9 +39,9 @@ const Header = () => {
                 </NavLink>
 
             </div>
-            <div className={styles.menu_wrapper}>
+            <div className={styles.menu}>
                 <NavLink to='/user'>
-                    <div className={styles.logo_wrapper}>
+                    <div className={styles.logo}>
                         <Icon name='logo' width={48} height={48} />
                         <p>BeFit</p>
                     </div>

@@ -1,5 +1,4 @@
 import styles from '../PersonalArea/PersonalArea.module.sass';
-import { useStore } from "../../utils/use-stores-hook";
 import { observer } from "mobx-react";
 import Button from '../../components/ui/button/button';
 import no_avatar from '../../assets/images/no_avatar.png'
@@ -7,8 +6,6 @@ import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import { NavLink } from 'react-router-dom';
 import {useParams} from "react-router-dom";
-import Modal from '../../components/Layouts/ModalLayout/ModalLayout';
-import { ModalWelcome } from '../../components/Modal/ModalWelcome';
 
 
 const PersonalArea = observer(() => {
@@ -17,32 +14,32 @@ const PersonalArea = observer(() => {
     return (
         <div>
             <Header />
-            <section className={styles.content_wrapper}>
-                <div className={styles.wrapper_user_avavtar}>
-                    <div className={styles.avatar_wrapper}>
+            <section className={styles.wrapper}>
+                <div className={styles.user_avavtar}>
+                    <div className={styles.avatar}>
                         <img src={no_avatar} />
                     </div>
-                    <div className={styles.button_wrapper}>
+                    <div className={styles.button}>
                         <Button text='EDIT AVATAR' />
                     </div>
                 </div>
-                <div className={styles.wrapper_user_info}>
+                <div className={styles.user_info}>
                     <h2>{name}</h2>
                     <p>Ivan Ivanov</p>
-                    <div className={styles.item_blocks_wrap}>
-                        <div className={styles.item_blocks}>
+                    <div className={styles.blocks}>
+                        <div className={styles.item}>
                             <h3>CURRENT WEIGHT</h3>
                             <p>75</p>
                         </div>
-                        <div className={styles.item_blocks}>
+                        <div className={styles.item}>
                             <h3>CALORIES</h3>
                             <p>1750</p>
                         </div>
-                        <div className={styles.item_blocks}>
+                        <div className={styles.item}>
                             <h3>HOURS SPENT</h3>
                             <p>50</p>
                         </div>
-                        <div className={styles.item_blocks}>
+                        <div className={styles.item}>
                             <h3>WATER</h3>
                             <p>250</p>
                         </div>

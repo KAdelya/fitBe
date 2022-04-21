@@ -1,5 +1,5 @@
 import styles from './App.module.sass'
-import { MainPage } from './pages/MainPage/MainPage';
+import { MainPage } from './pages/Main/MainPage';
 import { RegistrationPage } from './pages/RegistrationPage/RegistrationPage'
 import { Routes, BrowserRouter as Router, Route } from 'react-router-dom';
 import { SignPage } from './pages/SignPage/SignPage'
