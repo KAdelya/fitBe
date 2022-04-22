@@ -2,6 +2,7 @@ import React, { FC } from 'react'
 import { NavLink } from 'react-router-dom'
 import styles from '../Menu/Menu.module.sass'
 import Button from '../ui/button/button'
+import MainCustomBtn from '../ui/button/ButtonLayout/ButtonLayout'
 
 interface Props {
     items: any
@@ -22,7 +23,7 @@ const Menu: FC<Props> = ({ items, active, setActive }) => {
                         <li>
                             <div className={styles.button}>
                                 <NavLink to='/'>
-                                    <Button text='SIGN OUT' />
+                                    <MainCustomBtn>SIGN OUT</MainCustomBtn>
                                 </NavLink>
                             </div>
                         </li>

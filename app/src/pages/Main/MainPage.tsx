@@ -8,6 +8,7 @@ import bacgroundPict from '../../assets/images/background.png'
 import pink_back from '../../assets/images/pink_back.svg'
 import Button from '../../components/ui/button/button';
 import Footer from '../../components/Footer/Footer';
+import MainCustomBtn from '../../components/ui/button/ButtonLayout/ButtonLayout';
 
 export const MainPage = () => {
     return (
@@ -19,7 +20,7 @@ export const MainPage = () => {
                 </div>
                 <div className={styles.button}>
                     <NavLink to='/sign'>
-                        <Button text='SIGN IN' />
+                        <MainCustomBtn>SIGN IN</MainCustomBtn>
                     </NavLink>
                 </div>
             </header>
@@ -32,7 +33,7 @@ export const MainPage = () => {
                         <p>You will learn to take care of yourself gradually changing habits.</p>
                         <div className={styles.button}>
                             <NavLink to='/registration'>
-                                <Button text='REGISTRATION' />
+                                <MainCustomBtn>REGISTRATION</MainCustomBtn>
                             </NavLink>
                         </div>
                     </div>
@@ -88,7 +89,7 @@ export const MainPage = () => {
                     <p>Soriane’s career was skyrocketing, but her unpredictable schedule often meant poor food choices and little time for exercise, which led to weight gain. Now, she works healthy habits into her busy calendar with HIIT workouts and by prepping healthy meals in advance––and she’s glowing as a result.</p>
                     <div className={styles.button}>
                         <NavLink to='/registration'>
-                            <Button text='REGISTRATION' />
+                            <MainCustomBtn>REGISTRATION</MainCustomBtn>
                         </NavLink>
                     </div>
                 </div>

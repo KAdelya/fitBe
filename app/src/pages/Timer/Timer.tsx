@@ -10,6 +10,7 @@ import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import Modal from '../../components/Layouts/ModalLayout/ModalLayout';
 import { ModalTimer } from '../../components/Modal/ModalTimer';
+import MainCustomBtn from '../../components/ui/button/ButtonLayout/ButtonLayout';
 
 const Timer = observer(() => {
     const { modalStore: { setCurrentModal } } = useStore()
@@ -40,8 +41,8 @@ const Timer = observer(() => {
                         <img src={line} width={5}/>
                     </div>
                     <div className={styles.lower_button_wrapper}>
-                        <Button text='START' />
-                        <Button text='STOP' />
+                        <MainCustomBtn>START</MainCustomBtn>
+                        <MainCustomBtn>STOP</MainCustomBtn>
                     </div>
                 </div>
                

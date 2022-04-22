@@ -4,8 +4,21 @@ import Footer from '../../components/Footer/Footer';
 import plus from '../../assets/images/butPlus.svg';
 import prev from '../../assets/images/butprev.svg';
 import Checkbox from '../../components/ui/button/checkbox/checkbox';
+import { FC, useState } from 'react';
 
+
+
+interface Props{
+    tasks: []
+}
 const Tracker = () => {
+    const [task, setTask] = useState(false);
+
+    const tasks = [
+        { id: 1, text: 'Something', date:'today'},
+        { id: 2, text: 'Something else', date:'today'},
+        { id: 3, text: 'Training', date:'today'},
+    ]
     return (
         <div>
             <Header />
@@ -21,7 +34,7 @@ const Tracker = () => {
                             <p>Today</p>
                         </div>
                         <div className={styles.buttons}>
-                            <button>
+                            <button onClick={() => setTask(!task)}>
                                 <img src={plus} width={20}/>
                             </button>
                         </div>
@@ -29,19 +42,13 @@ const Tracker = () => {
                 </div>
             </section>
             <section className={styles.notice_wrapper}>
-                <div className={styles.notice}>
-                    
-                    <p>Training</p>
-                </div>
-                <div className={styles.notice}>
-                    <p>Something else</p>
-                </div>
-                <div className={styles.notice}>
-                    <p>Clean the house</p>
-                </div>
-                <div className={styles.notice}>
-                    <p>Training</p>
-                </div>
+                {tasks.map(el =>
+                    <div className={styles.notice}>
+                        <p>{el.text}</p>
+                    </div>)}
+                    <div className={styles.input}>
+                        <input />
+                    </div>
             </section>
             <Footer />
         </div>
