@@ -8,17 +8,23 @@ import { FC, useState } from 'react';
 
 
 
-interface Props{
+interface Props {
     tasks: []
 }
 const Tracker = () => {
-    const [task, setTask] = useState(false);
+    const [inputArea, setInputAtea] = useState(false);
+    const [value, setValue] = useState('');
 
-    const tasks = [
-        { id: 1, text: 'Something', date:'today'},
-        { id: 2, text: 'Something else', date:'today'},
-        { id: 3, text: 'Training', date:'today'},
-    ]
+    const [tasks, setTasks] = useState([
+        { id: 1, text: 'Something', date: 'today' },
+        { id: 2, text: 'Something else', date: 'today' },
+        { id: 3, text: 'Training', date: 'today' },
+    ])
+    const addTask = (task: any) => {
+        const item = {id: 4, text: task, date: 'today'}
+        setTasks([...tasks, item]);
+        setValue('') 
+    }
     return (
         <div>
             <Header />
@@ -27,15 +33,15 @@ const Tracker = () => {
                     <div className={styles.button_wrapper}>
                         <div className={styles.buttons}>
                             <button>
-                                <img src={prev} width={13}/>
+                                <img src={prev} width={13} />
                             </button>
                         </div>
                         <div className={styles.border_content}>
                             <p>Today</p>
                         </div>
                         <div className={styles.buttons}>
-                            <button onClick={() => setTask(!task)}>
-                                <img src={plus} width={20}/>
+                            <button onClick={() => setInputAtea(!inputArea)}>
+                                <img src={plus} width={20} />
                             </button>
                         </div>
                     </div>
@@ -43,12 +49,17 @@ const Tracker = () => {
             </section>
             <section className={styles.notice_wrapper}>
                 {tasks.map(el =>
-                    <div className={styles.notice}>
-                        <p>{el.text}</p>
-                    </div>)}
                     <div className={styles.input}>
-                        <input />
+                        <input value={el.text} />
+                    </div>)
+                }
+                {inputArea === true && (
+                    <div className={styles.input}>
+                        <input value={value} onChange={event => setValue(event.target.value)}/>
+                        <button onClick={() => addTask(value)}>saveChanges</button>
                     </div>
+                    
+                )}
             </section>
             <Footer />
         </div>
