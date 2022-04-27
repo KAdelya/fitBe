@@ -28,7 +28,7 @@ const App = () => {
             <Route path='/training' element={<Training />} />
             <Route path='/timer' element={<Timer />} />
             <Route path='/track' element={<TrackWeight />} />
-            <Route path='/tracker' element={<Tracker />} />
+            <Route path='/tracker' element={<Tracker tasksList={undefined} />} />
           </Routes>
         </Router>
       </MainLayout>

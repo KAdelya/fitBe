@@ -1,3 +1,51 @@
+@mixin desktop 
+    @media screen and (max-width: 1280px)
+        header
+            padding: 1em 2em 1em 2em
+        .navbar
+            margin: 0 0 0 15% !important
+        p
+            font-size: 14px  
+        .button_wrapper
+            button
+                margin: 0.3em 0
+                font-size: 14px !important  
+
+@mixin tablets 
+    @media screen and (max-width: 992px)
+        header
+            padding: 0.5em
+        .navbar
+            margin: 0!important
+        p
+            font-size: 10px  
+        .button_wrapper
+            button
+                margin: 1em 0
+                font-size: 12px !important
+                padding: 0.7em !important   
+
+@mixin laptop 
+    @media screen and (max-width: 768px)
+        .navbar
+            display: none
+        .menu
+            display: contents !important 
+           
+@mixin phones 
+   @media screen and (max-width: 480px)
+        .navbar
+            display: none
+        .menu
+            display: contents !important
+
+body
+    @include laptop
+    @include desktop
+    @include tablets
+    @include phones
+    width: 100%
+
 .menu_button
     background: none
     border: none
@@ -35,39 +83,4 @@ header
         display: none
         .logo
             margin: 0 2em
-@media only screen and (max-width: 1240px)
-    header
-        padding: 1em 2em 1em 2em
-    .navbar
-        margin: 0 0 0 15% !important
-    p
-        font-size: 14px  
-    .button_wrapper
-        button
-            margin: 0.3em 0
-            font-size: 14px !important  
 
-@media only screen and (max-width: 1024px)
-    header
-        padding: 0.5em
-    .navbar
-        margin: 0!important
-    p
-        font-size: 10px  
-    .button_wrapper
-        button
-            margin: 1em 0
-            font-size: 12px !important
-            padding: 0.7em !important  
-
-@media only screen and (max-width: 768px)
-    .navbar
-        display: none
-    .menu
-        display: contents !important
-
-@media only screen and (max-width: 590px)
-    .navbar
-        display: none
-    .menu
-        display: contents !important

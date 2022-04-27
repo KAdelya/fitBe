@@ -6,7 +6,6 @@ import thirdPict from '../../assets/images/fit3.png';
 import { Icon } from '../../components/Icon/Icon';
 import bacgroundPict from '../../assets/images/background.png'
 import pink_back from '../../assets/images/pink_back.svg'
-import Button from '../../components/ui/button/button';
 import Footer from '../../components/Footer/Footer';
 import MainCustomBtn from '../../components/ui/button/ButtonLayout/ButtonLayout';
 
@@ -86,7 +85,7 @@ export const MainPage = () => {
                 </div>
                 <div className={styles.lower_text_block}>
                     <h1>Making health a priority with BeFit</h1>
-                    <p>Soriane’s career was skyrocketing, but her unpredictable schedule often meant poor food choices and little time for exercise, which led to weight gain. Now, she works healthy habits into her busy calendar with HIIT workouts and by prepping healthy meals in advance––and she’s glowing as a result.</p>
+                    <p>Soriane career was skyrocketing, but her unpredictable schedule often meant poor food choices and little time for exercise, which led to weight gain. Now, she works healthy habits into her busy calendar with HIIT workouts and by prepping healthy meals in advance––and she’s glowing as a result.</p>
                     <div className={styles.button}>
                         <NavLink to='/registration'>
                             <MainCustomBtn>REGISTRATION</MainCustomBtn>

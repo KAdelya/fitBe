@@ -1,7 +1,6 @@
 import React, { FC } from 'react'
 import { NavLink } from 'react-router-dom'
 import styles from '../Menu/Menu.module.sass'
-import Button from '../ui/button/button'
 import MainCustomBtn from '../ui/button/ButtonLayout/ButtonLayout'
 
 interface Props {

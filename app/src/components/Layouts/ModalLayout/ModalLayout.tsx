@@ -1,6 +1,5 @@
 import style from './ModalLayout.module.sass';
-import { FC } from 'react';
-import { useStore } from "../../../utils/use-stores-hook";
+import { FC } from 'react';;
 
 interface Props {}
 

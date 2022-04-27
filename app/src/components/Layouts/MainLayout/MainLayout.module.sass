@@ -1,4 +1,34 @@
+@mixin desktop 
+    @media screen and (max-width: 1280px)
+      .page_content
+        padding: 1.5em 5em
+
+@mixin laptop 
+    @media screen and (max-width: 992px) 
+        .page_content
+          padding: 1.5em 4em
+
+@mixin tablets 
+    @media screen and (max-width: 768px)
+      .page_content
+        padding: 0
+      .page_content_wrapper
+        border-radius: 0 !important
+           
+@mixin phones 
+   @media screen and (max-width: 480px)
+    .page_content
+      padding: 0
+    .page_content_wrapper
+      border-radius: 0 !important
+body
+    @include laptop
+    @include desktop
+    @include tablets
+    @include phones
+
 .page_content
+  box-sizing: border-box
   padding: 1.5em 8.5em
   background: linear-gradient(178.39deg, #6877FF 1.37%, #853CFC 51.02%, #9E07FA 94.92%)
   .page_content_wrapper
@@ -6,19 +36,3 @@
     background: #1D1F26
     border-radius: 40px
 
-@media only screen and (max-width: 1240px)
-    .page_content
-      padding: 1.5em 5em
-@media only screen and (max-width: 1024px)
-    .page_content
-      padding: 1.5em 4em
-@media only screen and (max-width: 768px)
-    .page_content
-      padding: 0
-    .page_content_wrapper
-      border-radius: 0 !important
-@media only screen and (max-width: 480px)
-    .page_content
-      padding: 0
-    .page_content_wrapper
-      border-radius: 0 !important

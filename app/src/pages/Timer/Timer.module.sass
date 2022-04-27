@@ -9,6 +9,16 @@
         box-shadow: -10px -5px 50px rgba(0,0,0,0.2)
     75% 
         border-radius: 33% 67% 58% 42%/63% 68% 32% 37%
+
+@mixin desktop 
+    @media screen and (max-width: 1024px)
+        .content_wrapper
+            flex-wrap: wrap !important
+
+body
+    @include desktop
+    width: 100%
+  
    
 button
     cursor: pointer
@@ -68,6 +78,4 @@ button
             margin: 0
             border: none
             background: none
-@media only screen and (max-width: 1024px)
-    .content_wrapper
-        flex-wrap: wrap !important
+    

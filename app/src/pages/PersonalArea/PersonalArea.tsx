@@ -1,6 +1,5 @@
 import styles from '../PersonalArea/PersonalArea.module.sass';
 import { observer } from "mobx-react";
-import Button from '../../components/ui/button/button';
 import no_avatar from '../../assets/images/no_avatar.png'
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';

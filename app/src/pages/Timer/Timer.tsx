@@ -1,7 +1,6 @@
 import styles from '../Timer/Timer.module.sass';
 import { useStore } from "../../utils/use-stores-hook";
 import { observer } from "mobx-react";
-import Button from '../../components/ui/button/button';
 import line from '../../assets/images/line.svg'
 import arr from '../../assets/images/arr.svg'
 import rarr from '../../assets/images/rarr.svg'

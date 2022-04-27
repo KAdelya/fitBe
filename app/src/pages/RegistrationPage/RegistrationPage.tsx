@@ -1,7 +1,5 @@
 import styles from "./RegistrationPage.module.sass";
 import { Icon } from "../../components/Icon/Icon";
-import Button from "../../components/ui/button/button";
-import { NavLink } from 'react-router-dom';
 import { Registration } from "../../components/Registration/Registration";
 
 export const RegistrationPage = () => {
