@@ -5,7 +5,7 @@ import plus from '../../assets/images/butPlus.svg';
 import prev from '../../assets/images/butprev.svg';
 import Checkbox from '../../components/ui/button/checkbox/checkbox';
 import { FC, useState } from 'react';
-
+import {getDatabase, ref, set} from "firebase/database";
 
 
 interface Props {
@@ -20,7 +20,10 @@ const Tracker:FC<Props> = ({tasksList}) => {
         const item = { id: 4, text: task, date: 'today' }
         setTasks([...tasks, item]);
         setValue('')
-    }
+        // const db = getDatabase();
+        // set(ref(db, '/tracker_data/'), {
+        //     name: item})
+        }
 
     const date = new Date();
     return (
