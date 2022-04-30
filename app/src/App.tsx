@@ -11,6 +11,7 @@ import MainLayout from './components/Layouts/MainLayout/MainLayout';
 import Timer from './pages/Timer/Timer';
 import TrackWeight from './pages/TrackWeight/TrackWeight';
 import Tracker from './pages/Tracker/Tracker';
+import Test from './pages/Test/Test';
 
 const App = () => {
   return (
@@ -29,6 +30,7 @@ const App = () => {
             <Route path='/timer' element={<Timer />} />
             <Route path='/track' element={<TrackWeight />} />
             <Route path='/tracker' element={<Tracker tasksList={[]} />} />
+            <Route path='/test' element={<Test />} />
           </Routes>
         </Router>
       </MainLayout>
