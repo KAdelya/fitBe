@@ -7,12 +7,14 @@ export const SignPage = () => {
     return (
         <div className={styles.page_wrapper}>
             <header className={styles.wrapper}>
-                <div className={styles.logo_wrapper}>
+                <div className={styles.logo_wrapper}> 
                     <Icon name='logo' width={62} height={62} />
                     <p>BeFit</p>
-                </div>
+                </div> 
             </header>
+            <div className={styles.content}>
             <Sign />
+            </div>
         </div>
     )
 }
