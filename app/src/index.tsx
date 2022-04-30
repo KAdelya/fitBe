@@ -10,13 +10,14 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCPE_phxJ_Xbg6P-FEWVzH6IirTVpd784g",
-    authDomain: "fitbe-f03ed.firebaseapp.com",
-    projectId: "fitbe-f03ed",
-    storageBucket: "fitbe-f03ed.appspot.com",
-    messagingSenderId: "1078037220285",
-    appId: "1:1078037220285:web:f394833d5670da486860d4",
-    measurementId: "G-ECNRVXXWZX"
+    apiKey: "AIzaSyATktBg4k_tRIMEAEuVlskz7lNu8gEvD6c",
+    authDomain: "fitbev2.firebaseapp.com",
+    databaseURL: "https://fitbev2-default-rtdb.firebaseio.com",
+    projectId: "fitbev2",
+    storageBucket: "fitbev2.appspot.com",
+    messagingSenderId: "1020844677779",
+    appId: "1:1020844677779:web:054ad5b5bda974ce948b66",
+    measurementId: "G-DV3TQE5BE0"
 };
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
