@@ -28,7 +28,7 @@ const Header = () => {
             </NavLink> */}
             <nav className={styles.navbar}>
                 <ul>
-                    <li><NavLink to='/timer'>Timer</NavLink></li>
+                    <li><NavLink to={'/user/' + name + '/timer'}>Timer</NavLink></li>
                     <li><NavLink to='/training'>Workout</NavLink></li>
                     <li><NavLink to='/calculator'>Diary</NavLink></li>
                     <li><NavLink to={'/user/' + name + '/tracker'}>Tracker</NavLink></li>

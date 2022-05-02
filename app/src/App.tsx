@@ -27,7 +27,7 @@ const App = () => {
             <Route path='/questionnaire' element={<QuestionnairePage data="" />} />
             <Route path='/calculator' element={<Calculator />} />
             <Route path='/training' element={<Training />} />
-            <Route path='/timer' element={<Timer />} />
+            <Route path='/user/:name/timer' element={<Timer />} />
             <Route path='/track' element={<TrackWeight />} />
             <Route path='/user/:name/tracker' element={<Tracker />} />
             <Route path='/test' element={<Test />} />
