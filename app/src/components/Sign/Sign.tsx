@@ -10,7 +10,6 @@ import { ModalUncorrectPasswordSign } from "../Modal/ModalUncorrectPasswordSign"
 import {Navigate, useParams} from "react-router-dom";
 
 export const Sign = () => {
-    let { name } = useParams();
     const [isSign, setIsSign] = useState(false)
     let [sig, setSig] = useState('')
     const { modalStore: { setCurrentModal } } = useStore()
@@ -35,11 +34,11 @@ export const Sign = () => {
                             const data = snapshot.val();
                             // console.log(data[values.name].password)
                             // console.log(data)
+                            setSig(values.name)
                             if (data[values.name]) {
                                 if (values.password === data[values.name].password) {
                                     // console.log(data[values.name].password)
                                     setIsSign(true)
-                                    setSig(values.name)
                                     console.log(sig)
                                 } else {
                                     setCurrentModal(<Modal children={<ModalUncorrectPasswordSign/>}/>)
