@@ -8,6 +8,7 @@ import bacgroundPict from '../../assets/images/background.png'
 import pink_back from '../../assets/images/pink_back.svg'
 import Footer from '../../components/Footer/Footer';
 import MainCustomBtn from '../../components/ui/button/ButtonLayout/ButtonLayout';
+import CustomButton from '../../components/ui/button/CustomBtnLayout/CustomBtnLayout';
 
 export const MainPage = () => {
     return (
@@ -19,7 +20,7 @@ export const MainPage = () => {
                 </div>
                 <div className={styles.button}>
                     <NavLink to='/sign'>
-                        <MainCustomBtn>SIGN IN</MainCustomBtn>
+                        <CustomButton>SIGN IN</CustomButton>
                     </NavLink>
                 </div>
             </header>

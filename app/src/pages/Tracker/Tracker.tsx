@@ -3,7 +3,7 @@ import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import plus from '../../assets/images/butPlus.svg';
 import prev from '../../assets/images/butprev.svg';
-import Checkbox from '../../components/ui/button/checkbox/checkbox';
+import Checkbox from '../../components/ui/checkbox/checkbox';
 import {FC, useState} from 'react';
 import {getDatabase, onValue, ref, set, update} from "firebase/database";
 import {useParams} from "react-router-dom";

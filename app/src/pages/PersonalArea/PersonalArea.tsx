@@ -6,6 +6,7 @@ import Footer from '../../components/Footer/Footer';
 import { NavLink } from 'react-router-dom';
 import {useParams} from "react-router-dom";
 import MainCustomBtn from '../../components/ui/button/ButtonLayout/ButtonLayout';
+import CustomBtnLayout from '../../components/ui/button/CustomBtnLayout/CustomBtnLayout';
 
 
 const PersonalArea = observer(() => {
@@ -20,7 +21,7 @@ const PersonalArea = observer(() => {
                         <img src={no_avatar} />
                     </div>
                     <div className={styles.button}>
-                        <MainCustomBtn>EDIT AVATAR</MainCustomBtn>
+                        <CustomBtnLayout>EDIT AVATAR</CustomBtnLayout>
                     </div>
                 </div>
                 <div className={styles.user_info}>

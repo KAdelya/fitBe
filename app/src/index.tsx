@@ -5,29 +5,40 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'mobx-react';
 import mainStore from './stores/mainStore';
-import {ModalConstructor} from "./components/Modal/ModalConstructor";
+import { ModalConstructor } from "./components/Modal/ModalConstructor";
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import { getFirestore } from "firebase/firestore";
+import Routes from './components/routes/RouteList';
+import RouteList from './components/routes/RouteList';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyATktBg4k_tRIMEAEuVlskz7lNu8gEvD6c",
-    authDomain: "fitbev2.firebaseapp.com",
-    databaseURL: "https://fitbev2-default-rtdb.firebaseio.com",
-    projectId: "fitbev2",
-    storageBucket: "fitbev2.appspot.com",
-    messagingSenderId: "1020844677779",
-    appId: "1:1020844677779:web:054ad5b5bda974ce948b66",
-    measurementId: "G-DV3TQE5BE0"
+  // apiKey: "AIzaSyATktBg4k_tRIMEAEuVlskz7lNu8gEvD6c",
+  // authDomain: "fitbev2.firebaseapp.com",
+  // databaseURL: "https://fitbev2-default-rtdb.firebaseio.com",
+  // projectId: "fitbev2",
+  // storageBucket: "fitbev2.appspot.com",
+  // messagingSenderId: "1020844677779",
+  // appId: "1:1020844677779:web:054ad5b5bda974ce948b66",
+  // measurementId: "G-DV3TQE5BE0"
+  apiKey: "AIzaSyA0fvCh-aT77nvqfLSgHlCpGM_wcbNzTOI",
+  authDomain: "befit-ef9f9.firebaseapp.com",
+  databaseURL: "https://befit-ef9f9-default-rtdb.firebaseio.com",
+  projectId: "befit-ef9f9",
+  storageBucket: "befit-ef9f9.appspot.com",
+  messagingSenderId: "1001074447643",
+  appId: "1:1001074447643:web:09a66c1769f37aa2676fbe"
 };
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
+
 ReactDOM.render(
   <React.StrictMode>
-      <Provider {...mainStore}>
-    <App />
+    <Provider {...mainStore}>
+      <App />
       <ModalConstructor />
-      </Provider>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
