@@ -6,13 +6,13 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'mobx-react';
 import mainStore from './stores/mainStore';
 import { ModalConstructor } from "./components/Modal/ModalConstructor";
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-import { getFirestore } from "firebase/firestore";
-import Routes from './components/routes/RouteList';
-import RouteList from './components/routes/RouteList';
 
-const firebaseConfig = {
+import firebase, { initializeApp } from 'firebase/app'
+import { getDatabase } from 'firebase/database';
+
+
+
+const app = initializeApp({
   // apiKey: "AIzaSyATktBg4k_tRIMEAEuVlskz7lNu8gEvD6c",
   // authDomain: "fitbev2.firebaseapp.com",
   // databaseURL: "https://fitbev2-default-rtdb.firebaseio.com",
@@ -28,9 +28,8 @@ const firebaseConfig = {
   storageBucket: "befit-ef9f9.appspot.com",
   messagingSenderId: "1001074447643",
   appId: "1:1001074447643:web:09a66c1769f37aa2676fbe"
-};
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+});
+
 
 
 ReactDOM.render(
@@ -47,3 +46,4 @@ ReactDOM.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+export const db = getDatabase(app);

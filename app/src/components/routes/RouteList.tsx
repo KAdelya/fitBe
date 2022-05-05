@@ -8,7 +8,9 @@ const RouteList: FC = () => {
         <Router>
             <Routes>
                 {routes.map(route => {
-
+                    if(route.auth && !isAuth){
+                        return false;
+                    }
                     return (
                         <Route
                             path={route.path}

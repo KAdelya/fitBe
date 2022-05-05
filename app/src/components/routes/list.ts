@@ -9,6 +9,7 @@ import TrackWeight from "../../pages/TrackWeight/TrackWeight";
 import Training from "../../pages/Training/Training";
 import Calculator from "../../pages/Calculator/Calculator";
 import PersonalArea from "../../pages/PersonalArea/PersonalArea";
+import Test from "../../pages/TestPage/Test";
 
 export const routes = [
     {
@@ -62,6 +63,12 @@ export const routes = [
     {
         path: '/tracker/:id',
         element: Tracker,
+        auth: false
+    },
+
+    {
+        path: '/test',
+        element: Test,
         auth: false
     }
    

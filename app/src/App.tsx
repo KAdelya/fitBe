@@ -6,8 +6,12 @@ import * as firebase from "firebase/app";
 import Routes from './components/routes/RouteList';
 import RouteList from './components/routes/RouteList';
 // import * as firebase from "firebase/app";
+import { getDatabase, ref, set, onValue } from "firebase/database";
 
 const App = () => {
+
+  const db = getDatabase()
+
 
   return (
     <div className={styles.App}>
