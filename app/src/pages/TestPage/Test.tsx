@@ -11,6 +11,16 @@ const Test = () => {
     const records: any = []
     const [state, setState] = useState(records);
     const [todo, setTodo] = useState('');
+
+    let [newEmail, setNewEmail] = useState('')
+    let [newName, setNewName] = useState('');
+    let [newSurname, setNewSurname] = useState('');
+    let [newAvatar, setNewAvatar] = useState('');
+    let [newSpendingHours, setNewSpendingHours] = useState('');
+    let [newWaterCount, setWaterCount] = useState('');
+    let [newTracker, setNewTracker] = useState('');
+    let [newCalories, setNewCalories] = useState('');
+
     const [user, setUser] = useState({
         user: {
             email: '',
@@ -31,31 +41,22 @@ const Test = () => {
         setUser(e.target.value);
     }
     /// this is for writing into db
-    const writeToDataBase = () => {
-        const uuid = uid();
-        set(ref(db, `/${uuid}`), {
-            todo,
-            uuid
-        });
-        setTodo('')
-    }
     const createUser = () => {
         const uuid = uid();
         set(ref(db, `/${uuid}`), {
             user: {
-                email: '',
+                email: newEmail,
                 ip: uuid,
-                name: '',
-                surname: ''
+                name: newName,
+                surname: newSurname
             },
             info: {
-                avatar: '',
-                gender: '',
-                spendingHours: '',
-                water: ''
+                avatar: newAvatar,
+                spendingHours: newSpendingHours,
+                waterCount: newWaterCount
             },
-            tracker: '',
-            calories: ''
+            tracker: newTracker,
+            calories: newCalories
         });
     }
     /// this is for updating db
@@ -95,7 +96,9 @@ const Test = () => {
     }
     return (
         <div>
-            Test page works!
+            <input placeholder='email' onChange={(event) => { setNewEmail( event.target.value) }}/>
+            <input placeholder='calories' onChange={(event) => { setNewCalories( event.target.value) }}/>
+            <button onClick={createUser}>submit</button>
         </div>
 
     )
