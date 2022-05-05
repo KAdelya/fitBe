@@ -21,27 +21,8 @@ const Test = () => {
     let [newTracker, setNewTracker] = useState('');
     let [newCalories, setNewCalories] = useState('');
 
-    const [user, setUser] = useState({
-        user: {
-            email: '',
-            name: '',
-            surname: ''
-        },
-        info: {
-            avatar: '',
-            gender: '',
-            spendingHours: '',
-            water: ''
-        },
-        tracker: '',
-        calories: ''
-    });
-
-    const handleToDoChange = (e: any) => {
-        setUser(e.target.value);
-    }
     /// this is for writing into db
-    const createUser = () => {
+    async function createUser() {
         const uuid = uid();
         set(ref(db, `/${uuid}`), {
             user: {
@@ -60,7 +41,7 @@ const Test = () => {
         });
     }
     /// this is for updating db
-    const updateInDataBase = () => {
+    async function updateInDataBase() {
         const uuid = uid();
         update(ref(db, `/${uuid}`), {
             todo,
@@ -69,7 +50,7 @@ const Test = () => {
             .catch((error) => { alert('sorry :(' + error) })
     }
 
-    const deleteFromDataBase = () => {
+    async function deleteFromDataBase() {
         const uuid = uid();
         remove(ref(db, `/${uuid}`))
             .then(() => { alert('delete successfully') })
