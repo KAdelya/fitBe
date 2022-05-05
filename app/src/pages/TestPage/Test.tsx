@@ -10,7 +10,6 @@ const Test = () => {
     const passwordRef: any = useRef();
     const records: any = []
     const [state, setState] = useState(records);
-    const [todo, setTodo] = useState('');
 
     let [newEmail, setNewEmail] = useState('')
     let [newName, setNewName] = useState('');
@@ -41,24 +40,33 @@ const Test = () => {
         });
     }
     /// this is for updating db
-    async function updateInDataBase() {
-        const uuid = uid();
+    async function updateInDataBase(uuid: any) {
         update(ref(db, `/${uuid}`), {
-            todo,
-            uuid
+            user: {
+                email: newEmail,
+                ip: uuid,
+                name: newName,
+                surname: newSurname
+            },
+            info: {
+                avatar: newAvatar,
+                spendingHours: newSpendingHours,
+                waterCount: newWaterCount
+            },
+            tracker: newTracker,
+            calories: newCalories
         }).then(() => { alert('update successfully') })
             .catch((error) => { alert('sorry :(' + error) })
     }
 
-    async function deleteFromDataBase() {
-        const uuid = uid();
+    async function deleteFromDataBase(uuid: any) {
         remove(ref(db, `/${uuid}`))
             .then(() => { alert('delete successfully') })
             .catch((error) => { alert('sorry :(' + error) })
     }
 
-    const getInfoFromDataBase = () => {
-        const dbRef = (ref(db, `efceb0a27c3`))
+    const getInfoFromDataBase = (uuid: any) => {
+        const dbRef = (ref(db, `/${uuid}`))
         onValue(dbRef, (snapshot) => {
             let records: any[] = []
             snapshot.forEach(childSnapshot => {
@@ -77,9 +85,11 @@ const Test = () => {
     }
     return (
         <div>
-            <input placeholder='email' onChange={(event) => { setNewEmail( event.target.value) }}/>
-            <input placeholder='calories' onChange={(event) => { setNewCalories( event.target.value) }}/>
-            <button onClick={createUser}>submit</button>
+            <div><input placeholder='email' onChange={(event) => { setNewEmail( event.target.value) }}/></div>
+            <div><input placeholder='name' onChange={(event) => { setNewName(event.target.value) }}/></div>
+            <div><input placeholder='surname' onChange={(event) => { setNewSurname( event.target.value) }}/></div>
+            <div><input placeholder='calories' onChange={(event) => { setNewCalories( event.target.value) }}/></div>
+            <button onClick={() => deleteFromDataBase('0de4f55c857')}>submit</button>
         </div>
 
     )
