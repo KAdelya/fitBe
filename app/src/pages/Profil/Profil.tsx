@@ -1,4 +1,4 @@
-import styles from '../PersonalArea/PersonalArea.module.sass';
+import styles from '../Profil/Profil.module.sass';
 import { observer } from "mobx-react";
 import no_avatar from '../../assets/images/no_avatar.png'
 import Header from '../../components/Header/Header';
@@ -9,7 +9,7 @@ import MainCustomBtn from '../../components/ui/button/ButtonLayout/ButtonLayout'
 import CustomBtnLayout from '../../components/ui/button/CustomBtnLayout/CustomBtnLayout';
 
 
-const PersonalArea = observer(() => {
+const Profil = observer(() => {
     let { name } = useParams();
     // setCurrentModal(<Modal children={<ModalWelcome ccal={0} />} />)
     return (
@@ -57,4 +57,4 @@ const PersonalArea = observer(() => {
         </div>
     )
 })
-export default PersonalArea;
+export default Profil;

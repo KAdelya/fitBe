@@ -1,15 +1,34 @@
 import { child, get, onValue, ref, remove, set, update } from 'firebase/database';
 import { snapshotEqual } from 'firebase/firestore';
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { uid } from 'uid';
-import { db } from '../..';
+import { createUserWithEmailAndPassword } from 'firebase/auth'
+import { auth, db } from '../..';
 
 const Test = () => {
+    const emailRef: any = useRef();
+    const passwordRef: any = useRef();
     const records: any = []
-    const [state,setState] = useState(records);
+    const [state, setState] = useState(records);
     const [todo, setTodo] = useState('');
+    const [user, setUser] = useState({
+        user: {
+            email: '',
+            name: '',
+            surname: ''
+        },
+        info: {
+            avatar: '',
+            gender: '',
+            spendingHours: '',
+            water: ''
+        },
+        tracker: '',
+        calories: ''
+    });
+
     const handleToDoChange = (e: any) => {
-        setTodo(e.target.value);
+        setUser(e.target.value);
     }
     /// this is for writing into db
     const writeToDataBase = () => {
@@ -20,7 +39,26 @@ const Test = () => {
         });
         setTodo('')
     }
-     /// this is for updating db
+    const createUser = () => {
+        const uuid = uid();
+        set(ref(db, `/${uuid}`), {
+            user: {
+                email: '',
+                ip: uuid,
+                name: '',
+                surname: ''
+            },
+            info: {
+                avatar: '',
+                gender: '',
+                spendingHours: '',
+                water: ''
+            },
+            tracker: '',
+            calories: ''
+        });
+    }
+    /// this is for updating db
     const updateInDataBase = () => {
         const uuid = uid();
         update(ref(db, `/${uuid}`), {
@@ -33,7 +71,7 @@ const Test = () => {
     const deleteFromDataBase = () => {
         const uuid = uid();
         remove(ref(db, `/${uuid}`))
-        .then(() => { alert('delete successfully') })
+            .then(() => { alert('delete successfully') })
             .catch((error) => { alert('sorry :(' + error) })
     }
 
@@ -49,14 +87,15 @@ const Test = () => {
         })
     }
 
+    const signUp = (email: any, password: any) => {
+        return createUserWithEmailAndPassword(auth, email, password)
+    }
+    async function handleSignup() {
+        await signUp(emailRef.current.value, passwordRef.current.value)
+    }
     return (
         <div>
             Test page works!
-            <input type='text' value={todo} onChange={handleToDoChange} />
-            <button onClick={getInfoFromDataBase}>click here</button>
-            <div>{state[0]}</div>
-            <div>{state[1]}</div>
-            <div>{state[2]}</div>
         </div>
 
     )

@@ -8,7 +8,7 @@ import Tracker from "../../pages/Tracker/Tracker";
 import TrackWeight from "../../pages/TrackWeight/TrackWeight";
 import Training from "../../pages/Training/Training";
 import Calculator from "../../pages/Calculator/Calculator";
-import PersonalArea from "../../pages/PersonalArea/PersonalArea";
+import Profil from "../../pages/Profil/Profil";
 import Test from "../../pages/TestPage/Test";
 
 export const routes = [
@@ -37,7 +37,7 @@ export const routes = [
     //начиная отсюда isAuth надо true, но пока
     {
         path: '/user/:id',
-        element: PersonalArea,
+        element: Profil,
         auth: false
     },
     {

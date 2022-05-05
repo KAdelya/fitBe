@@ -8,25 +8,16 @@ import Modal from '../Layouts/ModalLayout/ModalLayout'
 import { ModalUncorrectNameRegistration } from "../Modal/ModalUncorrectNameRegistration";
 import { ModalUncorrectPasswordsRegistratiion } from "../Modal/ModalUncorrectPasswordsRegistratiion";
 
-import PersonalArea from "../../pages/PersonalArea/PersonalArea";
+import PersonalArea from "../../pages/Profil/Profil";
 import { Navigate } from "react-router";
-// import { Redirect } from 'react-router';
-// import { getAuth } from "firebase/auth";
 import { Link } from "react-router-dom";
 import { QuestionnairePage } from "../../pages/QuestionnairePage/QuestionnairePage";
 import { Questionnaire } from "../Questionnaire/Questionnaire";
 
 export const Registration = () => {
     let [register, setRegister] = useState(false);
-    // function IsRegistrant(data: any) {
-    //     let dat = data
-    //     return dat
-    // }
     let [reg, setReg] = useState('')
     console.log(reg)
-    // let textInput = React.createRef()
-    // let input = document.getElementById('name').value
-    // console.log(input)
     const { modalStore: { setCurrentModal } } = useStore()
     const [correctPassw, setCorrectPassw] = useState(false)
     const validationsSchema = yup.object().shape({
@@ -39,10 +30,6 @@ export const Registration = () => {
         repeat_password: yup.string().typeError('Must be a string').required('Enter correct data')
             .matches(/[0-9a-zA-Z]{4,}/g, 'Password must contain at least 4 digits or latin letters')
     })
-    // function writeUserData() {
-    //     const db = getDatabase();
-    //     console.log(name)
-    // }
     if (!register) {
         return (
             <div>
@@ -55,18 +42,14 @@ export const Registration = () => {
                     }}
                     onSubmit={(values, errors) => {
                         setCorrectPassw(true);
+
                         const db = getDatabase();
                         const starCountRef = ref(db, '/users/');
-                        // set(ref(db, 'users/name'), {
-                        //     name: 'name',
-                        //     email: 'email',
-                        //     password: 'password',
-                        //     repeat_password: 'password'
-                        // });
+
                         onValue(starCountRef, (snapshot) => {
                             const data = snapshot.val();
-                            console.log(data)
-                            // console.log(data[values.name])
+                            // console.log(data)
+
                             if (values.password === values.repeat_password) {
                                 if (data[values.name]) {
                                     errors.setStatus('This name already exists');
@@ -80,7 +63,6 @@ export const Registration = () => {
                                     })
                                     setCurrentModal(null)
                                     setRegister(true)
-                                    // IsRegistrant(data[values.name])
                                     setReg(values.name)
                                     console.log(reg)
                                 }
@@ -93,29 +75,6 @@ export const Registration = () => {
                                 setCurrentModal(<Modal children={<ModalUncorrectPasswordsRegistratiion />} />)
                             }
                         })
-                        // const postListRef = ref(db, 'users')
-                        // console.log(db)
-                        // const auth = getAuth();
-                        //
-                        // const userId = auth.currentUser.uid;
-                        // setCount(count + 1)
-                        // const starCountRef = ref(db, 'users/' + values.name);
-                        // onValue(starCountRef, (snapshot) => {
-                        //     const data = snapshot.val();
-                        //     if (values.name === data['name']) {
-                        // set(ref(db, 'users/' + values.name), {
-                        //     name: values.name,
-                        //     email: values.email,
-                        //     password: values.password,
-                        //     repeat_password: values.repeat_password
-                        // })
-                        //  else {
-                        //     values.name = '';
-                        //     values.email = '';
-                        //     values.password = '';
-                        //     values.repeat_password = '';
-                        //     errors.setStatus('Пароли не совпадают');
-                        // }
                     }}
                     validationSchema={validationsSchema}
                 >

@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'mobx-react';
 import mainStore from './stores/mainStore';
 import { ModalConstructor } from "./components/Modal/ModalConstructor";
-
+import { getAuth } from 'firebase/auth'
 import firebase, { initializeApp } from 'firebase/app'
 import { getDatabase } from 'firebase/database';
 
@@ -47,3 +47,4 @@ ReactDOM.render(
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
 export const db = getDatabase(app);
+export const auth = getAuth();
