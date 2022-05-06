@@ -28,7 +28,6 @@ const Profil = observer(() => {
                 </div>
                 <div className={styles.user_info}>
                     <h2>{email}</h2>
-                    <h2>id{id}</h2>
                     <p>Ivan Ivanov</p>
                     <div className={styles.blocks}>
                         <div className={styles.item}>

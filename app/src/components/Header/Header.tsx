@@ -23,47 +23,43 @@ const Header = () => {
     const [menuActive, setMenuActive] = useState(false);
     const dispatch = useDispatch()
     return isAuth ?
-        (
-            <header>
-                <button className={styles.menu_button} onClick={() => setMenuActive(!menuActive)}>
-                    <img src={menuBut} />
-                </button>
 
-                {/* <NavLink to='/user'>
+        <header>
+            <button className={styles.menu_button} onClick={() => setMenuActive(!menuActive)}>
+                <img src={menuBut} />
+            </button>
+
+            {/* <NavLink to='/user'>
                 <div className={styles.logo_wrapper}>
                     <Icon name='logo' width={48} height={48} />
                     <p>BeFit</p>
                 </div>
             </NavLink> */}
-                <nav className={styles.navbar}>
-                    <ul>
-                        <li><NavLink to={`/timer/id_${id}`}>Timer</NavLink></li>
-                        <li><NavLink to={`/training/id_${id}`}>Workout</NavLink></li>
-                        <li><NavLink to={`/calculator/id_${id}`}>Diary</NavLink></li>
-                        <li><NavLink to={`/tracker/id_${id}`}>Tracker</NavLink></li>
-                    </ul>
-                </nav>
-                <div className={styles.button_wrapper}>
-                    <button onClick={() => dispatch(removeUser())}>SIGN OUT</button>
+            <nav className={styles.navbar}>
+                <ul>
+                    <li><NavLink to={`/timer/id_${id}`}>Timer</NavLink></li>
+                    <li><NavLink to={`/training/id_${id}`}>Workout</NavLink></li>
+                    <li><NavLink to={`/calculator/id_${id}`}>Diary</NavLink></li>
+                    <li><NavLink to={`/tracker/id_${id}`}>Tracker</NavLink></li>
+                </ul>
+            </nav>
+            <div className={styles.button_wrapper}>
+                <button onClick={() => dispatch(removeUser())}>SIGN OUT</button>
 
-                </div>
-                <div className={styles.menu}>
-                    <NavLink to='/user'>
-                        <div className={styles.logo}>
-                            <Icon name='logo' width={48} height={48} />
-                            <p>BeFit</p>
-                        </div>
-                    </NavLink>
-                    <Menu items={items} active={menuActive} setActive={setMenuActive} />
-                </div>
-            </header>
-        )
+            </div>
+            <div className={styles.menu}>
+                <NavLink to='/user'>
+                    <div className={styles.logo}>
+                        <Icon name='logo' width={48} height={48} />
+                        <p>BeFit</p>
+                    </div>
+                </NavLink>
+                <Menu items={items} active={menuActive} setActive={setMenuActive} />
+            </div>
+        </header>
         :
-        (
-           <>
-           {navigate('/registration')}
-           </>
-        )
+        <>{navigate(`/`)}</>
+
 
 }
 
