@@ -12,26 +12,6 @@ export const RegistrationPage = () => {
                 </div>
             </header>
             <section className={styles.main_content}>
-                {/* <h1>Registration</h1>
-                <div className={styles.information_form_wrapper}>
-                    <div className={styles.information_form}>
-                        <input placeholder='Email' type='name' name={`name`}/>
-                    </div>
-                    <div className={styles.information_form}>
-                        <input placeholder='Name' type='password' name={"password"} />
-                    </div>
-                    <div className={styles.information_form}>
-                        <input placeholder='Password' type='name' name={`name`}/>
-                    </div>
-                    <div className={styles.information_form}>
-                        <input placeholder='Repeat password' type='password' name={"password"} />
-                    </div>
-                </div>
-                <div className={styles.button_wrapper}>
-                    <NavLink to='/questionnaire'>
-                        <Button text='REGISTER' />
-                    </NavLink>
-                </div> */}
                 <Registration />
             </section>
 

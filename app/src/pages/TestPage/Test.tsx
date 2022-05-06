@@ -19,6 +19,8 @@ const Test = () => {
     let [newWaterCount, setWaterCount] = useState('');
     let [newTracker, setNewTracker] = useState('');
     let [newCalories, setNewCalories] = useState('');
+    let [result, setResult] = useState([])
+    
 
     /// this is for writing into db
     async function createUser() {
@@ -40,7 +42,7 @@ const Test = () => {
         });
     }
     /// this is for updating db
-    async function updateInDataBase(uuid: any) {
+    async function updateInDataBase(uuid: string) {
         update(ref(db, `/${uuid}`), {
             user: {
                 email: newEmail,
@@ -59,22 +61,18 @@ const Test = () => {
             .catch((error) => { alert('sorry :(' + error) })
     }
 
-    async function deleteFromDataBase(uuid: any) {
+    async function deleteFromDataBase(uuid: string) {
         remove(ref(db, `/${uuid}`))
             .then(() => { alert('delete successfully') })
             .catch((error) => { alert('sorry :(' + error) })
     }
 
-    const getInfoFromDataBase = (uuid: any) => {
+    const getInfoFromDataBase = (uuid: string) => {
         const dbRef = (ref(db, `/${uuid}`))
         onValue(dbRef, (snapshot) => {
-            let records: any[] = []
-            snapshot.forEach(childSnapshot => {
-                let data = childSnapshot.val()
-                setState(records.push(data));
-            });
-            setState(records)
+            result = snapshot.val().user.email
         })
+        setResult(result)
     }
 
     const signUp = (email: any, password: any) => {
@@ -89,7 +87,8 @@ const Test = () => {
             <div><input placeholder='name' onChange={(event) => { setNewName(event.target.value) }}/></div>
             <div><input placeholder='surname' onChange={(event) => { setNewSurname( event.target.value) }}/></div>
             <div><input placeholder='calories' onChange={(event) => { setNewCalories( event.target.value) }}/></div>
-            <button onClick={() => deleteFromDataBase('0de4f55c857')}>submit</button>
+            <button onClick={() => getInfoFromDataBase('4a1f2c66520')}>submit</button>
+            
         </div>
 
     )

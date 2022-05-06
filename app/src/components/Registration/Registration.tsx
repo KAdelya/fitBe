@@ -1,23 +1,18 @@
 import styles from './Registration.module.sass';
 import { Formik } from 'formik';
 import * as yup from 'yup';
-import React, { useState } from "react";
+import { useState } from "react";
 import { getDatabase, ref, set, onValue } from "firebase/database";
 import { useStore } from "../../utils/use-stores-hook";
 import Modal from '../Layouts/ModalLayout/ModalLayout'
 import { ModalUncorrectNameRegistration } from "../Modal/ModalUncorrectNameRegistration";
 import { ModalUncorrectPasswordsRegistratiion } from "../Modal/ModalUncorrectPasswordsRegistratiion";
-
-import PersonalArea from "../../pages/Profil/Profil";
-import { Navigate } from "react-router";
-import { Link } from "react-router-dom";
-import { QuestionnairePage } from "../../pages/QuestionnairePage/QuestionnairePage";
 import { Questionnaire } from "../Questionnaire/Questionnaire";
+import { db } from '../..';
 
 export const Registration = () => {
     let [register, setRegister] = useState(false);
     let [reg, setReg] = useState('')
-    console.log(reg)
     const { modalStore: { setCurrentModal } } = useStore()
     const [correctPassw, setCorrectPassw] = useState(false)
     const validationsSchema = yup.object().shape({
@@ -43,12 +38,8 @@ export const Registration = () => {
                     onSubmit={(values, errors) => {
                         setCorrectPassw(true);
 
-                        const db = getDatabase();
-                        const starCountRef = ref(db, '/users/');
-
-                        onValue(starCountRef, (snapshot) => {
+                        onValue(ref(db, '/users/'), (snapshot) => {
                             const data = snapshot.val();
-                            // console.log(data)
 
                             if (values.password === values.repeat_password) {
                                 if (data[values.name]) {
@@ -126,8 +117,7 @@ export const Registration = () => {
                         </form>)}
                 </Formik>
             </div>
-        );
-    }
+        );}
     else {
         return (
             <Questionnaire data={reg} />
