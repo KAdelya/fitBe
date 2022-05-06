@@ -1,10 +1,14 @@
 import styles from "./QuestionnairePage.module.sass";
-import {FC} from "react";
+import {FC, useState} from "react";
 import {Questionnaire} from "../../components/Questionnaire/Questionnaire";
 import { Icon } from "../../components/Icon/Icon";
+import { setUser } from "../../stores/slices/userSlice";
+import { ref, set } from "firebase/database";
+import { db } from "../..";
 
 
 export const QuestionnairePage = () =>{
+    
     return (
         <div className={styles.main_content_wrap}>
              <div className={styles.logo_wrapper}>

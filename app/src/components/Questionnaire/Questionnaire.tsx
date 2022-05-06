@@ -5,8 +5,10 @@ import { useStore } from "../../utils/use-stores-hook";
 import { getDatabase, onValue, ref, set } from "firebase/database";
 import { Formik } from "formik";
 import { ModalWelcome } from "../Modal/ModalWelcome";
-import { Navigate, Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { Navigate, Route, BrowserRouter as Router, Routes, useNavigate } from "react-router-dom";
 import Modal from "../Layouts/ModalLayout/ModalLayout";
+import { db } from "../..";
+import { useAuth } from "../../utils/use-auth";
 
 interface Props {
     data: any
@@ -135,6 +137,40 @@ export const Questionnaire = () => {
     //     </form>)}
     // </Formik>
     const [gender, setGender] = useState('Male');
+
+    const { id } = useAuth();
+    let [newEmail, setNewEmail] = useState('')
+    let [newName, setNewName] = useState('');
+    let [newSurname, setNewSurname] = useState('');
+    let [newAvatar, setNewAvatar] = useState('');
+    let [newSpendingHours, setNewSpendingHours] = useState('');
+    let [newWaterCount, setWaterCount] = useState('');
+    let [newTracker, setNewTracker] = useState('');
+    let [newCalories, setNewCalories] = useState('');
+    let [result, setResult] = useState([])
+
+    const navigate = useNavigate()
+    const handleChange = (id: any) => {
+        createUser(id)
+        navigate(`/user/id_${id}`)
+
+    }
+    async function createUser(id: any) {
+        set(ref(db, `/${id}`), {
+            user: {
+                email: newEmail,
+                name: newName,
+                surname: newSurname
+            },
+            info: {
+                avatar: newAvatar,
+                spendingHours: newSpendingHours,
+                waterCount: newWaterCount
+            },
+            tracker: newTracker,
+            calories: newCalories
+        });
+    }
     return (
         <div>
             <div className={styles.question_block_wrapper}>
@@ -150,6 +186,14 @@ export const Questionnaire = () => {
                             Female
                         </label>
                     </div>
+                </div>
+                <div className={styles.block_for_question}>
+                    <label>Your name</label>
+                    <input name="name" onChange={(event) => { setNewName( event.target.value) }}/>
+                </div>
+                <div className={styles.block_for_question}>
+                    <label>Your surname</label>
+                    <input name="surname" onChange={(event) => { setNewSurname( event.target.value) }}/>
                 </div>
                 <div className={styles.block_for_question}>
                     <label>Your weight (kg)</label>
@@ -174,17 +218,9 @@ export const Questionnaire = () => {
             </div>
             <div className={styles.button_save_content}>
                 <div className={styles.button_wrapper}>
-                    <button>SAVE</button>
+                    <button onClick={()=>handleChange(id)}>SAVE</button>
                 </div>
             </div>
         </div>
     )
 }
-    // else {
-    //     return (
-    //         <div>
-    //             <Navigate to={'/user/'+data} />
-    //         </div>
-    //     )
-    // }
-
