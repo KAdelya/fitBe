@@ -14,6 +14,7 @@ import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import { useAuth } from './utils/use-auth';
 import Tracker from './pages/Tracker/Tracker';
+import { QuestionnairePage } from './pages/QuestionnairePage/QuestionnairePage';
 
 
 const App = () => {
@@ -25,7 +26,7 @@ const App = () => {
           
         <Routes>
               <Route path='/' element={<MainPage />} />
-              <Route path='/questionnaire' element={<Questionnaire data={undefined} />} />
+              <Route path={`/questionnaire/id_${id}`} element={<QuestionnairePage />} />
               <Route path='/registration' element={<RegistrationPage />} />
               <Route path='/login' element={<Login />} />
 
