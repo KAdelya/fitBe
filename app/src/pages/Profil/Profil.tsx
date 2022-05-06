@@ -7,11 +7,13 @@ import { NavLink } from 'react-router-dom';
 import {useParams} from "react-router-dom";
 import MainCustomBtn from '../../components/ui/button/ButtonLayout/ButtonLayout';
 import CustomBtnLayout from '../../components/ui/button/CustomBtnLayout/CustomBtnLayout';
+import { useAuth } from '../../utils/use-auth';
 
 
 const Profil = observer(() => {
-    let { name } = useParams();
+    // let { name } = useParams();
     // setCurrentModal(<Modal children={<ModalWelcome ccal={0} />} />)
+    const {isAuth, email, id} = useAuth();
     return (
         <div>
             <Header />
@@ -25,7 +27,8 @@ const Profil = observer(() => {
                     </div>
                 </div>
                 <div className={styles.user_info}>
-                    <h2>{name}</h2>
+                    <h2>{email}</h2>
+                    <h2>id{id}</h2>
                     <p>Ivan Ivanov</p>
                     <div className={styles.blocks}>
                         <div className={styles.item}>

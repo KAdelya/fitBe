@@ -14,6 +14,9 @@ import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
 import { setUser } from '../../stores/slices/userSlice';
 import { useAppDispatch } from '../../utils/redux-hooks';
 
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../utils/use-auth';
+
 export const Registration = () => {
     // let [register, setRegister] = useState(false);
     // let [reg, setReg] = useState('')
@@ -127,9 +130,9 @@ export const Registration = () => {
     //         <Questionnaire data={reg} />
     //     )
     // }
-
+    const { isAuth, id } = useAuth();
     const dispatch = useAppDispatch();
-
+    const navigate = useNavigate();
     const handleRegistration = (email:string, password:string) => {
         const auth = getAuth();
         createUserWithEmailAndPassword(auth, email, password)
@@ -139,7 +142,8 @@ export const Registration = () => {
                 email: user.email,
                 id: user.uid,
                 token: user.refreshToken,
-            }))
+            }));
+            navigate(`/user/id_${user.uid}`)
         })
         .catch(console.error)
     }

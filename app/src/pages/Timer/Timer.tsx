@@ -14,27 +14,15 @@ import {useParams} from "react-router-dom";
 import {getDatabase, onValue, ref} from "firebase/database";
 import {useState} from "react";
 
-const Timer = observer(() => {
-    const [v, setV] = useState(Object)
-    let {name} = useParams()
-    const {modalStore: {setCurrentModal}} = useStore()
-    setCurrentModal(<Modal children={<ModalTimer data={name}/>}/>)
-    const db = getDatabase();
-    const starCountRef = ref(db, '/time_data/' + name + '/');
-    function get_data(){
-        onValue(starCountRef, (snapshot) => {
-            const data = Object.values(Object(snapshot.val()))
-            setV(data)
-            return data
-        })
-    }
+const Timer = () => {
+    
     return (
         <div>
             <Header/>
             <section className={styles.wrapper}>
                 <div className={styles.timer}>
                     <div className={styles.timer_content_wrapper}>
-                        {get_data}
+                       1/5
                     </div>
                 </div>
                 <div className={styles.wrapper_timer_info}>
@@ -63,5 +51,6 @@ const Timer = observer(() => {
             <Footer/>
         </div>
     )
-})
+}
+
 export default Timer;

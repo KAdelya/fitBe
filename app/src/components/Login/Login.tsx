@@ -7,7 +7,7 @@ import { getDatabase, onValue, ref, set } from "firebase/database";
 import React, { useState } from "react";
 import { ModalUncorrectNameSign } from "../Modal/ModalUncorrectNameSign";
 import { ModalUncorrectPasswordSign } from "../Modal/ModalUncorrectPasswordSign";
-import { Navigate, useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 
 
 import { useDispatch } from 'react-redux';
@@ -98,8 +98,8 @@ export const Login = () => {
     //     )
     // }
 
-     const dispatch = useAppDispatch();
-
+    const dispatch = useAppDispatch();
+    const navigate = useNavigate();
     const handleLogin = (email:string, password:string) => {
         const auth = getAuth()
         signInWithEmailAndPassword(auth, email, password)
@@ -109,7 +109,8 @@ export const Login = () => {
                 email: user.email,
                 id: user.uid,
                 token: user.refreshToken,
-            }))
+            }));
+            navigate(`/user/id_${user.uid}`)
         })
         .catch(console.error)
     }
