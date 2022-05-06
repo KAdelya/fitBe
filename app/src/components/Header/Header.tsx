@@ -20,6 +20,7 @@ const Header = () => {
             <button className={styles.menu_button} onClick={() => setMenuActive(!menuActive)}>
                 <img src={menuBut}/>
             </button>
+            
             {/* <NavLink to='/user'>
                 <div className={styles.logo_wrapper}>
                     <Icon name='logo' width={48} height={48} />

@@ -3,15 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.module.sass';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { Provider } from 'react-redux';
 import mainStore from './stores/mainStore';
 import { ModalConstructor } from "./components/Modal/ModalConstructor";
 import { getAuth } from 'firebase/auth'
 import firebase, { initializeApp } from 'firebase/app'
 import { getDatabase } from 'firebase/database';
 import { store } from './stores/slices';
-import  * as constants from './constants';
-
+import * as constants from './constants';
+import { Provider } from 'react-redux';
 
 const app = initializeApp({
   apiKey: constants.REACT_APP_FIREBASE_API_KEY,
@@ -19,7 +18,7 @@ const app = initializeApp({
   databaseURL: constants.REACT_APP_FIREBASE_DATABASE_URL,
   projectId: constants.REACT_APP_FIREBASE_PROJECT_ID,
   storageBucket: constants.REACT_APP_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: constants.REACT_APP_FIREBASE_MESSAGING_SENDER_ID ,
+  messagingSenderId: constants.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
   appId: constants.REACT_APP_FIREBASE_APP_ID
 });
 
@@ -30,16 +29,14 @@ ReactDOM.render(
     {/* <Provider {...mainStore}> */}
     <Provider store={store}>
       <App />
-      <ModalConstructor />
-      </Provider>
+      {/* <ModalConstructor /> */}
+    </Provider>
     {/* </Provider> */}
   </React.StrictMode>,
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+
 reportWebVitals();
 export const db = getDatabase(app);
 export const auth = getAuth();
