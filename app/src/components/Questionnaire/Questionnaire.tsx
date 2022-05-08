@@ -142,12 +142,11 @@ export const Questionnaire = () => {
     let [newEmail, setNewEmail] = useState('')
     let [newName, setNewName] = useState('');
     let [newSurname, setNewSurname] = useState('');
-    let [newAvatar, setNewAvatar] = useState('');
-    let [newSpendingHours, setNewSpendingHours] = useState('');
-    let [newWaterCount, setWaterCount] = useState('');
-    let [newTracker, setNewTracker] = useState('');
-    let [newCalories, setNewCalories] = useState('');
-    let [result, setResult] = useState([])
+    let [newAvatar, setNewAvatar] = useState('https://www.alaskapacific.edu/wp-content/uploads/2015/11/placeholder_profile_photo.png');
+    let [newSpendingHours, setNewSpendingHours] = useState(0);
+    let [newWaterCount, setWaterCount] = useState(0);
+    let [newTracker, setNewTracker] = useState(0);
+    let [newCalories, setNewCalories] = useState(0);
 
     const navigate = useNavigate()
     const handleChange = (id: any) => {
@@ -165,7 +164,7 @@ export const Questionnaire = () => {
             info: {
                 avatar: newAvatar,
                 spendingHours: newSpendingHours,
-                waterCount: newWaterCount
+                waterCount: newWaterCount,
             },
             tracker: newTracker,
             calories: newCalories

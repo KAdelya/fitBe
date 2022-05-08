@@ -11,6 +11,7 @@ import { getDatabase } from 'firebase/database';
 import { store } from './stores/slices';
 import * as constants from './constants';
 import { Provider } from 'react-redux';
+import { getStorage } from 'firebase/storage';
 
 const app = initializeApp({
   apiKey: constants.REACT_APP_FIREBASE_API_KEY,
@@ -39,4 +40,5 @@ ReactDOM.render(
 
 reportWebVitals();
 export const db = getDatabase(app);
+export const storage = getStorage(app)
 export const auth = getAuth();

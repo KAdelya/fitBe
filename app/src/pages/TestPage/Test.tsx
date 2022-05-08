@@ -57,7 +57,7 @@ const Test = () => {
             },
             tracker: newTracker,
             calories: newCalories
-        }).then(() => { alert('update successfully') })
+        }).then(() => { console.log('update successfully') })
             .catch((error) => { alert('sorry :(' + error) })
     }
 
