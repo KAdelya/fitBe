@@ -143,7 +143,7 @@ export const Registration = () => {
                 id: user.uid,
                 token: user.refreshToken,
             }));
-            navigate(`/questionnaire/id_${user.uid}`)
+            navigate(`/questionnaire`)
         })
         .catch(console.error)
     }

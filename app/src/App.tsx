@@ -26,16 +26,16 @@ const App = () => {
           
         <Routes>
               <Route path='/' element={<MainPage />} />
-              <Route path={`/questionnaire/id_${id}`} element={<QuestionnairePage />} />
+              <Route path={`/questionnaire`} element={<QuestionnairePage />} />
               <Route path='/registration' element={<RegistrationPage />} />
               <Route path='/login' element={<Login />} />
 
-              <Route path={`/user/id_${id}`} element={<Profil />} />
-              <Route path={`/timer/id_${id}`} element={<Timer />} />
-              <Route path={`/calculator/id_${id}`} element={<Calculator />} />
-              <Route path={`/training/id_${id}`} element={<Training />} />
-              <Route path={`/track/id_${id}`} element={<TrackWeight />} />
-              <Route path={`/tracker/id_${id}`} element={<Tracker/>}/>
+              <Route path={`/user`} element={<Profil />} />
+              <Route path={`/timer`} element={<Timer />} />
+              <Route path={`/calculator`} element={<Calculator />} />
+              <Route path={`/training`} element={<Training />} />
+              <Route path={`/track`} element={<TrackWeight />} />
+              <Route path={`/tracker`} element={<Tracker/>}/>
           </Routes>
         </Router>
       </MainLayout>

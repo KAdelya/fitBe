@@ -15,19 +15,28 @@ const Header = () => {
     const navigate = useNavigate();
     let { name } = useParams();
     const items = [
-        { value: 'Timer', href: `/timer/:id${id}` },
-        { value: 'Workout', href: `/training/:id${id}` },
-        { value: 'Diary', href: `/calculator/:id${id}` },
-        { value: 'Tracker', href: `/track/:id${id}` }
+        // { value: 'Timer', href: `/timer/:id${id}` },
+        // { value: 'Workout', href: `/training/:id${id}` },
+        // { value: 'Diary', href: `/calculator/:id${id}` },
+        // { value: 'Tracker', href: `/track/:id${id}` }
+        { value: 'Timer', href: `/timer` },
+        { value: 'Workout', href: `/training` },
+        { value: 'Diary', href: `/calculator` },
+        { value: 'Tracker', href: `/track/` }
     ];
     const [menuActive, setMenuActive] = useState(false);
     const dispatch = useDispatch()
-    return isAuth ?
+    const signOut = () => {
+        dispatch(removeUser());
+        navigate(`/`, {replace: true})
+    }
+    return(
 
         <header>
-            <button className={styles.menu_button} onClick={() => setMenuActive(!menuActive)}>
+            {/* <button className={styles.menu_button} onClick={() => setMenuActive(!menuActive)}>
                 <img src={menuBut} />
-            </button>
+            </button> */}
+            <button onClick={() => navigate('/user')}>go back</button>
 
             {/* <NavLink to='/user'>
                 <div className={styles.logo_wrapper}>
@@ -37,17 +46,17 @@ const Header = () => {
             </NavLink> */}
             <nav className={styles.navbar}>
                 <ul>
-                    <li><NavLink to={`/timer/id_${id}`}>Timer</NavLink></li>
-                    <li><NavLink to={`/training/id_${id}`}>Workout</NavLink></li>
-                    <li><NavLink to={`/calculator/id_${id}`}>Diary</NavLink></li>
-                    <li><NavLink to={`/tracker/id_${id}`}>Tracker</NavLink></li>
+                    <li><NavLink to={`/timer`}>Timer</NavLink></li>
+                    <li><NavLink to={`/training`}>Workout</NavLink></li>
+                    <li><NavLink to={`/calculator`}>Diary</NavLink></li>
+                    <li><NavLink to={`/tracker`}>Tracker</NavLink></li>
                 </ul>
             </nav>
             <div className={styles.button_wrapper}>
-                <button onClick={() => dispatch(removeUser())}>SIGN OUT</button>
+                <button onClick={() => signOut()}>SIGN OUT</button>
 
             </div>
-            <div className={styles.menu}>
+            {/* <div className={styles.menu}>
                 <NavLink to='/user'>
                     <div className={styles.logo}>
                         <Icon name='logo' width={48} height={48} />
@@ -55,11 +64,10 @@ const Header = () => {
                     </div>
                 </NavLink>
                 <Menu items={items} active={menuActive} setActive={setMenuActive} />
-            </div>
+            </div> */}
         </header>
-        :
-        <>{navigate(`/`)}</>
-
+    )
+    
 
 }
 

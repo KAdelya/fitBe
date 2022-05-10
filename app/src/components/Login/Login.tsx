@@ -110,7 +110,7 @@ export const Login = () => {
                 id: user.uid,
                 token: user.refreshToken,
             }));
-            navigate(`/user/id_${user.uid}`)
+            navigate(`/user`)
         })
         .catch(console.error)
     }

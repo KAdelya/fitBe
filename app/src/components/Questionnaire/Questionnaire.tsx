@@ -151,7 +151,7 @@ export const Questionnaire = () => {
     const navigate = useNavigate()
     const handleChange = (id: any) => {
         createUser(id)
-        navigate(`/user/id_${id}`)
+        navigate(`/user`)
 
     }
     async function createUser(id: any) {

@@ -19,7 +19,7 @@ export const MainPage = () => {
                     <p>BeFit</p>
                 </div>
                 <div className={styles.button}>
-                    <NavLink to='/sign'>
+                    <NavLink to='/login'>
                         <CustomButton>SIGN IN</CustomButton>
                     </NavLink>
                 </div>
