@@ -158,7 +158,7 @@ const Profil = () => {
 
 
                         <NavLink to='/track'>
-                            <MainCustomBtn>WEIGH YOURSELF</MainCustomBtn>
+                            <MainCustomBtn onClick={''}>WEIGH YOURSELF</MainCustomBtn>
                         </NavLink>
                         {/* <button onClick={() => getInfoFromDataBase(id)}>happy hacking</button> */}
                     </div>

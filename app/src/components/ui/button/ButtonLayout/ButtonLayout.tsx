@@ -1,13 +1,15 @@
 import style from '../ButtonLayout/ButtonLayout.module.sass';
 import { FC } from 'react';
 
-interface Props { }
+interface Props {
+    onClick: any
+}
 
-export const MainCustomBtn: FC<Props> = ({ children }) => {
+export const MainCustomBtn: FC<Props> = ({ children , onClick}) => {
     return (
-        <div className={style.custom}>
+        <button className={style.custom} onClick={onClick}>
             {children}
-        </div>
+        </button>
     );
 }
 export default MainCustomBtn;

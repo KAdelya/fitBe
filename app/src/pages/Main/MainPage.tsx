@@ -33,7 +33,7 @@ export const MainPage = () => {
                         <p>You will learn to take care of yourself gradually changing habits.</p>
                         <div className={styles.button}>
                             <NavLink to='/registration'>
-                                <MainCustomBtn>REGISTRATION</MainCustomBtn>
+                                <MainCustomBtn onClick={''}>REGISTRATION</MainCustomBtn>
                             </NavLink>
                         </div>
                     </div>
@@ -89,7 +89,7 @@ export const MainPage = () => {
                     <p>Soriane career was skyrocketing, but her unpredictable schedule often meant poor food choices and little time for exercise, which led to weight gain. Now, she works healthy habits into her busy calendar with HIIT workouts and by prepping healthy meals in advance––and she’s glowing as a result.</p>
                     <div className={styles.button}>
                         <NavLink to='/registration'>
-                            <MainCustomBtn>REGISTRATION</MainCustomBtn>
+                            <MainCustomBtn onClick={''}>REGISTRATION</MainCustomBtn>
                         </NavLink>
                     </div>
                 </div>

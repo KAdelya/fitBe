@@ -31,7 +31,7 @@ const App = () => {
               <Route path='/login' element={<Login />} />
 
               <Route path={`/user/id_${id}`} element={<Profil />} />
-              <Route path={`/timer/id_${id}`} element={<Timer />} />
+              <Route path={`/timer/id_${id}`} element={<Timer hours ={0} minutes = {0} seconds={60} currentRound={1} endRound={8}/>} />
               <Route path={`/calculator/id_${id}`} element={<Calculator />} />
               <Route path={`/training/id_${id}`} element={<Training />} />
               <Route path={`/track/id_${id}`} element={<TrackWeight />} />

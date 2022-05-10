@@ -22,7 +22,7 @@ const Menu: FC<Props> = ({ items, active, setActive }) => {
                         <li>
                             <div className={styles.button}>
                                 <NavLink to='/'>
-                                    <MainCustomBtn>SIGN OUT</MainCustomBtn>
+                                    <MainCustomBtn onClick={''}>SIGN OUT</MainCustomBtn>
                                 </NavLink>
                             </div>
                         </li>

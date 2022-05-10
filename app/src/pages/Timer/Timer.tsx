@@ -12,41 +12,99 @@ import {ModalTimer} from '../../components/Modal/ModalTimer';
 import MainCustomBtn from '../../components/ui/button/ButtonLayout/ButtonLayout';
 import {useParams} from "react-router-dom";
 import {getDatabase, onValue, ref} from "firebase/database";
-import {useState} from "react";
+import {FC, useEffect, useState} from "react";
 
-const Timer = () => {
-    
+interface Props {
+    hours: number,
+    minutes: number,
+    seconds: number,
+    currentRound: number,
+    endRound: number
+}
+
+const Timer: FC<Props> = ({hours, minutes, seconds, currentRound, endRound}) => {
+    const [paused, setPaused] = useState(false);
+    const [over, setOver] = useState(false);
+    const [curRound, setCurRound] = useState(currentRound)
+    const [[h, m, s], setTime] = useState([hours, minutes, seconds]);
+
+    const tick = () => {
+        if (paused || over) return;
+
+        if (h === 0 && m === 0 && s === 0) {
+            setOver(true);
+        } else if (m === 0 && s === 0) {
+            setTime([h - 1, 59, 59]);
+        } else if (s == 0) {
+            setTime([h, m - 1, 59]);
+        } else {
+            setTime([h, m, s - 1]);
+        }
+    };
+
+    const reset = () => {
+        setTime([parseInt(String(hours)), parseInt(String(minutes)), parseInt(String(seconds))]);
+        setPaused(false);
+        setOver(false);
+    };
+
+    useEffect(() => {
+        const timerID = setInterval(() => tick(), 1000);
+        return () => clearInterval(timerID);
+    });
+    const getNextRound = () => {
+        if (curRound < endRound) {
+            setTime([parseInt(String(hours)), parseInt(String(minutes)), parseInt(String(seconds))]);
+            setPaused(false);
+            setOver(false);
+            setCurRound(curRound + 1);
+        }
+
+    }
+    const getLastRound = () => {
+        if (curRound > 1) {
+            setTime([parseInt(String(hours)), parseInt(String(minutes)), parseInt(String(seconds))]);
+            setPaused(false);
+            setOver(false);
+            setCurRound(curRound - 1);
+        }
+    }
     return (
         <div>
             <Header/>
             <section className={styles.wrapper}>
                 <div className={styles.timer}>
                     <div className={styles.timer_content_wrapper}>
-                       1/5
+                        <p>{`${h.toString().padStart(2, '0')}:${m
+                            .toString()
+                            .padStart(2, '0')}:${s.toString().padStart(2, '0')}`}</p>
                     </div>
                 </div>
                 <div className={styles.wrapper_timer_info}>
                     <div className={styles.reload_button_wrapper}>
                         <h1>Work</h1>
+                        <div>{over ? "Time's up!" : ''}</div>
                         <div className={styles.reload}>
-                            <button>
+                            <button onClick={() => reset()}>
                                 <img src={refresh} width={75}/>
                             </button>
                         </div>
                     </div>
                     <div className={styles.set}>
+                        <MainCustomBtn onClick={getLastRound}>
                         <img src={line} width={5}/>
                         <img src={rarr} width={35}/>
-                        <p> 1/5</p>
+                        </MainCustomBtn>
+                        <p> {String(curRound)}/{String(endRound)}</p>
+                        <MainCustomBtn onClick={getNextRound}>
                         <img src={arr} width={35}/>
                         <img src={line} width={5}/>
+                        </MainCustomBtn>
                     </div>
                     <div className={styles.lower_button_wrapper}>
-                        <MainCustomBtn>START</MainCustomBtn>
-                        <MainCustomBtn>STOP</MainCustomBtn>
+                        <MainCustomBtn onClick={() => setPaused(!paused)}>{paused ? 'START' : 'STOP'}</MainCustomBtn>
                     </div>
                 </div>
-
             </section>
             <Footer/>
         </div>
