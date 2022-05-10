@@ -13,8 +13,9 @@ import { Login } from './components/Login/Login';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import { useAuth } from './utils/use-auth';
-import Tracker from './pages/Tracker/Tracker';
+import Todods from './pages/Todods/Todods';
 import { QuestionnairePage } from './pages/QuestionnairePage/QuestionnairePage';
+import Test from './pages/TestPage/Test';
 
 
 const App = () => {
@@ -35,7 +36,8 @@ const App = () => {
               <Route path={`/calculator`} element={<Calculator />} />
               <Route path={`/training`} element={<Training />} />
               <Route path={`/track`} element={<TrackWeight />} />
-              <Route path={`/tracker`} element={<Tracker/>}/>
+              <Route path={`/todods`} element={<Todods/>}/>
+              <Route path={`/test`} element={<Test/>}/>
           </Routes>
         </Router>
       </MainLayout>

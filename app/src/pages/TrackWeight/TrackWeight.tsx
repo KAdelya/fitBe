@@ -10,6 +10,10 @@ import {
   Tooltip
 } from "recharts";
 import { curveCardinal } from "d3-shape";
+import { useEffect, useState } from 'react';
+import { onValue, ref } from 'firebase/database';
+import { db } from '../..';
+import { useAuth } from '../../utils/use-auth';
 
 
 const data = [
@@ -47,24 +51,44 @@ const data = [
 const cardinal = curveCardinal.tension(0);
 
 const TrackWeight = () => {
+  let [startWeight, setStartWeight] = useState();
+  let [curWeight, setCurWeight] = useState();
+  let [desiredWeight, setDesiredWeight] = useState();
+  const [weight, setWeight] = useState(curWeight)
+  async function getInfoFromDataBase(id: any) {
+    const dbRef = (ref(db, `/${id}`))
+    onValue(dbRef, (snapshot: any) => {
+      startWeight = snapshot.val().weight.start;
+      curWeight = snapshot.val().weight.current;
+      desiredWeight = snapshot.val().weight.desired;
+    })
+    setStartWeight(startWeight);
+    setCurWeight(curWeight);
+    setDesiredWeight(desiredWeight);
+  }
+  const { id} = useAuth();
+  useEffect(() => {
+      getInfoFromDataBase(id)
+  })
+
   return (
     <div>
       <Header />
       <section className={styles.content_wrapper}>
         <div className={styles.input_block_wrapper}>
           <div className={styles.input_wrapper_main}>
-            <input value={90} />
+            <input value={weight}/>
             <br />
             <label>Last weigh-in 22.03.2022</label>
           </div>
           <div className={styles.lower_input_wrapper}>
             <div className={styles.input_wrapper}>
-              <input value={70} />
+              <input value={startWeight} />
               <br />
               <label>Starting weight</label>
             </div>
             <div className={styles.input_wrapper}>
-              <input value={95} />
+              <input value={desiredWeight} />
               <br />
               <label>Desired weight</label>
             </div>

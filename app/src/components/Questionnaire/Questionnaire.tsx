@@ -145,9 +145,9 @@ export const Questionnaire = () => {
     let [newAvatar, setNewAvatar] = useState('https://www.alaskapacific.edu/wp-content/uploads/2015/11/placeholder_profile_photo.png');
     let [newSpendingHours, setNewSpendingHours] = useState(0);
     let [newWaterCount, setWaterCount] = useState(0);
-    let [newTracker, setNewTracker] = useState(0);
     let [newCalories, setNewCalories] = useState(0);
-
+    let [newWeight, setNewWeight] =  useState('')
+    let [newDesiredWeight, setNewDesiredWeight] = useState('')
     const navigate = useNavigate()
     const handleChange = (id: any) => {
         createUser(id)
@@ -166,7 +166,11 @@ export const Questionnaire = () => {
                 spendingHours: newSpendingHours,
                 waterCount: newWaterCount,
             },
-            tracker: newTracker,
+            weight: {
+                start: newWeight,
+                current: newWeight,
+                desired: newDesiredWeight
+            },
             calories: newCalories
         });
     }
@@ -196,7 +200,11 @@ export const Questionnaire = () => {
                 </div>
                 <div className={styles.block_for_question}>
                     <label>Your weight (kg)</label>
-                    <input name="weight" />
+                    <input name="weight" onChange={(event) => { setNewWeight( event.target.value) }}/>
+                </div>
+                <div className={styles.block_for_question}>
+                    <label>Your desired weight (kg)</label>
+                    <input name="weight" onChange={(event) => { setNewDesiredWeight( event.target.value) }}/>
                 </div>
                 <div className={styles.block_for_question}>
                     <label>Your age:</label>

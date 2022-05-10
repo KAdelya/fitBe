@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux';
 import { removeUser } from '../../stores/slices/userSlice';
 import { useAuth } from '../../utils/use-auth';
 import { RegistrationPage } from '../../pages/RegistrationPage/RegistrationPage';
+import { useAppDispatch } from '../../utils/redux-hooks';
 
 
 const Header = () => {
@@ -25,7 +26,7 @@ const Header = () => {
         { value: 'Tracker', href: `/track/` }
     ];
     const [menuActive, setMenuActive] = useState(false);
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
     const signOut = () => {
         dispatch(removeUser());
         navigate(`/`, {replace: true})
@@ -36,7 +37,7 @@ const Header = () => {
             {/* <button className={styles.menu_button} onClick={() => setMenuActive(!menuActive)}>
                 <img src={menuBut} />
             </button> */}
-            <button onClick={() => navigate('/user')}>go back</button>
+            <button onClick={() => navigate('/user')}>&#8592;</button>
 
             {/* <NavLink to='/user'>
                 <div className={styles.logo_wrapper}>
@@ -49,7 +50,7 @@ const Header = () => {
                     <li><NavLink to={`/timer`}>Timer</NavLink></li>
                     <li><NavLink to={`/training`}>Workout</NavLink></li>
                     <li><NavLink to={`/calculator`}>Diary</NavLink></li>
-                    <li><NavLink to={`/tracker`}>Tracker</NavLink></li>
+                    <li><NavLink to={`/todods`}>Tracker</NavLink></li>
                 </ul>
             </nav>
             <div className={styles.button_wrapper}>

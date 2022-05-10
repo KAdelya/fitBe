@@ -20,7 +20,7 @@ const Profil = () => {
     let [spendingHours, setSpendingHours] = useState(0);
     let [avatar, setAvatar] = useState()
     let [waterCount, setWaterCount] = useState();
-    let [tracker, setTracker] = useState();
+    let [curWeight, setCurWeight] = useState();
     let [calories, setCalories] = useState();
     // let { name } = useParams();
     // setCurrentModal(<Modal children={<ModalWelcome ccal={0} />} />)
@@ -32,14 +32,14 @@ const Profil = () => {
             spendingHours = snapshot.val().info.spendingHours;
             waterCount = snapshot.val().info.waterCount;
             avatar = snapshot.val().info.avatar;
-            tracker = snapshot.val().tracker;
+            curWeight = snapshot.val().weight.current;
             calories = snapshot.val().calories;
         })
         setName(name);
         setSurname(surname);
         setSpendingHours(spendingHours);
         setWaterCount(waterCount);
-        setTracker(tracker);
+        setCurWeight(curWeight);
         setCalories(calories);
         setAvatar(avatar)
     }
@@ -137,7 +137,7 @@ const Profil = () => {
                     <div className={styles.blocks}>
                         <div className={styles.item}>
                             <h3>CURRENT WEIGHT</h3>
-                            <p>{tracker}</p>
+                            <p>{curWeight}</p>
                         </div>
                         <div className={styles.item}>
                             <h3>CALORIES</h3>
