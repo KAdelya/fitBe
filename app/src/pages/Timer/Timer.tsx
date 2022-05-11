@@ -16,17 +16,20 @@ const Timer = () => {
     const [time, setTime] = useState(0);
     const [timeOn, setTimeOn] = useState(false)
     let rounds = 5
+
     useEffect(() => {
         let interval: any = null;
         if (timeOn) {
             interval = setInterval(() => {
                 setTime(prevTime => prevTime + 10)
-            }, 1)
+            }, 100)
         } else {
             clearInterval(interval)
         }
         return () => clearInterval(interval)
     }, [timeOn])
+
+  
 
     return (
         <div>
@@ -34,7 +37,7 @@ const Timer = () => {
             <section className={styles.wrapper}>
                 <div className={styles.timer}>
                     <div className={styles.timer_content_wrapper}>
-                        {timeOn? Math.floor((time / 100) % 60): 0}
+                        {Math.floor((time / 6000) % 60) < rounds? Math.floor((time / 100) % 60): 0}
                     </div>
                 </div>
                 <div className={styles.wrapper_timer_info}>
@@ -49,17 +52,17 @@ const Timer = () => {
                     <div className={styles.set}>
                         <img src={line} width={5} />
                         <img src={rarr} width={35} />
-                        <p> {Math.floor((time / 6000) % 60) < rounds? Math.floor((time / 6000) % 60): () =>setTimeOn(false)}
+                        <p> {Math.floor((time / 6000) % 60) < rounds? Math.floor((time / 6000) % 60): rounds}
                         /{rounds}</p>
-
-
 
                         <img src={arr} width={35} />
                         <img src={line} width={5} />
                     </div>
                     <div className={styles.lower_button_wrapper}>
+
                         {/* <MainCustomBtn>START</MainCustomBtn>
                         <MainCustomBtn>STOP</MainCustomBtn> */}
+
                         <button onClick={() => setTimeOn(true)}>
                             start</button>
                         <button onClick={() => setTimeOn(false)}>stop</button>

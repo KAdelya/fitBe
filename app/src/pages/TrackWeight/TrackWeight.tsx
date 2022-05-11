@@ -11,7 +11,7 @@ import {
 } from "recharts";
 import { curveCardinal } from "d3-shape";
 import { useEffect, useState } from 'react';
-import { onValue, ref } from 'firebase/database';
+import { onValue, ref, update } from 'firebase/database';
 import { db } from '../..';
 import { useAuth } from '../../utils/use-auth';
 
@@ -49,12 +49,11 @@ const data = [
   }
 ];
 const cardinal = curveCardinal.tension(0);
-
 const TrackWeight = () => {
   let [startWeight, setStartWeight] = useState();
   let [curWeight, setCurWeight] = useState();
   let [desiredWeight, setDesiredWeight] = useState();
-  const [weight, setWeight] = useState(curWeight)
+  const [weight, setWeight] = useState('')
   async function getInfoFromDataBase(id: any) {
     const dbRef = (ref(db, `/${id}`))
     onValue(dbRef, (snapshot: any) => {
@@ -66,18 +65,29 @@ const TrackWeight = () => {
     setCurWeight(curWeight);
     setDesiredWeight(desiredWeight);
   }
-  const { id} = useAuth();
+  const { id } = useAuth();
   useEffect(() => {
-      getInfoFromDataBase(id)
+    getInfoFromDataBase(id)
   })
 
+  async function updateInDataBase(id: any) {
+    update(ref(db, `/${id}`), {
+      weight: {
+        start: startWeight,
+        current: weight,
+        desired: desiredWeight
+      },
+    }).then(() => { console.log('update successfully') })
+      .catch((error) => { alert('sorry :(' + error) })
+  }
   return (
     <div>
       <Header />
       <section className={styles.content_wrapper}>
         <div className={styles.input_block_wrapper}>
           <div className={styles.input_wrapper_main}>
-            <input value={weight}/>
+            <input value={weight} name="firstName" onChange={e => setWeight(e.target.value)} />
+            <button onClick={() => updateInDataBase(id)}>update</button>
             <br />
             <label>Last weigh-in 22.03.2022</label>
           </div>

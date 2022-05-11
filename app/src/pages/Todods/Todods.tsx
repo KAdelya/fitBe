@@ -57,12 +57,6 @@ const Todods = () => {
                     </div>
 
                 )} */}
-                {tasks.map((task) => (
-                    <li key={task.id}>
-                        {task.title}
-                    </li>
-                ))}
-                <input type='text'/>
                 
 
 

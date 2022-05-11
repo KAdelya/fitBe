@@ -1,29 +1,27 @@
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../stores/slices";
 import { addTask } from "../../stores/slices/todoSlice";
-import TaskItem from "./TaskItem";
 
-type Inputs = {
-    taskTitle: string;
-  };
-  
-  type PropTypes = {
-    edit?: boolean;
-  };
+
 const Test = () => {
+  const [text, setText] = useState('')
     const { tasks } = useSelector((state: RootState) => state.todos);
     const dispatch = useDispatch();
   
-    const handleCreate = (data: Inputs) => {
-      dispatch(addTask(data.taskTitle));
+    const handleCreate = (data: string) => {
+      dispatch(addTask(data));
     };
   
   
     return (
       <div >
         {tasks.map((task) => (
-        <TaskItem key={task.id} task={task} />
+        <div>{task.title}</div>
       ))}
+
+      <input value={text} onChange={((e) => setText(e.target.value))}/>
+      <button onClick={() => handleCreate(text)}>add tasky</button>
       </div>
     );
   };
