@@ -8,17 +8,26 @@ import Checkbox from '../../components/ui/checkbox/checkbox';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { RootState } from '../../stores/slices';
-import { addTask } from '../../stores/slices/todoSlice';
+import { addTask, removeTask } from '../../stores/slices/todoSlice';
 
 
 type Inputs = {
     taskTitle: string;
 };
 const Todods = () => {
+    const [text, setText] = useState('')
     const { tasks } = useSelector((state: RootState) => state.todos);
     const dispatch = useDispatch();
-    const handleCreate = (data: Inputs) => {
-        dispatch(addTask(data.taskTitle));
+    const [visible, setVisible] = useState(false)
+    const handleCreate = (data: string) => {
+        dispatch(addTask(data));
+        setVisible(false)
+        setText('')
+    };
+
+    const handleRemove = (id: number, title: string) => {
+        dispatch(removeTask(id));
+        setText(title)
     };
     return (
         <div>
@@ -37,7 +46,7 @@ const Todods = () => {
                             </div>
                         </div>
                         <div className={styles.buttons}>
-                            <button >
+                            <button onClick={() => setVisible(!visible)}>
                                 <img src={plus} width={20} />
                             </button>
                         </div>
@@ -57,7 +66,18 @@ const Todods = () => {
                     </div>
 
                 )} */}
-                
+                {tasks.map((task) => (
+                    <div>
+                        <pre>{task.id} - {task.title}</pre>
+                        <button onClick={() => handleRemove(task.id, task.title)} style={{ color: 'red' }}>&times;</button>
+                    </div>
+
+                ))}
+                <div className={styles.input}>
+                    {visible?
+                    <><input value={text} onChange={((e) => setText(e.target.value))} />
+                    <button onClick={() => handleCreate(text)}>add tasky</button></>: <></>}
+                </div>
 
 
 

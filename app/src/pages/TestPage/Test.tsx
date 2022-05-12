@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../stores/slices";
-import { addTask } from "../../stores/slices/todoSlice";
+import { addTask, removeTask } from "../../stores/slices/todoSlice";
 
 
 const Test = () => {
@@ -11,14 +11,21 @@ const Test = () => {
   
     const handleCreate = (data: string) => {
       dispatch(addTask(data));
+      setText('')
     };
-  
+    const handleRemove = (id: number) => {
+      dispatch(removeTask(id));
+    };
   
     return (
       <div >
         {tasks.map((task) => (
-        <div>{task.title}</div>
-      ))}
+          <div>
+            <pre>{task.id} - {task.title}</pre>
+            <button onClick={() =>handleRemove(task.id)} style={{color: 'red'}}>&times;</button>
+          </div>
+
+        ))}
 
       <input value={text} onChange={((e) => setText(e.target.value))}/>
       <button onClick={() => handleCreate(text)}>add tasky</button>

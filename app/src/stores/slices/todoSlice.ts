@@ -3,11 +3,11 @@ import { createSlice } from "@reduxjs/toolkit";
 interface Props {
     id: number;
     // tasks: { id: number; title: string; completed: boolean }[];
-    tasks: {  title: string }[];
+    tasks: {  id: number, title: string, completed: boolean }[];
 }
 const initialState: Props = {
     id: 0,
-    tasks: [{ title: ''}],
+    tasks: [{ id: 0, title: '', completed: false}],
     // tasks: [{ id: 0, title: '', completed: false }],
 };
 const todoSlice = createSlice({
@@ -15,26 +15,17 @@ const todoSlice = createSlice({
     initialState,
     reducers: {
         addTask: (state, action) => {
-            // state.id++;
-            // const newTask = {
-            //     id: state.id,
-            //     title: action.payload,
-            //     completed: false,
-            // };
-            // state.tasks = [newTask, ...state.tasks];
-            state.tasks.push({ title: action.payload,})
+            state.id++;
+            state.tasks.push({ id: state.id ,title: action.payload, completed: false})
         },
-        // removeTask: (state, action) => {
-        //     state.tasks = state.tasks.filter((t) => t.id !== action.payload.id);
-        // },
-        // editTask: (state, action) => {
-        //     const task = state.tasks.find((t) => t.id === action.payload.id);
-        //     if (task) {
-        //         task.title = action.payload.title;
-        //     }
+        removeTask: (state, action) => {
+            // state.tasks.filter((item) => item.id !== action.payload.id)
+            // state.id -= 1;
+            state.tasks = state.tasks.filter(task => task.id !== action.payload.id);
+        },
         
     }
 })
 
-export const { addTask } = todoSlice.actions;
+export const { addTask, removeTask } = todoSlice.actions;
 export default todoSlice.reducer;
