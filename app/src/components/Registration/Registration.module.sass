@@ -1,50 +1,58 @@
 .page_wrapper
-    margin: 1em 5em
-    padding: 1em
+  margin: 1em 5em
+  padding: 1em
+
 .logo_wrapper
-    display: flex
-    margin-right: 10em
-    p
-        padding: 0 0.1em
-        margin: 0
-        font-size: 55px    
+  display: flex
+  margin-right: 10em
+
+  p
+    padding: 0 0.1em
+    margin: 0
+    font-size: 55px
+
 .wrapper
-    padding-top: 3em
-    padding-bottom: 0
-    width: 100%
+  padding-top: 3em
+  padding-bottom: 0
+  width: 100%
+  justify-content: center
+  text-align: center
+  box-shadow: none
+
+.main_content
+  .button_wrapper
+    margin: 3em 0
+    text-align: center
+    justify-content: center
+
+  h1
+    font-size: 48px
+    margin: 0
+    padding: 0
+
+  .information_form_wrapper
     justify-content: center
     text-align: center
-    box-shadow: none
-.main_content
-    .button_wrapper
-        margin: 3em 0
-        text-align: center
-        justify-content: center
-    h1
-        font-size: 48px
-        margin: 0
-        padding: 0
-    .information_form_wrapper
-        justify-content: center
-        text-align: center
-    .information_form
-        margin: 1em 20em
-        input
-            color: white 
-            background: none
-            border: 2px solid #6877FF
-            border-radius: 28px
-            padding: 1.7em 3em
-            width: 80%
 
-@keyframes custom 
-	0%
-        background-position: 0% 50%
-	50% 
-		background-position: 100% 50%
-	100% 
-		background-position: 0% 50%
-    
+  .information_form
+    margin: 1em 20em
+
+    input
+      color: white
+      background: none
+      border: 2px solid #6877FF
+      border-radius: 28px
+      padding: 1.7em 3em
+      width: 80%
+
+@keyframes custom
+  0%
+    background-position: 0% 50%
+  50%
+    background-position: 100% 50%
+  100%
+    background-position: 0% 50%
+
 .button_wrapper
   button
     background: linear-gradient(-45deg, #6877ffa6, #6877ff7c, #9900ff88, #c907faa1)
@@ -52,12 +60,22 @@
     box-shadow: 0px 4px 28px rgba(0, 0, 0, 0.32)
     border-radius: 30px
     color: white
-    font-size: 17px 
+    font-size: 17px
     padding: 0.9em 1.9em
     border: 2px solid #6877FF
     animation: custom 3s ease infinite
+
     &:hover
-        animation: none
-        border: 2px solid #6877FF
-        box-shadow: 0px 4px 28px rgba(0, 0, 0, 0.52)
-        background: linear-gradient(180deg, rgba(104, 119, 255, 0.9) 0%, rgba(104, 119, 255, 0.702) 100%)
+      animation: none
+      border: 2px solid #6877FF
+      box-shadow: 0px 4px 28px rgba(0, 0, 0, 0.52)
+      background: linear-gradient(180deg, rgba(104, 119, 255, 0.9) 0%, rgba(104, 119, 255, 0.702) 100%)
+
+.information_form
+  p
+    margin: 0.5em 0.5em 0.3em 0.3em
+    padding: 0
+    font-weight: 400
+    color: red
+    font-size: 15px
+    line-height: 20px
