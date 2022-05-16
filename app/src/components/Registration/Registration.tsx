@@ -1,18 +1,18 @@
 import styles from './Registration.module.sass';
-import {Formik} from 'formik';
+import { Formik } from 'formik';
 import * as yup from 'yup';
-import {useState} from "react";
-import {getDatabase, ref, set, onValue} from "firebase/database";
-import {useStore} from "../../utils/use-stores-hook";
+import { useState } from "react";
+import { getDatabase, ref, set, onValue } from "firebase/database";
+import { useStore } from "../../utils/use-stores-hook";
 import Modal from '../Layouts/ModalLayout/ModalLayout'
-import {ModalUncorrectNameRegistration} from "../Modal/ModalUncorrectNameRegistration";
-import {ModalUncorrectPasswordsRegistratiion} from "../Modal/ModalUncorrectPasswordsRegistratiion";
-import {Questionnaire} from "../Questionnaire/Questionnaire";
-import {db} from '../..';
-import {useDispatch} from 'react-redux';
-import {createUserWithEmailAndPassword, getAuth} from 'firebase/auth';
-import {setUser} from '../../stores/slices/userSlice';
-import {useAppDispatch} from '../../utils/redux-hooks';
+import { ModalUncorrectNameRegistration } from "../Modal/ModalUncorrectNameRegistration";
+import { ModalUncorrectPasswordsRegistratiion } from "../Modal/ModalUncorrectPasswordsRegistratiion";
+import { Questionnaire } from "../Questionnaire/Questionnaire";
+import { db } from '../..';
+import { useDispatch } from 'react-redux';
+import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
+import { setUser } from '../../stores/slices/userSlice';
+import { useAppDispatch } from '../../utils/redux-hooks';
 
 
 import { useNavigate } from 'react-router-dom';
@@ -27,14 +27,14 @@ export const Registration = () => {
         password: yup.string().typeError('Position to be a string').required('Necessarily')
             .matches(/[0-9a-zA-Z]{6,}/g, 'Password must be at least 6 characters long')
     })
-    const {isAuth, id} = useAuth();
+    const { isAuth, id } = useAuth();
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
     const handleRegistration = (email: string, password: string) => {
         const auth = getAuth();
         createUserWithEmailAndPassword(auth, email, password)
 
-            .then(({user}) => {
+            .then(({ user }) => {
                 console.log(user);
                 dispatch(setUser({
                     email: user.email,
@@ -71,9 +71,9 @@ export const Registration = () => {
                             onChange={(e) => setPass(e.target.value)} />
                     </div>
                     <div className={styles.information_form}>
-                        {/* <input
+                        <input
                             placeholder='Repeat password'
-                            type='password'/> */}
+                            type='password'/>
                     </div>
                 </div>
                 {/* <div className={styles.button_wrapper}> */}
@@ -86,7 +86,7 @@ export const Registration = () => {
                 {/* </div> */}
             </section>
 
-{/*        <div>
+            {/*        <div>
             <Formik
                 initialValues={{
                     email: '',
@@ -142,6 +142,7 @@ export const Registration = () => {
                         </section>
                     </form>)}
             </Formik>
-        </div>*/}
+                  </div>*/}
+        </div>
     )
 }
