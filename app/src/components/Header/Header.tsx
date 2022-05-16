@@ -9,7 +9,9 @@ import { removeUser } from '../../stores/slices/userSlice';
 import { useAuth } from '../../utils/use-auth';
 import { RegistrationPage } from '../../pages/RegistrationPage/RegistrationPage';
 import { useAppDispatch } from '../../utils/redux-hooks';
+import CustomButton from '../ui/button/CustomBtnLayout/CustomBtnLayout';
 
+interface Props { }
 
 const Header = () => {
     const { isAuth, id } = useAuth();
@@ -29,15 +31,17 @@ const Header = () => {
     const dispatch = useAppDispatch()
     const signOut = () => {
         dispatch(removeUser());
-        navigate(`/`, {replace: true})
+        navigate(`/`, { replace: true })
     }
-    return(
+    return (
 
         <header>
             {/* <button className={styles.menu_button} onClick={() => setMenuActive(!menuActive)}>
                 <img src={menuBut} />
             </button> */}
-            <button onClick={() => navigate('/user')}>&#8592;</button>
+            <div className={styles.navigate_btn}>
+                <button onClick={() => navigate('/user')}>&#8592;</button>
+            </div>
 
             {/* <NavLink to='/user'>
                 <div className={styles.logo_wrapper}>
@@ -54,7 +58,9 @@ const Header = () => {
                 </ul>
             </nav>
             <div className={styles.button_wrapper}>
-                <button onClick={() => signOut()}>SIGN OUT</button>
+                <CustomButton>
+                    <button onClick={() => signOut()}>SIGN OUT</button>
+                </CustomButton>
 
             </div>
             {/* <div className={styles.menu}>
@@ -68,7 +74,7 @@ const Header = () => {
             </div> */}
         </header>
     )
-    
+
 
 }
 

@@ -14,6 +14,7 @@ import { useDispatch } from 'react-redux';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { useAppDispatch } from '../../utils/redux-hooks';
 import { setUser } from '../../stores/slices/userSlice';
+import MainCustomBtn from '../ui/button/ButtonLayout/ButtonLayout';
 
 export const Login = () => {
     // const [isSign, setIsSign] = useState(false)
@@ -100,19 +101,19 @@ export const Login = () => {
 
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
-    const handleLogin = (email:string, password:string) => {
+    const handleLogin = (email: string, password: string) => {
         const auth = getAuth()
         signInWithEmailAndPassword(auth, email, password)
-        .then(({user}) => {
-            console.log(user);
-            dispatch(setUser({
-                email: user.email,
-                id: user.uid,
-                token: user.refreshToken,
-            }));
-            navigate(`/user`)
-        })
-        .catch(console.error)
+            .then(({ user }) => {
+                console.log(user);
+                dispatch(setUser({
+                    email: user.email,
+                    id: user.uid,
+                    token: user.refreshToken,
+                }));
+                navigate(`/user`)
+            })
+            .catch(console.error)
     }
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('')
@@ -136,7 +137,9 @@ export const Login = () => {
                             onChange={(e) => setPass(e.target.value)} />
                     </div>
                     <div className={styles.button_wrapper}>
-                        <button onClick={() => handleLogin(email, pass)}>SIGN IN</button>
+                        <MainCustomBtn>
+                            <button onClick={() => handleLogin(email, pass)}>SIGN IN</button>
+                        </MainCustomBtn>
                     </div>
                 </div>
             </section>

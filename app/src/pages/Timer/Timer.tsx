@@ -29,7 +29,7 @@ const Timer = () => {
         return () => clearInterval(interval)
     }, [timeOn])
 
-  
+
 
     return (
         <div>
@@ -37,7 +37,7 @@ const Timer = () => {
             <section className={styles.wrapper}>
                 <div className={styles.timer}>
                     <div className={styles.timer_content_wrapper}>
-                        {Math.floor((time / 6000) % 60) < rounds? Math.floor((time / 100) % 60): 0}
+                        <p>{Math.floor((time / 6000) % 60) < rounds ? Math.floor((time / 100) % 60) : 0}</p>
                     </div>
                 </div>
                 <div className={styles.wrapper_timer_info}>
@@ -52,8 +52,8 @@ const Timer = () => {
                     <div className={styles.set}>
                         <img src={line} width={5} />
                         <img src={rarr} width={35} />
-                        <p> {Math.floor((time / 6000) % 60) < rounds? Math.floor((time / 6000) % 60): rounds}
-                        /{rounds}</p>
+                        <p> {Math.floor((time / 6000) % 60) < rounds ? Math.floor((time / 6000) % 60) : rounds}
+                            /{rounds}</p>
 
                         <img src={arr} width={35} />
                         <img src={line} width={5} />
@@ -62,10 +62,13 @@ const Timer = () => {
 
                         {/* <MainCustomBtn>START</MainCustomBtn>
                         <MainCustomBtn>STOP</MainCustomBtn> */}
-
-                        <button onClick={() => setTimeOn(true)}>
-                            start</button>
-                        <button onClick={() => setTimeOn(false)}>stop</button>
+                        <MainCustomBtn>
+                            <button onClick={() => setTimeOn(true)}>
+                                START</button>
+                        </MainCustomBtn>
+                        <MainCustomBtn>
+                            <button onClick={() => setTimeOn(false)}>STOP</button>
+                        </MainCustomBtn>
                     </div>
                 </div>
             </section>

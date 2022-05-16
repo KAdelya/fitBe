@@ -16,31 +16,31 @@ import { useAuth } from './utils/use-auth';
 import Todods from './pages/Todods/Todods';
 import { QuestionnairePage } from './pages/QuestionnairePage/QuestionnairePage';
 import Test from './pages/TestPage/Test';
+import { LoginPage } from './pages/Login/LoginPage';
 
 
 const App = () => {
   const { isAuth, email, id } = useAuth();
   return (
     <div className={styles.App}>
-      <MainLayout>
-        <Router>
-          
-        <Routes>
-              <Route path='/' element={<MainPage />} />
-              <Route path={`/questionnaire`} element={<QuestionnairePage />} />
-              <Route path='/registration' element={<RegistrationPage />} />
-              <Route path='/login' element={<Login />} />
+      {/* <MainLayout> */}
+      <Router>
 
-              <Route path={`/user`} element={<Profil />} />
-              <Route path={`/timer`} element={<Timer />} />
-              <Route path={`/calculator`} element={<Calculator />} />
-              <Route path={`/training`} element={<Training />} />
-              <Route path={`/track`} element={<TrackWeight />} />
-              <Route path={`/todods`} element={<Todods/>}/>
-              <Route path={`/test`} element={<Test/>}/>
-          </Routes>
-        </Router>
-      </MainLayout>
+        <Routes>
+          <Route path='/' element={<MainPage />} />
+          <Route path={`/questionnaire`} element={<QuestionnairePage />} />
+          <Route path='/registration' element={<RegistrationPage />} />
+          <Route path='/login' element={<LoginPage />} />
+          <Route path={`/user`} element={<Profil />} />
+          <Route path={`/timer`} element={<Timer />} />
+          <Route path={`/calculator`} element={<Calculator />} />
+          <Route path={`/training`} element={<Training />} />
+          <Route path={`/track`} element={<TrackWeight />} />
+          <Route path={`/todods`} element={<Todods />} />
+          <Route path={`/test`} element={<Test />} />
+        </Routes>
+      </Router>
+      {/* </MainLayout> */}
 
     </div>
   );

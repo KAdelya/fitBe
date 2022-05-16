@@ -16,6 +16,7 @@ import { useAppDispatch } from '../../utils/redux-hooks';
 
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../utils/use-auth';
+import MainCustomBtn from '../ui/button/ButtonLayout/ButtonLayout';
 
 export const Registration = () => {
     // let [register, setRegister] = useState(false);
@@ -133,29 +134,29 @@ export const Registration = () => {
     const { isAuth, id } = useAuth();
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
-    const handleRegistration = (email:string, password:string) => {
+    const handleRegistration = (email: string, password: string) => {
         const auth = getAuth();
         createUserWithEmailAndPassword(auth, email, password)
-        .then(({user}) => {
-            console.log(user);
-            dispatch(setUser({
-                email: user.email,
-                id: user.uid,
-                token: user.refreshToken,
-            }));
-            navigate(`/questionnaire`)
-        })
-        .catch(console.error)
+            .then(({ user }) => {
+                console.log(user);
+                dispatch(setUser({
+                    email: user.email,
+                    id: user.uid,
+                    token: user.refreshToken,
+                }));
+                navigate(`/questionnaire`)
+            })
+            .catch(console.error)
     }
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('')
     return (
-        <div>
+        <div className={styles.content}>
             <section className={styles.main_content}>
                 <h1>Registration</h1>
                 <div className={styles.information_form_wrapper}>
                     <div className={styles.information_form}>
-                    <input
+                        <input
                             placeholder='Email'
                             type='email'
                             value={email}
@@ -165,21 +166,26 @@ export const Registration = () => {
                         <input placeholder='Name' type='name' name={`name`}  />
                     </div> */}
                     <div className={styles.information_form}>
-                    <input
+                        <input
                             placeholder='Password'
                             type='password'
                             value={pass}
                             onChange={(e) => setPass(e.target.value)} />
                     </div>
                     <div className={styles.information_form}>
-                    {/* <input
+                        {/* <input
                             placeholder='Repeat password'
                             type='password'/> */}
                     </div>
                 </div>
+                {/* <div className={styles.button_wrapper}> */}
                 <div className={styles.button_wrapper}>
-                    <button onClick={() => handleRegistration(email, pass)}>REGISTER</button>
+                    <MainCustomBtn>
+                        <button onClick={() => handleRegistration(email, pass)}>REGISTER</button>
+                    </MainCustomBtn>
                 </div>
+
+                {/* </div> */}
             </section>
         </div>
     )

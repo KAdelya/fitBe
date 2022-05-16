@@ -24,7 +24,7 @@ const Profil = () => {
     let [calories, setCalories] = useState();
     // let { name } = useParams();
     // setCurrentModal(<Modal children={<ModalWelcome ccal={0} />} />)
-    async function getInfoFromDataBase( id: any) {
+    async function getInfoFromDataBase(id: any) {
         const dbRef = (ref(db, `/${id}`))
         onValue(dbRef, (snapshot: any) => {
             name = snapshot.val().user.name;
@@ -67,7 +67,7 @@ const Profil = () => {
     const [progress, setProgress] = useState(0);
     const [image, setImage] = useState(null);
     const [url, setUrl] = useState('')
-    
+
     // const formHandler = (e : any) => {
     //     e.preventDefault();
     //     // const file = e.target[0].files[0]
@@ -76,12 +76,12 @@ const Profil = () => {
     //     handleSubmit(file)
     // }
 
-   
-    const { id, email} = useAuth();
+
+    const { id, email } = useAuth();
     useEffect(() => {
         getInfoFromDataBase(id)
     })
-  
+
     // const saveNewAvatar = (file: any) => {
     //     if(!file) return;
     //     const storageRef = ref(storage, `/files/${file.name}`)
@@ -91,7 +91,7 @@ const Profil = () => {
     //             (snapshot.bytesTransferred / snapshot.totalBytes)* 100
     //             );
     //             setProgress(progress)
-            
+
     //     },
     //     (err) => console.log(err),
     //     () => {
@@ -123,11 +123,13 @@ const Profil = () => {
             <section className={styles.wrapper}>
                 <div className={styles.user_avavtar}>
                     <div className={styles.avatar}>
-                        <img src={no_avatar}/>
+                        <img src={no_avatar} />
                         {/* <input type="file" onChange={formHandler}/> */}
                     </div>
                     <div className={styles.button}>
-                        {/* <CustomBtnLayout>EDIT AVATAR</CustomBtnLayout> */}
+                        <CustomBtnLayout>
+                            <button>EDIT AVATAR</button>
+                        </CustomBtnLayout>
                         <h3>Uploaded {progress} %</h3>
                     </div>
                 </div>
@@ -153,13 +155,13 @@ const Profil = () => {
                         </div>
                     </div>
                     <div className={styles.lower_button_wrapper}>
-                        {/* <MainCustomBtn>MARK THE WORKOUT</MainCustomBtn> */}
-                        <button onClick={() => updateHours()}>MARK THE WORKOUT</button>
-
-
-
+                        <MainCustomBtn>
+                            <button onClick={() => updateHours()}>MARK THE WORKOUT</button>
+                        </MainCustomBtn>
                         <NavLink to='/track'>
-                            <MainCustomBtn>WEIGH YOURSELF</MainCustomBtn>
+                            <MainCustomBtn>
+                                <button>WEIGH YOURSELF</button>
+                            </MainCustomBtn>
                         </NavLink>
                         {/* <button onClick={() => }>happy hacking</button> */}
                     </div>
