@@ -9,6 +9,7 @@ import { Navigate, Route, BrowserRouter as Router, Routes, useNavigate } from "r
 import Modal from "../Layouts/ModalLayout/ModalLayout";
 import { db } from "../..";
 import { useAuth } from "../../utils/use-auth";
+import MainCustomBtn from "../ui/button/ButtonLayout/ButtonLayout";
 
 interface Props {
     data: any
@@ -225,7 +226,9 @@ export const Questionnaire = () => {
             </div>
             <div className={styles.button_save_content}>
                 <div className={styles.button_wrapper}>
-                    <button onClick={()=>handleChange(id)}>SAVE</button>
+                    <MainCustomBtn>
+                        <button onClick={() => handleChange(id)}>SAVE</button>
+                    </MainCustomBtn>
                 </div>
             </div>
         </div>

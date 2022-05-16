@@ -49,7 +49,6 @@ export const Registration = () => {
     const [pass, setPass] = useState('')
     return (
 
-        <div className={styles.content}>
             <section className={styles.main_content}>
                 <h1>Registration</h1>
                 <div className={styles.information_form_wrapper}>
@@ -60,9 +59,6 @@ export const Registration = () => {
                             value={email}
                             onChange={(e) => setEmail(e.target.value)} />
                     </div>
-                    {/* <div className={styles.information_form}>
-                        <input placeholder='Name' type='name' name={`name`}  />
-                    </div> */}
                     <div className={styles.information_form}>
                         <input
                             placeholder='Password'
@@ -84,7 +80,7 @@ export const Registration = () => {
                 </div>
 
                 {/* </div> */}
-            </section>
+            
 
             {/*        <div>
             <Formik
@@ -143,6 +139,6 @@ export const Registration = () => {
                     </form>)}
             </Formik>
                   </div>*/}
-        </div>
+        </section>
     )
 }
