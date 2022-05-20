@@ -17,6 +17,8 @@ import Todods from './pages/Todods/Todods';
 import { QuestionnairePage } from './pages/QuestionnairePage/QuestionnairePage';
 import Test from './pages/TestPage/Test';
 import { LoginPage } from './pages/Login/LoginPage';
+import ModalLayout from './components/Layouts/ModalLayout/ModalLayout';
+import { ModalTimer } from './components/Modal/ModalTimer';
 
 
 const App = () => {
@@ -31,6 +33,8 @@ const App = () => {
           <Route path={`/questionnaire`} element={<QuestionnairePage />} />
           <Route path='/registration' element={<RegistrationPage />} />
           <Route path='/login' element={<LoginPage />} />
+
+          
           <Route path={`/user`} element={<Profil />} />
           <Route path={`/timer`} element={<Timer />} />
           <Route path={`/calculator`} element={<Calculator />} />

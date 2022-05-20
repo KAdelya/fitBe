@@ -9,10 +9,15 @@ import pink_back from '../../assets/images/pink_back.svg'
 import Footer from '../../components/Footer/Footer';
 import MainCustomBtn from '../../components/ui/button/ButtonLayout/ButtonLayout';
 import CustomButton from '../../components/ui/button/CustomBtnLayout/CustomBtnLayout';
+import ModalLayout from '../../components/Layouts/ModalLayout/ModalLayout';
+import { ModalTimer } from '../../components/Modal/ModalTimer';
 
 export const MainPage = () => {
     return (
         <div>
+            <ModalLayout>
+                <h1>hi</h1>
+</ModalLayout>
             <header>
                 <div className={styles.logo}>
                     <Icon name='logo' width={48} height={48} />

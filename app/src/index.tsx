@@ -23,16 +23,12 @@ const app = initializeApp({
   appId: constants.REACT_APP_FIREBASE_APP_ID
 });
 
-
-
 ReactDOM.render(
   <React.StrictMode>
-    {/* <Provider {...mainStore}> */}
     <Provider store={store}>
       <App />
       {/* <ModalConstructor /> */}
     </Provider>
-    {/* </Provider> */}
   </React.StrictMode>,
   document.getElementById('root')
 );

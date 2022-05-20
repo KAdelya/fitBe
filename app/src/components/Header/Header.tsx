@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import { NavLink, Route, useNavigate, useParams } from 'react-router-dom';
 import styles from '../Header/Header.module.sass'
 import { Icon } from '../Icon/Icon';
@@ -13,7 +13,7 @@ import CustomButton from '../ui/button/CustomBtnLayout/CustomBtnLayout';
 
 interface Props { }
 
-const Header = () => {
+const Header: FC<Props> = ({ children }) => {
     const { isAuth, id } = useAuth();
     const navigate = useNavigate();
     let { name } = useParams();
@@ -34,36 +34,36 @@ const Header = () => {
         navigate(`/`, { replace: true })
     }
     return (
-
-        <header>
-            {/* <button className={styles.menu_button} onClick={() => setMenuActive(!menuActive)}>
+        <>
+            <header>
+                {/* <button className={styles.menu_button} onClick={() => setMenuActive(!menuActive)}>
                 <img src={menuBut} />
             </button> */}
-            <div className={styles.navigate_btn}>
-                <button onClick={() => navigate('/user')}>&#8592;</button>
-            </div>
+                <div className={styles.navigate_btn}>
+                    <button onClick={() => navigate('/user')}>&#8592;</button>
+                </div>
 
-            {/* <NavLink to='/user'>
+                {/* <NavLink to='/user'>
                 <div className={styles.logo_wrapper}>
                     <Icon name='logo' width={48} height={48} />
                     <p>BeFit</p>
                 </div>
             </NavLink> */}
-            <nav className={styles.navbar}>
-                <ul>
-                    <li><NavLink to={`/timer`}>Timer</NavLink></li>
-                    <li><NavLink to={`/training`}>Workout</NavLink></li>
-                    <li><NavLink to={`/calculator`}>Diary</NavLink></li>
-                    <li><NavLink to={`/todods`}>Tracker</NavLink></li>
-                </ul>
-            </nav>
-            <div className={styles.button_wrapper}>
-                <CustomButton>
-                    <button onClick={() => signOut()}>SIGN OUT</button>
-                </CustomButton>
+                <nav className={styles.navbar}>
+                    <ul>
+                        <li><NavLink to={`/timer`}>Timer</NavLink></li>
+                        <li><NavLink to={`/training`}>Workout</NavLink></li>
+                        <li><NavLink to={`/calculator`}>Diary</NavLink></li>
+                        <li><NavLink to={`/todods`}>Tracker</NavLink></li>
+                    </ul>
+                </nav>
+                <div className={styles.button_wrapper}>
+                    <CustomButton>
+                        <button onClick={() => signOut()}>SIGN OUT</button>
+                    </CustomButton>
 
-            </div>
-            {/* <div className={styles.menu}>
+                </div>
+                {/* <div className={styles.menu}>
                 <NavLink to='/user'>
                     <div className={styles.logo}>
                         <Icon name='logo' width={48} height={48} />
@@ -72,10 +72,10 @@ const Header = () => {
                 </NavLink>
                 <Menu items={items} active={menuActive} setActive={setMenuActive} />
             </div> */}
-        </header>
+            </header>
+            <div>{children}</div>
+        </>
     )
-
-
 }
 
 export default Header;
