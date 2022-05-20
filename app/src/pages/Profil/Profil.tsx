@@ -2,23 +2,22 @@ import styles from '../Profil/Profil.module.sass';
 import no_avatar from '../../assets/images/no_avatar.png'
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
-import { NavLink } from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import MainCustomBtn from '../../components/ui/button/ButtonLayout/ButtonLayout';
 import CustomBtnLayout from '../../components/ui/button/CustomBtnLayout/CustomBtnLayout';
-import { useAuth } from '../../utils/use-auth';
-import { onValue, ref, update } from 'firebase/database';
-import { db, storage } from '../..';
-import { useState } from 'react';
+import {useAuth} from '../../utils/use-auth';
+import {onValue, ref, update} from 'firebase/database';
+import {db, storage} from '../..';
+import {useState} from 'react';
 // import { getStorage, uploadBytesResumable, ref, getDownloadURL, uploadBytes } from "firebase/storage"
-import { useEffect } from 'react';
-
+import {useEffect} from 'react';
 
 
 const Profil = () => {
     let [name, setName] = useState();
     let [surname, setSurname] = useState();
     let [spendingHours, setSpendingHours] = useState(0);
-    let [avatar, setAvatar] = useState()
+    let [avatar, setAvatar] = useState('')
     let [waterCount, setWaterCount] = useState();
     let [curWeight, setCurWeight] = useState();
     let [calories, setCalories] = useState();
@@ -47,13 +46,18 @@ const Profil = () => {
     async function updateInDataBase(id: any) {
         update(ref(db, `/${id}`), {
             info: {
-                avatar: avatar,
+                avatar: file,
                 waterCount: waterCount,
                 spendingHours: spendingHours + 1,
             }
-        }).then(() => { console.log('update successfully') })
-            .catch((error) => { alert('sorry :(' + error) })
+        }).then(() => {
+            console.log('update successfully')
+        })
+            .catch((error) => {
+                alert('sorry :(' + error)
+            })
     }
+
     // async function upload(file: any, setLoading: any, id: any){
     //     const fileRef = ref(db, `/${id}`);
     //     setLoading(true);
@@ -65,7 +69,7 @@ const Profil = () => {
         updateInDataBase(id)
     }
     const [progress, setProgress] = useState(0);
-    const [image, setImage] = useState(null);
+    const [image, setImage] = useState('');
     const [url, setUrl] = useState('')
 
     // const formHandler = (e : any) => {
@@ -75,11 +79,22 @@ const Profil = () => {
     //     setImage(file);
     //     handleSubmit(file)
     // }
-
-
-    const { id, email } = useAuth();
+    // const handleImageUpload = (e: any) => {
+    //     const [file] = e.target.files;
+    //     setImage(file.name)
+    //     console.log(image);
+    // };
+    const [file, setFile] = useState('');
+    function handleChange(e:any) {
+        console.log(e.target.files);
+        setFile(URL.createObjectURL(e.target.files[0]));
+        updateInDataBase(id)
+        console.log(file)
+    }
+    const {id, email} = useAuth();
     useEffect(() => {
         getInfoFromDataBase(id)
+        console.log(avatar)
     })
 
     // const saveNewAvatar = (file: any) => {
@@ -116,19 +131,20 @@ const Profil = () => {
     // }
 
 
-
     return (
         <div>
-            <Header />
+            <Header/>
             <section className={styles.wrapper}>
                 <div className={styles.user_avavtar}>
                     <div className={styles.avatar}>
-                        <img src={no_avatar} />
+                        <img src={avatar}/>
+                        {/*<img src={image} alt="img"/>*/}
                         {/* <input type="file" onChange={formHandler}/> */}
                     </div>
                     <div className={styles.button}>
                         <CustomBtnLayout>
-                            <button>EDIT AVATAR</button>
+                            <input type="file" onChange={handleChange} />
+                            <button onClick={()=>getInfoFromDataBase(id)}>EDIT AVATAR</button>
                         </CustomBtnLayout>
                         <h3>Uploaded {progress} %</h3>
                     </div>
@@ -156,7 +172,7 @@ const Profil = () => {
                     </div>
                     <div className={styles.lower_button_wrapper}>
                         <MainCustomBtn>
-                            <button onClick={() => updateHours()}>MARK THE WORKOUT</button>
+                            <button onClick={updateHours}>MARK THE WORKOUT</button>
                         </MainCustomBtn>
                         <NavLink to='/track'>
                             <MainCustomBtn>
@@ -167,7 +183,7 @@ const Profil = () => {
                     </div>
                 </div>
             </section>
-            <Footer />
+            <Footer/>
         </div>
     )
 }
