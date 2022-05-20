@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import {createSlice} from "@reduxjs/toolkit";
 
 interface ModalState {
     isOpened: boolean;
@@ -16,13 +16,13 @@ const confirmationModalSlice = createSlice({
         open: (state, action) => {
             state.isOpened = true;
             state.isConfirmed = false;
-          },
-          confirm: (state, action) => {
+        },
+        confirm: (state, action) => {
             state.isConfirmed = true;
             state.isOpened = false;
-          }
+        }
     }
 })
 
-export const { open, confirm } = confirmationModalSlice.actions;
+export const {open, confirm} = confirmationModalSlice.actions;
 export default confirmationModalSlice.reducer;

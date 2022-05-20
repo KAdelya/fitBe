@@ -1,4 +1,4 @@
-import { makeAutoObservable } from 'mobx';
+import {makeAutoObservable} from 'mobx';
 import {ModalStore} from './modalStore';
 
 class MainStore {
@@ -13,4 +13,4 @@ class MainStore {
 const mainStore = new MainStore();
 
 export default mainStore;
-export { MainStore };
+export {MainStore};

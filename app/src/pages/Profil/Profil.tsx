@@ -143,7 +143,7 @@ const Profil = () => {
                     </div>
                     <div className={styles.button}>
                         <CustomBtnLayout>
-                            <input type="file" onChange={handleChange} />
+                            <input type="file" onChange={handleChange}/>
                             <button onClick={()=>getInfoFromDataBase(id)}>EDIT AVATAR</button>
                         </CustomBtnLayout>
                         <h3>Uploaded {progress} %</h3>

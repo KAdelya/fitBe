@@ -1,37 +1,38 @@
-import { FC, useState } from 'react';
-import { NavLink, Route, useNavigate, useParams } from 'react-router-dom';
+import {FC, useState} from 'react';
+import {NavLink, Route, useNavigate, useParams} from 'react-router-dom';
 import styles from '../Header/Header.module.sass'
-import { Icon } from '../Icon/Icon';
+import {Icon} from '../Icon/Icon';
 import Menu from '../Menu/Menu';
 import menuBut from '../../assets/images/men.svg';
-import { useDispatch } from 'react-redux';
-import { removeUser } from '../../stores/slices/userSlice';
-import { useAuth } from '../../utils/use-auth';
-import { RegistrationPage } from '../../pages/RegistrationPage/RegistrationPage';
-import { useAppDispatch } from '../../utils/redux-hooks';
+import {useDispatch} from 'react-redux';
+import {removeUser} from '../../stores/slices/userSlice';
+import {useAuth} from '../../utils/use-auth';
+import {RegistrationPage} from '../../pages/RegistrationPage/RegistrationPage';
+import {useAppDispatch} from '../../utils/redux-hooks';
 import CustomButton from '../ui/button/CustomBtnLayout/CustomBtnLayout';
 
-interface Props { }
+interface Props {
+}
 
-const Header: FC<Props> = ({ children }) => {
-    const { isAuth, id } = useAuth();
+const Header: FC<Props> = ({children}) => {
+    const {isAuth, id} = useAuth();
     const navigate = useNavigate();
-    let { name } = useParams();
+    let {name} = useParams();
     const items = [
         // { value: 'Timer', href: `/timer/:id${id}` },
         // { value: 'Workout', href: `/training/:id${id}` },
         // { value: 'Diary', href: `/calculator/:id${id}` },
         // { value: 'Tracker', href: `/track/:id${id}` }
-        { value: 'Timer', href: `/timer` },
-        { value: 'Workout', href: `/training` },
-        { value: 'Diary', href: `/calculator` },
-        { value: 'Tracker', href: `/track/` }
+        {value: 'Timer', href: `/timer`},
+        {value: 'Workout', href: `/training`},
+        {value: 'Diary', href: `/calculator`},
+        {value: 'Tracker', href: `/track/`}
     ];
     const [menuActive, setMenuActive] = useState(false);
     const dispatch = useAppDispatch()
     const signOut = () => {
         dispatch(removeUser());
-        navigate(`/`, { replace: true })
+        navigate(`/`, {replace: true})
     }
     return (
         <>

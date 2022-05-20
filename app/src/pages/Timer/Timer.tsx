@@ -6,11 +6,11 @@ import refresh from '../../assets/images/refresh.svg'
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import Modal from '../../components/Layouts/ModalLayout/ModalLayout';
-import { ModalTimer } from '../../components/Modal/ModalTimer';
+import {ModalTimer} from '../../components/Modal/ModalTimer';
 import MainCustomBtn from '../../components/ui/button/ButtonLayout/ButtonLayout';
-import { useParams } from "react-router-dom";
-import { getDatabase, onValue, ref } from "firebase/database";
-import { useEffect, useState } from "react";
+import {useParams} from "react-router-dom";
+import {getDatabase, onValue, ref} from "firebase/database";
+import {useEffect, useState} from "react";
 
 const Timer = () => {
     const [time, setTime] = useState(0);
@@ -30,10 +30,9 @@ const Timer = () => {
     }, [timeOn])
 
 
-
     return (
         <div>
-            <Header />
+            <Header/>
             <section className={styles.wrapper}>
                 <div className={styles.timer}>
                     <div className={styles.timer_content_wrapper}>
@@ -45,18 +44,18 @@ const Timer = () => {
                         <h1>Work</h1>
                         <div className={styles.reload}>
                             <button onClick={() => setTime(0)}>
-                                <img src={refresh} width={75} />
+                                <img src={refresh} width={75}/>
                             </button>
                         </div>
                     </div>
                     <div className={styles.set}>
-                        <img src={line} width={5} />
-                        <img src={rarr} width={35} />
+                        <img src={line} width={5}/>
+                        <img src={rarr} width={35}/>
                         <p> {Math.floor((time / 6000) % 60) < rounds ? Math.floor((time / 6000) % 60) : rounds}
                             /{rounds}</p>
 
-                        <img src={arr} width={35} />
-                        <img src={line} width={5} />
+                        <img src={arr} width={35}/>
+                        <img src={line} width={5}/>
                     </div>
                     <div className={styles.lower_button_wrapper}>
 
@@ -64,7 +63,8 @@ const Timer = () => {
                         <MainCustomBtn>STOP</MainCustomBtn> */}
                         <MainCustomBtn>
                             <button onClick={() => setTimeOn(true)}>
-                                START</button>
+                                START
+                            </button>
                         </MainCustomBtn>
                         <MainCustomBtn>
                             <button onClick={() => setTimeOn(false)}>STOP</button>
@@ -72,7 +72,7 @@ const Timer = () => {
                     </div>
                 </div>
             </section>
-            <Footer />
+            <Footer/>
         </div>
     )
 }

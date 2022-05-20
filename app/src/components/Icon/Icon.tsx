@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import {FC} from 'react';
 
 interface Props {
     name: string;
@@ -6,7 +6,7 @@ interface Props {
     height: string | number;
 }
 
-export const Icon: FC<Props> = ({ name, width, height }) => {
+export const Icon: FC<Props> = ({name, width, height}) => {
     return (
         <svg
             version='1.1'
