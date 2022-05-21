@@ -7,17 +7,10 @@ import Training from './pages/Training/Training';
 import TrackWeight from './pages/TrackWeight/TrackWeight';
 import {MainPage} from './pages/Main/MainPage';
 import Profil from './pages/Profil/Profil';
-import {Questionnaire} from './components/Questionnaire/Questionnaire';
-import {Login} from './components/Login/Login';
-import Footer from './components/Footer/Footer';
-import Header from './components/Header/Header';
 import {useAuth} from './utils/use-auth';
 import Todods from './pages/Todods/Todods';
 import {QuestionnairePage} from './pages/QuestionnairePage/QuestionnairePage';
-import Test from './pages/TestPage/Test';
 import {LoginPage} from './pages/Login/LoginPage';
-import ModalLayout from './components/Layouts/ModalContainer/ModalContainer';
-import {ModalTimer} from './components/Modal/ModalTimer';
 import ProfilContainer from './components/Layouts/ProfilContainer/ProfilContainer';
 
 
@@ -39,7 +32,6 @@ const App = () => {
                     <Route path={`/training`} element={<ProfilContainer><Training/></ProfilContainer>}/>
                     <Route path={`/track`} element={<ProfilContainer><TrackWeight/></ProfilContainer>}/>
                     <Route path={`/todods`} element={<ProfilContainer><Todods/></ProfilContainer>}/>
-                    <Route path={`/test`} element={<Test/>}/>
                 </Routes>
             </Router>
         </div>

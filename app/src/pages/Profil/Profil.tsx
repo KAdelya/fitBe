@@ -1,7 +1,5 @@
 import styles from '../Profil/Profil.module.sass';
 import no_avatar from '../../assets/images/no_avatar.png'
-import Header from '../../components/Header/Header';
-import Footer from '../../components/Footer/Footer';
 import { NavLink } from 'react-router-dom';
 import MainCustomBtn from '../../components/ui/button/ButtonLayout/ButtonLayout';
 import CustomBtnLayout from '../../components/ui/button/CustomBtnLayout/CustomBtnLayout';

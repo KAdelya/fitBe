@@ -1,13 +1,6 @@
-import React, { useState } from 'react'
-import { Icon } from '../../components/Icon/Icon'
+import { useState } from 'react'
 import styles from '../Training/Training.module.sass'
-import example2 from '../../assets/images/example2.svg'
-import example3 from '../../assets/images/example3.svg'
-import example4 from '../../assets/images/example4.svg'
-import axios from 'axios';
 import ExerciseService from '../../services/exercise.service'
-import Header from '../../components/Header/Header';
-import Footer from '../../components/Footer/Footer';
 import TrainingCard from '../../components/TrainingCard/TrainingCard'
 
 

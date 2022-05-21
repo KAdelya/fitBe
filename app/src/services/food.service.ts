@@ -4,7 +4,7 @@ const API_URL = 'https://wger.de/api/v2/';
 
 class FoodService {
     getFood= async () => {
-        return await axios.get(API_URL + 'ingredientinfo',
+        return await axios.get(API_URL + 'ingridient',
             {
                 timeout: 10000
             });

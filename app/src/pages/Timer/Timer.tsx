@@ -3,13 +3,9 @@ import line from '../../assets/images/line.svg'
 import arr from '../../assets/images/arr.svg'
 import rarr from '../../assets/images/rarr.svg'
 import refresh from '../../assets/images/refresh.svg'
-import Header from '../../components/Header/Header';
-import Footer from '../../components/Footer/Footer';
 import Modal from '../../components/Layouts/ModalContainer/ModalContainer';
 import { ModalTimer } from '../../components/Modal/ModalTimer';
 import MainCustomBtn from '../../components/ui/button/ButtonLayout/ButtonLayout';
-import { useParams } from "react-router-dom";
-import { getDatabase, onValue, ref } from "firebase/database";
 import { useEffect, useState } from "react";
 import ModalLayout from '../../components/Layouts/ModalContainer/ModalContainer';
 import { useAppDispatch, useAppSelector } from '../../utils/redux-hooks';
