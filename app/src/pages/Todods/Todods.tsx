@@ -1,12 +1,8 @@
 import styles from '../Todods/Todods.module.sass';
-import Header from '../../components/Header/Header';
-import Footer from '../../components/Footer/Footer';
 import plus from '../../assets/images/butPlus.svg';
 import prev from '../../assets/images/butprev.svg';
-import Checkbox from '../../components/ui/checkbox/checkbox';
-
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { RootState } from '../../stores/slices';
 import { addTask, removeTask } from '../../stores/slices/todoSlice';
 

@@ -17,14 +17,12 @@ const Training = () => {
     const [image, setImage] = useState([]);
 
     ExerciseService.getExerciseName().then(res => {
-        console.log(res.data)
         setExercise(res.data.results)
     }).catch(err => {
         console.log(err)
     })
 
     ExerciseService.getExercisePicture().then(res => {
-        console.log(res.data.results)
         setImage(res.data.results)
     }).catch(err => {
         console.log(err)
