@@ -11,6 +11,9 @@ import MainCustomBtn from '../../components/ui/button/ButtonLayout/ButtonLayout'
 import { useParams } from "react-router-dom";
 import { getDatabase, onValue, ref } from "firebase/database";
 import { useEffect, useState } from "react";
+import ModalLayout from '../../components/Layouts/ModalLayout/ModalLayout';
+import { useAppDispatch, useAppSelector } from '../../utils/redux-hooks';
+import { setModal } from '../../stores/slices/modalSlice';
 
 const Timer = () => {
     const [time, setTime] = useState(0);
@@ -29,11 +32,37 @@ const Timer = () => {
         return () => clearInterval(interval)
     }, [timeOn])
 
+    const [visible, setVisible] = useState(false);
 
+
+    const show = useAppSelector((state) => state.modal.show);
+    const dispatch = useAppDispatch();
+    const handleClose = () => {
+        dispatch(
+          setModal({
+            show: false,
+          })
+        );
+      };
+
+    //   <Modal
+    //   open={show}
+    //   className={classes.modal}
+    //   onClose={handleClose}
+    //   aria-labelledby="title"
+    //   aria-describedby="description"
+    //   BackdropComponent={Backdrop}
+    //   BackdropProps={{
+    //     timeout: 500,
+    //   }}
+    // >
 
     return (
         <div>
             <Header />
+
+            <button onClick={()=>setVisible(!visible)}>openModal</button>
+
             <section className={styles.timer_page}>
                 <div className={styles.timer_page__content}>
                     <div className={styles.timer_page__content__time}>
@@ -58,12 +87,10 @@ const Timer = () => {
                         <img src={line} width={5} />
                     </div>
                     <div className={styles.timer_page__info__bottom}>
-
-                        {/* <MainCustomBtn>START</MainCustomBtn>
-                        <MainCustomBtn>STOP</MainCustomBtn> */}
                         <MainCustomBtn>
                             <button onClick={() => setTimeOn(true)}>
-                                START</button>
+                                START
+                            </button>
                         </MainCustomBtn>
                         <MainCustomBtn>
                             <button onClick={() => setTimeOn(false)}>STOP</button>
@@ -72,6 +99,16 @@ const Timer = () => {
                 </div>
             </section>
             <Footer />
+
+            {visible?
+                <ModalLayout 
+                    сlose={handleClose} 
+                    open={show}
+                    button="START">
+                    <ModalTimer/>
+                </ModalLayout>
+                :
+                <></>}
         </div>
     )
 }

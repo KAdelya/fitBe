@@ -7,7 +7,7 @@ export const store = configureStore({
     reducer: {
         user: userReducer,
         todos: toodoReducer,
-        modals: modalReducer,
+        modal: modalReducer,
     }
 });
 

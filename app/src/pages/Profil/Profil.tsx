@@ -11,6 +11,10 @@ import { db, storage } from '../..';
 import { useState } from 'react';
 // import { getStorage, uploadBytesResumable, ref, getDownloadURL, uploadBytes } from "firebase/storage"
 import { useEffect } from 'react';
+import { useAppDispatch, useAppSelector } from '../../utils/redux-hooks';
+import { setModal } from '../../stores/slices/modalSlice';
+import ModalLayout from '../../components/Layouts/ModalLayout/ModalLayout';
+import ModalWelcome from '../../components/Modal/ModalWelcome';
 
 
 const Profil = () => {
@@ -129,10 +133,18 @@ const Profil = () => {
     //         setProgress(progress)
     //     });
     // }
+    const show = useAppSelector((state) => state.modal.show);
+    const dispatch = useAppDispatch();
+    const handleClose = () => {
+        dispatch(
+          setModal({
+            show: false,
+          })
+        );
+      };
 
-
+    const [visible, setVisible] = useState(true);
     return (
-
         <div>
             <Header />
             <section className={styles.profil_page}>
@@ -186,6 +198,15 @@ const Profil = () => {
                 </div>
             </section>
             <Footer />
+            {visible?
+                <ModalLayout 
+                    сlose={handleClose} 
+                    open={show}
+                    button="START">
+                    <ModalWelcome ccal={0}/>
+                </ModalLayout>
+                :
+                <></>}
         </div>
     )
 }

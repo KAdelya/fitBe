@@ -2,23 +2,12 @@ import styles from './Registration.module.sass';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import { useState } from "react";
-import { getDatabase, ref, set, onValue } from "firebase/database";
-import { useStore } from "../../utils/use-stores-hook";
-import Modal from '../Layouts/ModalLayout/ModalLayout'
-import { ModalUncorrectNameRegistration } from "../Modal/ModalUncorrectNameRegistration";
-import { ModalUncorrectPasswordsRegistratiion } from "../Modal/ModalUncorrectPasswordsRegistratiion";
-import { Questionnaire } from "../Questionnaire/Questionnaire";
-import { db } from '../..';
-import { useDispatch } from 'react-redux';
 import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
 import { setUser } from '../../stores/slices/userSlice';
-import { useAppDispatch } from '../../utils/redux-hooks';
-
-
+import { useAppDispatch, useAppSelector } from '../../utils/redux-hooks';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../../utils/use-auth';
 import MainCustomBtn from '../ui/button/ButtonLayout/ButtonLayout';
-
+import { setModal } from '../../stores/slices/modalSlice';
 
 export const Registration = () => {
     const validationsSchema = yup.object().shape({
@@ -27,8 +16,15 @@ export const Registration = () => {
         password: yup.string().typeError('Position to be a string').required('Necessarily')
             .matches(/[0-9a-zA-Z]{6,}/g, 'Password must be at least 6 characters long')
     })
-    const { isAuth, id } = useAuth();
+    const show = useAppSelector((state) => state.modal.show);
     const dispatch = useAppDispatch();
+    const handleClose = () => {
+        dispatch(
+          setModal({
+            show: false,
+          })
+        );
+      };
     const navigate = useNavigate();
     const handleRegistration = (email: string, password: string) => {
         const auth = getAuth();
@@ -77,6 +73,15 @@ export const Registration = () => {
                     <button onClick={() => handleRegistration(email, pass)}>REGISTER</button>
                 </MainCustomBtn>
             </div>
+{/* тут надо восстановить формик, это модалка на неверный ввод*/}
+            {/* {visible?
+                <ModalLayout 
+                    сlose={handleClose} 
+                    open={show}
+                    button="UNDERSTANDABLY">
+                    <ModalUncorrectNameRegistration/>
+                </ModalLayout>
+                :<></>} */}
         </section>
     )
 }

@@ -4,7 +4,6 @@ import './index.module.sass';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import mainStore from './stores/mainStore';
-import { ModalConstructor } from "./components/Modal/ModalConstructor";
 import { getAuth } from 'firebase/auth'
 import firebase, { initializeApp } from 'firebase/app'
 import { getDatabase } from 'firebase/database';
@@ -27,7 +26,6 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <App />
-      {/* <ModalConstructor /> */}
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

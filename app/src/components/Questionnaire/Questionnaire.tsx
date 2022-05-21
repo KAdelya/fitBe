@@ -1,12 +1,7 @@
 import styles from "./Questionnaire.module.sass";
-import * as yup from 'yup';
-import React, { FC, useState } from "react";
-import { useStore } from "../../utils/use-stores-hook";
-import { getDatabase, onValue, ref, set } from "firebase/database";
-import { Formik } from "formik";
-import { ModalWelcome } from "../Modal/ModalWelcome";
-import { Navigate, Route, BrowserRouter as Router, Routes, useNavigate } from "react-router-dom";
-import Modal from "../Layouts/ModalLayout/ModalLayout";
+import  {  useState } from "react";
+import {  ref, set } from "firebase/database";
+import { useNavigate } from "react-router-dom";
 import { db } from "../..";
 import { useAuth } from "../../utils/use-auth";
 import MainCustomBtn from "../ui/button/ButtonLayout/ButtonLayout";
