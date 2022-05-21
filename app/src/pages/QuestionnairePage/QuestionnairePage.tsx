@@ -10,8 +10,8 @@ import { db } from "../..";
 export const QuestionnairePage = () =>{
     
     return (
-        <div className={styles.main_content_wrap}>
-             <div className={styles.logo_wrapper}>
+        <div className={styles.questionnaire_page}>
+             <div className={styles.questionnaire_page__logo}>
                 {/* <Icon name='logo' width={48} height={48} /> */}
                 <p>BeFit</p>
             </div>

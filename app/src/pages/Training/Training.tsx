@@ -6,9 +6,9 @@ import example3 from '../../assets/images/example3.svg'
 import example4 from '../../assets/images/example4.svg'
 import axios from 'axios';
 import ExerciseService from '../../services/exercise.service'
-import TrainingCard from './TrainingCard';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
+import TrainingCard from '../../components/TrainingCard/TrainingCard'
 
 
 
@@ -36,16 +36,15 @@ const Training = () => {
     return (
         <div>
             <Header />
-            <section className={styles.main_content}>
-                <div className={styles.main_content_wrapper}>
-                    <div className={styles.main_title}>
+            <section className={styles.training_page}>
+                <div className={styles.training_page__content}>
+                    <div className={styles.training_page__content__title}>
                         <h1>Try the workouts on our website</h1>
                         <p>Join our dynamic training team
                             Try boxing, Pilates, yoga and meditation -
                             right here on our website - click on the icon to get started.</p>
                     </div>
-
-                    <div className={styles.card_content}>
+                    <div className={styles.training_page__content__cards}>
                         {
                             image.map((data: any) => <TrainingCard picture={data.image} name="" />)
                         }

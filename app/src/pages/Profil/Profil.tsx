@@ -2,15 +2,15 @@ import styles from '../Profil/Profil.module.sass';
 import no_avatar from '../../assets/images/no_avatar.png'
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import MainCustomBtn from '../../components/ui/button/ButtonLayout/ButtonLayout';
 import CustomBtnLayout from '../../components/ui/button/CustomBtnLayout/CustomBtnLayout';
-import {useAuth} from '../../utils/use-auth';
-import {onValue, ref, update} from 'firebase/database';
-import {db, storage} from '../..';
-import {useState} from 'react';
+import { useAuth } from '../../utils/use-auth';
+import { onValue, ref, update } from 'firebase/database';
+import { db, storage } from '../..';
+import { useState } from 'react';
 // import { getStorage, uploadBytesResumable, ref, getDownloadURL, uploadBytes } from "firebase/storage"
-import {useEffect} from 'react';
+import { useEffect } from 'react';
 
 
 const Profil = () => {
@@ -85,13 +85,13 @@ const Profil = () => {
     //     console.log(image);
     // };
     const [file, setFile] = useState('');
-    function handleChange(e:any) {
+    function handleChange(e: any) {
         console.log(e.target.files);
         setFile(URL.createObjectURL(e.target.files[0]));
         updateInDataBase(id)
         console.log(file)
     }
-    const {id, email} = useAuth();
+    const { id, email } = useAuth();
     useEffect(() => {
         getInfoFromDataBase(id)
         console.log(avatar)
@@ -132,47 +132,49 @@ const Profil = () => {
 
 
     return (
+
         <div>
-            <Header/>
-            <section className={styles.wrapper}>
-                <div className={styles.user_avavtar}>
-                    <div className={styles.avatar}>
-                        <img src={avatar}/>
-                        {/*<img src={image} alt="img"/>*/}
+            <Header />
+            <section className={styles.profil_page}>
+                <div className={styles.profil_page__avatar}>
+                    <div className={styles.profil_page__avatar__img}>
+                        <img src={no_avatar} />
                         {/* <input type="file" onChange={formHandler}/> */}
                     </div>
-                    <div className={styles.button}>
+                    <div className={styles.profil_page__avatar__button}>
                         <CustomBtnLayout>
-                            <input type="file" onChange={handleChange}/>
-                            <button onClick={()=>getInfoFromDataBase(id)}>EDIT AVATAR</button>
+                            <CustomBtnLayout>
+                                <input type="file" onChange={handleChange} />
+                                <button onClick={() => getInfoFromDataBase(id)}>EDIT AVATAR</button>
+                            </CustomBtnLayout>
                         </CustomBtnLayout>
                         <h3>Uploaded {progress} %</h3>
                     </div>
                 </div>
-                <div className={styles.user_info}>
+                <div className={styles.profil_page__info}>
                     <h2>{email}</h2>
                     <p>{name} {surname}</p>
-                    <div className={styles.blocks}>
-                        <div className={styles.item}>
+                    <div className={styles.profil_page__info__blocks}>
+                        <div className={styles.profil_page__info__blocks__item}>
                             <h3>CURRENT WEIGHT</h3>
                             <p>{curWeight}</p>
                         </div>
-                        <div className={styles.item}>
+                        <div className={styles.profil_page__info__blocks__item}>
                             <h3>CALORIES</h3>
                             <p>{calories}</p>
                         </div>
-                        <div className={styles.item}>
+                        <div className={styles.profil_page__info__blocks__item}>
                             <h3>HOURS SPENT</h3>
                             <p>{spendingHours}</p>
                         </div>
-                        <div className={styles.item}>
+                        <div className={styles.profil_page__info__blocks__item}>
                             <h3>WATER</h3>
                             <p>{waterCount}</p>
                         </div>
                     </div>
-                    <div className={styles.lower_button_wrapper}>
+                    <div className={styles.profil_page__info__bottom}>
                         <MainCustomBtn>
-                            <button onClick={updateHours}>MARK THE WORKOUT</button>
+                            <button onClick={() => updateHours()}>MARK THE WORKOUT</button>
                         </MainCustomBtn>
                         <NavLink to='/track'>
                             <MainCustomBtn>
@@ -183,7 +185,7 @@ const Profil = () => {
                     </div>
                 </div>
             </section>
-            <Footer/>
+            <Footer />
         </div>
     )
 }

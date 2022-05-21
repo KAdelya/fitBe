@@ -11,13 +11,11 @@ export const Modal: FC<Props> = ({ children }) => {
     console.log(modalState)
     return (
         <div className={style.overlay}>
-            <div className={style.modal}>
-                <div className={style.modal_wrapper}>
-                    <div className={style.close}>
-                        <button >&times;</button>
-                    </div>
-                    {children}
+            <div className={style.overlay__modal}>
+                <div className={style.overlay__modal__close}>
+                    <button >&times;</button>
                 </div>
+                {children}
             </div>
         </div>
     );

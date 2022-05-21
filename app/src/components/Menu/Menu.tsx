@@ -13,14 +13,14 @@ const Menu: FC<Props> = ({ items, active, setActive }) => {
     return (
         <div className={active ? `${styles.menu_active}`:`${styles.menu}`}>
             <div className={styles.blur}>
-                <div className={styles.menu_content}>
+                <div className={styles.blur__content}>
                     <ul>
                         {items.map((el: any) =>
                             <li>
                                 <NavLink to={el.href}>{el.value}</NavLink>
                             </li>)}
                         <li>
-                            <div className={styles.button}>
+                            <div className={styles.blur__content__button}>
                                 <NavLink to='/'>
                                     <MainCustomBtn>SIGN OUT</MainCustomBtn>
                                 </NavLink>

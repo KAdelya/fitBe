@@ -1,165 +1,182 @@
-@mixin desktop 
-    @media screen and (max-width: 1280px)
-        h1
-            font-size: 50px
-            line-height: 70px
-        p
-            font-size: 20px 
-        button
-            font-size: 14px !important
-        .title_container
-            padding: 1em 4em 1em 4em
-            .button
-                text-align: center
-                margin: 2em 0
-        .title
-            h1
-                padding-left: 1.5em
-        .lower_text_block
-            padding: 1em 4em !important
-        .block_info
-                padding: 1em !important
+// @mixin desktop 
+//     @media screen and (max-width: 1280px)
+//         h1
+//             font-size: 50px
+//             line-height: 70px
+//         p
+//             font-size: 20px 
+//         button
+//             font-size: 14px !important
+//         .title_container
+//             padding: 1em 4em 1em 4em
+//             .button
+//                 text-align: center
+//                 margin: 2em 0
+//         .title
+//             h1
+//                 padding-left: 1.5em
+//         .lower_text_block
+//             padding: 1em 4em !important
+//         .block_info
+//                 padding: 1em !important
 
-@mixin laptop 
-    @media screen and (max-width: 992px) 
-        h1
-            font-size: 47px
-            line-height: 63px
-        p
-            font-size: 18px 
-        .block_info
-                padding: 0.3em !important
+// @mixin laptop 
+//     @media screen and (max-width: 992px) 
+//         h1
+//             font-size: 47px
+//             line-height: 63px
+//         p
+//             font-size: 18px 
+//         .block_info
+//                 padding: 0.3em !important
 
-@mixin tablets 
-    @media screen and (max-width: 768px)
-        h1
-            font-size: 45px
-            line-height: 60px
-        p
-            font-size: 16px 
-        .title_container
-            flex-wrap: wrap
-        .img_back_wrapper
-            margin-top: 5em
-        .about
-            margin-top: -14%
-        .block_info
-            padding: 0.2em !important
-        .lower_text_block
-            padding: 1em 2em !important
-        button
-            font-size: 12px !important
-        .footer
-            border-radius: 0em !important
+// @mixin tablets 
+//     @media screen and (max-width: 768px)
+//         h1
+//             font-size: 45px
+//             line-height: 60px
+//         p
+//             font-size: 16px 
+//         .title_container
+//             flex-wrap: wrap
+//         .img_back_wrapper
+//             margin-top: 5em
+//         .about
+//             margin-top: -14%
+//         .block_info
+//             padding: 0.2em !important
+//         .lower_text_block
+//             padding: 1em 2em !important
+//         button
+//             font-size: 12px !important
+//         .footer
+//             border-radius: 0em !important
            
-@mixin phones 
-   @media screen and (max-width: 480px)
-        h1
-            font-size: 32px
-            line-height: 40px
-        header
-            padding: 1em !important
-        .title
-            padding-top: 1em
-            margin-bottom: 2em
-            h1
-                padding: 0 1em
-                text-align: left
-                padding-left: 0.7em
-        .title_container
-            padding: 1.5em
-            flex-wrap: wrap
-            .button
-                text-align: center !important
-                justify-content: center !important
-        .img_back_wrapper
-            margin-top: 3em
-        .about
-            margin-top: -20%
-            .about_content
-                margin-top: -57%
-                padding: 4em 1em 2em 1em
-        .block_info_wrapper
-            flex-wrap: wrap
-            .block_info
-                margin: 0.3em 0 !important
-        .lower_text_block
-            padding: 0.3em !important
-        footer 
-            text-align: center !important
-        .footer
-            border-radius: 0 !important
-body
-    @include laptop
-    @include desktop
-    @include tablets
-    @include phones
-    width: 100%
-h1
-    margin: 0
-    text-align: center
-    justify-content: center
-    line-height: 100px
-    letter-spacing: 0.12em
-    font-size: 55px
-header
+// @mixin phones 
+//    @media screen and (max-width: 480px)
+//         h1
+//             font-size: 32px
+//             line-height: 40px
+//         header
+//             padding: 1em !important
+//         .title
+//             padding-top: 1em
+//             margin-bottom: 2em
+//             h1
+//                 padding: 0 1em
+//                 text-align: left
+//                 padding-left: 0.7em
+//         .title_container
+//             padding: 1.5em
+//             flex-wrap: wrap
+//             .button
+//                 text-align: center !important
+//                 justify-content: center !important
+//         .img_back_wrapper
+//             margin-top: 3em
+//         .about
+//             margin-top: -20%
+//             .about_content
+//                 margin-top: -57%
+//                 padding: 4em 1em 2em 1em
+//         .block_info_wrapper
+//             flex-wrap: wrap
+//             .block_info
+//                 margin: 0.3em 0 !important
+//         .lower_text_block
+//             padding: 0.3em !important
+//         footer 
+//             text-align: center !important
+//         .footer
+//             border-radius: 0 !important
+// body
+//     @include laptop
+//     @include desktop
+//     @include tablets
+//     @include phones
+//     width: 100%
+// h1
+//     margin: 0
+//     text-align: center
+//     justify-content: center
+//     line-height: 100px
+//     letter-spacing: 0.12em
+//     font-size: 55px
+
+
+
+.header
     width: 92%
     display: flex
     justify-content: space-between
     padding: 1.5em 3em 1em 4em
     box-shadow: 0px 0.9px 0px rgba(255, 255, 255, 0.192)
-    .logo
+
+    &__logo
         display: flex
+
         p
             padding: 0 0.1em
             margin: 0
-            font-size: 38px      
+            font-size: 38px    
+
 .title
     box-sizing: border-box
+
     h1
         padding: 0 3em
         text-align: left
         padding-left: 2.5em
-.title_container
-    display: flex
-    padding: 1em 8em 1em 8em
-    justify-content: space-between
-    .text
-        margin-top: 1em
-        font-size: 19px
-        .button
-            text-align: center
-            margin: 3em 1.5em 0 0
-.img_back_wrapper
-    img
-        width: 99%
+
+    &__content
+        display: flex
+        padding: 1em 8em 1em 8em
+        justify-content: space-between
+
+        &__text
+            margin-top: 1em
+            font-size: 19px
+
+            &__button
+                text-align: center
+                margin: 3em 1.5em 0 0
+
+        &__img
+            img
+                width: 99%
+
 .about
     margin-top: -10%
-    .pink_back
+    &__content
         width: 100%
-        .pink_back_wrapper
+        &__wrapper
             width: 99%
             img
                 width: 100%
-    .about_content
+
+
+    &__info
         text-shadow: 0 0 0.1em grey
         margin-top: -50%
         padding: 5em 3em
-        .text
+
+        &__text
             font-size: 19px
             text-align: center
             justify-content: center
-        .picture_content_wrap
+
+        &__img
             padding: 2.5em 0.5em 0 0.5em
             display: flex
             justify-content: space-between
             div
                 img
                     width: 100%
-        .block_info_wrapper
+
+        &__block
             display: flex
             justify-content: space-around
-            .block_info
+            &__text
                 text-align: center
                 justify-content: center
                 padding: 1em 1.5em 2em 1.5em
@@ -173,14 +190,14 @@ header
                     padding: 0.7em 0
                     margin: 0
 
-.sport_women_wrapper
-    .sport_women
+.registr_block
+    &__img
         width: 99.9%
         margin: 0 0.1em
         box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.151)
         img
             width: 99.7%
-    .lower_text_block
+    &__text
         margin-top: -0.3em
         background: #0e0e0f
         padding: 2em 6.5em
@@ -190,11 +207,12 @@ header
             font-size: 19px
             text-align: center
             padding: 2.5em 3em
-        .button
+        &__button
             text-align: center
             justify-content: center
             padding: 3em 0 2em 0
             display: flex
+            
 .footer
     background: #0e0e0f
     border-radius: 0 0 40px 40px

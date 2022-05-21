@@ -4,7 +4,7 @@ import { Icon } from "../../components/Icon/Icon";
 
 export const LoginPage = () => {
     return (
-        <div className={styles.page_wrapper}>
+        <div className={styles.login_page}>
             <Login />
         </div>
     )

@@ -19,15 +19,15 @@ body
     @include desktop
     width: 100%
   
-   
-button
-    cursor: pointer
-.wrapper
+
+.timer_page
     padding: 2em 3em
     display: flex
-    .timer
+
+    &__content
         margin-left: 4em
-        .timer_content_wrapper
+
+        &__time
             width: 370px
             height: 370px
             z-index: -2
@@ -39,43 +39,50 @@ button
             box-sizing: border-box
             box-shadow: 0px 4px 41px -11px #5465FF
             animation: timer_content_wrapper 15s infinite
+            
             p
                 font-size: 90px
                 text-align: center
                 justify-content: center
                 
 
-    .wrapper_timer_info
+    &__info
         width: 100%
         text-align: center
         justify-content: center
-        .set
+
+        &__reload
+            justify-content: center
+            text-align: center
+            display: flex
+
+            &__button
+                button
+                    padding: 2em 1em 1em 1em
+                    margin: 0
+                    border: none
+                    background: none
+
+        &__set
             margin-top: 2em
             display: flex
             width: 100%
             text-align: center
             justify-content: center
             margin-left: -0.5em
+
             p
-                margin: 0 !important
+                margin: 0 
                 padding: 0 0.4em
                 font-size: 100px
-.lower_button_wrapper
-    display: flex
-    justify-content: center
-    text-align: center
-    margin-top: 5.3em
-    button
-        margin-right: 0.5em
+                
+        &__bottom
+            display: flex
+            justify-content: center
+            text-align: center
+            margin-top: 5.3em
+            button
+                margin-right: 0.5em
 
-.reload_button_wrapper
-    justify-content: center
-    text-align: center
-    display: flex
-    .reload
-        button
-            padding: 2em 1em 1em 1em
-            margin: 0
-            border: none
-            background: none
+
     
