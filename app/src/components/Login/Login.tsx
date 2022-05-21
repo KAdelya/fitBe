@@ -2,7 +2,7 @@ import styles from './Login.module.sass';
 import * as yup from "yup";
 import { Formik } from 'formik';
 import { useStore } from "../../utils/use-stores-hook";
-import Modal from '../Layouts/ModalLayout/ModalLayout'
+import Modal from '../Layouts/ModalContainer/ModalContainer'
 import { getDatabase, onValue, ref, set } from "firebase/database";
 import React, { useState } from "react";
 import { ModalUncorrectNameSign } from "../Modal/ModalUncorrectNameSign";

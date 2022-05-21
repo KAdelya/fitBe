@@ -13,7 +13,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../utils/redux-hooks';
 import { setModal } from '../../stores/slices/modalSlice';
-import ModalLayout from '../../components/Layouts/ModalLayout/ModalLayout';
+import ModalLayout from '../../components/Layouts/ModalContainer/ModalContainer';
 import ModalWelcome from '../../components/Modal/ModalWelcome';
 
 
@@ -146,7 +146,6 @@ const Profil = () => {
     const [visible, setVisible] = useState(true);
     return (
         <div>
-            <Header />
             <section className={styles.profil_page}>
                 <div className={styles.profil_page__avatar}>
                     <div className={styles.profil_page__avatar__img}>
@@ -197,7 +196,6 @@ const Profil = () => {
                     </div>
                 </div>
             </section>
-            <Footer />
             {visible?
                 <ModalLayout 
                     сlose={handleClose} 

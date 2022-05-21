@@ -1,4 +1,4 @@
-import styles from "../Layouts/ModalLayout/ModalLayout.module.sass";
+import styles from "../Layouts/ModalContainer/ModalContainer.module.sass";
 import timer from '../../assets/images/time.svg'
 import {useState } from "react";
 

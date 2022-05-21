@@ -1,4 +1,4 @@
-import style from './ModalLayout.module.sass';
+import style from './ModalContainer.module.sass';
 import { FC, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../stores/slices';

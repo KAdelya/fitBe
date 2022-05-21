@@ -16,8 +16,9 @@ import Todods from './pages/Todods/Todods';
 import {QuestionnairePage} from './pages/QuestionnairePage/QuestionnairePage';
 import Test from './pages/TestPage/Test';
 import {LoginPage} from './pages/Login/LoginPage';
-import ModalLayout from './components/Layouts/ModalLayout/ModalLayout';
+import ModalLayout from './components/Layouts/ModalContainer/ModalContainer';
 import {ModalTimer} from './components/Modal/ModalTimer';
+import ProfilContainer from './components/Layouts/ProfilContainer/ProfilContainer';
 
 
 const App = () => {
@@ -32,13 +33,12 @@ const App = () => {
                     <Route path='/registration' element={<RegistrationPage/>}/>
                     <Route path='/login' element={<LoginPage/>}/>
 
-
-                    <Route path={`/user`} element={<Profil/>}/>
-                    <Route path={`/timer`} element={<Timer/>}/>
-                    <Route path={`/calculator`} element={<Calculator/>}/>
-                    <Route path={`/training`} element={<Training/>}/>
-                    <Route path={`/track`} element={<TrackWeight/>}/>
-                    <Route path={`/todods`} element={<Todods/>}/>
+                    <Route path={`/user`} element={<ProfilContainer><Profil/></ProfilContainer>}/>
+                    <Route path={`/timer`} element={<ProfilContainer><Timer/></ProfilContainer>}/>
+                    <Route path={`/calculator`} element={<ProfilContainer><Calculator/></ProfilContainer>}/>
+                    <Route path={`/training`} element={<ProfilContainer><Training/></ProfilContainer>}/>
+                    <Route path={`/track`} element={<ProfilContainer><TrackWeight/></ProfilContainer>}/>
+                    <Route path={`/todods`} element={<ProfilContainer><Todods/></ProfilContainer>}/>
                     <Route path={`/test`} element={<Test/>}/>
                 </Routes>
             </Router>

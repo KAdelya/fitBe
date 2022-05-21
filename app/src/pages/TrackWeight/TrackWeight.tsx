@@ -82,7 +82,6 @@ const TrackWeight = () => {
   }
   return (
     <div>
-      <Header />
       <section className={styles.track_page}>
         <div className={styles.track_page__inputs}>
           <div className={styles.track_page__inputs__top}>
@@ -134,7 +133,6 @@ const TrackWeight = () => {
           </AreaChart>
         </div>
       </section>
-      <Footer />
     </div>
   )
 }

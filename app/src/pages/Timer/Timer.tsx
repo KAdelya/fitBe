@@ -5,13 +5,13 @@ import rarr from '../../assets/images/rarr.svg'
 import refresh from '../../assets/images/refresh.svg'
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
-import Modal from '../../components/Layouts/ModalLayout/ModalLayout';
+import Modal from '../../components/Layouts/ModalContainer/ModalContainer';
 import { ModalTimer } from '../../components/Modal/ModalTimer';
 import MainCustomBtn from '../../components/ui/button/ButtonLayout/ButtonLayout';
 import { useParams } from "react-router-dom";
 import { getDatabase, onValue, ref } from "firebase/database";
 import { useEffect, useState } from "react";
-import ModalLayout from '../../components/Layouts/ModalLayout/ModalLayout';
+import ModalLayout from '../../components/Layouts/ModalContainer/ModalContainer';
 import { useAppDispatch, useAppSelector } from '../../utils/redux-hooks';
 import { setModal } from '../../stores/slices/modalSlice';
 
@@ -59,10 +59,7 @@ const Timer = () => {
 
     return (
         <div>
-            <Header />
-
             <button onClick={()=>setVisible(!visible)}>openModal</button>
-
             <section className={styles.timer_page}>
                 <div className={styles.timer_page__content}>
                     <div className={styles.timer_page__content__time}>
@@ -98,7 +95,6 @@ const Timer = () => {
                     </div>
                 </div>
             </section>
-            <Footer />
 
             {visible?
                 <ModalLayout 

@@ -6,7 +6,6 @@ import Footer from '../../components/Footer/Footer';
 const Calculator = () => {
     return (
         <div>
-            <Header />
             <section className={styles.calculator_page}>
                 <h1>Today</h1>
                 <div className={styles.calculator_page__block}>
@@ -115,7 +114,6 @@ const Calculator = () => {
                     </div>
                 </div>
             </section>
-            <Footer />
         </div>
     )
 }

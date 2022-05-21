@@ -31,7 +31,6 @@ const Todods = () => {
     };
     return (
         <div>
-            <Header />
             <section className={styles.todos_page}>
                 <div className={styles.todos_page__content}>
                     <div className={styles.todos_page__content__buttons}>
@@ -79,7 +78,6 @@ const Todods = () => {
                     <button onClick={() => handleCreate(text)}>add tasky</button></>: <></>}
                 </div>
             </section>
-            <Footer />
         </div>
     )
 }

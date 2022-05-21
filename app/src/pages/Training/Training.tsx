@@ -35,7 +35,6 @@ const Training = () => {
 
     return (
         <div>
-            <Header />
             <section className={styles.training_page}>
                 <div className={styles.training_page__content}>
                     <div className={styles.training_page__content__title}>
@@ -51,7 +50,6 @@ const Training = () => {
                     </div>
                 </div>
             </section>
-            <Footer />
         </div>
     )
 }
