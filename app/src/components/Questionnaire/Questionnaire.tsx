@@ -177,10 +177,10 @@ export const Questionnaire = () => {
     }
     return (
         <div>
-            <div className={styles.question_block_wrapper}>
-                <div className={styles.block_for_question}>
+            <div className={styles.question_page}>
+                <div className={styles.question_page__block}>
                     <label>Please enter your gender:</label>
-                    <div className={styles.flex_block}>
+                    <div className={styles.question_page__block__radio}>
                         <label>
                             <input type="radio" className="custom-checkbox"  checked={gender === 'Male'} value="Male" onClick={() => setGender('Male')}/>
                             Male
@@ -191,41 +191,41 @@ export const Questionnaire = () => {
                         </label>
                     </div>
                 </div>
-                <div className={styles.block_for_question}>
+                <div className={styles.question_page__block}>
                     <label>Your name</label>
                     <input name="name" onChange={(event) => { setNewName( event.target.value) }}/>
                 </div>
-                <div className={styles.block_for_question}>
+                <div className={styles.question_page__block}>
                     <label>Your surname</label>
                     <input name="surname" onChange={(event) => { setNewSurname( event.target.value) }}/>
                 </div>
-                <div className={styles.block_for_question}>
+                <div className={styles.question_page__block}>
                     <label>Your weight (kg)</label>
                     <input name="weight" onChange={(event) => { setNewWeight( event.target.value) }}/>
                 </div>
-                <div className={styles.block_for_question}>
+                <div className={styles.question_page__block}>
                     <label>Your desired weight (kg)</label>
                     <input name="weight" onChange={(event) => { setNewDesiredWeight( event.target.value) }}/>
                 </div>
-                <div className={styles.block_for_question}>
+                <div className={styles.question_page__block}>
                     <label>Your age:</label>
                     <input name="age" />
                 </div>
-                <div className={styles.block_for_question}>
+                <div className={styles.question_page__block}>
                     <label>Your height (cm):</label>
                     <input name="growth" />
                 </div>
-                <div className={styles.block_for_question}>
+                <div className={styles.question_page__block}>
                     <label>Activity</label>
                     <input name="activity" />
                 </div>
-                <div className={styles.block_for_question}>
+                <div className={styles.question_page__block}>
                     <label>Desired number of workouts per week</label>
                     <input />
                 </div>
             </div>
-            <div className={styles.button_save_content}>
-                <div className={styles.button_wrapper}>
+            <div className={styles.question_page__save}>
+                <div className={styles.question_page__save__button}>
                     <MainCustomBtn>
                         <button onClick={() => handleChange(id)}>SAVE</button>
                     </MainCustomBtn>

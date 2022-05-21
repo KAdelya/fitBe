@@ -83,21 +83,21 @@ const TrackWeight = () => {
   return (
     <div>
       <Header />
-      <section className={styles.content_wrapper}>
-        <div className={styles.input_block_wrapper}>
-          <div className={styles.input_wrapper_main}>
+      <section className={styles.track_page}>
+        <div className={styles.track_page__inputs}>
+          <div className={styles.track_page__inputs__top}>
             <input value={weight} name="firstName" onChange={e => setWeight(e.target.value)} />
             <button onClick={() => updateInDataBase(id)}>update</button>
             <br />
             <label>Last weigh-in 22.03.2022</label>
           </div>
-          <div className={styles.lower_input_wrapper}>
-            <div className={styles.input_wrapper}>
+          <div className={styles.track_page__inputs__bottom}>
+            <div className={styles.track_page__inputs__bottom__wrapper}>
               <input value={startWeight} />
               <br />
               <label>Starting weight</label>
             </div>
-            <div className={styles.input_wrapper}>
+            <div className={styles.track_page__inputs__bottom__wrapper}>
               <input value={desiredWeight} />
               <br />
               <label>Desired weight</label>
@@ -105,8 +105,8 @@ const TrackWeight = () => {
           </div>
         </div>
       </section>
-      <section className={styles.schedule_wrapper}>
-        <div className={styles.schedule}>
+      <section className={styles.schedule}>
+        <div className={styles.schedule__content}>
           <AreaChart
             width={1000}
             height={420}

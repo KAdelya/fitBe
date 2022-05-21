@@ -5,7 +5,6 @@ import Timer from './pages/Timer/Timer';
 import Calculator from './pages/Calculator/Calculator';
 import Training from './pages/Training/Training';
 import TrackWeight from './pages/TrackWeight/TrackWeight';
-import MainLayout from './components/Layouts/MainLayout/MainLayout';
 import { MainPage } from './pages/Main/MainPage';
 import Profil from './pages/Profil/Profil';
 import { Questionnaire } from './components/Questionnaire/Questionnaire';
@@ -25,7 +24,6 @@ const App = () => {
   const { isAuth, email, id } = useAuth();
   return (
     <div className={styles.App}>
-      {/* <MainLayout> */}
       <Router>
 
         <Routes>
@@ -44,7 +42,6 @@ const App = () => {
           <Route path={`/test`} element={<Test />} />
         </Routes>
       </Router>
-      {/* </MainLayout> */}
 
     </div>
   );

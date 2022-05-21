@@ -120,41 +120,41 @@ const Profil = () => {
     return (
         <div>
             <Header />
-            <section className={styles.wrapper}>
-                <div className={styles.user_avavtar}>
-                    <div className={styles.avatar}>
+            <section className={styles.profil_page}>
+                <div className={styles.profil_page__avatar}>
+                    <div className={styles.profil_page__avatar__img}>
                         <img src={no_avatar} />
                         {/* <input type="file" onChange={formHandler}/> */}
                     </div>
-                    <div className={styles.button}>
+                    <div className={styles.profil_page__avatar__button}>
                         <CustomBtnLayout>
                             <button>EDIT AVATAR</button>
                         </CustomBtnLayout>
                         <h3>Uploaded {progress} %</h3>
                     </div>
                 </div>
-                <div className={styles.user_info}>
+                <div className={styles.profil_page__info}>
                     <h2>{email}</h2>
                     <p>{name} {surname}</p>
-                    <div className={styles.blocks}>
-                        <div className={styles.item}>
+                    <div className={styles.profil_page__info__blocks}>
+                        <div className={styles.profil_page__info__blocks__item}>
                             <h3>CURRENT WEIGHT</h3>
                             <p>{curWeight}</p>
                         </div>
-                        <div className={styles.item}>
+                        <div className={styles.profil_page__info__blocks__item}>
                             <h3>CALORIES</h3>
                             <p>{calories}</p>
                         </div>
-                        <div className={styles.item}>
+                        <div className={styles.profil_page__info__blocks__item}>
                             <h3>HOURS SPENT</h3>
                             <p>{spendingHours}</p>
                         </div>
-                        <div className={styles.item}>
+                        <div className={styles.profil_page__info__blocks__item}>
                             <h3>WATER</h3>
                             <p>{waterCount}</p>
                         </div>
                     </div>
-                    <div className={styles.lower_button_wrapper}>
+                    <div className={styles.profil_page__info__bottom}>
                         <MainCustomBtn>
                             <button onClick={() => updateHours()}>MARK THE WORKOUT</button>
                         </MainCustomBtn>

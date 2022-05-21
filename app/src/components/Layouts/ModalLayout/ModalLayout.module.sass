@@ -10,118 +10,119 @@
   justify-content: center
   border: thin solid rgba(18, 34, 88, 0.12)
   z-index: 2
-.modal
-.close
-  text-align: right
-  justify-content: right
-  padding: 0 0.5em
-  button
-    font-size: 40px
-    font-weight: 300
-    background: none
-    border: none
-.modal_wrapper
-  background: white
-  border-radius: 24px
-  padding: 3em 3em
-  width: 500px
 
-.wrapper_title
-  display: flex
-  justify-content: center
-  align-items: center
-  flex-direction: column
-  margin-top: 2em
-  .welcome_text
-    display: flex
-    justify-content: center
-    align-items: center
-    font-weight: 700
-    font-size: 30px
-    margin-bottom: 1em
-  .logo_wrapper
-    display: flex
-    justify-content: center
-    align-items: center
-    margin-bottom: 1em
-  .wrapper_exit_button
-  button
-    margin-top: 2.2em
-    border: none
+  &__modal
     background: white
-    &:hover
-      cursor: pointer
+    border-radius: 24px
+    padding: 3em 3em
+    width: 500px
 
-.subtitle
-  margin: 1em 0em
-.code
-  display: flex
-  flex-direction: column
-  justify-content: center
-  align-items: center
-  .code_text
-    font-size: 30px
-    font-weight: 550
-    margin-top: 1em
-    margin-bottom: 0.2em
-  .comment
-    margin: 1em 0em
-.content_wrapper
-  display: flex
-  justify-content: center
-  align-items: center
-  flex-direction: column
-  .content_suggest
-    display: flex
-    font-weight: 400
-    font-size: 26px
-    text-align: center
-    justify-content: center
-  .button_wrapper
-    padding: 0.5em 0 2em 0
-    margin-top: 2em
-    button
-      font-size: 18px
-      border-radius: 40px
-      padding: 0.7em 1.7em
-      color: white
-      border: none
-      background: rgba(104, 119, 255, 0.63)
-      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15)
-      &:hover
-        background: rgba(104, 119, 255, 0.87)
+    &__close
+      text-align: right
+      justify-content: right
+      padding: 0 0.5em
+
+      button
+        font-size: 40px
+        font-weight: 300
+        background: none
+        border: none
 
 
 
-.welcome_timer
-  display: flex
-  text-align: center
-  justify-content: center
-  img
-    padding-top: 0.7em
-  p
-    padding: 0
-    margin: 0
-    font-size: 40px
-.content_wrapper
-  margin-top: 1em
-.set_time_block
-  justify-content: space-between
-  font-size: 25px
-  margin: 0.3em 1.5em
-  padding: 0em 1.5em
-  display: flex
-  background: rgba(34, 34, 34, 0.65)
-  border: 3px solid rgba(140, 116, 116, 0.75)
-  box-sizing: border-box
-  box-shadow: 0px 4px 13px rgba(0, 0, 0, 0.25)
-  border-radius: 30px
-  p
-    margin-top: 0.7em
-    margin-right: 0.5em
-  input
-    border: 1px solid #FBEEFF
-    border-radius: 15px
-    margin: 1em
-    padding: 1em
-    text-align: right
+// .wrapper_title
+//   display: flex
+//   justify-content: center
+//   align-items: center
+//   flex-direction: column
+//   margin-top: 2em
+//   .welcome_text
+//     display: flex
+//     justify-content: center
+//     align-items: center
+//     font-weight: 700
+//     font-size: 30px
+//     margin-bottom: 1em
+//   .logo_wrapper
+//     display: flex
+//     justify-content: center
+//     align-items: center
+//     margin-bottom: 1em
+//   .wrapper_exit_button
+//   button
+//     margin-top: 2.2em
+//     border: none
+//     background: white
+//     &:hover
+//       cursor: pointer
+
+// .subtitle
+//   margin: 1em 0em
+// .code
+//   display: flex
+//   flex-direction: column
+//   justify-content: center
+//   align-items: center
+//   .code_text
+//     font-size: 30px
+//     font-weight: 550
+//     margin-top: 1em
+//     margin-bottom: 0.2em
+//   .comment
+//     margin: 1em 0em
+// .content_wrapper
+//   display: flex
+//   justify-content: center
+//   align-items: center
+//   flex-direction: column
+//   .content_suggest
+//     display: flex
+//     font-weight: 400
+//     font-size: 26px
+//     text-align: center
+//     justify-content: center
+//   .button_wrapper
+//     padding: 0.5em 0 2em 0
+//     margin-top: 2em
+//     button
+//       font-size: 18px
+//       border-radius: 40px
+//       padding: 0.7em 1.7em
+//       color: white
+//       border: none
+//       background: rgba(104, 119, 255, 0.63)
+//       box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15)
+//       &:hover
+//         background: rgba(104, 119, 255, 0.87)
+// .welcome_timer
+//   display: flex
+//   text-align: center
+//   justify-content: center
+//   img
+//     padding-top: 0.7em
+//   p
+//     padding: 0
+//     margin: 0
+//     font-size: 40px
+// .content_wrapper
+//   margin-top: 1em
+// .set_time_block
+//   justify-content: space-between
+//   font-size: 25px
+//   margin: 0.3em 1.5em
+//   padding: 0em 1.5em
+//   display: flex
+//   background: rgba(34, 34, 34, 0.65)
+//   border: 3px solid rgba(140, 116, 116, 0.75)
+//   box-sizing: border-box
+//   box-shadow: 0px 4px 13px rgba(0, 0, 0, 0.25)
+//   border-radius: 30px
+//   p
+//     margin-top: 0.7em
+//     margin-right: 0.5em
+//   input
+//     border: 1px solid #FBEEFF
+//     border-radius: 15px
+//     margin: 1em
+//     padding: 1em
+//     text-align: right

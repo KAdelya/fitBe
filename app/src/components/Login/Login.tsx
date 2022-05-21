@@ -1,21 +1,18 @@
 import styles from './Login.module.sass';
 import * as yup from "yup";
-import {Formik} from 'formik';
-import {useStore} from "../../utils/use-stores-hook";
+import { Formik } from 'formik';
+import { useStore } from "../../utils/use-stores-hook";
 import Modal from '../Layouts/ModalLayout/ModalLayout'
-import {getDatabase, onValue, ref, set} from "firebase/database";
-import React, {useState} from "react";
-import {ModalUncorrectNameSign} from "../Modal/ModalUncorrectNameSign";
-import {ModalUncorrectPasswordSign} from "../Modal/ModalUncorrectPasswordSign";
-import {Navigate, useNavigate, useParams} from "react-router-dom";
-
-
+import { getDatabase, onValue, ref, set } from "firebase/database";
+import React, { useState } from "react";
+import { ModalUncorrectNameSign } from "../Modal/ModalUncorrectNameSign";
+import { ModalUncorrectPasswordSign } from "../Modal/ModalUncorrectPasswordSign";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { useAppDispatch } from '../../utils/redux-hooks';
 import { setUser } from '../../stores/slices/userSlice';
 import MainCustomBtn from '../ui/button/ButtonLayout/ButtonLayout';
-
 
 export const Login = () => {
     const validationsSchema = yup.object().shape({
@@ -30,7 +27,7 @@ export const Login = () => {
         const auth = getAuth()
         signInWithEmailAndPassword(auth, email, password)
 
-            .then(({user}) => {
+            .then(({ user }) => {
                 console.log(user);
                 dispatch(setUser({
                     email: user.email,
@@ -43,40 +40,39 @@ export const Login = () => {
     }
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('')
+
+
     return (
-        <div>
-            <section className={styles.main_content}>
-                <h1>Time to training!</h1>
-                <div className={styles.information_form_wrapper}>
-                    <div className={styles.information_form}>
-                        <input
-                            placeholder='Email'
-                            type='email'
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)} />
-                    </div>
-                    <div className={styles.information_form}>
-                        <input
-                            placeholder='Password'
-                            type='password'
-                            value={pass}
-                            onChange={(e) => setPass(e.target.value)} />
-                    </div>
-                    <div className={styles.button_wrapper}>
-                        <MainCustomBtn>
-                            <button onClick={() => handleLogin(email, pass)}>SIGN IN</button>
-                        </MainCustomBtn>
-                    </div>
+        <section className={styles.content}>
+            <h1>Time to training!</h1>
+            <div className={styles.content__info}>
+                <div className={styles.content__info__form}>
+                    <input
+                        placeholder='Email'
+                        type='email'
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)} />
                 </div>
-            </section>
-           {/* <Formik
+                <div className={styles.content__info__form}>
+                    <input
+                        placeholder='Password'
+                        type='password'
+                        value={pass}
+                        onChange={(e) => setPass(e.target.value)} />
+                </div>
+                <div className={styles.content__info__button}>
+                    <MainCustomBtn>
+                        <button onClick={() => handleLogin(email, pass)}>SIGN IN</button>
+                    </MainCustomBtn>
+                </div>
+            </div>
+            {/* <Formik
                 initialValues={{
                     email: '',
                     password: ''
                 }}
                 onSubmit={() => handleLogin(email, pass)}
-                validationSchema={validationsSchema}
-            >
+                validationSchema={validationsSchema}>
                 {({
                       values, errors, touched,
                       handleChange, handleBlur,
@@ -115,6 +111,6 @@ export const Login = () => {
                         </section>
                     </form>)}
             </Formik>*/}
-        </div>
+        </section>
     )
 }

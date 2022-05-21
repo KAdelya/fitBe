@@ -49,96 +49,34 @@ export const Registration = () => {
     const [pass, setPass] = useState('')
     return (
 
-            <section className={styles.main_content}>
-                <h1>Registration</h1>
-                <div className={styles.information_form_wrapper}>
-                    <div className={styles.information_form}>
-                        <input
-                            placeholder='Email'
-                            type='email'
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)} />
-                    </div>
-                    <div className={styles.information_form}>
-                        <input
-                            placeholder='Password'
-                            type='password'
-                            value={pass}
-                            onChange={(e) => setPass(e.target.value)} />
-                    </div>
-                    <div className={styles.information_form}>
-                        <input
-                            placeholder='Repeat password'
-                            type='password'/>
-                    </div>
+        <section className={styles.registration}>
+            <h1>Registration</h1>
+            <div className={styles.registration__info}>
+                <div className={styles.registration__info__form}>
+                    <input
+                        placeholder='Email'
+                        type='email'
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)} />
                 </div>
-                {/* <div className={styles.button_wrapper}> */}
-                <div className={styles.button_wrapper}>
-                    <MainCustomBtn>
-                        <button onClick={() => handleRegistration(email, pass)}>REGISTER</button>
-                    </MainCustomBtn>
+                <div className={styles.registration__info__form}>
+                    <input
+                        placeholder='Password'
+                        type='password'
+                        value={pass}
+                        onChange={(e) => setPass(e.target.value)} />
                 </div>
-
-                {/* </div> */}
-            
-
-            {/*        <div>
-            <Formik
-                initialValues={{
-                    email: '',
-                    password: ''
-                }}
-                onSubmit={() => handleRegistration(email, pass)}
-                validationSchema={validationsSchema}
-            >
-                {({
-                      values, errors, touched,
-                      handleChange, handleBlur,
-                      isValid = false, dirty = false, handleSubmit
-                  }) => (
-                    <form onSubmit={handleSubmit}>
-                        <section className={styles.main_content}>
-                            <h1>Registration</h1>
-                            <div className={styles.information_form_wrapper}>
-                                <div className={styles.information_form}>
-                                    <input
-                                        placeholder='Email'
-                                        name='email'
-                                        type='email'
-                                        value={values.email}
-                                        onChange={handleChange}
-                                        onBlur={handleBlur}/>
-                                    {touched.email && errors.email && <p>{errors.email}</p>}
-                                    {touched.email && !errors.email && setEmail(values.email)}
-                                </div>
-                                ///коммент
-                                 <div className={styles.information_form}>
-                        <input placeholder='Name' type='name' name={`name`}  />
-                    </div> 
-                                <div className={styles.information_form}>
-                                    <input
-                                        placeholder='Password'
-                                        type='password'
-                                        name='password'
-                                        value={values.password}
-                                        onChange={handleChange}
-                                        onBlur={handleBlur}/>
-                                    {touched.password && errors.password && <p>{errors.password}</p>}
-                                    {touched.password && !errors.password && setPass(values.password)}
-                                </div>
-                                <div className={styles.information_form}>
-                                     <input
-                            placeholder='Repeat password'
-                            type='password'/> 
-                                </div>
-                            </div>
-                            <div className={styles.button_wrapper}>
-                                <button disabled={!(isValid || dirty)} type={`submit`}>REGISTER</button>
-                            </div>
-                        </section>
-                    </form>)}
-            </Formik>
-                  </div>*/}
+                <div className={styles.registration__info__form}>
+                    <input
+                        placeholder='Repeat password'
+                        type='password' />
+                </div>
+            </div>
+            <div className={styles.registration__button}>
+                <MainCustomBtn>
+                    <button onClick={() => handleRegistration(email, pass)}>REGISTER</button>
+                </MainCustomBtn>
+            </div>
         </section>
     )
 }

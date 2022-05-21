@@ -5,26 +5,32 @@
 		background-position: 100% 50%
 	100% 
 		background-position: 0% 50%
-button
-    cursor: pointer
-.wrapper
+
+.profil_page
     padding: 2em
     display: flex
-    .user_avavtar
+
+    &__avatar
         width: 100%
-        .button
+
+        &__button
             text-align: center
             justify-content: center
             padding: 1em
-        .avatar
+            cursor: pointer
+
+        &__img
             text-align: center
             justify-content: center
+
             img 
                 box-shadow: 0px 0px 3px rgba(255, 255, 255, 0.172)
                 width: 350px
                 border-radius: 50%
-    .user_info
+
+    &__info
         width: 100%
+
         h2
             font-size: 50px
             padding: 0.2em 0
@@ -33,12 +39,14 @@ button
             font-size: 35px
             padding: 0
             margin: 0
-        .blocks
+
+        &__blocks
             margin-top: 1.5em
             margin-right: 12em
             display: flex
             flex-wrap: wrap
-            .item
+
+            &__item
                 width: 150px
                 cursor: pointer
                 border: 2px solid #6877FF
@@ -50,15 +58,18 @@ button
                 background: linear-gradient(-45deg, #000850c9, #26283a5e, #3f0f5e52, #2e0972a4)
                 background-size: 500% 500%
                 animation: item_blocks 10s ease infinite
+                
                 h3
                     margin: 0
                     padding: 0
                     font-size: 17px
+
                 &:hover
                     background: linear-gradient(180deg, rgba(104, 119, 255, 0.9) 0%, rgba(104, 119, 255, 0.702) 100%)
-.lower_button_wrapper
-    display: flex
-    margin-top: 1.5em
-    margin-left: -1.5em
-    button
-        margin-right: 0.5em
+
+        &__bottom
+            display: flex
+            margin-top: 1.5em
+            margin-left: -1.5em
+            button
+                margin-right: 0.5em

@@ -4,7 +4,7 @@ import { Registration } from "../../components/Registration/Registration";
 
 export const RegistrationPage = () => {
     return (
-        <section className={styles.page_wrapper}>
+        <section className={styles.registration_page}>
             <Registration />
         </section>
     )

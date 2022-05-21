@@ -35,21 +35,20 @@ const Header: FC<Props> = ({ children }) => {
     }
     return (
         <>
-            <header>
+            <header className={styles.header}>
                 {/* <button className={styles.menu_button} onClick={() => setMenuActive(!menuActive)}>
                 <img src={menuBut} />
             </button> */}
-                <div className={styles.navigate_btn}>
+                <div className={styles.header__navigate_button}>
                     <button onClick={() => navigate('/user')}>&#8592;</button>
                 </div>
-
                 {/* <NavLink to='/user'>
                 <div className={styles.logo_wrapper}>
                     <Icon name='logo' width={48} height={48} />
                     <p>BeFit</p>
                 </div>
             </NavLink> */}
-                <nav className={styles.navbar}>
+                <nav className={styles.header__navbar}>
                     <ul>
                         <li><NavLink to={`/timer`}>Timer</NavLink></li>
                         <li><NavLink to={`/training`}>Workout</NavLink></li>
@@ -57,11 +56,10 @@ const Header: FC<Props> = ({ children }) => {
                         <li><NavLink to={`/todods`}>Tracker</NavLink></li>
                     </ul>
                 </nav>
-                <div className={styles.button_wrapper}>
+                <div className={styles.header__button}>
                     <CustomButton>
                         <button onClick={() => signOut()}>SIGN OUT</button>
                     </CustomButton>
-
                 </div>
                 {/* <div className={styles.menu}>
                 <NavLink to='/user'>
