@@ -3,6 +3,7 @@ import firstPict from '../../assets/images/fit1.png';
 import { NavLink } from 'react-router-dom';
 import secondPict from '../../assets/images/fit2.png';
 import thirdPict from '../../assets/images/fit3.png';
+import main from '../../assets/images/main.jpg';
 import { Icon } from '../../components/Icon/Icon';
 import bacgroundPict from '../../assets/images/background.png'
 import pink_back from '../../assets/images/pink_back.svg'
@@ -14,7 +15,7 @@ import { ModalTimer } from '../../components/Modal/ModalTimer';
 
 export const MainPage = () => {
     return (
-        <section>
+        <section className={styles.main_page}>
             <header className={styles.header}>
                 <div className={styles.header__logo}>
                     <Icon name='logo' width={48} height={48} />
@@ -50,14 +51,14 @@ export const MainPage = () => {
                     </div>
                 </div>
             </div>
-            <div className={styles.about}>
+             <div className={styles.about}>
                 <div className={styles.about__content}>
                     <div className={styles.about__content__wrapper}>
                         <img src={pink_back} />
                     </div>
                 </div>
                 <div className={styles.about__info}>
-                    <h1>Who We Are</h1>
+                    <h1>Who We Are?</h1>
                     <div className={styles.about__info__text}>
                         <p>We encourage you to go on a fitness journey with our app!</p>
                         <p>We offer realistic recommendations - no quick fixes because they just don't work.</p>

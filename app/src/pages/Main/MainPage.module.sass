@@ -1,115 +1,61 @@
-// @mixin desktop 
-//     @media screen and (max-width: 1280px)
-//         h1
-//             font-size: 50px
-//             line-height: 70px
-//         p
-//             font-size: 20px 
-//         button
-//             font-size: 14px !important
-//         .title_container
-//             padding: 1em 4em 1em 4em
-//             .button
-//                 text-align: center
-//                 margin: 2em 0
-//         .title
-//             h1
-//                 padding-left: 1.5em
-//         .lower_text_block
-//             padding: 1em 4em !important
-//         .block_info
-//                 padding: 1em !important
+@mixin desktop 
+    @media screen and (max-width: 1280px)
+        .about
+            width: 100%
 
-// @mixin laptop 
-//     @media screen and (max-width: 992px) 
-//         h1
-//             font-size: 47px
-//             line-height: 63px
-//         p
-//             font-size: 18px 
-//         .block_info
-//                 padding: 0.3em !important
+@mixin laptop 
+    @media screen and (max-width: 992px) 
+        .header
+           padding: 1em 4em
+        .title
+            h1
+                padding: 0
+                text-align: center
+            &__content
+                flex-wrap: wrap-reverse
+                padding: 1em 5em 0em 5em
+                text-align: center
+        .about__info__block
+            flex-wrap: wrap
+            &__text
+                margin-bottom: 2em
+        .registr_block
+            &__text
+                padding: 2em 2em
 
-// @mixin tablets 
-//     @media screen and (max-width: 768px)
-//         h1
-//             font-size: 45px
-//             line-height: 60px
-//         p
-//             font-size: 16px 
-//         .title_container
-//             flex-wrap: wrap
-//         .img_back_wrapper
-//             margin-top: 5em
-//         .about
-//             margin-top: -14%
-//         .block_info
-//             padding: 0.2em !important
-//         .lower_text_block
-//             padding: 1em 2em !important
-//         button
-//             font-size: 12px !important
-//         .footer
-//             border-radius: 0em !important
+@mixin tablets 
+    @media screen and (max-width: 768px)
+        .title
+            h1
+                padding-left: 0.5em   
+            &__content
+                padding: 1em 2em 0em 2em
            
-// @mixin phones 
-//    @media screen and (max-width: 480px)
-//         h1
-//             font-size: 32px
-//             line-height: 40px
-//         header
-//             padding: 1em !important
-//         .title
-//             padding-top: 1em
-//             margin-bottom: 2em
-//             h1
-//                 padding: 0 1em
-//                 text-align: left
-//                 padding-left: 0.7em
-//         .title_container
-//             padding: 1.5em
-//             flex-wrap: wrap
-//             .button
-//                 text-align: center !important
-//                 justify-content: center !important
-//         .img_back_wrapper
-//             margin-top: 3em
-//         .about
-//             margin-top: -20%
-//             .about_content
-//                 margin-top: -57%
-//                 padding: 4em 1em 2em 1em
-//         .block_info_wrapper
-//             flex-wrap: wrap
-//             .block_info
-//                 margin: 0.3em 0 !important
-//         .lower_text_block
-//             padding: 0.3em !important
-//         footer 
-//             text-align: center !important
-//         .footer
-//             border-radius: 0 !important
-// body
-//     @include laptop
-//     @include desktop
-//     @include tablets
-//     @include phones
-//     width: 100%
-// h1
-//     margin: 0
-//     text-align: center
-//     justify-content: center
-//     line-height: 100px
-//     letter-spacing: 0.12em
-//     font-size: 55px
+@mixin phones 
+   @media screen and (max-width: 480px)
+       .header
+            width: 100%
 
 
+body
+    @include laptop
+    @include desktop
+    @include tablets
+    @include phones
+    width: 100%
+
+.main_page
+    h1
+        // font-size: 60px
+        font-size: calc(40px + 20 * (100vw / 1280))
 
 .header
-    width: 92%
+    width: 100%
+    box-sizing: border-box
+    text-shadow: 0px 12px 25px rgb(110, 15, 244)
     display: flex
     justify-content: space-between
-    padding: 1.5em 3em 1em 4em
+    padding: 1.5em 7em
     box-shadow: 0px 0.9px 0px rgba(255, 255, 255, 0.192)
 
     &__logo
@@ -121,21 +67,23 @@
             font-size: 38px    
 
 .title
+    margin-top: 2em
     box-sizing: border-box
 
     h1
-        padding: 0 3em
         text-align: left
-        padding-left: 2.5em
+        padding-left: 2em
+        text-shadow: 0px 12px 25px rgba(110, 15, 244, 0.404)
 
     &__content
         display: flex
-        padding: 1em 8em 1em 8em
+        padding: 1em 8em 0em 8em
         justify-content: space-between
 
         &__text
-            margin-top: 1em
-            font-size: 19px
+            font-size: 21px
+            font-weight: 400
+            text-shadow: 0px 12px 25px  rgba(110, 15, 244, 0.429)
 
             &__button
                 text-align: center
@@ -146,11 +94,11 @@
                 width: 99%
 
 .about
-    margin-top: -10%
+    margin-top: calc(100px - 115 * (100vw / 1280))
     &__content
         width: 100%
         &__wrapper
-            width: 99%
+            width: 100%
             img
                 width: 100%
 
@@ -159,10 +107,13 @@
         text-shadow: 0 0 0.1em grey
         margin-top: -50%
         padding: 5em 3em
+        h1
+            text-align: center
 
         &__text
-            font-size: 19px
+            font-size: 21px
             text-align: center
+            font-weight: 400
             justify-content: center
 
         &__img
@@ -177,16 +128,21 @@
             display: flex
             justify-content: space-around
             &__text
+                cursor: pointer
                 text-align: center
                 justify-content: center
                 padding: 1em 1.5em 2em 1.5em
-                font-size: 19px
-                background: linear-gradient(180deg, rgba(255, 255, 255, 0.35) 0%, rgba(175, 172, 172, 0.35) 100%)
-                border: 1px solid #787676
-                box-shadow: 0px 2px 6px rgba(0, 11, 38, 0.08)
-                border-radius: 16px
+                font-size: 20px
+                font-weight: 400
+                background: #161515
+                box-shadow: 0px 20px 20px rgb(16, 17, 17)
+                border-radius: 12px
+                text-shadow: 0px 12px 25px rgba(110, 15, 244, 0.454)
                 margin: 0 0.5em
+                &:hover
+                    transform: translateY(-4px)
                 h5
+                    font-size: 30px
                     padding: 0.7em 0
                     margin: 0
 
@@ -194,17 +150,20 @@
     &__img
         width: 99.9%
         margin: 0 0.1em
-        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.151)
+        box-shadow: 10px 0px 100px rgba(0, 0, 0, 0.616)
         img
             width: 99.7%
     &__text
+        text-shadow: 0px 12px 25px rgba(110, 15, 244, 0.313)
         margin-top: -0.3em
         background: #0e0e0f
         padding: 2em 6.5em
         h1 
             line-height: 1.3em
+            text-align: center
         p
-            font-size: 19px
+            font-size: 21px
+            font-weight: 400
             text-align: center
             padding: 2.5em 3em
         &__button
@@ -215,5 +174,4 @@
             
 .footer
     background: #0e0e0f
-    border-radius: 0 0 40px 40px
        
