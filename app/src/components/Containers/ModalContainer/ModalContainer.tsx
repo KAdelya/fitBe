@@ -1,7 +1,7 @@
 import styles from './ModalContainer.module.sass';
 import { FC, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../../stores/slices';
+import { RootState } from '../../../stores';
 import MainCustomBtn from '../../ui/button/ButtonLayout/ButtonLayout';
 
 

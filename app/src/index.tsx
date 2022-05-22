@@ -3,11 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.module.sass';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import mainStore from './stores/mainStore';
 import { getAuth } from 'firebase/auth'
 import firebase, { initializeApp } from 'firebase/app'
 import { getDatabase } from 'firebase/database';
-import { store } from './stores/slices';
+import { store } from './stores';
 import * as constants from './constants';
 import { Provider } from 'react-redux';
 import { getStorage } from 'firebase/storage';

@@ -1,7 +1,7 @@
 import {configureStore} from "@reduxjs/toolkit";
-import userReducer from './userSlice'
-import toodoReducer from './todoSlice'
-import modalReducer from './modalSlice'
+import userReducer from './slices/userSlice'
+import toodoReducer from './slices/todoSlice'
+import modalReducer from './slices/modalSlice'
 
 export const store = configureStore({
     reducer: {

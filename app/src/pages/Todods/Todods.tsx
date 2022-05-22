@@ -3,7 +3,7 @@ import plus from '../../assets/images/butPlus.svg';
 import prev from '../../assets/images/butprev.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
-import { RootState } from '../../stores/slices';
+import { RootState } from '../../stores';
 import { addTask, removeTask } from '../../stores/slices/todoSlice';
 
 

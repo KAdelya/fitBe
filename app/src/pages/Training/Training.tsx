@@ -2,27 +2,17 @@ import { useState } from 'react'
 import styles from '../Training/Training.module.sass'
 import ExerciseService from '../../services/exercise.service'
 import TrainingCard from '../../components/Cards/TrainingCard/TrainingCard'
+import { exerciseItems } from '../../mocks/exerciseMock'
 
 
 
 const Training = () => {
-    const [exercise, setExercise] = useState([]);
     const [image, setImage] = useState([]);
-
-    ExerciseService.getExerciseName().then(res => {
-        setExercise(res.data.results)
-    }).catch(err => {
-        console.log(err)
-    })
-
     ExerciseService.getExercisePicture().then(res => {
         setImage(res.data.results)
     }).catch(err => {
         console.log(err)
     })
-
-
-    const result2 = image.map((data: any) => <div className={styles.wrapper}><img src={data.image} width={100} /></div>)
 
     return (
         <div>
@@ -36,7 +26,10 @@ const Training = () => {
                     </div>
                     <div className={styles.training_page__content__cards}>
                         {
-                            image.map((data: any) => <TrainingCard picture={data.image} name="" />)
+                            exerciseItems.map((item: any)=>
+                            
+                                image.map((data: any) => <TrainingCard picture={data.image} name={item.name} />)
+                            )
                         }
                     </div>
                 </div>
