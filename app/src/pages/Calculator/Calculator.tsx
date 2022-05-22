@@ -57,7 +57,7 @@ const Calculator = () => {
 
                         <div className={styles.calculator_page__food__icon}>
                             <button onClick={() => setVisible(!visible)}>
-                                <Icon name="plus" width="50" height="42" />
+                                <h2>&#43;</h2>
                             </button>
                         </div>
                     </div>

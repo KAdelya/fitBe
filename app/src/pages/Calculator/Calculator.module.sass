@@ -1,66 +1,81 @@
 .calculator_page
-    margin: 0.2em 0
+    margin: 2em 0
     padding: 1em 2.3em
-    border-radius: 20px
     
     h1
-        font-size: 44px
+        text-align: center
+        font-size: calc(25px + 20 * (100vw / 1280))
         margin-top: -0.5em
         padding: 0
+        text-shadow: 0px 12px 25px rgba(110, 15, 244, 0.815)
 
     &__block
         display: flex
         font-size: 15px
-        margin: 0 4em
+        margin: 0 6%
         justify-content: space-around
         p
-            font-size: 22px
-            font-weight: bold
+            text-shadow: 0px 12px 22px rgb(110, 15, 244)
+            font-size: calc(5px + 20 * (100vw / 1280))
+            font-weight: 500
 
     &__food
         padding: 0
-        margin: 1em 1em
+        margin: 1em 6%
         background: rgba(104, 119, 255, 0.25)
         box-shadow: 0px 4px 48px rgba(0, 0, 0, 0.32)
         box-sizing: border-box
         border-radius: 30px
+        &:hover
+            transform: translateY(-2px)
         &__input
             display: flex
+            padding: 0 10%
             input
                 width: 90%
                 margin: 1em
-                padding: 1.5em 1em
-                border-radius: 16px
+                padding: 1.2em 1em
+                border-radius: 12px
             button
                 margin-top: 1em
 
         &__top
-            padding: 0.7em 4em 
-            font-size: 25px
+            padding: 1.3em 5% 1.3em
             display: flex
             justify-content: space-between
-
             h3
-                padding: 0.2em 0
+                font-size: calc(10px + 20 * (100vw / 1280))
+                padding: 0
                 margin: 0
 
         &__list
-            background: white
-            color: black
-            width: 100%
-            margin: auto
+            color: white
+            padding: 0 2%
+            margin: 0
             li
                 list-style-type: none
-                padding: 0.5em
+                padding: 0.2em
+                font-weight: 400
 
         &__icon
+            padding: 0
+            margin: 0
             button
+                font-size: calc(10px + 20 * (100vw / 1280))
+                color: white
                 border: none
                 background: none
                 cursor: pointer
+                &:hover
+                    text-shadow: 0px 4px 41px rgba(104, 16, 235, 0.82)
+                h2
+                    font-weight: 100
+                    margin: 0
+                    padding: 0
         &__bottom
-            padding: 0.3em 0
-            box-shadow: 0px -0.7px 0px rgb(255, 255, 255)
+            padding: 0.3em 1em
+            box-sizing: border-box
+            box-shadow: 0px -0.7px 0px rgb(24, 20, 20)
             display: flex
             font-size: 15px
             justify-content: space-around

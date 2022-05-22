@@ -1,3 +1,11 @@
+@mixin laptop 
+    @media screen and (max-width: 992px) 
+        .training_page__content__cards
+            margin: 0 2%
+
+body
+    @include laptop
+
 .training_page
     padding: 2em
 
@@ -12,7 +20,7 @@
             margin-top: -2em
 
             h1
-                font-size: calc(20px + 20 * (100vw / 1280))
+                font-size: calc(25px + 20 * (100vw / 1280))
                 margin: 0
                 padding: 0
 
