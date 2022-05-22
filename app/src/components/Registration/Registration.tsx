@@ -9,10 +9,9 @@ import {useNavigate} from 'react-router-dom';
 import MainCustomBtn from '../ui/button/ButtonLayout/ButtonLayout';
 import {setModal} from '../../stores/slices/modalSlice';
 import {ModalUncorrectNameRegistration} from "../Modal/ModalUncorrectNameRegistration";
+import ModalLayout from "../Layouts/ModalContainer/ModalContainer";
+import {ModalUncorrectNameSign} from "../Modal/ModalUncorrectNameSign";
 
-function ModalLayout(props: { button: string, сlose: () => void, open: any, children: ReactNode }) {
-    return null;
-}
 
 export const Registration = () => {
     const validationsSchema = yup.object().shape({
@@ -28,8 +27,10 @@ export const Registration = () => {
             )
         })
     })
-    const show = useAppSelector((state) => state.modal.show);
+    const [visible, setVisible] = useState(false);
     const dispatch = useAppDispatch();
+    const navigate = useNavigate();
+    const show = useAppSelector((state) => state.modal.show);
     const handleClose = () => {
         dispatch(
             setModal({
@@ -37,8 +38,6 @@ export const Registration = () => {
             })
         );
     };
-    const [visible, setVisible] = useState(false);
-    const navigate = useNavigate();
     const handleRegistration = (email: string, password: string) => {
         const auth = getAuth();
         createUserWithEmailAndPassword(auth, email, password)
