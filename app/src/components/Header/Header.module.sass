@@ -1,32 +1,3 @@
-
-// @mixin tablets 
-//     @media screen and (max-width: 992px)
-//         header
-//             padding: 0.5em
-//         .navbar
-//             margin: 0!important
-//         p
-//             font-size: 10px  
-//         .button_wrapper
-//             button
-//                 margin: 1em 0
-//                 font-size: 12px !important
-//                 padding: 0.7em !important   
-
-// @mixin laptop 
-//     @media screen and (max-width: 768px)
-//         .navbar
-//             display: none
-//         .menu
-//             display: contents !important 
-           
-// @mixin phones 
-//    @media screen and (max-width: 480px)
-//         .navbar
-//             display: none
-//         .menu
-//             display: contents !important
-
 @mixin laptop 
     @media screen and (max-width: 992px) 
         .header
@@ -41,6 +12,8 @@
                 display: none
             &__menu_button
                 display: contents
+            &__button
+                margin-left: 55%
 
 body
     @include laptop
@@ -92,26 +65,4 @@ body
             padding: 1em
             width: 30px
             height: 30px
-
-//пока не юзается
-    // .logo
-    //     padding-top: 0.3em
-    //     display: flex
-    //     p
-    //         margin: 0
-    //         font-size: 38px  
-    // .menu_button
-    //     background: none
-    //     border: none
-    //     padding: 1.3em 0 !important
-    //     margin: 0.5em 1.5em !important
-    //     img
-    //         width: 60%
-
-    
-    // .menu
-    //     display: none
-    //     .logo
-    //         margin: 0 2em
-
 
