@@ -95,7 +95,7 @@ export const Login = () => {
                             </div>
                             <div className={styles.content__info__button}>
                                 <MainCustomBtn>
-                                    <button onClick={() => handleLogin(email, pass)}>SIGN IN</button>
+                                    <button type='submit'>SIGN IN</button>
                                 </MainCustomBtn>
                             </div>
                         </div>
