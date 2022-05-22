@@ -25,7 +25,7 @@ const Header: FC<Props> = ({ children }) => {
         { value: 'Timer', href: `/timer` },
         { value: 'Workout', href: `/training` },
         { value: 'Diary', href: `/calculator` },
-        { value: 'Tracker', href: `/track/` }
+        { value: 'Tracker', href: `/todods/` }
     ];
     const [menuActive, setMenuActive] = useState(false);
     const dispatch = useAppDispatch()
@@ -35,41 +35,31 @@ const Header: FC<Props> = ({ children }) => {
     }
     return (
         <>
-            <header className={styles.header}>
-                {/* <button className={styles.menu_button} onClick={() => setMenuActive(!menuActive)}>
-                <img src={menuBut} />
-            </button> */}
-                <div className={styles.header__navigate_button}>
-                    <button onClick={() => navigate('/user')}>&#8592;</button>
-                </div>
-                {/* <NavLink to='/user'>
-                <div className={styles.logo_wrapper}>
-                    <Icon name='logo' width={48} height={48} />
-                    <p>BeFit</p>
-                </div>
-            </NavLink> */}
-                <nav className={styles.header__navbar}>
-                    <ul>
-                        <li><NavLink to={`/timer`}>Timer</NavLink></li>
-                        <li><NavLink to={`/training`}>Workout</NavLink></li>
-                        <li><NavLink to={`/calculator`}>Diary</NavLink></li>
-                        <li><NavLink to={`/todods`}>Tracker</NavLink></li>
-                    </ul>
-                </nav>
-                <div className={styles.header__button}>
-                    <CustomButton>
-                        <button onClick={() => signOut()}>SIGN OUT</button>
-                    </CustomButton>
-                </div>
-                {/* <div className={styles.menu}>
-                <NavLink to='/user'>
-                    <div className={styles.logo}>
-                        <Icon name='logo' width={48} height={48} />
-                        <p>BeFit</p>
+            <header className={styles.header_wrapper}>
+                <div className={styles.header}>
+                    <button className={styles.header__menu_button} onClick={() => setMenuActive(!menuActive)}>
+                        <img src={menuBut} />
+                    </button>
+                    <div className={styles.header__navigate_button}>
+                        <button onClick={() => navigate('/user')}>&#8592;</button>
                     </div>
-                </NavLink>
-                <Menu items={items} active={menuActive} setActive={setMenuActive} />
-            </div> */}
+                    <nav className={styles.header__navbar}>
+                        <ul>
+                            <li><NavLink to={`/timer`}>Timer</NavLink></li>
+                            <li><NavLink to={`/training`}>Workout</NavLink></li>
+                            <li><NavLink to={`/calculator`}>Diary</NavLink></li>
+                            <li><NavLink to={`/todods`}>Tracker</NavLink></li>
+                        </ul>
+                    </nav>
+                    <div className={styles.header__button}>
+                        <CustomButton>
+                            <button onClick={() => signOut()}>SIGN OUT</button>
+                        </CustomButton>
+                    </div>
+                    <div className={styles.menu}>
+                        <Menu items={items} active={menuActive} setActive={setMenuActive} />
+                    </div>
+                </div>
             </header>
             <div>{children}</div>
         </>

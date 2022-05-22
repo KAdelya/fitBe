@@ -1,15 +1,3 @@
-// @mixin desktop 
-//     @media screen and (max-width: 1280px)
-//         header
-//             padding: 1em 2em 1em 2em
-//         .navbar
-//             margin: 0 0 0 15% !important
-//         p
-//             font-size: 14px  
-//         .button_wrapper
-//             button
-//                 margin: 0.3em 0
-//                 font-size: 14px !important  
 
 // @mixin tablets 
 //     @media screen and (max-width: 992px)
@@ -39,28 +27,46 @@
 //         .menu
 //             display: contents !important
 
-// body
-//     @include laptop
-//     @include desktop
-//     @include tablets
-//     @include phones
-//     width: 100%
+@mixin laptop 
+    @media screen and (max-width: 992px) 
+        .header
+           &__navbar
+                margin: 0 0 0 10%
+@mixin tablets 
+    @media screen and (max-width: 700px)
+        .header
+            &__navbar
+                display: none
+            &__navigate_button
+                display: none
+            &__menu_button
+                display: contents
 
+body
+    @include laptop
+    @include tablets
+
+
+.header_wrapper
+    width: 100%
 .header
     display: flex
+    padding: 0.5em 8%
     justify-content: space-between
-    padding: 1.5em 3em 1em 4em
     box-shadow: 0px 0.9px 0px rgba(255, 255, 255, 0.192)
     
     &__navigate_button
         button
+            font-weight: 100
             background: none
+            padding-top: 0.3em
+            cursor: pointer
             border: none
             color: white
             font-size: 30px
 
     &__navbar
-        margin: 0 0 0 20%
+        margin: 0 0 0 30%
 
         ul
             display: flex
@@ -76,8 +82,16 @@
                     text-decoration: none
                     cursor: pointer
 
-    &__button_wrapper
-        white-space: nowrap
+    &__button
+        padding-top: 0.3em
+    &__menu_button
+        border: none
+        display: none
+        cursor: pointer
+        img
+            padding: 1em
+            width: 30px
+            height: 30px
 
 //пока не юзается
     // .logo

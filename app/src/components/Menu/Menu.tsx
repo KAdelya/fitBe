@@ -11,18 +11,20 @@ interface Props {
 
 const Menu: FC<Props> = ({ items, active, setActive }) => {
     return (
-        <div className={active ? `${styles.menu_active}`:`${styles.menu}`}>
+        <div className={active ? `${styles.menu_active}` : `${styles.menu}`}>
             <div className={styles.blur}>
                 <div className={styles.blur__content}>
                     <ul>
                         {items.map((el: any) =>
-                            <li>
+                            <li onClick={()=>setActive(!active)}>
                                 <NavLink to={el.href}>{el.value}</NavLink>
                             </li>)}
                         <li>
                             <div className={styles.blur__content__button}>
                                 <NavLink to='/'>
-                                    <MainCustomBtn>SIGN OUT</MainCustomBtn>
+                                    <MainCustomBtn>
+                                        <button>SIGN OUT</button>
+                                    </MainCustomBtn>
                                 </NavLink>
                             </div>
                         </li>

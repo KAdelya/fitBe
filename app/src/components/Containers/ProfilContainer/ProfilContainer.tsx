@@ -8,7 +8,7 @@ interface Props {}
 const ProfilContainer: FC<Props> = ({ children }) => {
     return (
         <>
-            {/* <Header /> */}
+            <Header />
             <div className={styles.main_content}>{children}</div>
             <Footer />
         </>
