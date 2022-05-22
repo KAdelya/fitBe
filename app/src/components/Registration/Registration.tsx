@@ -9,7 +9,7 @@ import {useNavigate} from 'react-router-dom';
 import MainCustomBtn from '../ui/button/ButtonLayout/ButtonLayout';
 import {setModal} from '../../stores/slices/modalSlice';
 import {ModalUncorrectNameRegistration} from "../Modal/ModalUncorrectNameRegistration";
-import ModalLayout from "../Layouts/ModalContainer/ModalContainer";
+import ModalLayout from "../Containers/ModalContainer/ModalContainer";
 import {ModalUncorrectNameSign} from "../Modal/ModalUncorrectNameSign";
 
 

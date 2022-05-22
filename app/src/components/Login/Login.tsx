@@ -1,7 +1,7 @@
 import styles from './Login.module.sass';
 import * as yup from "yup";
 import {Formik} from 'formik';
-import Modal from '../Layouts/ModalContainer/ModalContainer'
+import Modal from '../Containers/ModalContainer/ModalContainer'
 import {getDatabase, onValue, ref, set} from "firebase/database";
 import React, {useState} from "react";
 import {ModalUncorrectNameSign} from "../Modal/ModalUncorrectNameSign";
@@ -12,7 +12,7 @@ import {getAuth, signInWithEmailAndPassword} from 'firebase/auth';
 import {useAppDispatch, useAppSelector} from '../../utils/redux-hooks';
 import {setUser} from '../../stores/slices/userSlice';
 import MainCustomBtn from '../ui/button/ButtonLayout/ButtonLayout';
-import ModalLayout from "../Layouts/ModalContainer/ModalContainer";
+import ModalLayout from "../Containers/ModalContainer/ModalContainer";
 import ModalWelcome from "../Modal/ModalWelcome";
 import {setModal} from "../../stores/slices/modalSlice";
 import {ModalUncorrectNameRegistration} from "../Modal/ModalUncorrectNameRegistration";

@@ -11,7 +11,7 @@ import {useAuth} from './utils/use-auth';
 import Todods from './pages/Todods/Todods';
 import {QuestionnairePage} from './pages/QuestionnairePage/QuestionnairePage';
 import {LoginPage} from './pages/Login/LoginPage';
-import ProfilContainer from './components/Layouts/ProfilContainer/ProfilContainer';
+import ProfilContainer from './components/Containers/ProfilContainer/ProfilContainer';
 
 
 const App = () => {

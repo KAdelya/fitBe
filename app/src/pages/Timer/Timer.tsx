@@ -3,11 +3,11 @@ import line from '../../assets/images/line.svg'
 import arr from '../../assets/images/arr.svg'
 import rarr from '../../assets/images/rarr.svg'
 import refresh from '../../assets/images/refresh.svg'
-import Modal from '../../components/Layouts/ModalContainer/ModalContainer';
+import Modal from '../../components/Containers/ModalContainer/ModalContainer';
 import { ModalTimer } from '../../components/Modal/ModalTimer';
 import MainCustomBtn from '../../components/ui/button/ButtonLayout/ButtonLayout';
 import { useEffect, useState } from "react";
-import ModalLayout from '../../components/Layouts/ModalContainer/ModalContainer';
+import ModalLayout from '../../components/Containers/ModalContainer/ModalContainer';
 import { useAppDispatch, useAppSelector } from '../../utils/redux-hooks';
 import { setModal } from '../../stores/slices/modalSlice';
 import CustomBtnLayout from '../../components/ui/button/CustomBtnLayout/CustomBtnLayout';

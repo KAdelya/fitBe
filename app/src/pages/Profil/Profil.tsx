@@ -11,7 +11,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../utils/redux-hooks';
 import { setModal } from '../../stores/slices/modalSlice';
-import ModalLayout from '../../components/Layouts/ModalContainer/ModalContainer';
+import ModalLayout from '../../components/Containers/ModalContainer/ModalContainer';
 import ModalWelcome from '../../components/Modal/ModalWelcome';
 
 

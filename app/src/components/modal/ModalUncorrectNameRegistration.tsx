@@ -1,4 +1,4 @@
-import styles from "../Layouts/ModalContainer/ModalContainer.module.sass";
+import styles from "../Containers/ModalContainer/ModalContainer.module.sass";
 import logo_black from '../../assets/images/logo_black.svg'
 
 
