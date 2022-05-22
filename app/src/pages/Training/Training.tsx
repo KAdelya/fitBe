@@ -7,12 +7,12 @@ import { exerciseItems } from '../../mocks/exerciseMock'
 
 
 const Training = () => {
-    const [image, setImage] = useState([]);
-    ExerciseService.getExercisePicture().then(res => {
-        setImage(res.data.results)
-    }).catch(err => {
-        console.log(err)
-    })
+    // const [image, setImage] = useState([]);
+    // ExerciseService.getExercisePicture().then(res => {
+    //     setImage(res.data.results)
+    // }).catch(err => {
+    //     console.log(err)
+    // })
 
     return (
         <div>
@@ -26,13 +26,11 @@ const Training = () => {
                     </div>
                     <div className={styles.training_page__content__cards}>
                         {
-                            exerciseItems.map((item: any) =>
-
-                                image.map((data: any) =>
-                                    <TrainingCard picture={data.image}
-                                        name={item.name}
-                                        link={item.link} />)
-                            )
+                            exerciseItems.map((item: any)=>
+                                        <TrainingCard picture={item.image} 
+                                                        name={item.name} 
+                                                        link={item.link}/>)
+                            
                         }
                     </div>
                 </div>
