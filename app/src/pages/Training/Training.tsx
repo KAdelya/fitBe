@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import styles from '../Training/Training.module.sass'
 import ExerciseService from '../../services/exercise.service'
-import TrainingCard from '../../components/TrainingCard/TrainingCard'
+import TrainingCard from '../../components/Cards/TrainingCard/TrainingCard'
 
 
 
