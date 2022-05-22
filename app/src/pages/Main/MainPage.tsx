@@ -3,15 +3,12 @@ import firstPict from '../../assets/images/fit1.png';
 import { NavLink } from 'react-router-dom';
 import secondPict from '../../assets/images/fit2.png';
 import thirdPict from '../../assets/images/fit3.png';
-import main from '../../assets/images/main.jpg';
 import { Icon } from '../../components/Icon/Icon';
 import bacgroundPict from '../../assets/images/background.png'
 import pink_back from '../../assets/images/pink_back.svg'
 import Footer from '../../components/Footer/Footer';
 import MainCustomBtn from '../../components/ui/button/ButtonLayout/ButtonLayout';
 import CustomButton from '../../components/ui/button/CustomBtnLayout/CustomBtnLayout';
-import ModalLayout from '../../components/Layouts/ModalContainer/ModalContainer';
-import { ModalTimer } from '../../components/Modal/ModalTimer';
 
 export const MainPage = () => {
     return (

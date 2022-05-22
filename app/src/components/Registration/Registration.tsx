@@ -45,30 +45,30 @@ export const Registration = () => {
     const [pass, setPass] = useState('')
     return (
 
-        <section className={styles.registration}>
+        <section className={styles.content}>
             <h1>Registration</h1>
-            <div className={styles.registration__info}>
-                <div className={styles.registration__info__form}>
+            <div className={styles.content__info}>
+                <div className={styles.content__info__form}>
                     <input
                         placeholder='Email'
                         type='email'
                         value={email}
                         onChange={(e) => setEmail(e.target.value)} />
                 </div>
-                <div className={styles.registration__info__form}>
+                <div className={styles.content__info__form}>
                     <input
                         placeholder='Password'
                         type='password'
                         value={pass}
                         onChange={(e) => setPass(e.target.value)} />
                 </div>
-                <div className={styles.registration__info__form}>
+                <div className={styles.content__info__form}>
                     <input
                         placeholder='Repeat password'
                         type='password' />
                 </div>
             </div>
-            <div className={styles.registration__button}>
+            <div className={styles.content__info__button}>
                 <MainCustomBtn>
                     <button onClick={() => handleRegistration(email, pass)}>REGISTER</button>
                 </MainCustomBtn>

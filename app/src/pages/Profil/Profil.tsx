@@ -172,6 +172,9 @@ const Profil = () => {
                             <h3>CALORIES</h3>
                             <p>{calories}</p>
                         </div>
+                        <br/>
+                        </div>
+                        <div className={styles.profil_page__info__blocks}>
                         <div className={styles.profil_page__info__blocks__item}>
                             <h3>HOURS SPENT</h3>
                             <p>{spendingHours}</p>
