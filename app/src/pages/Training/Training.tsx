@@ -26,9 +26,12 @@ const Training = () => {
                     </div>
                     <div className={styles.training_page__content__cards}>
                         {
-                            exerciseItems.map((item: any)=>
-                            
-                                image.map((data: any) => <TrainingCard picture={data.image} name={item.name} />)
+                            exerciseItems.map((item: any) =>
+
+                                image.map((data: any) =>
+                                    <TrainingCard picture={data.image}
+                                        name={item.name}
+                                        link={item.link} />)
                             )
                         }
                     </div>
