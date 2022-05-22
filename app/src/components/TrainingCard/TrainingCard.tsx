@@ -16,12 +16,9 @@ const TrainingCard:FC<Props> = ({picture, name}) => {
                 <img src={picture} />
             </div>
             <div className={styles.training_card__bottom}>
-                <div className={styles.training_card__bottom__time}>
-                    <Icon name="timer" width="75" height="52" />
-                </div>
-                <hr />
                 <div className={styles.training_card__bottom__title}>
-                    <p>{name}</p>
+                    {/* <p>{name}</p> */}
+                    <p>name</p>
                 </div>
             </div>
         </div>

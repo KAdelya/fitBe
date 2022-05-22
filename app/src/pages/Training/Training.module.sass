@@ -1,10 +1,8 @@
 .training_page
-    padding: 0em
+    padding: 2em
 
     &__content
-        margin: 0.7em 0
-        padding: 1em 3em
-        border-radius: 20px
+        margin: 1em 0
 
         &__title
             padding: 0.5em 0
@@ -14,17 +12,19 @@
             margin-top: -2em
 
             h1
-                font-size: 40px
+                font-size: calc(20px + 20 * (100vw / 1280))
                 margin: 0
                 padding: 0
 
             p
                 padding: 0em 3em
+                font-weight: 400
+                font-size: calc(2px + 17 * (100vw / 1280))
 
         &__cards
             justify-content: space-around 
             display: flex
             flex-wrap: wrap
-            margin: 0 5em
+            margin: 0 10%
 
 

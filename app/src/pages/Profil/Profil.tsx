@@ -135,11 +135,11 @@ const Profil = () => {
     const dispatch = useAppDispatch();
     const handleClose = () => {
         dispatch(
-          setModal({
-            show: false,
-          })
+            setModal({
+                show: false,
+            })
         );
-      };
+    };
 
     const [visible, setVisible] = useState(true);
     return (
@@ -151,12 +151,10 @@ const Profil = () => {
                         {/* <input type="file" onChange={formHandler}/> */}
                     </div>
                     <div className={styles.profil_page__avatar__button}>
-                        <CustomBtnLayout>
+                    <input type="file" onChange={handleChange} />
                             <CustomBtnLayout>
-                                <input type="file" onChange={handleChange} />
                                 <button onClick={() => getInfoFromDataBase(id)}>EDIT AVATAR</button>
                             </CustomBtnLayout>
-                        </CustomBtnLayout>
                         <h3>Uploaded {progress} %</h3>
                     </div>
                 </div>
@@ -172,9 +170,9 @@ const Profil = () => {
                             <h3>CALORIES</h3>
                             <p>{calories}</p>
                         </div>
-                        <br/>
-                        </div>
-                        <div className={styles.profil_page__info__blocks}>
+                        <br />
+                    </div>
+                    <div className={styles.profil_page__info__blocks}>
                         <div className={styles.profil_page__info__blocks__item}>
                             <h3>HOURS SPENT</h3>
                             <p>{spendingHours}</p>
@@ -197,12 +195,12 @@ const Profil = () => {
                     </div>
                 </div>
             </section>
-            {visible?
-                <ModalLayout 
-                    сlose={handleClose} 
+            {visible ?
+                <ModalLayout
+                    сlose={handleClose}
                     open={show}
                     button="START">
-                    <ModalWelcome ccal={0}/>
+                    <ModalWelcome ccal={0} />
                 </ModalLayout>
                 :
                 <></>}

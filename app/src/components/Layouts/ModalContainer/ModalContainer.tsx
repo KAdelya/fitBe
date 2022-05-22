@@ -1,7 +1,8 @@
-import style from './ModalContainer.module.sass';
+import styles from './ModalContainer.module.sass';
 import { FC, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../stores/slices';
+import MainCustomBtn from '../../ui/button/ButtonLayout/ButtonLayout';
 
 
 interface Props {
@@ -15,16 +16,18 @@ export const Modal: FC<Props> = ({ children, button }) => {
     const modalState = useSelector((state: RootState) => state.modal);
     return (
         open ?
-            <div className={style.overlay}>
-                <div className={style.overlay__modal}>
-                    <div className={style.overlay__modal__close}>
+            <div className={styles.overlay}>
+                <div className={styles.overlay__modal}>
+                    <div className={styles.overlay__modal__close}>
                         <button onClick={() => сlose(!open)}>&times;</button>
                     </div>
                     {children}
-                    <div>
-                        <button onClick={() => сlose(!open)}>
-                            {button}
-                        </button>
+                    <div className={styles.overlay__modal__button}>
+                        <MainCustomBtn>
+                            <button onClick={() => сlose(!open)}>
+                                {button}
+                            </button>
+                        </MainCustomBtn>
                     </div>
                 </div>
 
