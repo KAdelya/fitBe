@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import Footer from '../../Footer/Footer';
 import Header from '../../Header/Header';
-import styles from '../ProfilContainer/ProfilContainer.module.sass'
+import styles from './ProfilContainer.module.sass'
 
 interface Props {}
 

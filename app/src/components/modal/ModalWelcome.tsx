@@ -5,7 +5,7 @@ import { FC } from "react";
 interface Props {
     ccal: number
 }
-const ModalWelcome: FC<Props> = ({ ccal }) => {
+export const ModalWelcome: FC<Props> = ({ ccal }) => {
     return (
         <div className={styles.welcom_modal}>
             <div className={styles.welcom_modal__logo}>
@@ -20,4 +20,3 @@ const ModalWelcome: FC<Props> = ({ ccal }) => {
         </div>
     );
 }
-export default ModalWelcome;

@@ -1,4 +1,4 @@
-import styles from '../Timer/Timer.module.sass';
+import styles from './Timer.module.sass';
 import line from '../../assets/images/line.svg'
 import arr from '../../assets/images/arr.svg'
 import rarr from '../../assets/images/rarr.svg'
@@ -97,8 +97,8 @@ const Timer = () => {
             </section>
 
             {visible?
-                <ModalLayout 
-                    сlose={handleClose} 
+                <ModalLayout
+                    close={handleClose}
                     open={show}
                     button="START">
                     <ModalTimer/>

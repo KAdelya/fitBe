@@ -4,8 +4,6 @@ import {Formik} from 'formik';
 import Modal from '../Containers/ModalContainer/ModalContainer'
 import {getDatabase, onValue, ref, set} from "firebase/database";
 import React, {useState} from "react";
-import {ModalUncorrectNameSign} from "../Modal/ModalUncorrectNameSign";
-import {ModalUncorrectPasswordSign} from "../Modal/ModalUncorrectPasswordSign";
 import {Navigate, useNavigate, useParams} from "react-router-dom";
 import {useDispatch} from 'react-redux';
 import {getAuth, signInWithEmailAndPassword} from 'firebase/auth';
@@ -13,9 +11,8 @@ import {useAppDispatch, useAppSelector} from '../../utils/redux-hooks';
 import {setUser} from '../../stores/slices/userSlice';
 import MainCustomBtn from '../ui/button/ButtonLayout/ButtonLayout';
 import ModalLayout from "../Containers/ModalContainer/ModalContainer";
-import ModalWelcome from "../Modal/ModalWelcome";
 import {setModal} from "../../stores/slices/modalSlice";
-import {ModalUncorrectNameRegistration} from "../Modal/ModalUncorrectNameRegistration";
+import {ModalUncorrectNameSign} from "../Modal/ModalUncorrectNameSign";
 
 export const Login = () => {
     const validationsSchema = yup.object().shape({
@@ -149,9 +146,9 @@ export const Login = () => {
         </Formik>
     {visible?
         <ModalLayout
-            сlose={handleClose}
+            close={handleClose}
             open={show}
-            button="START">
+            button="UNDERSTANDABLY">
             <ModalUncorrectNameSign/>
         </ModalLayout>
         :

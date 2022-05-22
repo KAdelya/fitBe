@@ -7,7 +7,7 @@ export const ModalUncorrectNameSign = () => {
         <div>
             <div className={styles.wrapper_title}>
                 <div className={styles.welcome_text}>
-                    <div className={styles.content_suggest}>This user does not exist</div>
+                    <div className={styles.content_suggest}>Invalid username or password</div>
                 </div>
             </div>
         </div>

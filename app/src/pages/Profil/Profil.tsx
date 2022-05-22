@@ -1,18 +1,19 @@
-import styles from '../Profil/Profil.module.sass';
+import styles from './Profil.module.sass';
 import no_avatar from '../../assets/images/no_avatar.png'
 import { NavLink } from 'react-router-dom';
 import MainCustomBtn from '../../components/ui/button/ButtonLayout/ButtonLayout';
 import CustomBtnLayout from '../../components/ui/button/CustomBtnLayout/CustomBtnLayout';
 import { useAuth } from '../../utils/use-auth';
 import { onValue, ref, update } from 'firebase/database';
-import { db, storage } from '../..';
+// import { db, storage } from '../../';
 import { useState } from 'react';
 // import { getStorage, uploadBytesResumable, ref, getDownloadURL, uploadBytes } from "firebase/storage"
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../utils/redux-hooks';
 import { setModal } from '../../stores/slices/modalSlice';
 import ModalLayout from '../../components/Containers/ModalContainer/ModalContainer';
-import ModalWelcome from '../../components/Modal/ModalWelcome';
+import {ModalWelcome} from '../../components/Modal/ModalWelcome';
+import { db } from '../..';
 
 
 const Profil = () => {
@@ -197,7 +198,7 @@ const Profil = () => {
             </section>
             {visible ?
                 <ModalLayout
-                    сlose={handleClose}
+                    close={handleClose}
                     open={show}
                     button="START">
                     <ModalWelcome ccal={0} />
