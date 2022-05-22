@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import ModalLayout from '../../components/Layouts/ModalContainer/ModalContainer';
 import { useAppDispatch, useAppSelector } from '../../utils/redux-hooks';
 import { setModal } from '../../stores/slices/modalSlice';
+import CustomBtnLayout from '../../components/ui/button/CustomBtnLayout/CustomBtnLayout';
 
 const Timer = () => {
     const [time, setTime] = useState(0);
@@ -55,12 +56,15 @@ const Timer = () => {
 
     return (
         <div>
-            <button onClick={()=>setVisible(!visible)}>openModal</button>
+            
             <section className={styles.timer_page}>
                 <div className={styles.timer_page__content}>
                     <div className={styles.timer_page__content__time}>
                         <p>{Math.floor((time / 6000) % 60) < rounds ? Math.floor((time / 100) % 60) : 0}</p>
                     </div>
+                    <CustomBtnLayout>
+                        <button onClick={() => setVisible(!visible)}>SET THE TIME</button>
+                    </CustomBtnLayout>
                 </div>
                 <div className={styles.timer_page__info}>
                     <div className={styles.timer_page__info__reload}>

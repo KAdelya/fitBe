@@ -10,26 +10,30 @@
     75% 
         border-radius: 33% 67% 58% 42%/63% 68% 32% 37%
 
-@mixin desktop 
-    @media screen and (max-width: 1024px)
-        .content_wrapper
-            flex-wrap: wrap !important
+@mixin laptop 
+    @media screen and (max-width: 992px) 
+        .timer_page
+           flex-wrap: wrap-reverse
 
 body
-    @include desktop
+    @include laptop
     width: 100%
   
-
 .timer_page
-    padding: 2em 3em
+    padding: 1em 5%
+    text-align: center
+    justify-content: space-around
+    box-sizing: border-box
+    width: 100%
     display: flex
 
     &__content
-        margin-left: 4em
+        text-align: center
+        justify-content: center
 
         &__time
-            width: 370px
-            height: 370px
+            width: 300px
+            height: 300px
             z-index: -2
             margin: 3em 5em
             border-radius: 100%
@@ -41,13 +45,12 @@ body
             animation: timer_content_wrapper 15s infinite
             
             p
-                font-size: 90px
+                font-size: calc(50px + 20 * (100vw / 1280))
                 text-align: center
                 justify-content: center
                 
 
     &__info
-        width: 100%
         text-align: center
         justify-content: center
 
@@ -55,8 +58,12 @@ body
             justify-content: center
             text-align: center
             display: flex
+            h1
+                font-size: calc(25px + 20 * (100vw / 1280))
+                
 
             &__button
+                flex-wrap: wrap
                 button
                     padding: 2em 1em 1em 1em
                     margin: 0
@@ -80,7 +87,7 @@ body
             display: flex
             justify-content: center
             text-align: center
-            margin-top: 5.3em
+            margin-top: 33%
             button
                 margin-right: 0.5em
 
