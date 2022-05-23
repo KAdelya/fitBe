@@ -1,30 +1,32 @@
 import styles from '../Todods/Todods.module.sass';
 import plus from '../../assets/images/butPlus.svg';
 import prev from '../../assets/images/butprev.svg';
-import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
-import { RootState } from '../../stores';
-import { addTask, removeTask } from '../../stores/slices/todoSlice';
 
+interface Todo {
+    title: string;
+    date: string;
+    completed: boolean;
+}
 
-type Inputs = {
-    taskTitle: string;
-};
 const Todods = () => {
-    const [text, setText] = useState('')
-    const { tasks } = useSelector((state: RootState) => state.todos);
-    const dispatch = useDispatch();
-    const [visible, setVisible] = useState(false)
-    const handleCreate = (data: string) => {
-        dispatch(addTask(data));
-        setVisible(false)
-        setText('')
+    const [text, setText] = useState('');
+    const [visible, setVisible] = useState(false);
+    const [todos, setTodos] = useState<Array<Todo>>([]);
+    const handleCreate = (title: string) => {
+        setVisible(false);
+        setText('');
+        todos.push({
+            title: title,
+            date: new Date().toDateString(),
+            completed: false
+        });
+        setTodos(todos);
+        console.log(todos);
+
     };
 
-    const handleRemove = (id: number, title: string) => {
-        dispatch(removeTask(id));
-        setText(title)
-    };
+
     return (
         <div>
             <section className={styles.todos_page}>
@@ -32,7 +34,7 @@ const Todods = () => {
                     <div className={styles.todos_page__content__buttons}>
                         <div className={styles.buttons}>
                             <button>
-                                <img src={prev} width={13} />
+                                <img src={prev} width={13} alt='prev' />
                             </button>
                         </div>
                         <div className={styles.todos_page__content__date}>
@@ -42,40 +44,27 @@ const Todods = () => {
                         </div>
                         <div className={styles.buttons}>
                             <button onClick={() => setVisible(!visible)}>
-                                <img src={plus} width={20} />
+                                <img src={plus} width={20} alt='next' />
                             </button>
                         </div>
                     </div>
                 </div>
             </section>
             <section className={styles.todo_notice}>
-                {/* {tasks.map((el: { text: string | number | readonly string[] | undefined; }) =>
-                    <div className={styles.input}>
-                        <input value={el.text}/>
-                    </div>)
-                }
-                {inputArea && (
-                    <div className={styles.input}>
-                        <input value={value} onChange={event => setValue(event.target.value)}/>
-                        <button onClick={() => addTask(value)}>saveChanges</button>
-                    </div>
-
-                )} */}
-                {tasks.map((task) => (
+                {todos.map((todo: any) => (
                     <div>
-                        <pre>{task.id} - {task.title}</pre>
-                        <button onClick={() => handleRemove(task.id, task.title)} style={{ color: 'red' }}>&times;</button>
+                        <pre>{todo.title}, {todo.date}</pre>
                     </div>
 
                 ))}
                 <div className={styles.todo_notice__input}>
-                    {visible?
-                    <><input value={text} onChange={((e) => setText(e.target.value))} />
-                    <button onClick={() => handleCreate(text)}>add tasky</button></>: <></>}
+                    {visible ?
+                        <><input value={text} onChange={((e) => setText(e.target.value))} />
+                            <button onClick={() => handleCreate(text)}>add task</button></> : <></>}
                 </div>
             </section>
         </div>
-    )
-}
+    );
+};
 
 export default Todods;

@@ -2,17 +2,22 @@ import styles from '../Containers/ModalContainer/ModalContainer.module.sass';
 import timer from '../../assets/images/time.svg';
 import { useState } from 'react';
 import { useAppDispatch } from '../../utils/redux-hooks';
-import { setWorkTime } from '../../stores/slices/timerSlice';
+import { setRoundsCount, setWorkTime } from '../../stores/slices/timerSlice';
 
 export const ModalTimer = () => {
     const [value_work, setValueWork] = useState('');
     const [value_rounds, setValueRounds] = useState('');
     const dispatch = useAppDispatch();
-    const handleTime = (time: number) => {
+    const handleTime = (time: number, rounds: number) => {
         dispatch(
             setWorkTime({
                 workTime: time,
-            })
+            }),
+        );
+        dispatch(
+            setRoundsCount({
+                roundsCount: time,
+            }),
         );
     };
     return (
@@ -37,7 +42,7 @@ export const ModalTimer = () => {
                         <p>ROUNDS</p>
                         <input value={value_rounds} onChange={event => setValueRounds(event.target.value)} />
                     </div>
-                    <button onClick={() => handleTime(Number(value_work))}>set</button>
+                    <button onClick={() => handleTime(Number(value_work), Number(value_rounds))}>set</button>
                 </div>
             </div>
         </div>
