@@ -2,7 +2,6 @@ import styles from './Timer.module.sass';
 import line from '../../assets/images/line.svg';
 import arr from '../../assets/images/arr.svg';
 import rarr from '../../assets/images/rarr.svg';
-import refresh from '../../assets/images/refresh.svg';
 import { ModalTimer } from '../../components/Modal/ModalTimer';
 import MainCustomBtn from '../../components/ui/button/ButtonLayout/ButtonLayout';
 import { useEffect, useState } from 'react';
@@ -50,11 +49,11 @@ const Timer = () => {
     //     timeout: 500,
     //   }}
     // >
-    
-    const {workTime, roundsCount} = useAppSelector(state => state.timer);
+
+    const { workTime, roundsCount } = useAppSelector(state => state.timer);
     return (
         <div>
-            
+
             <section className={styles.timer_page}>
                 <div className={styles.timer_page__content}>
                     <div className={styles.timer_page__content__time}>
@@ -67,19 +66,17 @@ const Timer = () => {
                 <div className={styles.timer_page__info}>
                     <div className={styles.timer_page__info__reload}>
                         <h1>Work</h1>
-                        <div className={styles.timer_page__info__reload__button}>
-                            <button onClick={() => setTime(0)}>
-                                <img src={refresh} width={75} alt='reload'/>
-                            </button>
-                        </div>
+                        <button onClick={() => setTime(0)}>
+                            <h2>&#8635;</h2>
+                        </button>
                     </div>
                     <div className={styles.timer_page__info__set}>
-                        <img src={line} width={5} alt='arrow'/>
-                        <img src={rarr} width={35} alt='arrow'/>
+                        <img src={line} width={5} alt='arrow' />
+                        <img src={rarr} width={35} alt='arrow' />
                         <p> {Math.floor((time / 6000) % 60) < roundsCount ? Math.floor((time / 6000) % 60) : roundsCount}
                             /{roundsCount}</p>
-                        <img src={arr} width={35} alt='arrow'/>
-                        <img src={line} width={5} alt='arrow'/>
+                        <img src={arr} width={35} alt='arrow' />
+                        <img src={line} width={5} alt='arrow' />
                     </div>
                     <div className={styles.timer_page__info__bottom}>
                         <MainCustomBtn>
@@ -94,12 +91,12 @@ const Timer = () => {
                 </div>
             </section>
 
-            {visible?
+            {visible ?
                 <ModalLayout
                     close={handleClose}
                     open={show}
                     button="START">
-                    <ModalTimer/>
+                    <ModalTimer />
                 </ModalLayout>
                 :
                 <></>}

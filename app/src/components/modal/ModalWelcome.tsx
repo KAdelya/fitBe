@@ -1,6 +1,6 @@
-import styles from "../Containers/ModalContainer/ModalContainer.module.sass";
-import logo_black from '../../assets/images/logo_black.svg'
-import { FC } from "react";
+import styles from '../Containers/ModalContainer/ModalContainer.module.sass';
+import logo_black from '../../assets/images/logo_black.svg';
+import { FC } from 'react';;
 
 interface Props {
     ccal: number
@@ -9,7 +9,7 @@ export const ModalWelcome: FC<Props> = ({ ccal }) => {
     return (
         <div className={styles.welcom_modal}>
             <div className={styles.welcom_modal__logo}>
-                <img src={logo_black} />
+                <img src={logo_black} alt='logo'/>
             </div>
             <div className={styles.welcom_modal__text}>
                 Welcome to Befit!
@@ -19,4 +19,4 @@ export const ModalWelcome: FC<Props> = ({ ccal }) => {
             </div>
         </div>
     );
-}
+};

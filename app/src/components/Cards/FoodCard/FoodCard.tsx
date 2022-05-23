@@ -1,27 +1,27 @@
 import { FC, useState } from 'react';
 import { foodItems } from '../../../mocks/foodMock';
 import CustomButton from '../../ui/button/CustomBtnLayout/CustomBtnLayout';
-import styles from '../FoodCard/FoodCard.module.sass'
+import styles from '../FoodCard/FoodCard.module.sass';
 
 interface Props {
     title: string;
 
 }
 const FoodCard: FC<Props> = ({ title }) => {
-    const [visible, setVisible] = useState(false)
-    const [name, setName] = useState('')
-    const [weight, setWeight] = useState('')
+    const [visible, setVisible] = useState(false);
+    const [name, setName] = useState('');
+    const [weight, setWeight] = useState('');
     const [arr, setArr] = useState([{}]);
     const handleCreate = (name: string, weight: string) => {
         arr.push({
             name: name,
             weight: weight
-        })
-        setArr(arr)
-        compare(name)
-        setVisible(false)
-        setName('')
-        setWeight('')
+        });
+        setArr(arr);
+        compare(name);
+        setVisible(false);
+        setName('');
+        setWeight('');
     };
     let food: Array<object>[];
     const compare = (name: string) => {
@@ -34,12 +34,12 @@ const FoodCard: FC<Props> = ({ title }) => {
                         carbohydrates: foodItems[i].carbohydrates,
                         fats: foodItems[i].fats,
                         squirrels: foodItems[i].squirrels
-                    }])
+                    }]);
             }
             else
                 console.log(name);
         }
-    }
+    };
     return (
         <div className={styles.food_card}>
             <div className={styles.food_card__top}>
@@ -83,8 +83,8 @@ const FoodCard: FC<Props> = ({ title }) => {
                     : <></>}
             </div>
         </div>
-    )
-}
+    );
+};
 export default FoodCard;
 
 

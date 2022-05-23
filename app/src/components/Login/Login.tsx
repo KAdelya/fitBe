@@ -1,18 +1,15 @@
 import styles from './Login.module.sass';
-import * as yup from "yup";
-import {Formik} from 'formik';
-import Modal from '../Containers/ModalContainer/ModalContainer'
-import {getDatabase, onValue, ref, set} from "firebase/database";
-import React, {useState} from "react";
-import {Navigate, useNavigate, useParams} from "react-router-dom";
-import {useDispatch} from 'react-redux';
-import {getAuth, signInWithEmailAndPassword} from 'firebase/auth';
-import {useAppDispatch, useAppSelector} from '../../utils/redux-hooks';
-import {setUser} from '../../stores/slices/userSlice';
+import * as yup from 'yup';
 import MainCustomBtn from '../ui/button/ButtonLayout/ButtonLayout';
-import ModalLayout from "../Containers/ModalContainer/ModalContainer";
-import {setModal} from "../../stores/slices/modalSlice";
-import {ModalUncorrectNameOrPasswordSign} from "../Modal/ModalUncorrectNameSign";
+import ModalLayout from '../Containers/ModalContainer/ModalContainer';
+import { Formik } from 'formik';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { useAppDispatch, useAppSelector } from '../../utils/redux-hooks';
+import { setUser } from '../../stores/slices/userSlice';
+import { setModal } from '../../stores/slices/modalSlice';
+import { ModalUncorrectNameOrPasswordSign } from '../Modal/ModalUncorrectNameSign';
 
 export const Login = () => {
     const validationsSchema = yup.object().shape({
@@ -20,7 +17,7 @@ export const Login = () => {
             .matches(/^[a-zA-Z0-9]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/, 'Please enter a valid email'),
         password: yup.string().typeError('Position to be a string').required('Necessarily')
             .matches(/[0-9a-zA-Z]{6,}/g, 'Password must be at least 6 characters long')
-    })
+    });
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
     const show = useAppSelector((state) => state.modal.show);
@@ -33,70 +30,68 @@ export const Login = () => {
     };
     const [visible, setVisible] = useState(false);
     const handleLogin = (email: string, password: string) => {
-        const auth = getAuth()
+        const auth = getAuth();
         signInWithEmailAndPassword(auth, email, password)
-
-            .then(({user}) => {
-                console.log(user);
+            .then(({ user }) => {
                 dispatch(setUser({
                     email: user.email,
                     id: user.uid,
                     token: user.refreshToken,
                 }));
-                navigate(`/user`)
+                navigate('/user');
             })
-            .catch(()=>setVisible(true))
-    }
+            .catch(() => setVisible(true));
+    };
     const [email, setEmail] = useState('');
-    const [pass, setPass] = useState('')
+    const [pass, setPass] = useState('');
 
     return (
         <div>
-        <Formik
-            initialValues={{
-                email: '',
-                password: ''
-            }}
-            onSubmit={() => handleLogin(email, pass)}
-            validationSchema={validationsSchema}>
-            {({
-                  values, errors, touched,
-                  handleChange, handleBlur,
-                  isValid = false, dirty = false, handleSubmit
-              }) => (
-                <form onSubmit={handleSubmit}>
-                    <section className={styles.content}>
-                        <h1>Time to training!</h1>
-                        <div className={styles.content__info}>
-                            <div className={styles.content__info__form}>
-                                <input
-                                    placeholder='Email'
-                                    name='email'
-                                    type='email'
-                                    value={values.email}
-                                    onChange={handleChange}
-                                    onBlur={handleBlur}/>
-                                {touched.email && errors.email && <p>{errors.email}</p>}
-                                {touched.email && !errors.email && setEmail(values.email)}
+            <Formik
+                initialValues={{
+                    email: '',
+                    password: ''
+                }}
+                onSubmit={() => handleLogin(email, pass)}
+                validationSchema={validationsSchema}>
+                {({
+                    values, errors, touched,
+                    handleChange, handleBlur,
+                    isValid = false, dirty = false, handleSubmit
+                }) => (
+                    <form onSubmit={handleSubmit}>
+                        <section className={styles.content}>
+                            <h1>Time to training!</h1>
+                            <div className={styles.content__info}>
+                                <div className={styles.content__info__form}>
+                                    <input
+                                        placeholder='Email'
+                                        name='email'
+                                        type='email'
+                                        value={values.email}
+                                        onChange={handleChange}
+                                        onBlur={handleBlur} />
+                                    {touched.email && errors.email && <p>{errors.email}</p>}
+                                    {touched.email && !errors.email && setEmail(values.email)}
+                                </div>
+                                <div className={styles.content__info__form}>
+                                    <input
+                                        placeholder='Password'
+                                        name='password'
+                                        type='password'
+                                        value={values.password}
+                                        onChange={handleChange}
+                                        onBlur={handleBlur} />
+                                    {touched.password && errors.password && <p>{errors.password}</p>}
+                                    {touched.password && !errors.password && setPass(values.password)}
+                                </div>
+                                <div className={styles.content__info__button}>
+                                    <MainCustomBtn>
+                                        <button type='submit'>SIGN IN</button>
+                                    </MainCustomBtn>
+                                </div>
                             </div>
-                            <div className={styles.content__info__form}>
-                                <input
-                                    placeholder='Password'
-                                    name='password'
-                                    type='password'
-                                    value={values.password}
-                                    onChange={handleChange}
-                                    onBlur={handleBlur}/>
-                                {touched.password && errors.password && <p>{errors.password}</p>}
-                                {touched.password && !errors.password && setPass(values.password)}
-                            </div>
-                            <div className={styles.content__info__button}>
-                                <MainCustomBtn>
-                                    <button type='submit'>SIGN IN</button>
-                                </MainCustomBtn>
-                            </div>
-                        </div>
-                        {/* <Formik
+                            {/* <Formik
                 initialValues={{
                     email: '',
                     password: ''
@@ -141,18 +136,18 @@ export const Login = () => {
                         </section>
                     </form>)}
             </Formik>*/}
-                    </section>
-                </form>)}
-        </Formik>
-    {visible?
-        <ModalLayout
-            close={handleClose}
-            open={show}
-            button="UNDERSTANDABLY">
-            <ModalUncorrectNameOrPasswordSign/>
-        </ModalLayout>
-        :
-        <></>}
-    </div>
-    )
-}
+                        </section>
+                    </form>)}
+            </Formik>
+            {visible ?
+                <ModalLayout
+                    close={handleClose}
+                    open={show}
+                    button="UNDERSTANDABLY">
+                    <ModalUncorrectNameOrPasswordSign />
+                </ModalLayout>
+                :
+                <></>}
+        </div>
+    );
+};

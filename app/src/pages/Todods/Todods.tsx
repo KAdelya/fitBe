@@ -1,6 +1,4 @@
 import styles from '../Todods/Todods.module.sass';
-import plus from '../../assets/images/butPlus.svg';
-import prev from '../../assets/images/butprev.svg';
 import { useState } from 'react';
 import MainCustomBtn from '../../components/ui/button/ButtonLayout/ButtonLayout';
 
@@ -40,7 +38,7 @@ const Todods = () => {
                 <div className={styles.todos_page__content}>
                     <div className={styles.todos_page__content__buttons}>
                         <div className={styles.buttons}>
-                            <button>&#60;</button>
+                            <button>&lsaquo;</button>
                         </div>
                         <div className={styles.todos_page__content__date}>
                             <div className={styles.content}>
@@ -57,10 +55,11 @@ const Todods = () => {
                 {todos.map((todo: any, index) => (
                     <div className={styles.todo} key={index}>
                         <div className={styles.todo__content}>
-                            <h4>{todo.title}</h4>
+                            <h4 style={{ textDecoration: todo.completed ? 'line-through' : '' }}>{todo.title}</h4>
                             <div>
                                 <MainCustomBtn>
-                                    <button onClick={() => removeTodo(index)}>&times;</button>
+                                    <button onClick={() => markTodo(index)}>&#10004;</button>
+                                    <button onClick={() => removeTodo(index)}>&#10008;</button>
                                 </MainCustomBtn>
                             </div>
                         </div>

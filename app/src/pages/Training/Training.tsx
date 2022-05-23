@@ -5,13 +5,6 @@ import { exerciseItems } from '../../mocks/exerciseMock';
 
 
 const Training = () => {
-    // const [image, setImage] = useState([]);
-    // ExerciseService.getExercisePicture().then(res => {
-    //     setImage(res.data.results)
-    // }).catch(err => {
-    //     console.log(err)
-    // })
-
     return (
         <div>
             <section className={styles.training_page}>

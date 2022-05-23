@@ -1,4 +1,4 @@
-import styles from '../Calculator/Calculator.module.sass'
+import styles from '../Calculator/Calculator.module.sass';
 import FoodCard from '../../components/Cards/FoodCard/FoodCard';
 const Calculator = () => {
     return (
@@ -23,7 +23,6 @@ const Calculator = () => {
                         <pre>34.76</pre>
                     </div>
                 </div>
-
                 <div className={styles.calculator_page__food_blocks}>
                     <FoodCard title='Breakfast' />
                     <FoodCard title='Lunch' />
@@ -33,8 +32,7 @@ const Calculator = () => {
                 </div>
             </section>
         </div>
+    );
+};
 
-    )
-}
-
-export default Calculator
+export default Calculator;
