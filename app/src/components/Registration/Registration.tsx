@@ -50,8 +50,6 @@ export const Registration = () => {
             })
             .catch(() => setVisible(true));
     };
-    const [email, setEmail] = useState('');
-    const [pass, setPass] = useState('');
     return (
         <div>
             <Formik
@@ -60,7 +58,7 @@ export const Registration = () => {
                     password: '',
                     repeat_password: ''
                 }}
-                onSubmit={() => handleRegistration(email, pass)}
+                onSubmit={(values) => handleRegistration(values.email, values.password)}
                 validationSchema={validationsSchema}>
                 {({
                     values, errors, touched,
@@ -80,7 +78,6 @@ export const Registration = () => {
                                         onChange={handleChange}
                                         onBlur={handleBlur} />
                                     {touched.email && errors.email && <p>{errors.email}</p>}
-                                    {touched.email && !errors.email && setEmail(values.email)}
                                 </div>
                                 <div className={styles.content__info__form}>
                                     <input
@@ -91,7 +88,6 @@ export const Registration = () => {
                                         onChange={handleChange}
                                         onBlur={handleBlur} />
                                     {touched.password && errors.password && <p>{errors.password}</p>}
-                                    {touched.password && !errors.password && setPass(values.password)}
                                 </div>
                                 <div className={styles.content__info__form}>
                                     <input
@@ -103,7 +99,6 @@ export const Registration = () => {
                                         onBlur={handleBlur} />
                                     {touched.repeat_password && errors.repeat_password &&
                                         <p>{errors.repeat_password}</p>}
-                                    {touched.repeat_password && !errors.repeat_password && setPass(values.password)}
                                 </div>
                             </div>
                             <div className={styles.content__info__button}>
@@ -112,7 +107,6 @@ export const Registration = () => {
                                 </MainCustomBtn>
                             </div>
 
-                            {/* тут надо восстановить формик, это модалка на неверный ввод*/}
                         </section>
                     </form>)}
             </Formik>

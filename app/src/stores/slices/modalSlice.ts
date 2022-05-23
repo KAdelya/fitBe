@@ -29,7 +29,7 @@ interface Modal {
   show: boolean;
 }
 const initialmodalState: Modal = {
-    show: true,
+    show: false,
 };
 
 const modalSlice = createSlice({

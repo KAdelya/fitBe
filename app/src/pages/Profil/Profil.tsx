@@ -15,6 +15,7 @@ import { db } from '../..';
 
 
 const Profil = () => {
+    const [user, setUser] = useState<any>();
     let [name, setName] = useState();
     let [surname, setSurname] = useState();
     let [spendingHours, setSpendingHours] = useState(0);
@@ -27,21 +28,23 @@ const Profil = () => {
     async function getInfoFromDataBase(id: any) {
         const dbRef = (ref(db, `/${id}`));
         onValue(dbRef, (snapshot: any) => {
-            name = snapshot.val().user.name;
-            surname = snapshot.val().user.surname;
-            spendingHours = snapshot.val().info.spendingHours;
-            waterCount = snapshot.val().info.waterCount;
-            avatar = snapshot.val().info.avatar;
-            curWeight = snapshot.val().weight.current;
-            calories = snapshot.val().calories;
+            console.log(snapshot);
+            return snapshot.val();
+            // name = snapshot.val().user.name;
+            // surname = snapshot.val().user.surname;
+            // spendingHours = snapshot.val().info.spendingHours;
+            // waterCount = snapshot.val().info.waterCount;
+            // avatar = snapshot.val().info.avatar;
+            // curWeight = snapshot.val().weight.current;
+            // calories = snapshot.val().calories;
         });
-        setName(name);
-        setSurname(surname);
-        setSpendingHours(spendingHours);
-        setWaterCount(waterCount);
-        setCurWeight(curWeight);
-        setCalories(calories);
-        setAvatar(avatar);
+        // setName(name);
+        // setSurname(surname);
+        // setSpendingHours(spendingHours);
+        // setWaterCount(waterCount);
+        // setCurWeight(curWeight);
+        // setCalories(calories);
+        // setAvatar(avatar);
     }
 
     async function updateInDataBase(id: any) {
@@ -93,11 +96,10 @@ const Profil = () => {
     const { id, email } = useAuth();
 
     useEffect(() => {
-        setTimeout(() => {
-            getInfoFromDataBase(id);
-        }, 10);
-        return () => clearTimeout();
-    }, ['']);
+        getInfoFromDataBase(id).then((result) => {
+            setUser(result);
+        });
+    }, []);
 
     // const saveNewAvatar = (file: any) => {
     //     if(!file) return;
