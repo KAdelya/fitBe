@@ -89,10 +89,8 @@ const Profil = () => {
     // };
     const [file, setFile] = useState('');
     function handleChange(e: any) {
-        console.log(e.target.files);
         setFile(URL.createObjectURL(e.target.files[0]));
         updateInDataBase(id)
-        console.log(file)
     }
     const { id, email } = useAuth();
 
@@ -101,7 +99,7 @@ const Profil = () => {
             getInfoFromDataBase(id)
         }, 10);
         return () => clearTimeout();
-    }, []);
+    }, ['']);
 
     // const saveNewAvatar = (file: any) => {
     //     if(!file) return;
@@ -145,13 +143,12 @@ const Profil = () => {
         );
     };
 
-    const [visible, setVisible] = useState(true);
     return (
         <div>
             <section className={styles.profil_page}>
                 <div className={styles.profil_page__avatar}>
                     <div className={styles.profil_page__avatar__img}>
-                        <img src={no_avatar} />
+                        <img src={no_avatar} alt="avatar"/>
                         {/* <input type="file" onChange={formHandler}/> */}
                     </div>
                     <div className={styles.profil_page__avatar__button}>
@@ -199,7 +196,7 @@ const Profil = () => {
                     </div>
                 </div>
             </section>
-            {visible ?
+            {show ?
                 <ModalLayout
                     close={handleClose}
                     open={show}

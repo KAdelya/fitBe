@@ -1,6 +1,4 @@
-import { useState } from 'react'
 import styles from '../Training/Training.module.sass'
-import ExerciseService from '../../services/exercise.service'
 import TrainingCard from '../../components/Cards/TrainingCard/TrainingCard'
 import { exerciseItems } from '../../mocks/exerciseMock'
 
@@ -27,9 +25,9 @@ const Training = () => {
                     <div className={styles.training_page__content__cards}>
                         {
                             exerciseItems.map((item: any)=>
-                                        <TrainingCard picture={item.image} 
-                                                        name={item.name} 
-                                                        link={item.link}/>)
+                                <TrainingCard picture={item.image} 
+                                    name={item.name} 
+                                    link={item.link}/>)
                             
                         }
                     </div>
