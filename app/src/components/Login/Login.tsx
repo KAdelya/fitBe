@@ -12,7 +12,7 @@ import {setUser} from '../../stores/slices/userSlice';
 import MainCustomBtn from '../ui/button/ButtonLayout/ButtonLayout';
 import ModalLayout from "../Containers/ModalContainer/ModalContainer";
 import {setModal} from "../../stores/slices/modalSlice";
-import {ModalUncorrectNameSign} from "../Modal/ModalUncorrectNameSign";
+import {ModalUncorrectNameOrPasswordSign} from "../Modal/ModalUncorrectNameSign";
 
 export const Login = () => {
     const validationsSchema = yup.object().shape({
@@ -149,7 +149,7 @@ export const Login = () => {
             close={handleClose}
             open={show}
             button="UNDERSTANDABLY">
-            <ModalUncorrectNameSign/>
+            <ModalUncorrectNameOrPasswordSign/>
         </ModalLayout>
         :
         <></>}
