@@ -1,14 +1,12 @@
-import styles from "./Questionnaire.module.sass";
-import  {  useState } from "react";
-import {  ref, set } from "firebase/database";
-import { useNavigate } from "react-router-dom";
-import { db } from "../..";
-import { useAuth } from "../../utils/use-auth";
-import MainCustomBtn from "../ui/button/ButtonLayout/ButtonLayout";
+import styles from './Questionnaire.module.sass';
+import  {  useState } from 'react';
+import {  ref, set } from 'firebase/database';
+import { useNavigate } from 'react-router-dom';
+import { db } from '../..';
+import { useAuth } from '../../utils/use-auth';
+import MainCustomBtn from '../ui/button/ButtonLayout/ButtonLayout';
 
-interface Props {
-    data: any
-}
+
 
 export const Questionnaire = () => {
     // const { modalStore: { currentModal, setCurrentModal } } = useStore()
@@ -135,21 +133,21 @@ export const Questionnaire = () => {
     const [gender, setGender] = useState('Male');
 
     const { id } = useAuth();
-    let [newEmail, setNewEmail] = useState('')
+    let [newEmail, setNewEmail] = useState('');
     let [newName, setNewName] = useState('');
     let [newSurname, setNewSurname] = useState('');
     let [newAvatar, setNewAvatar] = useState('https://www.alaskapacific.edu/wp-content/uploads/2015/11/placeholder_profile_photo.png');
     let [newSpendingHours, setNewSpendingHours] = useState(0);
     let [newWaterCount, setWaterCount] = useState(0);
     let [newCalories, setNewCalories] = useState(0);
-    let [newWeight, setNewWeight] =  useState('')
-    let [newDesiredWeight, setNewDesiredWeight] = useState('')
-    const navigate = useNavigate()
+    let [newWeight, setNewWeight] =  useState('');
+    let [newDesiredWeight, setNewDesiredWeight] = useState('');
+    const navigate = useNavigate();
     const handleChange = (id: any) => {
-        createUser(id)
-        navigate(`/user`)
+        createUser(id);
+        navigate('/user');
 
-    }
+    };
     async function createUser(id: any) {
         set(ref(db, `/${id}`), {
             user: {
@@ -188,19 +186,19 @@ export const Questionnaire = () => {
                 </div>
                 <div className={styles.question_page__block}>
                     <label>Your name</label>
-                    <input name="name" onChange={(event) => { setNewName( event.target.value) }}/>
+                    <input name="name" onChange={(event) => { setNewName( event.target.value); }}/>
                 </div>
                 <div className={styles.question_page__block}>
                     <label>Your surname</label>
-                    <input name="surname" onChange={(event) => { setNewSurname( event.target.value) }}/>
+                    <input name="surname" onChange={(event) => { setNewSurname( event.target.value); }}/>
                 </div>
                 <div className={styles.question_page__block}>
                     <label>Your weight (kg)</label>
-                    <input name="weight" onChange={(event) => { setNewWeight( event.target.value) }}/>
+                    <input name="weight" onChange={(event) => { setNewWeight( event.target.value); }}/>
                 </div>
                 <div className={styles.question_page__block}>
                     <label>Your desired weight (kg)</label>
-                    <input name="weight" onChange={(event) => { setNewDesiredWeight( event.target.value) }}/>
+                    <input name="weight" onChange={(event) => { setNewDesiredWeight( event.target.value); }}/>
                 </div>
                 <div className={styles.question_page__block}>
                     <label>Your age:</label>
@@ -227,5 +225,5 @@ export const Questionnaire = () => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};

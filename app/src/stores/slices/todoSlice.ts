@@ -1,4 +1,4 @@
-import {createSlice} from "@reduxjs/toolkit";
+import {createSlice} from '@reduxjs/toolkit';
 
 interface Props {
     id: number;
@@ -17,7 +17,7 @@ const todoSlice = createSlice({
     reducers: {
         addTask: (state, action) => {
             state.id++;
-            state.tasks.push({id: state.id, title: action.payload, completed: false})
+            state.tasks.push({id: state.id, title: action.payload, completed: false});
         },
         removeTask: (state, action) => {
             // state.tasks.filter((item) => item.id !== action.payload.id)
@@ -25,8 +25,8 @@ const todoSlice = createSlice({
             state.tasks = state.tasks.filter(task => task.id !== action.payload.id);
         },
 
-    }
-})
+    },
+});
 
 export const {addTask, removeTask} = todoSlice.actions;
 export default todoSlice.reducer;

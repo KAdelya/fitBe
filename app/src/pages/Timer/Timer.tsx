@@ -1,12 +1,11 @@
 import styles from './Timer.module.sass';
-import line from '../../assets/images/line.svg'
-import arr from '../../assets/images/arr.svg'
-import rarr from '../../assets/images/rarr.svg'
-import refresh from '../../assets/images/refresh.svg'
-import Modal from '../../components/Containers/ModalContainer/ModalContainer';
+import line from '../../assets/images/line.svg';
+import arr from '../../assets/images/arr.svg';
+import rarr from '../../assets/images/rarr.svg';
+import refresh from '../../assets/images/refresh.svg';
 import { ModalTimer } from '../../components/Modal/ModalTimer';
 import MainCustomBtn from '../../components/ui/button/ButtonLayout/ButtonLayout';
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 import ModalLayout from '../../components/Containers/ModalContainer/ModalContainer';
 import { useAppDispatch, useAppSelector } from '../../utils/redux-hooks';
 import { setModal } from '../../stores/slices/modalSlice';
@@ -14,20 +13,20 @@ import CustomBtnLayout from '../../components/ui/button/CustomBtnLayout/CustomBt
 
 const Timer = () => {
     const [time, setTime] = useState(0);
-    const [timeOn, setTimeOn] = useState(false)
-    let rounds = 5
+    const [timeOn, setTimeOn] = useState(false);
+    let rounds = 5;
 
     useEffect(() => {
         let interval: any = null;
         if (timeOn) {
             interval = setInterval(() => {
-                setTime(prevTime => prevTime + 10)
-            }, 100)
+                setTime(prevTime => prevTime + 10);
+            }, 100);
         } else {
-            clearInterval(interval)
+            clearInterval(interval);
         }
-        return () => clearInterval(interval)
-    }, [timeOn])
+        return () => clearInterval(interval);
+    }, [timeOn]);
 
     const [visible, setVisible] = useState(false);
 
@@ -36,11 +35,11 @@ const Timer = () => {
     const dispatch = useAppDispatch();
     const handleClose = () => {
         dispatch(
-          setModal({
-            show: false,
-          })
+            setModal({
+                show: false,
+            })
         );
-      };
+    };
 
     //   <Modal
     //   open={show}
@@ -53,7 +52,8 @@ const Timer = () => {
     //     timeout: 500,
     //   }}
     // >
-
+    
+    const {workTime} = useAppSelector(state => state.timer);
     return (
         <div>
             
@@ -64,6 +64,7 @@ const Timer = () => {
                     </div>
                     <CustomBtnLayout>
                         <button onClick={() => setVisible(!visible)}>SET THE TIME</button>
+                        <button onClick={() => console.log(workTime)}>worktime</button>
                     </CustomBtnLayout>
                 </div>
                 <div className={styles.timer_page__info}>
@@ -71,17 +72,17 @@ const Timer = () => {
                         <h1>Work</h1>
                         <div className={styles.timer_page__info__reload__button}>
                             <button onClick={() => setTime(0)}>
-                                <img src={refresh} width={75} />
+                                <img src={refresh} width={75} alt='reload'/>
                             </button>
                         </div>
                     </div>
                     <div className={styles.timer_page__info__set}>
-                        <img src={line} width={5} />
-                        <img src={rarr} width={35} />
+                        <img src={line} width={5} alt='arrow'/>
+                        <img src={rarr} width={35} alt='arrow'/>
                         <p> {Math.floor((time / 6000) % 60) < rounds ? Math.floor((time / 6000) % 60) : rounds}
                             /{rounds}</p>
-                        <img src={arr} width={35} />
-                        <img src={line} width={5} />
+                        <img src={arr} width={35} alt='arrow'/>
+                        <img src={line} width={5} alt='arrow'/>
                     </div>
                     <div className={styles.timer_page__info__bottom}>
                         <MainCustomBtn>
@@ -106,7 +107,7 @@ const Timer = () => {
                 :
                 <></>}
         </div>
-    )
-}
+    );
+};
 
 export default Timer;

@@ -1,15 +1,15 @@
 import styles from './Registration.module.sass';
-import {Formik} from 'formik';
+import { Formik } from 'formik';
 import * as yup from 'yup';
-import React, {ReactNode, useState} from "react";
-import {createUserWithEmailAndPassword, getAuth} from 'firebase/auth';
-import {setUser} from '../../stores/slices/userSlice';
-import {useAppDispatch, useAppSelector} from '../../utils/redux-hooks';
-import {useNavigate} from 'react-router-dom';
+import { useState } from 'react';
+import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
+import { setUser } from '../../stores/slices/userSlice';
+import { useAppDispatch, useAppSelector } from '../../utils/redux-hooks';
+import { useNavigate } from 'react-router-dom';
 import MainCustomBtn from '../ui/button/ButtonLayout/ButtonLayout';
-import {setModal} from '../../stores/slices/modalSlice';
-import {ModalUncorrectNameRegistration} from "../Modal/ModalUncorrectNameRegistration";
-import ModalLayout from "../Containers/ModalContainer/ModalContainer";
+import { setModal } from '../../stores/slices/modalSlice';
+import { ModalUncorrectNameRegistration } from '../Modal/ModalUncorrectNameRegistration';
+import ModalLayout from '../Containers/ModalContainer/ModalContainer';
 
 
 export const Registration = () => {
@@ -18,14 +18,14 @@ export const Registration = () => {
             .matches(/^[a-zA-Z0-9]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/, 'Please enter a valid email'),
         password: yup.string().typeError('Position to be a string').required('Necessarily')
             .matches(/[0-9a-zA-Z]{6,}/g, 'Password must be at least 6 characters long'),
-        repeat_password: yup.string().typeError('Position to be a string').required('Necessarily').matches(/[0-9a-zA-Z]{6,}/g, 'Password must be at least 6 characters long').when("password", {
+        repeat_password: yup.string().typeError('Position to be a string').required('Necessarily').matches(/[0-9a-zA-Z]{6,}/g, 'Password must be at least 6 characters long').when('password', {
             is: (val: string | any[]) => (val && val.length > 0),
             then: yup.string().oneOf(
-                [yup.ref("password")],
-                "Both password need to be the same"
+                [yup.ref('password')],
+                'Both password need to be the same'
             )
         })
-    })
+    });
     const [visible, setVisible] = useState(false);
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
@@ -41,19 +41,19 @@ export const Registration = () => {
         const auth = getAuth();
         createUserWithEmailAndPassword(auth, email, password)
 
-            .then(({user}) => {
+            .then(({ user }) => {
                 console.log(user);
                 dispatch(setUser({
                     email: user.email,
                     id: user.uid,
                     token: user.refreshToken,
                 }));
-                navigate(`/questionnaire`)
+                navigate('/questionnaire');
             })
-            .catch(() => setVisible(true))
-    }
+            .catch(() => setVisible(true));
+    };
     const [email, setEmail] = useState('');
-    const [pass, setPass] = useState('')
+    const [pass, setPass] = useState('');
     return (
         <div>
             <Formik
@@ -65,10 +65,10 @@ export const Registration = () => {
                 onSubmit={() => handleRegistration(email, pass)}
                 validationSchema={validationsSchema}>
                 {({
-                      values, errors, touched,
-                      handleChange, handleBlur,
-                      isValid = false, dirty = false, handleSubmit
-                  }) => (
+                    values, errors, touched,
+                    handleChange, handleBlur,
+                    isValid = false, dirty = false, handleSubmit
+                }) => (
                     <form onSubmit={handleSubmit}>
                         <section className={styles.content}>
                             <h1>Registration</h1>
@@ -80,7 +80,7 @@ export const Registration = () => {
                                         type='email'
                                         value={values.email}
                                         onChange={handleChange}
-                                        onBlur={handleBlur}/>
+                                        onBlur={handleBlur} />
                                     {touched.email && errors.email && <p>{errors.email}</p>}
                                     {touched.email && !errors.email && setEmail(values.email)}
                                 </div>
@@ -91,7 +91,7 @@ export const Registration = () => {
                                         type='password'
                                         value={values.password}
                                         onChange={handleChange}
-                                        onBlur={handleBlur}/>
+                                        onBlur={handleBlur} />
                                     {touched.password && errors.password && <p>{errors.password}</p>}
                                     {touched.password && !errors.password && setPass(values.password)}
                                 </div>
@@ -102,9 +102,9 @@ export const Registration = () => {
                                         type='password'
                                         value={values.repeat_password}
                                         onChange={handleChange}
-                                        onBlur={handleBlur}/>
+                                        onBlur={handleBlur} />
                                     {touched.repeat_password && errors.repeat_password &&
-                                    <p>{errors.repeat_password}</p>}
+                                        <p>{errors.repeat_password}</p>}
                                     {touched.repeat_password && !errors.repeat_password && setPass(values.password)}
                                 </div>
                             </div>
@@ -123,9 +123,9 @@ export const Registration = () => {
                     close={handleClose}
                     open={show}
                     button="UNDERSTANDABLY">
-                    <ModalUncorrectNameRegistration/>
+                    <ModalUncorrectNameRegistration />
                 </ModalLayout>
                 : <></>}
         </div>
-    )
-}
+    );
+};

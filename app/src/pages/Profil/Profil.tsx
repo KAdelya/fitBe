@@ -5,9 +5,7 @@ import MainCustomBtn from '../../components/ui/button/ButtonLayout/ButtonLayout'
 import CustomBtnLayout from '../../components/ui/button/CustomBtnLayout/CustomBtnLayout';
 import { useAuth } from '../../utils/use-auth';
 import { onValue, ref, update } from 'firebase/database';
-// import { db, storage } from '../../';
 import { useState } from 'react';
-// import { getStorage, uploadBytesResumable, ref, getDownloadURL, uploadBytes } from "firebase/storage"
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../utils/redux-hooks';
 import { setModal } from '../../stores/slices/modalSlice';
