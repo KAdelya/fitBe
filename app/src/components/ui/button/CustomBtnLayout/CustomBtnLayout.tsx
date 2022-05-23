@@ -1,4 +1,4 @@
-import styles from '../CustomBtnLayout/CustomBtnLayout.module.sass'
+import styles from '../CustomBtnLayout/CustomBtnLayout.module.sass';
 import { FC } from 'react';
 
 interface Props { }
@@ -9,6 +9,6 @@ const CustomButton:FC<Props> = ({ children }) => {
           {children}
       </div>
   );
-}
+};
 
 export default CustomButton;

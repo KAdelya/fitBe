@@ -7,8 +7,8 @@ import MainCustomBtn from '../../ui/button/ButtonLayout/ButtonLayout';
 
 interface Props {
     close: any;
-    open: any
-    button: string
+    open: any;
+    button: string;
 }
 
 export const Modal: FC<Props> = ({ children, button }) => {
@@ -34,5 +34,5 @@ export const Modal: FC<Props> = ({ children, button }) => {
             </div> :
             <></>
     );
-}
+};
 export default Modal;

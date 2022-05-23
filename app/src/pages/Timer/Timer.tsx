@@ -2,7 +2,7 @@ import styles from './Timer.module.sass';
 import line from '../../assets/images/line.svg';
 import arr from '../../assets/images/arr.svg';
 import rarr from '../../assets/images/rarr.svg';
-import { ModalTimer } from '../../components/Modal/ModalTimer';
+import { ModalTimer } from '../../components/modal/ModalTimer';
 import MainCustomBtn from '../../components/ui/button/ButtonLayout/ButtonLayout';
 import { useEffect, useState } from 'react';
 import ModalLayout from '../../components/Containers/ModalContainer/ModalContainer';

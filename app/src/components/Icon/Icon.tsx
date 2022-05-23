@@ -18,5 +18,5 @@ export const Icon: FC<Props> = ({name, width, height}) => {
             }}>
             <use xlinkHref={`/sprite.svg#${name}`}></use>
         </svg>
-    )
+    );
 };

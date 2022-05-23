@@ -9,7 +9,7 @@ import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { useAppDispatch, useAppSelector } from '../../utils/redux-hooks';
 import { setUser } from '../../stores/slices/userSlice';
 import { setModal } from '../../stores/slices/modalSlice';
-import { ModalUncorrectNameOrPasswordSign } from '../Modal/ModalUncorrectNameSign';
+import { ModalUncorrectNameOrPasswordSign } from '../modal/ModalUncorrectNameSign';
 
 export const Login = () => {
     const validationsSchema = yup.object().shape({

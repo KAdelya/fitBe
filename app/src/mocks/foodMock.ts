@@ -47,5 +47,5 @@ export const foodItems = [
         squirrels: 1.29,
         fats: 0.39,
         carbohydrates: 26.95
-    }
-]
+    },
+];

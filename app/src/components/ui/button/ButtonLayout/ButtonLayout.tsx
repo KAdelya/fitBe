@@ -9,5 +9,5 @@ export const MainCustomBtn: FC<Props> = ({ children }) => {
             {children}
         </div>
     );
-}
+};
 export default MainCustomBtn;

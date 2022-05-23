@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.module.sass';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { getAuth } from 'firebase/auth'
-import firebase, { initializeApp } from 'firebase/app'
+import { getAuth } from 'firebase/auth';
+import firebase, { initializeApp } from 'firebase/app';
 import { getDatabase } from 'firebase/database';
 import { store } from './stores';
 import * as constants from './constants';
@@ -33,5 +33,5 @@ ReactDOM.render(
 
 reportWebVitals();
 export const db = getDatabase(app);
-export const storage = getStorage(app)
+export const storage = getStorage(app);
 export const auth = getAuth();
