@@ -41,13 +41,6 @@
     "eject": "react-scripts eject",
     "svg": "node generate-svgs.js"
   },
-  
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
   "browserslist": {
     "production": [
       ">0.2%",

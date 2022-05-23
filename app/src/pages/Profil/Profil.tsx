@@ -12,7 +12,7 @@ import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../utils/redux-hooks';
 import { setModal } from '../../stores/slices/modalSlice';
 import ModalLayout from '../../components/Containers/ModalContainer/ModalContainer';
-import {ModalWelcome} from '../../components/Modal/ModalWelcome';
+import { ModalWelcome } from '../../components/Modal/ModalWelcome';
 import { db } from '../..';
 
 
@@ -95,10 +95,13 @@ const Profil = () => {
         console.log(file)
     }
     const { id, email } = useAuth();
+
     useEffect(() => {
-        getInfoFromDataBase(id)
-        console.log(avatar)
-    })
+        setTimeout(() => {
+            getInfoFromDataBase(id)
+        }, 10);
+        return () => clearTimeout();
+    }, []);
 
     // const saveNewAvatar = (file: any) => {
     //     if(!file) return;
@@ -152,10 +155,10 @@ const Profil = () => {
                         {/* <input type="file" onChange={formHandler}/> */}
                     </div>
                     <div className={styles.profil_page__avatar__button}>
-                    <input type="file" onChange={handleChange} />
-                            <CustomBtnLayout>
-                                <button onClick={() => getInfoFromDataBase(id)}>EDIT AVATAR</button>
-                            </CustomBtnLayout>
+                        <input type="file" onChange={handleChange} />
+                        <CustomBtnLayout>
+                            <button onClick={() => getInfoFromDataBase(id)}>EDIT AVATAR</button>
+                        </CustomBtnLayout>
                         <h3>Uploaded {progress} %</h3>
                     </div>
                 </div>

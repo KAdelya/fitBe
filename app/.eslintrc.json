@@ -4,38 +4,25 @@
         "es2021": true
     },
     "extends": [
-        "plugin:@typescript-eslint/recommended",
-        "plugin:react-hooks/recommended",
-        "plugin:react/recommended",
-        "plugin:import/errors",
-        "plugin:import/warnings",
-        "plugin:import/typescript",
-        "google",
-        "plugin:prettier/errors",
-        "prettier",
-        "prettier/react"
+        "react-app",
+        "react-app/jest"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
     "plugins": [
         "react",
-        "@typescript-eslint",
-        "prettier"
+        "@typescript-eslint"
     ],
     "rules": {
-        "prettier/prettier": [
-            "error",
-            {
-                "singleQuote": true,
-                "semi": false,
-                "jsxSingleQuote": true
-            }
-        ]
+        "no-console": "warn",
+        "quotes": [
+            "warn",
+            "prefer-single"
+        ],
+        "indent" : ["warn", 4],
+        "max-len": ["error", {"code": 120}]
     }
 }

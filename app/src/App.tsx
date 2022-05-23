@@ -6,12 +6,12 @@ import Calculator from './pages/Calculator/Calculator';
 import Training from './pages/Training/Training';
 import TrackWeight from './pages/TrackWeight/TrackWeight';
 import {MainPage} from './pages/Main/MainPage';
-import Profil from './pages/Profil/Profil';
 import {useAuth} from './utils/use-auth';
 import Todods from './pages/Todods/Todods';
 import {QuestionnairePage} from './pages/QuestionnairePage/QuestionnairePage';
 import {LoginPage} from './pages/Login/LoginPage';
 import ProfilContainer from './components/Containers/ProfilContainer/ProfilContainer';
+import Profil from './pages/Profil/Profil';
 
 
 const App = () => {
