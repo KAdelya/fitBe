@@ -98,6 +98,10 @@ export const exerciseItems = [
         name: "Arnold Press",
         link: 'https://www.youtube.com/watch?v=3ml7BH7mNwQ',
         image: "https://wger.de/media/exercise-images/128/Hyperextensions-1.png"
+    },
+    {
+        name: "Back Squat",
+        link: 'https://www.youtube.com/watch?v=yBg4UoOXxLo',
+        image: "https://wger.de/media/exercise-images/150/Barbell-shrugs-1.png"
     }
-
-]
+];

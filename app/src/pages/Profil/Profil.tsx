@@ -158,7 +158,7 @@ const Profil = () => {
                     </div>
                 </div>
                 <div className={styles.profil_page__info}>
-                    <h2>{email}</h2>
+                    <h1>{email}</h1>
                     <p>{name} {surname}</p>
                     <div className={styles.profil_page__info__blocks}>
                         <div className={styles.profil_page__info__blocks__item}>

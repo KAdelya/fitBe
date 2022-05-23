@@ -2,6 +2,7 @@ import styles from '../Todods/Todods.module.sass';
 import plus from '../../assets/images/butPlus.svg';
 import prev from '../../assets/images/butprev.svg';
 import { useState } from 'react';
+import MainCustomBtn from '../../components/ui/button/ButtonLayout/ButtonLayout';
 
 interface Todo {
     title: string;
@@ -22,8 +23,6 @@ const Todods = () => {
             completed: false
         });
         setTodos(todos);
-        console.log(todos);
-
     };
 
 
@@ -33,19 +32,15 @@ const Todods = () => {
                 <div className={styles.todos_page__content}>
                     <div className={styles.todos_page__content__buttons}>
                         <div className={styles.buttons}>
-                            <button>
-                                <img src={prev} width={13} alt='prev' />
-                            </button>
+                            <button>&#60;</button>
                         </div>
                         <div className={styles.todos_page__content__date}>
                             <div className={styles.content}>
-                                <p> date</p>
+                                <p>{new Date().toDateString()}</p>
                             </div>
                         </div>
                         <div className={styles.buttons}>
-                            <button onClick={() => setVisible(!visible)}>
-                                <img src={plus} width={20} alt='next' />
-                            </button>
+                            <button onClick={() => setVisible(!visible)}>&#43;</button>
                         </div>
                     </div>
                 </div>
@@ -59,8 +54,13 @@ const Todods = () => {
                 ))}
                 <div className={styles.todo_notice__input}>
                     {visible ?
-                        <><input value={text} onChange={((e) => setText(e.target.value))} />
-                            <button onClick={() => handleCreate(text)}>add task</button></> : <></>}
+                        <div className={styles.todo_notice__input__visible}>
+                            <input value={text} onChange={((e) => setText(e.target.value))} />
+                            <MainCustomBtn>
+                                <button onClick={() => handleCreate(text)}>ADD</button>
+                            </MainCustomBtn>
+                            
+                        </div> : <></>}
                 </div>
             </section>
         </div>
