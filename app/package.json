@@ -41,12 +41,7 @@
     "eject": "react-scripts eject",
     "svg": "node generate-svgs.js"
   },
-  "prettier": {
-    "singleQuote": true,
-    "tabWidth": 4,
-    "semi": true,
-    "printWidth": 100
-  },
+  
   "eslintConfig": {
     "extends": [
       "react-app",

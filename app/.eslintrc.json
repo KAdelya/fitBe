@@ -29,6 +29,13 @@
         "prettier"
     ],
     "rules": {
-        "prettier/prettier": "error"
+        "prettier/prettier": [
+            "error",
+            {
+                "singleQuote": true,
+                "semi": false,
+                "jsxSingleQuote": true
+            }
+        ]
     }
 }
