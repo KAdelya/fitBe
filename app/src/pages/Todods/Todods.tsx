@@ -14,18 +14,26 @@ const Todods = () => {
     const [text, setText] = useState('');
     const [visible, setVisible] = useState(false);
     const [todos, setTodos] = useState<Array<Todo>>([]);
-    const handleCreate = (title: string) => {
+    const handleCreate = (value: string) => {
         setVisible(false);
         setText('');
-        todos.push({
-            title: title,
-            date: new Date().toDateString(),
-            completed: false
-        });
-        setTodos(todos);
+        if (!value) return;
+        addTodo(value);
     };
-
-
+    const addTodo = (text: string) => {
+        const newTodos = [...todos, { title: text, date: new Date().toDateString(), completed: false}];
+        setTodos(newTodos);
+    };
+    const markTodo = (index: number) => {
+        const newTodos = [...todos];
+        newTodos[index].completed = true;
+        setTodos(newTodos);
+    };
+    const removeTodo = (index: number) => {
+        const newTodos = [...todos];
+        newTodos.splice(index, 1);
+        setTodos(newTodos);
+    };
     return (
         <div>
             <section className={styles.todos_page}>
@@ -46,11 +54,17 @@ const Todods = () => {
                 </div>
             </section>
             <section className={styles.todo_notice}>
-                {todos.map((todo: any) => (
-                    <div>
-                        <pre>{todo.title}, {todo.date}</pre>
+                {todos.map((todo: any, index) => (
+                    <div className={styles.todo} key={index}>
+                        <div className={styles.todo__content}>
+                            <h4>{todo.title}</h4>
+                            <div>
+                                <MainCustomBtn>
+                                    <button onClick={() => removeTodo(index)}>&times;</button>
+                                </MainCustomBtn>
+                            </div>
+                        </div>
                     </div>
-
                 ))}
                 <div className={styles.todo_notice__input}>
                     {visible ?
