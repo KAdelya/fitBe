@@ -1,5 +1,5 @@
 import styles from './Profil.module.sass';
-import no_avatar from '../../assets/images/no_avatar.png'
+import no_avatar from '../../assets/images/no_avatar.png';
 import { NavLink } from 'react-router-dom';
 import MainCustomBtn from '../../components/ui/button/ButtonLayout/ButtonLayout';
 import CustomBtnLayout from '../../components/ui/button/CustomBtnLayout/CustomBtnLayout';
@@ -20,14 +20,14 @@ const Profil = () => {
     let [name, setName] = useState();
     let [surname, setSurname] = useState();
     let [spendingHours, setSpendingHours] = useState(0);
-    let [avatar, setAvatar] = useState('')
+    let [avatar, setAvatar] = useState('');
     let [waterCount, setWaterCount] = useState();
     let [curWeight, setCurWeight] = useState();
     let [calories, setCalories] = useState();
     // let { name } = useParams();
     // setCurrentModal(<Modal children={<ModalWelcome ccal={0} />} />)
     async function getInfoFromDataBase(id: any) {
-        const dbRef = (ref(db, `/${id}`))
+        const dbRef = (ref(db, `/${id}`));
         onValue(dbRef, (snapshot: any) => {
             name = snapshot.val().user.name;
             surname = snapshot.val().user.surname;
@@ -36,14 +36,14 @@ const Profil = () => {
             avatar = snapshot.val().info.avatar;
             curWeight = snapshot.val().weight.current;
             calories = snapshot.val().calories;
-        })
+        });
         setName(name);
         setSurname(surname);
         setSpendingHours(spendingHours);
         setWaterCount(waterCount);
         setCurWeight(curWeight);
         setCalories(calories);
-        setAvatar(avatar)
+        setAvatar(avatar);
     }
 
     async function updateInDataBase(id: any) {
@@ -54,11 +54,11 @@ const Profil = () => {
                 spendingHours: spendingHours + 1,
             }
         }).then(() => {
-            console.log('update successfully')
+            console.log('update successfully');
         })
             .catch((error) => {
-                alert('sorry :(' + error)
-            })
+                alert('sorry :(' + error);
+            });
     }
 
     // async function upload(file: any, setLoading: any, id: any){
@@ -68,12 +68,12 @@ const Profil = () => {
     // }
 
     const updateHours = () => {
-        setSpendingHours(spendingHours + 1)
-        updateInDataBase(id)
-    }
+        setSpendingHours(spendingHours + 1);
+        updateInDataBase(id);
+    };
     const [progress, setProgress] = useState(0);
     const [image, setImage] = useState('');
-    const [url, setUrl] = useState('')
+    const [url, setUrl] = useState('');
 
     // const formHandler = (e : any) => {
     //     e.preventDefault();
@@ -90,13 +90,13 @@ const Profil = () => {
     const [file, setFile] = useState('');
     function handleChange(e: any) {
         setFile(URL.createObjectURL(e.target.files[0]));
-        updateInDataBase(id)
+        updateInDataBase(id);
     }
     const { id, email } = useAuth();
 
     useEffect(() => {
         setTimeout(() => {
-            getInfoFromDataBase(id)
+            getInfoFromDataBase(id);
         }, 10);
         return () => clearTimeout();
     }, ['']);
@@ -206,6 +206,6 @@ const Profil = () => {
                 :
                 <></>}
         </div>
-    )
-}
+    );
+};
 export default Profil;

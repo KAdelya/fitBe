@@ -1,6 +1,6 @@
-import styles from '../Training/Training.module.sass'
-import TrainingCard from '../../components/Cards/TrainingCard/TrainingCard'
-import { exerciseItems } from '../../mocks/exerciseMock'
+import styles from '../Training/Training.module.sass';
+import TrainingCard from '../../components/Cards/TrainingCard/TrainingCard';
+import { exerciseItems } from '../../mocks/exerciseMock';
 
 
 
@@ -34,7 +34,7 @@ const Training = () => {
                 </div>
             </section>
         </div>
-    )
-}
+    );
+};
 
-export default Training
+export default Training;

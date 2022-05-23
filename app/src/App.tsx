@@ -1,5 +1,5 @@
-import styles from './App.module.sass'
-import {RegistrationPage} from './pages/RegistrationPage/RegistrationPage'
+import styles from './App.module.sass';
+import {RegistrationPage} from './pages/RegistrationPage/RegistrationPage';
 import {Routes, BrowserRouter as Router, Route} from 'react-router-dom';
 import Timer from './pages/Timer/Timer';
 import Calculator from './pages/Calculator/Calculator';
@@ -34,6 +34,6 @@ const App = () => {
             </Router>
         </div>
     );
-}
+};
 
 export default App;

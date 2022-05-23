@@ -1,7 +1,7 @@
-import { FC } from 'react'
+import { FC } from 'react';
 import Footer from '../../Footer/Footer';
 import Header from '../../Header/Header';
-import styles from './ProfilContainer.module.sass'
+import styles from './ProfilContainer.module.sass';
 
 interface Props {}
 
@@ -12,6 +12,6 @@ const ProfilContainer: FC<Props> = ({ children }) => {
             <div className={styles.main_content}>{children}</div>
             <Footer />
         </>
-    )
-}
+    );
+};
 export default ProfilContainer;
