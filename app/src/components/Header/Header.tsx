@@ -3,7 +3,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import styles from '../Header/Header.module.sass';
 import Menu from '../Menu/Menu';
 import menuBut from '../../assets/images/men.svg';
-import { removeUser } from '../../stores/slices/userSlice';
+import { removeUser } from '../../redux/slices/userSlice';
 import CustomButton from '../ui/button/CustomBtnLayout/CustomBtnLayout';
 import { useAppDispatch } from '../../utils/redux-hooks';
 

@@ -2,7 +2,7 @@ import styles from '../Containers/ModalContainer/ModalContainer.module.sass';
 import timer from '../../assets/images/time.svg';
 import { useState } from 'react';
 import { useAppDispatch } from '../../utils/redux-hooks';
-import { setRoundsCount, setWorkTime } from '../../stores/slices/timerSlice';
+import { setRoundsCount, setWorkTime } from '../../redux/slices/timerSlice';
 
 export const ModalTimer = () => {
     const [value_work, setValueWork] = useState('');

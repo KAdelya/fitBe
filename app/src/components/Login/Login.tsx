@@ -7,9 +7,9 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { useAppDispatch, useAppSelector } from '../../utils/redux-hooks';
-import { setUser } from '../../stores/slices/userSlice';
-import { setModal } from '../../stores/slices/modalSlice';
-import { ModalUncorrectNameOrPasswordSign } from '../modal/ModalUncorrectNameSign';
+import { setUser } from '../../redux/slices/userSlice';
+import { setModal } from '../../redux/slices/modalSlice';
+import { ModalUncorrectNameOrPasswordSign } from '../Modal/ModalUncorrectNameSign';
 
 export const Login = () => {
     const validationsSchema = yup.object().shape({

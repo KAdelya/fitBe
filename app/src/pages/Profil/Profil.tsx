@@ -1,6 +1,6 @@
 import styles from './Profil.module.sass';
 import no_avatar from '../../assets/images/no_avatar.png';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import MainCustomBtn from '../../components/ui/button/ButtonLayout/ButtonLayout';
 import CustomBtnLayout from '../../components/ui/button/CustomBtnLayout/CustomBtnLayout';
 import { useAuth } from '../../utils/use-auth';
@@ -8,9 +8,9 @@ import { onValue, ref, update } from 'firebase/database';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../utils/redux-hooks';
-import { setModal } from '../../stores/slices/modalSlice';
+import { setModal } from '../../redux/slices/modalSlice';
 import ModalLayout from '../../components/Containers/ModalContainer/ModalContainer';
-import { ModalWelcome } from '../../components/modal/ModalWelcome';
+import { ModalWelcome } from '../../components/Modal/ModalWelcome';
 import { db } from '../..';
 
 
@@ -23,6 +23,15 @@ const Profil = () => {
     let [waterCount, setWaterCount] = useState();
     let [curWeight, setCurWeight] = useState();
     let [calories, setCalories] = useState();
+    const navigate = useNavigate();
+
+    const [nick, setNick] = useState('');
+
+    // const [token, setToken] = useState('');
+
+
+    
+
     // let { name } = useParams();
     // setCurrentModal(<Modal children={<ModalWelcome ccal={0} />} />)
     async function getInfoFromDataBase(id: any) {
@@ -142,7 +151,7 @@ const Profil = () => {
             })
         );
     };
-
+    
     return (
         <div>
             <section className={styles.profil_page}>

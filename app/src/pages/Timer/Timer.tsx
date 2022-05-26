@@ -2,17 +2,18 @@ import styles from './Timer.module.sass';
 import line from '../../assets/images/line.svg';
 import arr from '../../assets/images/arr.svg';
 import rarr from '../../assets/images/rarr.svg';
-import { ModalTimer } from '../../components/modal/ModalTimer';
+import { ModalTimer } from '../../components/Modal/ModalTimer';
 import MainCustomBtn from '../../components/ui/button/ButtonLayout/ButtonLayout';
 import { useEffect, useState } from 'react';
 import ModalLayout from '../../components/Containers/ModalContainer/ModalContainer';
 import { useAppDispatch, useAppSelector } from '../../utils/redux-hooks';
-import { setModal } from '../../stores/slices/modalSlice';
+import { setModal } from '../../redux/slices/modalSlice';
 import CustomBtnLayout from '../../components/ui/button/CustomBtnLayout/CustomBtnLayout';
 
 const Timer = () => {
     const [time, setTime] = useState(0);
     const [timeOn, setTimeOn] = useState(false);
+    
 
     useEffect(() => {
         let interval: any = null;
@@ -51,6 +52,8 @@ const Timer = () => {
     // >
 
     const { workTime, roundsCount } = useAppSelector(state => state.timer);
+    sessionStorage.setItem('time', roundsCount.toString());
+    const changed = sessionStorage.getItem('time');
     return (
         <div>
 
@@ -66,6 +69,7 @@ const Timer = () => {
                 <div className={styles.timer_page__info}>
                     <div className={styles.timer_page__info__reload}>
                         <h1>Work</h1>
+                        <h1>{changed}</h1>
                         <button onClick={() => setTime(0)}>
                             <h2>&#8635;</h2>
                         </button>

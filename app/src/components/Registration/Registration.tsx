@@ -3,12 +3,12 @@ import { Formik } from 'formik';
 import * as yup from 'yup';
 import { useState } from 'react';
 import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
-import { setUser } from '../../stores/slices/userSlice';
+import { setUser } from '../../redux/slices/userSlice';
 import { useAppDispatch, useAppSelector } from '../../utils/redux-hooks';
 import { useNavigate } from 'react-router-dom';
 import MainCustomBtn from '../ui/button/ButtonLayout/ButtonLayout';
-import { setModal } from '../../stores/slices/modalSlice';
-import { ModalUncorrectNameRegistration } from '../modal/ModalUncorrectNameRegistration';
+import { setModal } from '../../redux/slices/modalSlice';
+import { ModalUncorrectNameRegistration } from '../Modal/ModalUncorrectNameRegistration';
 import ModalLayout from '../Containers/ModalContainer/ModalContainer';
 
 
@@ -50,6 +50,7 @@ export const Registration = () => {
             })
             .catch(() => setVisible(true));
     };
+    
     return (
         <div>
             <Formik
