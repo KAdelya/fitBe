@@ -1,10 +1,12 @@
 import styles from './Questionnaire.module.sass';
-import  {  useState } from 'react';
-import {  ref, set } from 'firebase/database';
+import { useEffect, useState } from 'react';
+import { ref, set } from 'firebase/database';
 import { useNavigate } from 'react-router-dom';
 import { db } from '../..';
 import { useAuth } from '../../utils/use-auth';
 import MainCustomBtn from '../ui/button/ButtonLayout/ButtonLayout';
+import { useAppDispatch, useAppSelector } from '../../utils/redux-hooks';
+import { setUser } from '../../redux/slices/userSlice';
 
 
 
@@ -140,7 +142,7 @@ export const Questionnaire = () => {
     let [newSpendingHours, setNewSpendingHours] = useState(0);
     let [newWaterCount, setWaterCount] = useState(0);
     let [newCalories, setNewCalories] = useState(0);
-    let [newWeight, setNewWeight] =  useState('');
+    let [newWeight, setNewWeight] = useState('');
     let [newDesiredWeight, setNewDesiredWeight] = useState('');
     const navigate = useNavigate();
     const handleChange = (id: any) => {
@@ -168,6 +170,14 @@ export const Questionnaire = () => {
             calories: newCalories
         });
     }
+    const dispatch = useAppDispatch();
+    dispatch(setUser({
+        userName: newName,
+        userSurname: newSurname
+    }));
+    
+    
+
     return (
         <div>
             <div className={styles.question_page}>
@@ -175,7 +185,7 @@ export const Questionnaire = () => {
                     <label>Please enter your gender:</label>
                     <div className={styles.question_page__block__radio}>
                         <label>
-                            <input type="radio" className="custom-checkbox"  checked={gender === 'Male'} value="Male" onClick={() => setGender('Male')}/>
+                            <input type="radio" className="custom-checkbox" checked={gender === 'Male'} value="Male" onClick={() => setGender('Male')} />
                             Male
                         </label>
                         <label>
@@ -186,19 +196,19 @@ export const Questionnaire = () => {
                 </div>
                 <div className={styles.question_page__block}>
                     <label>Your name</label>
-                    <input name="name" onChange={(event) => { setNewName( event.target.value); }}/>
+                    <input name="name" onChange={(event) => { setNewName(event.target.value); }} />
                 </div>
                 <div className={styles.question_page__block}>
                     <label>Your surname</label>
-                    <input name="surname" onChange={(event) => { setNewSurname( event.target.value); }}/>
+                    <input name="surname" onChange={(event) => { setNewSurname(event.target.value); }} />
                 </div>
                 <div className={styles.question_page__block}>
                     <label>Your weight (kg)</label>
-                    <input name="weight" onChange={(event) => { setNewWeight( event.target.value); }}/>
+                    <input name="weight" onChange={(event) => { setNewWeight(event.target.value); }} />
                 </div>
                 <div className={styles.question_page__block}>
                     <label>Your desired weight (kg)</label>
-                    <input name="weight" onChange={(event) => { setNewDesiredWeight( event.target.value); }}/>
+                    <input name="weight" onChange={(event) => { setNewDesiredWeight(event.target.value); }} />
                 </div>
                 <div className={styles.question_page__block}>
                     <label>Your age:</label>

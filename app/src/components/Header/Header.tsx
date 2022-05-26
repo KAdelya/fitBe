@@ -6,6 +6,7 @@ import menuBut from '../../assets/images/men.svg';
 import { removeUser } from '../../redux/slices/userSlice';
 import CustomButton from '../ui/button/CustomBtnLayout/CustomBtnLayout';
 import { useAppDispatch } from '../../utils/redux-hooks';
+import Toggle from '../Toggle/Toggle';
 
 interface Props { }
 
@@ -42,11 +43,13 @@ const Header: FC<Props> = ({ children }) => {
                             <li><NavLink to={'/todods'}>Tracker</NavLink></li>
                         </ul>
                     </nav>
+                    <div className={styles.header__toggle}><Toggle/></div>
                     <div className={styles.header__button}>
                         <CustomButton>
                             <button onClick={() => signOut()}>SIGN OUT</button>
                         </CustomButton>
                     </div>
+                  
                     <div className={styles.menu}>
                         <Menu items={items} active={menuActive} setActive={setMenuActive} />
                     </div>

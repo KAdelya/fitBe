@@ -24,12 +24,6 @@ const Profil = () => {
     let [curWeight, setCurWeight] = useState();
     let [calories, setCalories] = useState();
     const navigate = useNavigate();
-
-    const [nick, setNick] = useState('');
-
-    // const [token, setToken] = useState('');
-
-
     
 
     // let { name } = useParams();
@@ -37,18 +31,18 @@ const Profil = () => {
     async function getInfoFromDataBase(id: any) {
         const dbRef = (ref(db, `/${id}`));
         onValue(dbRef, (snapshot: any) => {
-            console.log(snapshot);
-            return snapshot.val();
-            // name = snapshot.val().user.name;
-            // surname = snapshot.val().user.surname;
+            // console.log(snapshot);
+            // return snapshot.val();
+            name = snapshot.val().user.name;
+            surname = snapshot.val().user.surname;
             // spendingHours = snapshot.val().info.spendingHours;
             // waterCount = snapshot.val().info.waterCount;
             // avatar = snapshot.val().info.avatar;
             // curWeight = snapshot.val().weight.current;
             // calories = snapshot.val().calories;
         });
-        // setName(name);
-        // setSurname(surname);
+        setName(name);
+        setSurname(surname);
         // setSpendingHours(spendingHours);
         // setWaterCount(waterCount);
         // setCurWeight(curWeight);
@@ -104,10 +98,14 @@ const Profil = () => {
     }
     const { id, email } = useAuth();
 
-    useEffect(() => {
-        getInfoFromDataBase(id).then((result) => {
-            setUser(result);
-        });
+    // useEffect(() => {
+    //     getInfoFromDataBase(id).then((result) => {
+    //         setUser(result);
+    //         console.log(result);
+    //     });
+    // }, []);
+     useEffect(() => {
+        getInfoFromDataBase(id);
     }, []);
 
     // const saveNewAvatar = (file: any) => {
@@ -143,6 +141,7 @@ const Profil = () => {
     //     });
     // }
     const show = useAppSelector((state) => state.modal.show);
+    const {userName, userSurname} = useAppSelector(state => state.user);
     const dispatch = useAppDispatch();
     const handleClose = () => {
         dispatch(
