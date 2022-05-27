@@ -1,6 +1,7 @@
 import { FC, useState } from 'react';
 import { motion } from 'framer-motion';
 import styles from '../Toggle/Toggle.module.sass';
+import { darkTheme, lightTheme } from '../Themes/Theme';
 
 interface Props {
     changeTheme: any
@@ -8,7 +9,15 @@ interface Props {
 
 const Toggle:FC<Props> = ({changeTheme}) => {
     const [isOn, setIsOn] = useState(false);
-    const toggleSwitch = () => setIsOn(!isOn);
+    const [theme, setTheme] = useState(lightTheme);
+    
+    const toggleTheme = () => {
+        setTheme(theme === lightTheme ? darkTheme : lightTheme);
+    };
+    const toggleSwitch = () => {
+        setIsOn(!isOn);
+        toggleTheme();
+        ;};
     return (
         <div className={styles.switch} data-isOn={isOn} onClick={toggleSwitch}>
             <motion.div className={styles.handle} layout transition={spring} />

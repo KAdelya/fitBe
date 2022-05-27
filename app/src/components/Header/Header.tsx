@@ -9,6 +9,8 @@ import { useAppDispatch } from '../../utils/redux-hooks';
 import Toggle from '../Toggle/Toggle';
 import styled, { ThemeProvider } from 'styled-components';
 import { darkTheme, lightTheme } from '../Themes/Theme';
+import { motion } from 'framer-motion';
+import style from '../Toggle/Toggle.module.sass';
 
 
 interface Props { }
@@ -34,50 +36,78 @@ const Header: FC<Props> = ({ children }) => {
         dispatch(removeUser());
         navigate('/', { replace: true });
     };
-//относится к смене фона
+    //относится к смене фона
     const [theme, setTheme] = useState(lightTheme);
 
     const toggleTheme = () => {
-      setTheme(theme === lightTheme ? darkTheme : lightTheme);
+        setTheme(theme === lightTheme ? darkTheme : lightTheme);
     };
+
+
+    const [isOn, setIsOn] = useState(false);
+
+    const toggleSwitch = () => {
+        setIsOn(!isOn);
+        toggleTheme();
+        ;};
+
     return (
         <ThemeProvider theme={theme}>
             <Content>
-            <header className={styles.header_wrapper}>
-                <div className={styles.header}>
-                    <button className={styles.header__menu_button} onClick={() => setMenuActive(!menuActive)}>
-                        <img src={menuBut} alt='menu'/>
-                    </button>
-                    <div className={styles.header__navigate_button}>
-                        <button onClick={() => navigate('/user')}>&#8592;</button>
+                <header className={styles.header_wrapper}>
+                    <div className={styles.header}>
+                        <button className={styles.header__menu_button} onClick={() => setMenuActive(!menuActive)}>
+                            <img src={menuBut} alt='menu' />
+                        </button>
+                        <div className={styles.header__navigate_button}>
+                            <button onClick={() => navigate('/user')}>&#8592;</button>
+                        </div>
+                        <nav className={styles.header__navbar}>
+                            <ul>
+                                <li><NavLink to={'/timer'}>Timer</NavLink></li>
+                                <li><NavLink to={'/training'}>Workout</NavLink></li>
+                                <li><NavLink to={'/calculator'}>Diary</NavLink></li>
+                                <li><NavLink to={'/todods'}>Tracker</NavLink></li>
+                            </ul>
+                        </nav>
+
+
+                        <div className={style.header__toggle}>
+
+
+
+                            <div className={style.switch} data-isOn={isOn} onClick={toggleSwitch}>
+                                <motion.div className={style.handle} layout transition={spring} />
+                            </div>
+
+
+
+
+
+                            {/* <Toggle /> */}
+                        </div>
+                        
+
+
+                        <div className={styles.header__button}>
+                            <CustomButton>
+                                <button onClick={() => signOut()}>SIGN OUT</button>
+                            </CustomButton>
+                        </div>
+
+                        <div className={styles.menu}>
+                            <Menu items={items} active={menuActive} setActive={setMenuActive} />
+                        </div>
                     </div>
-                    <nav className={styles.header__navbar}>
-                        <ul>
-                            <li><NavLink to={'/timer'}>Timer</NavLink></li>
-                            <li><NavLink to={'/training'}>Workout</NavLink></li>
-                            <li><NavLink to={'/calculator'}>Diary</NavLink></li>
-                            <li><NavLink to={'/todods'}>Tracker</NavLink></li>
-                        </ul>
-                    </nav>
-                    <div className={styles.header__toggle}>
-                        <Toggle changeTheme={() => toggleTheme()}/>
-                    </div>
-                    <button onClick={() => toggleTheme()}>click</button>
-                    <div className={styles.header__button}>
-                        <CustomButton>
-                            <button onClick={() => signOut()}>SIGN OUT</button>
-                        </CustomButton>
-                    </div>
-                  
-                    <div className={styles.menu}>
-                        <Menu items={items} active={menuActive} setActive={setMenuActive} />
-                    </div>
-                </div>
-            </header>
+                </header>
             </Content>
             <div>{children}</div>
         </ThemeProvider>
     );
 };
-
+const spring = {
+    type: 'spring',
+    stiffness: 700,
+    damping: 30
+};
 export default Header;
