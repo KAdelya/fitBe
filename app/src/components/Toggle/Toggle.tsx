@@ -2,22 +2,19 @@ import { FC, useState } from 'react';
 import { motion } from 'framer-motion';
 import styles from '../Toggle/Toggle.module.sass';
 import { darkTheme, lightTheme } from '../Themes/Theme';
+import { useAppDispatch, useAppSelector } from '../../utils/redux-hooks';
+import { setTheme } from '../../redux/slices/themeSlice';
 
-interface Props {
-    changeTheme: any
-}
 
-const Toggle:FC<Props> = ({changeTheme}) => {
+const Toggle = () => {
     const [isOn, setIsOn] = useState(false);
-    const [theme, setTheme] = useState(lightTheme);
-    
-    const toggleTheme = () => {
-        setTheme(theme === lightTheme ? darkTheme : lightTheme);
-    };
+    const dispatch = useAppDispatch();
+    const theme = useAppSelector(state => state.theme);
     const toggleSwitch = () => {
         setIsOn(!isOn);
-        toggleTheme();
+        dispatch(setTheme(theme === darkTheme? lightTheme: darkTheme));
         ;};
+        
     return (
         <div className={styles.switch} data-isOn={isOn} onClick={toggleSwitch}>
             <motion.div className={styles.handle} layout transition={spring} />

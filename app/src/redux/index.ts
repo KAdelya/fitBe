@@ -2,6 +2,7 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import userReducer from './slices/userSlice';
 import modalReducer from './slices/modalSlice';
 import timerReducer from './slices/timerSlice';
+import themeReducer from './slices/themeSlice';
 import storage from 'redux-persist/lib/storage';
 import {
     persistStore,
@@ -18,6 +19,7 @@ const rootReducer = combineReducers({
     user: userReducer,
     modal: modalReducer,
     timer: timerReducer,
+    theme: themeReducer,
 });
 
 const persistConfig = {
