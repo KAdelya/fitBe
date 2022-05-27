@@ -1,6 +1,7 @@
 import styles from '../Todods/Todods.module.sass';
 import { useState } from 'react';
 import MainCustomBtn from '../../components/ui/button/ButtonLayout/ButtonLayout';
+import { useAppDispatch, useAppSelector } from '../../utils/redux-hooks';
 
 interface Todo {
     title: string;
@@ -9,9 +10,13 @@ interface Todo {
 }
 
 const Todods = () => {
+
+
     const [text, setText] = useState('');
     const [visible, setVisible] = useState(false);
+
     const [todos, setTodos] = useState<Array<Todo>>([]);
+
     const handleCreate = (value: string) => {
         setVisible(false);
         setText('');
@@ -19,7 +24,7 @@ const Todods = () => {
         addTodo(value);
     };
     const addTodo = (text: string) => {
-        const newTodos = [...todos, { title: text, date: new Date().toDateString(), completed: false}];
+        const newTodos = [...todos, { title: text, date: new Date().toDateString(), completed: false }];
         setTodos(newTodos);
     };
     const markTodo = (index: number) => {
@@ -72,7 +77,7 @@ const Todods = () => {
                             <MainCustomBtn>
                                 <button onClick={() => handleCreate(text)}>ADD</button>
                             </MainCustomBtn>
-                            
+
                         </div> : <></>}
                 </div>
             </section>

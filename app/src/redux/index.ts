@@ -17,7 +17,7 @@ import {
 const rootReducer = combineReducers({
     user: userReducer,
     modal: modalReducer,
-    timer: timerReducer
+    timer: timerReducer,
 });
 
 const persistConfig = {

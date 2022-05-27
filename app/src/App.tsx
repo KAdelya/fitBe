@@ -11,27 +11,30 @@ import { QuestionnairePage } from './pages/QuestionnairePage/QuestionnairePage';
 import { LoginPage } from './pages/Login/LoginPage';
 import ProfilContainer from './components/Containers/ProfilContainer/ProfilContainer';
 import Profil from './pages/Profil/Profil';
+import Test from './pages/Test/Test';
 
 
 const App = () => {
+
     return (
         <div className={styles.App}>
-            <Router>
-                <Routes>
-                    <Route path='/' element={<MainPage />} />
-                    <Route path={'/questionnaire'} element={<QuestionnairePage />} />
-                    <Route path='/registration' element={<RegistrationPage />} />
-                    <Route path='/login' element={<LoginPage />} />
-
-                    <Route path={'/user'} element={<ProfilContainer><Profil /></ProfilContainer>} />
-                    <Route path={'/timer'} element={<ProfilContainer><Timer /></ProfilContainer>} />
-                    <Route path={'/calculator'} element={<ProfilContainer><Calculator /></ProfilContainer>} />
-                    <Route path={'/training'} element={<ProfilContainer><Training /></ProfilContainer>} />
-                    <Route path={'/track'} element={<ProfilContainer><TrackWeight /></ProfilContainer>} />
-                    <Route path={'/todods'} element={<ProfilContainer><Todods /></ProfilContainer>} />
-                </Routes>
-            </Router>
+                <Router>
+                    <Routes>
+                        <Route path='/' element={<MainPage  />} />
+                        <Route path={'/questionnaire'} element={<QuestionnairePage />} />
+                        <Route path='/registration' element={<RegistrationPage />} />
+                        <Route path='/login' element={<LoginPage />} />
+                        <Route path='/test' element={<Test />} />
+                        <Route path={'/user'} element={<ProfilContainer><Profil /></ProfilContainer>} />
+                        <Route path={'/timer'} element={<ProfilContainer><Timer /></ProfilContainer>} />
+                        <Route path={'/calculator'} element={<ProfilContainer><Calculator /></ProfilContainer>} />
+                        <Route path={'/training'} element={<ProfilContainer><Training /></ProfilContainer>} />
+                        <Route path={'/track'} element={<ProfilContainer><TrackWeight /></ProfilContainer>} />
+                        <Route path={'/todods'} element={<ProfilContainer><Todods /></ProfilContainer>} />
+                    </Routes>
+                </Router>
         </div>
+
     );
 };
 

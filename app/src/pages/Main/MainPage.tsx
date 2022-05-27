@@ -10,6 +10,7 @@ import Footer from '../../components/Footer/Footer';
 import MainCustomBtn from '../../components/ui/button/ButtonLayout/ButtonLayout';
 import CustomButton from '../../components/ui/button/CustomBtnLayout/CustomBtnLayout';
 
+
 export const MainPage = () => {
     return (
         <section className={styles.main_page}>

@@ -7,8 +7,17 @@ import { removeUser } from '../../redux/slices/userSlice';
 import CustomButton from '../ui/button/CustomBtnLayout/CustomBtnLayout';
 import { useAppDispatch } from '../../utils/redux-hooks';
 import Toggle from '../Toggle/Toggle';
+import styled, { ThemeProvider } from 'styled-components';
+import { darkTheme, lightTheme } from '../Themes/Theme';
+
 
 interface Props { }
+const Content = styled.div`
+  transition: all 0.50s linear;
+  color: ${props => props.theme.textColor};
+  background-color: ${props => props.theme.bgColor};
+`;
+
 
 const Header: FC<Props> = ({ children }) => {
     const navigate = useNavigate();
@@ -25,8 +34,15 @@ const Header: FC<Props> = ({ children }) => {
         dispatch(removeUser());
         navigate('/', { replace: true });
     };
+//относится к смене фона
+    const [theme, setTheme] = useState(lightTheme);
+
+    const toggleTheme = () => {
+      setTheme(theme === lightTheme ? darkTheme : lightTheme);
+    };
     return (
-        <>
+        <ThemeProvider theme={theme}>
+            <Content>
             <header className={styles.header_wrapper}>
                 <div className={styles.header}>
                     <button className={styles.header__menu_button} onClick={() => setMenuActive(!menuActive)}>
@@ -43,7 +59,10 @@ const Header: FC<Props> = ({ children }) => {
                             <li><NavLink to={'/todods'}>Tracker</NavLink></li>
                         </ul>
                     </nav>
-                    <div className={styles.header__toggle}><Toggle/></div>
+                    <div className={styles.header__toggle}>
+                        <Toggle changeTheme={() => toggleTheme()}/>
+                    </div>
+                    <button onClick={() => toggleTheme()}>click</button>
                     <div className={styles.header__button}>
                         <CustomButton>
                             <button onClick={() => signOut()}>SIGN OUT</button>
@@ -55,8 +74,9 @@ const Header: FC<Props> = ({ children }) => {
                     </div>
                 </div>
             </header>
+            </Content>
             <div>{children}</div>
-        </>
+        </ThemeProvider>
     );
 };
 

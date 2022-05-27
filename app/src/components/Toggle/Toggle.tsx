@@ -1,8 +1,12 @@
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import { motion } from 'framer-motion';
 import styles from '../Toggle/Toggle.module.sass';
 
-const Toggle = () => {
+interface Props {
+    changeTheme: any
+}
+
+const Toggle:FC<Props> = ({changeTheme}) => {
     const [isOn, setIsOn] = useState(false);
     const toggleSwitch = () => setIsOn(!isOn);
     return (
