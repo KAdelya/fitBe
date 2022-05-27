@@ -64,13 +64,6 @@ const Profil = () => {
                 alert('sorry :(' + error);
             });
     }
-
-    // async function upload(file: any, setLoading: any, id: any){
-    //     const fileRef = ref(db, `/${id}`);
-    //     setLoading(true);
-    //     const snapshot = await (fileRef, file)
-    // }
-
     const updateHours = () => {
         setSpendingHours(spendingHours + 1);
         updateInDataBase(id);
@@ -78,19 +71,6 @@ const Profil = () => {
     const [progress, setProgress] = useState(0);
     const [image, setImage] = useState('');
     const [url, setUrl] = useState('');
-
-    // const formHandler = (e : any) => {
-    //     e.preventDefault();
-    //     // const file = e.target[0].files[0]
-    //     const file = e.target.files[0]
-    //     setImage(file);
-    //     handleSubmit(file)
-    // }
-    // const handleImageUpload = (e: any) => {
-    //     const [file] = e.target.files;
-    //     setImage(file.name)
-    //     console.log(image);
-    // };
     const [file, setFile] = useState('');
     function handleChange(e: any) {
         setFile(URL.createObjectURL(e.target.files[0]));
