@@ -49,4 +49,25 @@ describe("when rendered MainPage", () => {
             screen.getAllByRole("button",  {name: "SIGN IN"})
         );
     });
+    it("checking that the some images are displayed", () => {
+        render(
+            <React.StrictMode>
+                <Provider store={store}>
+                    <PersistGate loading={null} persistor={persistor}>
+                        <Router>
+                            <Routes>
+                                <Route path='/' element={<MainPage/>}/>
+                            </Routes>
+                        </Router>
+                    </PersistGate>
+                </Provider>
+            </React.StrictMode>
+        );
+        expect(
+            screen.getAllByRole("img", {name: "people"})
+        );
+        expect(
+            screen.getAllByRole("img", {name: "background"})
+        );
+    });
 });

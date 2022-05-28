@@ -44,7 +44,7 @@ export const MainPage = () => {
                     </div>
                     <div className={styles.title__content__img}>
                         <div>
-                            <img src={bacgroundPict} alt="bacgtound" />
+                            <img src={bacgroundPict} alt="background" />
                         </div>
                     </div>
                 </div>
