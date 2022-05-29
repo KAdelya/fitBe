@@ -14,7 +14,8 @@ export const Questionnaire = () => {
     const [form, setForm] = useState({
         userName: '',
         userSurname: '',
-        weight: '',
+        currentWeight: '',
+        desiredWeight: '',
     });
 
     const submit = (e: any) => {
@@ -25,8 +26,10 @@ export const Questionnaire = () => {
             userEmail: userEmail,
             id: id,
             token: token,
+            weight: form.currentWeight,
         }));
-        CreateUser(id, userEmail, form.userName, form.userSurname);
+        CreateUser(id, userEmail, form.userName, 
+            form.userSurname, form.currentWeight, form.desiredWeight);
         navigate('/user');
     };
 
@@ -80,15 +83,17 @@ export const Questionnaire = () => {
                     <div className={styles.question_page__block}>
                         <label>Your weight (kg)</label>
                         <input
-                            value={form.weight}
-                            name="weight"
+                            value={form.currentWeight}
+                            name="currentWeight"
                             onChange={update}
                         />
                     </div>
                     <div className={styles.question_page__block}>
                         <label>Your desired weight (kg)</label>
                         <input
-                            name="weight"
+                            value={form.desiredWeight}
+                            name="desiredWeight"
+                            onChange={update}
                         />
                     </div>
                     <div className={styles.question_page__block}>

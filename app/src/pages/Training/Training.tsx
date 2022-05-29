@@ -1,9 +1,6 @@
 import styles from '../Training/Training.module.sass';
 import TrainingCard from '../../components/Cards/TrainingCard/TrainingCard';
 import { exerciseItems } from '../../mocks/exerciseMock';
-import Skeleton from '../../components/Skeletons/Skeleton';
-
-
 
 const Training = () => {
     return (
@@ -25,7 +22,6 @@ const Training = () => {
                             
                         }
                     </div>
-                    <div><Skeleton/></div>
                 </div>
             </section>
         </div>

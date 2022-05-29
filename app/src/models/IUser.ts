@@ -5,7 +5,8 @@ export interface IUser {
     userName: string | null,
     userSurname: string | null,
     avatar: string | null,
-    weight: string | null,
+    weight: any,
+    spendingHours: number
 }
 
 

@@ -40,36 +40,35 @@ const data = [
     }
 ];
 const cardinal = curveCardinal.tension(0);
+
 const TrackWeight = () => {
+
     let [startWeight, setStartWeight] = useState();
     let [curWeight, setCurWeight] = useState();
     let [desiredWeight, setDesiredWeight] = useState();
     const [weight, setWeight] = useState('');
-    async function getInfoFromDataBase(id: any) {
-        const dbRef = (ref(db, `/${id}`));
-        onValue(dbRef, (snapshot: any) => {
-            startWeight = snapshot.val().weight.start;
-            curWeight = snapshot.val().weight.current;
-            desiredWeight = snapshot.val().weight.desired;
-        });
-        setStartWeight(startWeight);
-        setCurWeight(curWeight);
-        setDesiredWeight(desiredWeight);
-    }
     const { id } = useAuth();
+
     useEffect(() => {
-        getInfoFromDataBase(id);
-    });
+            const dbRef = (ref(db, `/${id}`));
+            onValue(dbRef, (snapshot: any) => {
+                setStartWeight(startWeight = snapshot.val().weight.startWeight);
+                setCurWeight(curWeight = snapshot.val().weight.currentWeight);
+                setDesiredWeight(desiredWeight = snapshot.val().weight.desiredWeight);
+            });
+            setStartWeight(startWeight);
+            setCurWeight(curWeight);
+            setDesiredWeight(desiredWeight);
+    },[]);
 
     async function updateInDataBase(id: any) {
         update(ref(db, `/${id}`), {
             weight: {
-                start: startWeight,
-                current: weight,
-                desired: desiredWeight
+                startWeight: startWeight,
+                currentWeight: weight,
+                desiredWeight: desiredWeight
             },
-        }).then(() => { console.log('update successfully'); })
-            .catch((error) => { alert('sorry :(' + error);});
+        }).catch((error) => { console.log( error);});
     }
     return (
         <div>

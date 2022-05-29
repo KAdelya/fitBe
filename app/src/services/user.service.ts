@@ -1,9 +1,8 @@
 import {  ref, set } from 'firebase/database';
 import { db } from '..';
 
-
 export const CreateUser = (id: any, email: any, 
-    name: any, surname: any) => {
+    name: any, surname: any, startWeight: any, desiredWeight: any) => {
     return set(ref(db, `/${id}`), {
         user: {
             email: email,
@@ -12,12 +11,11 @@ export const CreateUser = (id: any, email: any,
         },
         info: {
             spendingHours: 0,
-            waterCount: 0,
         },
         weight: {
-            currentWeight: 0
-        },
-        calories: 0,
-        todoList: 0,
+            startWeight: startWeight,
+            currentWeight: startWeight,
+            desiredWeight: desiredWeight,
+        }
     });
 };

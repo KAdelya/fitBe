@@ -6,17 +6,20 @@ import { ModalWelcome } from '../../components/Modal/ModalWelcome';
 import no_avatar from '../../assets/images/no_avatar.png';
 import { setModal } from '../../redux/slices/modalSlice';
 import { setUser } from '../../redux/slices/userSlice';
-import { onValue, ref } from 'firebase/database';
+import { onValue, ref, update } from 'firebase/database';
 import { NavLink } from 'react-router-dom';
 import styles from './Profil.module.sass';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { db } from '../..';
 
 
 const Profil = () => {
-    const { userEmail, userName, userSurname, id, token } = useAppSelector(state => state.user);
+    const { userEmail, userName, 
+            userSurname, id, token,
+            weight, spendingHours } = useAppSelector(state => state.user);
     const show = useAppSelector((state) => state.modal.show);
     const dispatch = useAppDispatch();
+
 
     const handleClose = () => {
         dispatch(
@@ -35,9 +38,19 @@ const Profil = () => {
                 userEmail: userEmail,
                 userName: snapshot.val().user.name,
                 userSurname: snapshot.val().user.surname,
+                weight: snapshot.val().weight.currentWeight,
+                spendingHours: snapshot.val().info.spendingHours
             }));
         });
     }, []);
+
+    async function updateInDataBase() {
+        update(ref(db, `/${id}`), {
+            info: {
+                spendingHours: spendingHours + 1,
+            },
+        }).catch((error) => { console.log( error);});
+    }
 
     return (
         <div>
@@ -61,7 +74,7 @@ const Profil = () => {
                     <div className={styles.profil_page__info__blocks}>
                         <div className={styles.profil_page__info__blocks__item}>
                             <h3>CURRENT WEIGHT</h3>
-                            {/* <p>{curWeight}</p> */}
+                            <p>{weight}</p>
                         </div>
                         <div className={styles.profil_page__info__blocks__item}>
                             <h3>CALORIES</h3>
@@ -72,7 +85,7 @@ const Profil = () => {
                     <div className={styles.profil_page__info__blocks}>
                         <div className={styles.profil_page__info__blocks__item}>
                             <h3>HOURS SPENT</h3>
-                            {/* <p>{spendingHours}</p> */}
+                            <p>{spendingHours}</p>
                         </div>
                         <div className={styles.profil_page__info__blocks__item}>
                             <h3>WATER</h3>
@@ -81,7 +94,7 @@ const Profil = () => {
                     </div>
                     <div className={styles.profil_page__info__bottom}>
                         <MainCustomBtn>
-                            <button>MARK THE WORKOUT</button>
+                            <button onClick={() => updateInDataBase()}>MARK THE WORKOUT</button>
                         </MainCustomBtn>
                         <NavLink to='/track'>
                             <MainCustomBtn>

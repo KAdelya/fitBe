@@ -28,8 +28,8 @@ const Header: FC<Props> = ({ children }) => {
         { value: 'Tracker', href: '/todods/' }
     ];
     const [menuActive, setMenuActive] = useState(false);
-    const dispatch = useAppDispatch();
     const theme = useAppSelector(state => state.theme);
+    const dispatch = useAppDispatch();
     const signOut = () => {
         dispatch(removeUser());
         navigate('/', { replace: true });
