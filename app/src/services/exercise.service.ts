@@ -8,14 +8,14 @@ class ExerciseService {
             {
                 timeout: 10000
             });
-    }
+    };
 
     getExercisePicture = async () => {
         return await axios.get(API_URL + 'exerciseimage',
             {
                 timeout: 10000
-            })
-    }
-}
+            });
+    };
+};
 
 export default new ExerciseService();

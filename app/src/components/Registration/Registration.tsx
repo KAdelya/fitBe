@@ -1,34 +1,25 @@
 import styles from './Registration.module.sass';
 import { Formik } from 'formik';
-import * as yup from 'yup';
 import { useState } from 'react';
 import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
-import { setUser } from '../../redux/slices/userSlice';
 import { useAppDispatch, useAppSelector } from '../../utils/redux-hooks';
 import { useNavigate } from 'react-router-dom';
 import MainCustomBtn from '../ui/button/ButtonLayout/ButtonLayout';
 import { setModal } from '../../redux/slices/modalSlice';
 import { ModalUncorrectNameRegistration } from '../Modal/ModalUncorrectNameRegistration';
 import ModalLayout from '../Containers/ModalContainer/ModalContainer';
+import { setUser } from '../../redux/slices/userSlice';
+import { validationsSchemaReg } from '../../utils/validationsSchema';
 
 
 export const Registration = () => {
-    const validationsSchema = yup.object().shape({
-        email: yup.string().typeError('Position to be a string').required('Necessarily')
-            .matches(/^[a-zA-Z0-9]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/, 'Please enter a valid email'),
-        password: yup.string().typeError('Position to be a string').required('Necessarily')
-            .matches(/[0-9a-zA-Z]{6,}/g, 'Password must be at least 6 characters long'),
-        repeat_password: yup.string().typeError('Position to be a string').required('Necessarily').matches(/[0-9a-zA-Z]{6,}/g, 'Password must be at least 6 characters long').when('password', {
-            is: (val: string | any[]) => (val && val.length > 0),
-            then: yup.string().oneOf(
-                [yup.ref('password')],
-                'Both password need to be the same'
-            )
-        })
-    });
     const [visible, setVisible] = useState(false);
+
+
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
+
+
     const show = useAppSelector((state) => state.modal.show);
     const handleClose = () => {
         dispatch(
@@ -37,13 +28,14 @@ export const Registration = () => {
             })
         );
     };
+
     const handleRegistration = (email: string, password: string) => {
         const auth = getAuth();
         createUserWithEmailAndPassword(auth, email, password)
             .then(({ user }) => {
                 dispatch(setUser({
-                    email: user.email,
                     id: user.uid,
+                    userEmail: user.email,
                     token: user.refreshToken,
                 }));
                 navigate('/questionnaire');
@@ -60,11 +52,10 @@ export const Registration = () => {
                     repeat_password: ''
                 }}
                 onSubmit={(values) => handleRegistration(values.email, values.password)}
-                validationSchema={validationsSchema}>
+                validationSchema={validationsSchemaReg}>
                 {({
                     values, errors, touched,
-                    handleChange, handleBlur,
-                    isValid = false, dirty = false, handleSubmit
+                    handleChange, handleBlur, handleSubmit
                 }) => (
                     <form onSubmit={handleSubmit}>
                         <section className={styles.content}>
@@ -117,8 +108,7 @@ export const Registration = () => {
                     open={show}
                     button="UNDERSTANDABLY">
                     <ModalUncorrectNameRegistration />
-                </ModalLayout>
-                : <></>}
+                </ModalLayout>: <></>}
         </div>
     );
 };

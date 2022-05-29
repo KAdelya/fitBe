@@ -1,31 +1,68 @@
-
 import { useState } from 'react';
-import styled, { ThemeProvider } from 'styled-components';
-import { darkTheme, lightTheme } from '../../components/Themes/Theme';
+import { setUser } from '../../redux/slices/userSlice';
+import { useAppDispatch, useAppSelector } from '../../utils/redux-hooks';
 
-const Content = styled.div`
-  display: flex;
-  height: 100vh;
-  align-items: center;
-  justify-content: center;
-  font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
-  font-size: 24px;
-  transition: all 0.50s linear;
-  color: ${props => props.theme.textColor};
-  background-color: ${props => props.theme.bgColor};
-`;
 
 const Test = () => {
-  const [theme, setTheme] = useState(lightTheme);
-  const toggleTheme = () => {
-    setTheme(theme === lightTheme ? darkTheme : lightTheme);
-  };
+
+  // const dispatch = useAppDispatch();
+  // const {userName, userSurname} = useAppSelector(state => state.user);
+  // const [form, setForm] = useState({
+  //   token: '',
+  //   id: '',
+  //   userEmail: '',
+  //   userName:  '',
+  //   userSurname: '',
+  //   avatar: '',
+  //   weight: '',
+  // });
+
+  
+  // const submit = (e: any) => {
+  //   e.preventDefault();
+  //   dispatch(setUser({
+  //     userName: form.userName,
+  //     userSurname: form.userSurname,
+  //   }));
+
+  // };
+
+  // const update = (e: any) => {
+  //   setForm({
+  //     ...form,
+  //     [e.target.name]: e.target.value
+  //   });
+  // };
+
   return (
-    <ThemeProvider theme={theme}>
-      <button onClick={() => toggleTheme()}>switch</button>
-      <Content>Lorem ipsum dolor sit amet, consectetur
-        adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Content>
-    </ThemeProvider>
+    <>
+    {/* <form onSubmit={submit}>
+      <label>
+       Имя:
+        <input
+          value={form.userName}
+          name="userName"
+          onChange={update}
+        />
+      </label>
+      
+    <label>
+        Пароль:
+        <input
+          value={form.userSurname}
+          name="userSurname"
+          onChange={update}
+        />
+      </label>
+
+      <button>Отправить</button>
+    </form>
+    
+    <button onClick={() => console.log(userName, userSurname)}>check</button> */}
+    text
+    </>
   );
 };
-export default Test;
+
+
+ export default Test;

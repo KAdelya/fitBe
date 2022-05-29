@@ -1,5 +1,4 @@
 import styles from './Login.module.sass';
-import * as yup from 'yup';
 import MainCustomBtn from '../ui/button/ButtonLayout/ButtonLayout';
 import ModalLayout from '../Containers/ModalContainer/ModalContainer';
 import { Formik } from 'formik';
@@ -7,17 +6,14 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { useAppDispatch, useAppSelector } from '../../utils/redux-hooks';
-import { setUser } from '../../redux/slices/userSlice';
 import { setModal } from '../../redux/slices/modalSlice';
 import { ModalUncorrectNameOrPasswordSign } from '../Modal/ModalUncorrectNameSign';
+import { setUser } from '../../redux/slices/userSlice';
+import { validationsSchemaLog } from '../../utils/validationsSchema';
+import { onValue, ref } from 'firebase/database';
+import { db } from '../..';
 
 export const Login = () => {
-    const validationsSchema = yup.object().shape({
-        email: yup.string().typeError('Position to be a string').required('Necessarily')
-            .matches(/^[a-zA-Z0-9]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/, 'Please enter a valid email'),
-        password: yup.string().typeError('Position to be a string').required('Necessarily')
-            .matches(/[0-9a-zA-Z]{6,}/g, 'Password must be at least 6 characters long')
-    });
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
     const show = useAppSelector((state) => state.modal.show);
@@ -28,20 +24,40 @@ export const Login = () => {
             })
         );
     };
+
     const [visible, setVisible] = useState(false);
+    const {userEmail, token} = useAppSelector(state => state.user);
+    const getUser = (id: any) =>{
+        const dbRef = (ref(db, `/${id}`));
+        onValue(dbRef, (snapshot: any) => {
+            dispatch(setUser({
+                id: id,
+                token: token,
+                userEmail: userEmail,
+                userName: snapshot.val().user.name,
+                userSurname: snapshot.val().user.surname,
+            }));
+        });
+    };
+
     const handleLogin = (email: string, password: string) => {
         const auth = getAuth();
         signInWithEmailAndPassword(auth, email, password)
             .then(({ user }) => {
                 dispatch(setUser({
-                    email: user.email,
+                    userEmail: user.email,
                     id: user.uid,
                     token: user.refreshToken,
                 }));
                 navigate('/user');
             })
-            .catch(() => setVisible(true));
+            .catch(() => {
+                setVisible(true);
+            });
     };
+
+
+
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
 
@@ -53,11 +69,10 @@ export const Login = () => {
                     password: ''
                 }}
                 onSubmit={() => handleLogin(email, pass)}
-                validationSchema={validationsSchema}>
+                validationSchema={validationsSchemaLog}>
                 {({
                     values, errors, touched,
-                    handleChange, handleBlur,
-                    isValid = false, dirty = false, handleSubmit
+                    handleChange, handleBlur, handleSubmit
                 }) => (
                     <form onSubmit={handleSubmit}>
                         <section className={styles.content}>
@@ -91,51 +106,6 @@ export const Login = () => {
                                     </MainCustomBtn>
                                 </div>
                             </div>
-                            {/* <Formik
-                initialValues={{
-                    email: '',
-                    password: ''
-                }}
-                onSubmit={() => handleLogin(email, pass)}
-                validationSchema={validationsSchema}>
-                {({
-                      values, errors, touched,
-                      handleChange, handleBlur,
-                      isValid = false, dirty = false, handleSubmit
-                  }) => (
-                    <form onSubmit={handleSubmit}>
-                        <section className={styles.main_content}>
-                            <h1>Time to training!</h1>
-                            <div className={styles.information_form_wrapper}>
-                                <div className={styles.information_form}>
-                                    <input
-                                        placeholder='Email'
-                                        name='email'
-                                        type='email'
-                                        value={values.email}
-                                        onChange={handleChange}
-                                        onBlur={handleBlur}/>
-                                    {touched.email && errors.email && <p>{errors.email}</p>}
-                                    {touched.email && !errors.email && setEmail(values.email)}
-                                </div>
-                                <div className={styles.information_form}>
-                                    <input
-                                        placeholder='Password'
-                                        type='password'
-                                        name='password'
-                                        value={values.password}
-                                        onChange={handleChange}
-                                        onBlur={handleBlur}/>
-                                    {touched.password && errors.password && <p>{errors.password}</p>}
-                                    {touched.password && !errors.password && setPass(values.password)}
-                                </div>
-                                <div className={styles.button_wrapper}>
-                                    <button disabled={!(isValid || dirty)} type={`submit`}>SIGN IN</button>
-                                </div>
-                            </div>
-                        </section>
-                    </form>)}
-            </Formik>*/}
                         </section>
                     </form>)}
             </Formik>

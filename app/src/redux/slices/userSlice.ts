@@ -1,35 +1,42 @@
 import {createSlice} from '@reduxjs/toolkit';
+import { IUser } from '../../models/IUser';
 
-const initialState = {
+const initialState: IUser = {
+    token: null,
+    id: null,
+    userEmail: null,
     userName: null,
     userSurname: null,
-    email: null,
-    token: null,
-    id: null
+    avatar: null,
+    weight: null,
 };
+
 
 const userSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
         setUser(state, action) {
-            state.userName = action.payload.name;
-            state.userSurname = action.payload.surname;
-
-            state.email = action.payload.email;
             state.token = action.payload.token;
             state.id = action.payload.id;
+            state.userEmail = action.payload.userEmail;
+            state.userName = action.payload.userName;
+            state.userSurname = action.payload.userSurname;
+            state.avatar = action.payload.avatar;
+        },
+        setAvatar(state, action){
+            state.avatar = action.payload.avatar;
         },
         removeUser(state) {
-            state.userName = null;
-            state.userSurname = null;
-
-            state.email = null;
             state.token = null;
             state.id = null;
+            state.userEmail = null;
+            state.userName = null;
+            state.userSurname = null;
+            state.avatar = null;
         },
     },
 });
 
-export const {setUser, removeUser} = userSlice.actions;
+export const {setUser, removeUser, setAvatar} = userSlice.actions;
 export default userSlice.reducer;

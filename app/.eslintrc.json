@@ -22,7 +22,7 @@
             "warn",
             "single"
         ],
-        "indent" : ["warn", 4],
+        "indent" : ["off", 4],
         "max-len": ["error", {"code": 200}],
         "semi": [2, "always"]
 
