@@ -27,7 +27,7 @@ const Profil = () => {
         );
     };
     useEffect(() => {
-        const dbRef = (ref(db, `/${id}13`));
+        const dbRef = (ref(db, `/${id}`));
         onValue(dbRef, (snapshot: any) => {
             dispatch(setUser({
                 id: id,
@@ -39,16 +39,12 @@ const Profil = () => {
         });
     }, []);
 
-
-
-
     return (
         <div>
             <section className={styles.profil_page}>
                 <div className={styles.profil_page__avatar}>
                     <div className={styles.profil_page__avatar__img}>
                         <img src={no_avatar} alt="avatar" />
-                        <button onClick={() => console.log(userEmail, userName, userSurname, id, token)}>knowing</button>
                         {/* <input type="file" onChange={formHandler}/> */}
                     </div>
                     <div className={styles.profil_page__avatar__button}>
