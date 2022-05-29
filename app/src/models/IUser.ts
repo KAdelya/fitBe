@@ -8,16 +8,3 @@ export interface IUser {
     weight: any,
     spendingHours: number
 }
-
-
-// info: {
-//     avatar: newAvatar,
-//     spendingHours: newSpendingHours,
-//     waterCount: newWaterCount,
-// },
-// weight: {
-//     start: newWeight,
-//     current: newWeight,
-//     desired: newDesiredWeight
-// },
-// calories: newCalories

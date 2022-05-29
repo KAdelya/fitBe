@@ -18,6 +18,7 @@ const Profil = () => {
             userSurname, id, token,
             weight, spendingHours } = useAppSelector(state => state.user);
     const show = useAppSelector((state) => state.modal.show);
+    const {waterCounter, foodCounter} = useAppSelector(state => state.counter);
     const dispatch = useAppDispatch();
 
 
@@ -78,7 +79,7 @@ const Profil = () => {
                         </div>
                         <div className={styles.profil_page__info__blocks__item}>
                             <h3>CALORIES</h3>
-                            {/* <p>{calories}</p> */}
+                            <p>{foodCounter}</p>
                         </div>
                         <br />
                     </div>
@@ -89,7 +90,7 @@ const Profil = () => {
                         </div>
                         <div className={styles.profil_page__info__blocks__item}>
                             <h3>WATER</h3>
-                            {/* <p>{waterCount}</p> */}
+                            <p>{waterCounter}</p>
                         </div>
                     </div>
                     <div className={styles.profil_page__info__bottom}>

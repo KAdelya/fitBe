@@ -4,6 +4,7 @@ import timerReducer from './slices/timerSlice';
 import themeReducer from './slices/themeSlice';
 import userReducer from './slices/userSlice';
 import todosReducer from './slices/todosSlice';
+import counterReducer from './slices/counterSlice';
 import storage from 'redux-persist/lib/storage';
 import {
     persistStore,
@@ -22,6 +23,7 @@ const rootReducer = combineReducers({
     theme: themeReducer,
     user: userReducer,
     todoList: todosReducer,
+    counter: counterReducer,
 });
 
 const persistConfig = {
