@@ -3,6 +3,7 @@ import modalReducer from './slices/modalSlice';
 import timerReducer from './slices/timerSlice';
 import themeReducer from './slices/themeSlice';
 import userReducer from './slices/userSlice';
+import todosReducer from './slices/todosSlice';
 import storage from 'redux-persist/lib/storage';
 import {
     persistStore,
@@ -20,6 +21,7 @@ const rootReducer = combineReducers({
     timer: timerReducer,
     theme: themeReducer,
     user: userReducer,
+    todoList: todosReducer,
 });
 
 const persistConfig = {

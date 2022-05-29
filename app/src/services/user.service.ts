@@ -1,8 +1,5 @@
-import { onValue, ref, set } from 'firebase/database';
-import { useState } from 'react';
+import {  ref, set } from 'firebase/database';
 import { db } from '..';
-import { setUser } from '../redux/slices/userSlice';
-import { useAppDispatch, useAppSelector } from '../utils/redux-hooks';
 
 
 export const CreateUser = (id: any, email: any, 
@@ -14,11 +11,13 @@ export const CreateUser = (id: any, email: any,
             surname: surname
         },
         info: {
-            // avatar: form.avatar,
             spendingHours: 0,
             waterCount: 0,
         },
-        weight: 0,
-        calories: 0
+        weight: {
+            currentWeight: 0
+        },
+        calories: 0,
+        todoList: 0,
     });
 };

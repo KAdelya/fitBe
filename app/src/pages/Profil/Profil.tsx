@@ -1,24 +1,23 @@
-import styles from './Profil.module.sass';
-import no_avatar from '../../assets/images/no_avatar.png';
-import { NavLink, useNavigate } from 'react-router-dom';
-import MainCustomBtn from '../../components/ui/button/ButtonLayout/ButtonLayout';
 import CustomBtnLayout from '../../components/ui/button/CustomBtnLayout/CustomBtnLayout';
-import { useAuth } from '../../utils/use-auth';
-import { onValue, ref, set, update } from 'firebase/database';
-import { useState } from 'react';
-import { useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from '../../utils/redux-hooks';
-import { setModal } from '../../redux/slices/modalSlice';
 import ModalLayout from '../../components/Containers/ModalContainer/ModalContainer';
+import MainCustomBtn from '../../components/ui/button/ButtonLayout/ButtonLayout';
+import { useAppDispatch, useAppSelector } from '../../utils/redux-hooks';
 import { ModalWelcome } from '../../components/Modal/ModalWelcome';
-import { db } from '../..';
+import no_avatar from '../../assets/images/no_avatar.png';
+import { setModal } from '../../redux/slices/modalSlice';
 import { setUser } from '../../redux/slices/userSlice';
+import { onValue, ref } from 'firebase/database';
+import { NavLink } from 'react-router-dom';
+import styles from './Profil.module.sass';
+import { useEffect } from 'react';
+import { db } from '../..';
 
 
 const Profil = () => {
     const { userEmail, userName, userSurname, id, token } = useAppSelector(state => state.user);
     const show = useAppSelector((state) => state.modal.show);
     const dispatch = useAppDispatch();
+
     const handleClose = () => {
         dispatch(
             setModal({
@@ -26,6 +25,7 @@ const Profil = () => {
             })
         );
     };
+    
     useEffect(() => {
         const dbRef = (ref(db, `/${id}`));
         onValue(dbRef, (snapshot: any) => {

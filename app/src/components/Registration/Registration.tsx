@@ -14,12 +14,8 @@ import { validationsSchemaReg } from '../../utils/validationsSchema';
 
 export const Registration = () => {
     const [visible, setVisible] = useState(false);
-
-
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
-
-
     const show = useAppSelector((state) => state.modal.show);
     const handleClose = () => {
         dispatch(

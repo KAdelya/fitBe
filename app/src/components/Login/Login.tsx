@@ -10,10 +10,11 @@ import { setModal } from '../../redux/slices/modalSlice';
 import { ModalUncorrectNameOrPasswordSign } from '../Modal/ModalUncorrectNameSign';
 import { setUser } from '../../redux/slices/userSlice';
 import { validationsSchemaLog } from '../../utils/validationsSchema';
-import { onValue, ref } from 'firebase/database';
-import { db } from '../..';
 
 export const Login = () => {
+    const [email, setEmail] = useState('');
+    const [pass, setPass] = useState('');
+
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
     const show = useAppSelector((state) => state.modal.show);
@@ -26,20 +27,6 @@ export const Login = () => {
     };
 
     const [visible, setVisible] = useState(false);
-    const {userEmail, token} = useAppSelector(state => state.user);
-    const getUser = (id: any) =>{
-        const dbRef = (ref(db, `/${id}`));
-        onValue(dbRef, (snapshot: any) => {
-            dispatch(setUser({
-                id: id,
-                token: token,
-                userEmail: userEmail,
-                userName: snapshot.val().user.name,
-                userSurname: snapshot.val().user.surname,
-            }));
-        });
-    };
-
     const handleLogin = (email: string, password: string) => {
         const auth = getAuth();
         signInWithEmailAndPassword(auth, email, password)
@@ -55,11 +42,6 @@ export const Login = () => {
                 setVisible(true);
             });
     };
-
-
-
-    const [email, setEmail] = useState('');
-    const [pass, setPass] = useState('');
 
     return (
         <div>
