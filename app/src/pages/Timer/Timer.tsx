@@ -55,7 +55,6 @@ const Timer = () => {
                 <div className={styles.timer_page__content}>
                     <div className={styles.timer_page__content__time}>
                         <p>{(Math.floor((time / 6000) % workTime) < roundsCount) ? Math.floor((time / 100) % workTime) : time}</p>
-                        {time === 0 ? changeRoundRight : null}
                     </div>
                     <CustomBtnLayout>
                         <button onClick={() => setVisible(!visible)}>SET THE TIME</button>
