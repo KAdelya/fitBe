@@ -19,6 +19,7 @@ const WaterCard = () => {
             })
         );
     };
+    
     return (
         <div className={styles.food_card}>
             <div className={styles.food_card__top}>

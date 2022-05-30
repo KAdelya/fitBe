@@ -1,12 +1,10 @@
 import { FC } from 'react';
-import { Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router-dom';
+import { IProps } from '../../models/IProps';
 import { useAuth } from '../../utils/use-auth';
 import ProfilContainer from '../Containers/ProfilContainer/ProfilContainer';
 
-interface Props {
-    children: JSX.Element;
-}
-const PrivateRoute: FC<Props> = ({ children }) => {
+const PrivateRoute: FC<IProps> = ({ children }) => {
     const { isAuth } = useAuth();
     const location = useLocation();
     if (!isAuth) {

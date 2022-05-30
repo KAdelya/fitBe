@@ -9,7 +9,7 @@ import { setUser } from '../../redux/slices/userSlice';
 import { onValue, ref, update } from 'firebase/database';
 import { NavLink } from 'react-router-dom';
 import styles from './Profil.module.sass';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { db } from '../..';
 
 

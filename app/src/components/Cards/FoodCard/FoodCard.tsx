@@ -1,36 +1,36 @@
 import { FC, useState } from 'react';
 import { foodItems } from '../../../mocks/foodMock';
-import { addFoodItem, deleteFoodItems } from '../../../redux/slices/foodCounterSlice';
+import { ITitle } from '../../../models/ITitle';
+import { addFoodItem } from '../../../redux/slices/foodCounterSlice';
 import { useAppDispatch, useAppSelector } from '../../../utils/redux-hooks';
 import CustomButton from '../../ui/button/CustomBtnLayout/CustomBtnLayout';
 import styles from '../FoodCard/FoodCard.module.sass';
 
-interface Props {
-    title: string;
-
-}
-const FoodCard: FC<Props> = ({ title }) => {
+const FoodCard: FC<ITitle> = ({ title }) => {
     const dispatch = useAppDispatch();
     const foodList = useAppSelector(state => state.foodCounter);
     const [visible, setVisible] = useState(false);
     const [name, setName] = useState('');
     const [weight, setWeight] = useState('');
 
-    const handleCreated = (name: string) => {
+    const handleCreated = (name: string, weight: string) => {
         setVisible(false);
         for (let i = 0; i < foodItems.length; i++) {
             if (name === foodItems[i].name) {
                 dispatch(addFoodItem
                     ({
                         name: foodItems[i].name,
-                        calories: foodItems[i].calories,
-                        carbohydrates: foodItems[i].carbohydrates,
-                        fats: foodItems[i].fats,
-                        squirrels: foodItems[i].squirrels
+                        calories: (foodItems[i].calories) / 100 * parseFloat(weight),
+                        carbohydrates: (foodItems[i].carbohydrates) / 100 * parseFloat(weight),
+                        fats: (foodItems[i].fats) / 100 * parseFloat(weight),
+                        squirrels: (foodItems[i].squirrels) / 100 * parseFloat(weight)
                     }));
                     setName('');
+                    setWeight('');
             }
-            else setName('');
+            else 
+                setName('');
+                setWeight('');
         };
     };
 
@@ -67,7 +67,7 @@ const FoodCard: FC<Props> = ({ title }) => {
                             <h2>Weight:</h2>
                             <input value={weight} onChange={(e) => setWeight(e.target.value)} />
                             <CustomButton>
-                                <button onClick={() => handleCreated(name)}>ADD</button>
+                                <button onClick={() => handleCreated(name, weight)}>ADD</button>
                             </CustomButton></>
                         : <></>}
                 </div>

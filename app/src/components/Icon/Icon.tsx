@@ -1,12 +1,7 @@
 import {FC} from 'react';
+import { IIcon } from '../../models/IIcon';
 
-interface Props {
-    name: string;
-    width: string | number;
-    height: string | number;
-}
-
-export const Icon: FC<Props> = ({name, width, height}) => {
+export const Icon: FC<IIcon> = ({name, width, height}) => {
     return (
         <svg
             version='1.1'

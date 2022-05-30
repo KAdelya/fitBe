@@ -9,13 +9,13 @@ const Todods = () => {
     const [text, setText] = useState('');
     const [visible, setVisible] = useState(false);
     const todoList = useAppSelector(state => state.todoList);
-    
-const dispatch = useDispatch();
+
+    const dispatch = useDispatch();
     const handleCreate = (value: string) => {
         setVisible(false);
         setText('');
-        if (!value) 
-        return;
+        if (!value)
+            return;
         dispatch(addTodo({
             title: text
         }));
@@ -43,8 +43,8 @@ const dispatch = useDispatch();
                             <h4 style={{ textDecoration: todo.completed ? 'line-through' : '' }}>{todo.title}</h4>
                             <div>
                                 <MainCustomBtn>
-                                     <button onClick={() => dispatch(markTodo({index: index}))}>&#10004;</button>
-                                    <button onClick={() => dispatch(removeTodo({index: index}))}>&#10008;</button>
+                                    <button onClick={() => dispatch(markTodo({ index: index }))}>&#10004;</button>
+                                    <button onClick={() => dispatch(removeTodo({ index: index }))}>&#10008;</button>
                                 </MainCustomBtn>
                             </div>
                         </div>

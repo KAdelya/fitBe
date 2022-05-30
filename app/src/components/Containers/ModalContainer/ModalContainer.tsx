@@ -1,18 +1,12 @@
 import styles from './ModalContainer.module.sass';
 import { FC, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../../redux';
 import MainCustomBtn from '../../ui/button/ButtonLayout/ButtonLayout';
 import { AnimatePresence } from 'framer-motion';
 import { ModalBox } from '../../Modal/AnimateModalStyle';
+import { IModal } from '../../../models/IModal';
 
-interface Props {
-    close: any;
-    open: any;
-    button: string;
-}
 
-export const Modal: FC<Props> = ({ children, button }) => {
+export const Modal: FC<IModal> = ({ children, button }) => {
     const [open, close] = useState(true);
     return (
         open ?

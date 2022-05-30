@@ -52,7 +52,7 @@ export const MainPage = () => {
             <div className={styles.about}>
                 <div className={styles.about__content}>
                     <div className={styles.about__content__wrapper}>
-                        <img src={pink_back} />
+                        <img src={pink_back} alt='background'/>
                     </div>
                 </div>
                 <div className={styles.about__info}>
@@ -63,8 +63,8 @@ export const MainPage = () => {
                         <p>You will learn to take care of yourself gradually changing habits.</p>
                     </div>
                     <div className={styles.about__info__img}>
-                        <div><img src={firstPict} /></div>
-                        <div><img src={secondPict} /></div>
+                        <div><img src={firstPict} alt='people'/></div>
+                        <div><img src={secondPict} alt='people'/></div>
                     </div>
                     <div className={styles.about__info__block}>
                         <div className={styles.about__info__block__text}>

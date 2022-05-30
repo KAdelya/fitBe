@@ -12,6 +12,7 @@ import { setUser } from '../../redux/slices/userSlice';
 import { validationsSchemaLog } from '../../utils/validationsSchema';
 
 export const Login = () => {
+    
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
 

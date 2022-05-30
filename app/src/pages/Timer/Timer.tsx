@@ -38,19 +38,6 @@ const Timer = () => {
             })
         );
     };
-
-    //   <Modal
-    //   open={show}
-    //   className={classes.modal}
-    //   onClose={handleClose}
-    //   aria-labelledby="title"
-    //   aria-describedby="description"
-    //   BackdropComponent={Backdrop}
-    //   BackdropProps={{
-    //     timeout: 500,
-    //   }}
-    // >
-
     const { workTime, roundsCount } = useAppSelector(state => state.timer);
     sessionStorage.setItem('time', roundsCount.toString());
     const changed = sessionStorage.getItem('time');

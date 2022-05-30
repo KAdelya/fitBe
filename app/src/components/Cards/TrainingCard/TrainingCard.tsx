@@ -1,20 +1,16 @@
 import { motion } from 'framer-motion';
 import { FC } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
+import { ICard } from '../../../models/ICard';
 import { useAppSelector } from '../../../utils/redux-hooks';
 import styles from '../TrainingCard/TrainingCard.module.sass';
 
-interface Props {
-    picture: string
-    name: string,
-    link: string
-}
 const BoxShadow = styled.div`
   transition: all 0.50s linear;
   box-shadow: ${props => props.theme.boxShadow};
 `;
 
-const TrainingCard: FC<Props> = ({ picture, name, link }) => {
+const TrainingCard: FC<ICard> = ({ picture, name, link }) => {
     const theme = useAppSelector(state => state.theme);
     return (<ThemeProvider theme={theme}>
 

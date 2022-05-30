@@ -7,15 +7,15 @@ interface Props {
 }
 export const ModalWelcome: FC<Props> = ({ ccal }) => {
     return (
-        <div className={styles.welcom_modal}>
-            <div className={styles.welcom_modal__logo}>
+        <div className={styles.welcome_modal}>
+            <div className={styles.welcome_modal__logo}>
                 <img src={logo_black} alt='logo'/>
             </div>
-            <div className={styles.welcom_modal__text}>
+            <div className={styles.welcome_modal__text}>
                 Welcome to Befit!
             </div>
-            <div className={styles.welcom_modal__info}>
-                <div className={styles.welcom_modal__info__content}>Based on the registration data, we advise you consume at least {ccal} cal</div>
+            <div className={styles.welcome_modal__info}>
+                <div className={styles.welcome_modal__info__content}>Based on the registration data, we advise you consume at least {ccal} cal</div>
             </div>
         </div>
     );

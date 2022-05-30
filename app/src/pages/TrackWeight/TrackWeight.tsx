@@ -5,50 +5,18 @@ import { useEffect, useState } from 'react';
 import { onValue, ref, update } from 'firebase/database';
 import { db } from '../..';
 import { useAuth } from '../../utils/use-auth';
-
-
-const data = [
-    {
-        name: '18.11.2021',
-        uv: 70,
-        pv: 2400,
-        amt: 2400
-    },
-    {
-        name: '08.01.2022',
-        uv: 78,
-        pv: 1398,
-        amt: 2210
-    },
-    {
-        name: '02.02.2022',
-        uv: 84,
-        pv: 9800,
-        amt: 2290
-    },
-    {
-        name: '22.02.2022',
-        uv: 88,
-        pv: 3908,
-        amt: 2000
-    },
-    {
-        name: '22.03.2022',
-        uv: 90,
-        pv: 4800,
-        amt: 2181
-    }
-];
-const cardinal = curveCardinal.tension(0);
+import { data } from '../../constants';
 
 const TrackWeight = () => {
+
+    const [weight, setWeight] = useState('');
+    const { id } = useAuth();
+    const cardinal = curveCardinal.tension(0);
 
     let [startWeight, setStartWeight] = useState();
     let [curWeight, setCurWeight] = useState();
     let [desiredWeight, setDesiredWeight] = useState();
-    const [weight, setWeight] = useState('');
-    const { id } = useAuth();
-
+    
     useEffect(() => {
             const dbRef = (ref(db, `/${id}`));
             onValue(dbRef, (snapshot: any) => {

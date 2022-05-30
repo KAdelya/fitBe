@@ -5,7 +5,7 @@ import Menu from '../Menu/Menu';
 import menuBut from '../../assets/images/men.svg';
 import CustomButton from '../ui/button/CustomBtnLayout/CustomBtnLayout';
 import { useAppDispatch, useAppSelector } from '../../utils/redux-hooks';
-import Toggle from '../Toggle/Toggle';
+import Toggle from '../ui/toggle/Toggle';
 import styled, { ThemeProvider } from 'styled-components';
 import { removeUser } from '../../redux/slices/userSlice';
 import { removeWater } from '../../redux/slices/WaterCounterSlice';
@@ -13,15 +13,13 @@ import { deleteTodos} from '../../redux/slices/todosSlice';
 import { deleteFoodItems } from '../../redux/slices/foodCounterSlice';
 
 
-interface Props { }
-
 const Content = styled.div`
   transition: all 0.50s linear;
   color: ${props => props.theme.textColor};
   background-color: ${props => props.theme.bgColor};
 `;
 
-const Header: FC<Props> = ({ children }) => {
+const Header = ({ children }: any) => {
     const navigate = useNavigate();
     const items = [
         { value: 'Profile', href: '/user' },

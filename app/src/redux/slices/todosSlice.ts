@@ -2,11 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { ITodo } from '../../models/ITodo';
 
 
-const initialState: ITodo[] = [{
-    title: null,
-    date: null,
-    completed: false,
-}];
+const initialState: ITodo[] = [];
 
 const todoSlice = createSlice({
     name: 'todoList',

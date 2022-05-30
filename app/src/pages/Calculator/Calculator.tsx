@@ -1,6 +1,7 @@
 import styles from '../Calculator/Calculator.module.sass';
 import FoodCard from '../../components/Cards/FoodCard/FoodCard';
 import WaterCard from '../../components/Cards/WaterCard/WaterCard';
+
 const Calculator = () => {
     return (
         <div>

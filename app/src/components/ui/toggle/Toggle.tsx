@@ -1,9 +1,9 @@
-import { FC, useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import styles from '../Toggle/Toggle.module.sass';
-import { darkTheme, lightTheme } from '../Themes/Theme';
-import { useAppDispatch, useAppSelector } from '../../utils/redux-hooks';
-import { setTheme } from '../../redux/slices/themeSlice';
+import styles from '../toggle/Toggle.module.sass';
+import { useAppDispatch, useAppSelector } from '../../../utils/redux-hooks';
+import { setTheme } from '../../../redux/slices/themeSlice';
+import { darkTheme, lightTheme } from '../../../constants';
 
 
 const Toggle = () => {
