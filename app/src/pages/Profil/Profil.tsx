@@ -14,11 +14,12 @@ import { db } from '../..';
 
 
 const Profil = () => {
-    const { userEmail, userName, 
-            userSurname, id, token,
-            weight, spendingHours } = useAppSelector(state => state.user);
+    const { userEmail, userName,
+        userSurname, id, token,
+        weight, spendingHours } = useAppSelector(state => state.user);
     const show = useAppSelector((state) => state.modal.show);
-    const {waterCounter} = useAppSelector(state => state.waterCounter);
+    const { waterCounter } = useAppSelector(state => state.waterCounter);
+    const { calories } = useAppSelector(state => state.calories);
     const dispatch = useAppDispatch();
 
 
@@ -29,7 +30,7 @@ const Profil = () => {
             })
         );
     };
-    
+
     useEffect(() => {
         const dbRef = (ref(db, `/${id}`));
         onValue(dbRef, (snapshot: any) => {
@@ -50,7 +51,7 @@ const Profil = () => {
             info: {
                 spendingHours: spendingHours + 1,
             },
-        }).catch((error) => { console.log( error);});
+        }).catch((error) => { console.log(error); });
     }
 
     return (
@@ -79,7 +80,7 @@ const Profil = () => {
                         </div>
                         <div className={styles.profil_page__info__blocks__item}>
                             <h3>CALORIES</h3>
-                            <p></p>
+                            <p>{calories}</p>
                         </div>
                         <br />
                     </div>

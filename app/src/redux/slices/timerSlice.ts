@@ -19,8 +19,12 @@ const timerSlice = createSlice({
         setRoundsCount: (state, action) => {
             state.roundsCount = action.payload.roundsCount;
         },
+        deleteTime: (state) => {
+            state.workTime = 0;
+            state.roundsCount = 0;
+        }
     }
 });
 
-export const { setWorkTime, setRoundsCount } = timerSlice.actions;
+export const { setWorkTime, setRoundsCount, deleteTime } = timerSlice.actions;
 export default timerSlice.reducer;

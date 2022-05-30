@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import styles from '../Header/Header.module.sass';
 import Menu from '../Menu/Menu';
@@ -11,6 +11,8 @@ import { removeUser } from '../../redux/slices/userSlice';
 import { removeWater } from '../../redux/slices/WaterCounterSlice';
 import { deleteTodos} from '../../redux/slices/todosSlice';
 import { deleteFoodItems } from '../../redux/slices/foodCounterSlice';
+import { deleteCalories } from '../../redux/slices/caloriesSlice';
+import { deleteTime } from '../../redux/slices/timerSlice';
 
 
 const Content = styled.div`
@@ -36,6 +38,8 @@ const Header = ({ children }: any) => {
         dispatch(removeWater());
         dispatch(deleteTodos());
         dispatch(deleteFoodItems());
+        dispatch(deleteCalories());
+        dispatch(deleteTime());
         navigate('/', { replace: true });
     };
 

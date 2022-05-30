@@ -18,6 +18,7 @@ const WaterCard = () => {
                 waterCounter: parseFloat(water),
             })
         );
+        setWater('');
     };
     
     return (

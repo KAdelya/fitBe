@@ -16,7 +16,7 @@ export const ModalTimer = () => {
         );
         dispatch(
             setRoundsCount({
-                roundsCount: time,
+                roundsCount: rounds,
             }),
         );
     };

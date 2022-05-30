@@ -14,7 +14,6 @@ const Timer = () => {
     const [time, setTime] = useState(0);
     const [timeOn, setTimeOn] = useState(false);
     
-
     useEffect(() => {
         let interval: any = null;
         if (timeOn) {
@@ -39,8 +38,6 @@ const Timer = () => {
         );
     };
     const { workTime, roundsCount } = useAppSelector(state => state.timer);
-    sessionStorage.setItem('time', roundsCount.toString());
-    const changed = sessionStorage.getItem('time');
     return (
         <div>
 
@@ -56,7 +53,6 @@ const Timer = () => {
                 <div className={styles.timer_page__info}>
                     <div className={styles.timer_page__info__reload}>
                         <h1>Work</h1>
-                        <h1>{changed}</h1>
                         <button onClick={() => setTime(0)}>
                             <h2>&#8635;</h2>
                         </button>

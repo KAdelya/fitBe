@@ -1,6 +1,7 @@
 import { FC, useState } from 'react';
 import { foodItems } from '../../../mocks/foodMock';
 import { ITitle } from '../../../models/ITitle';
+import { setCalories } from '../../../redux/slices/caloriesSlice';
 import { addFoodItem } from '../../../redux/slices/foodCounterSlice';
 import { useAppDispatch, useAppSelector } from '../../../utils/redux-hooks';
 import CustomButton from '../../ui/button/CustomBtnLayout/CustomBtnLayout';
@@ -20,10 +21,16 @@ const FoodCard: FC<ITitle> = ({ title }) => {
                 dispatch(addFoodItem
                     ({
                         name: foodItems[i].name,
-                        calories: (foodItems[i].calories) / 100 * parseFloat(weight),
-                        carbohydrates: (foodItems[i].carbohydrates) / 100 * parseFloat(weight),
-                        fats: (foodItems[i].fats) / 100 * parseFloat(weight),
-                        squirrels: (foodItems[i].squirrels) / 100 * parseFloat(weight)
+                        calories: Math.round(foodItems[i].calories) / 100 * parseFloat(weight),
+                        carbohydrates: Math.round(foodItems[i].carbohydrates) / 100 * parseFloat(weight),
+                        fats: Math.round(foodItems[i].fats) / 100 * parseFloat(weight),
+                        squirrels: Math.round(foodItems[i].squirrels) / 100 * parseFloat(weight)
+                    }));
+                    dispatch(setCalories({
+                        calories: Math.round(foodItems[i].calories) / 100 * parseFloat(weight),
+                        carbohydrates: Math.round(foodItems[i].carbohydrates) / 100 * parseFloat(weight),
+                        fats: Math.round(foodItems[i].fats) / 100 * parseFloat(weight),
+                        squirrels: Math.round(foodItems[i].squirrels) / 100 * parseFloat(weight)
                     }));
                     setName('');
                     setWeight('');

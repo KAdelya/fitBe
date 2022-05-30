@@ -6,6 +6,7 @@ import userReducer from './slices/userSlice';
 import todosReducer from './slices/todosSlice';
 import waterCounterReducer from './slices/WaterCounterSlice';
 import foodCounterReducer from './slices/foodCounterSlice';
+import caloriesReducer from './slices/caloriesSlice';
 import storage from 'redux-persist/lib/storage';
 import {
     persistStore,
@@ -26,6 +27,7 @@ const rootReducer = combineReducers({
     todoList: todosReducer,
     waterCounter: waterCounterReducer,
     foodCounter: foodCounterReducer,
+    calories: caloriesReducer,
 });
 
 const persistConfig = {

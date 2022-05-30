@@ -1,8 +1,10 @@
 import styles from '../Calculator/Calculator.module.sass';
 import FoodCard from '../../components/Cards/FoodCard/FoodCard';
 import WaterCard from '../../components/Cards/WaterCard/WaterCard';
+import { useAppSelector } from '../../utils/redux-hooks';
 
 const Calculator = () => {
+    const {fats, carbohydrates, squirrels, calories } = useAppSelector(state => state.calories);
     return (
         <div>
             <section className={styles.calculator_page}>
@@ -10,19 +12,19 @@ const Calculator = () => {
                 <div className={styles.calculator_page__block}>
                     <div>
                         <p>Fats</p>
-                        <pre>34.76</pre>
+                        <pre>{fats}</pre>
                     </div>
                     <div>
                         <p>Carbohydrates</p>
-                        <pre>34.76</pre>
+                        <pre>{carbohydrates}</pre>
                     </div>
                     <div>
                         <p>Squirrels</p>
-                        <pre>34.76</pre>
+                        <pre>{squirrels}</pre>
                     </div>
                     <div>
                         <p>Calories</p>
-                        <pre>34.76</pre>
+                        <pre>{calories}</pre>
                     </div>
                 </div>
                 <div className={styles.calculator_page__food_blocks}>
