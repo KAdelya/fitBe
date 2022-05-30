@@ -28,10 +28,17 @@ const FoodCard: FC<Props> = ({ title }) => {
                         fats: foodItems[i].fats,
                         squirrels: foodItems[i].squirrels
                     }));
+                dispatch(addFoodItem
+                ({
+                    calories: Math.round(foodItems[i].calories/100*parseFloat(weight)),
+                    carbohydrates: Math.round(foodItems[i].carbohydrates/100*parseFloat(weight)),
+                    fats: Math.round(foodItems[i].fats/100*parseFloat(weight)),
+                    squirrels: Math.round(foodItems[i].squirrels/100*parseFloat(weight))
+                }));
                     setName('');
             }
             else setName('');
-        };
+        }
     };
 
         return (
