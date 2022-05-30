@@ -8,7 +8,7 @@ const waterCounterSlice = createSlice({
     name: 'counter',
     initialState,
     reducers: {
-        setWater: (state, action) => {
+        setWaterCount: (state, action) => {
             state.waterCounter =  state.waterCounter + action.payload.waterCounter;
         },
         removeWater: (state) => {
@@ -17,5 +17,5 @@ const waterCounterSlice = createSlice({
     }
 });
 
-export const { setWater, removeWater } = waterCounterSlice.actions;
+export const { setWaterCount, removeWater } = waterCounterSlice.actions;
 export default waterCounterSlice.reducer;

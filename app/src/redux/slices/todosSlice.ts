@@ -26,7 +26,7 @@ const todoSlice = createSlice({
             state = state.splice(action.payload.index, 1);
         },
         deleteTodos(state) {
-            state = [];
+            state.length = 0;
         }
     },
 });

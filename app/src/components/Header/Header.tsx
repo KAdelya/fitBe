@@ -8,8 +8,9 @@ import { useAppDispatch, useAppSelector } from '../../utils/redux-hooks';
 import Toggle from '../Toggle/Toggle';
 import styled, { ThemeProvider } from 'styled-components';
 import { removeUser } from '../../redux/slices/userSlice';
-import { removeCounter } from '../../redux/slices/waterCounterSlice';
+import { removeWater } from '../../redux/slices/WaterCounterSlice';
 import { deleteTodos} from '../../redux/slices/todosSlice';
+import { deleteFoodItems } from '../../redux/slices/foodCounterSlice';
 
 
 interface Props { }
@@ -34,8 +35,9 @@ const Header: FC<Props> = ({ children }) => {
     const dispatch = useAppDispatch();
     const signOut = () => {
         dispatch(removeUser());
-        dispatch(removeCounter());
+        dispatch(removeWater());
         dispatch(deleteTodos());
+        dispatch(deleteFoodItems());
         navigate('/', { replace: true });
     };
 

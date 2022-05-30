@@ -19,7 +19,6 @@ const timerSlice = createSlice({
         setRoundsCount: (state, action) => {
             state.roundsCount = action.payload.roundsCount;
         },
-
     }
 });
 

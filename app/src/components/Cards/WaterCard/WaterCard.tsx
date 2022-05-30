@@ -2,19 +2,19 @@ import styles from '../WaterCard/WaterCard.module.sass';
 import CustomButton from '../../ui/button/CustomBtnLayout/CustomBtnLayout';
 import { useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../utils/redux-hooks';
-import { setCounter } from '../../../redux/slices/waterCounterSlice';
+import { setWaterCount } from '../../../redux/slices/WaterCounterSlice';
 
 
 const WaterCard = () => {
     const dispatch = useAppDispatch();
     const [visible, setVisible] = useState(false);
     const [water, setWater] = useState('');
-    const { waterCounter } = useAppSelector(state => state.counter);
+    const { waterCounter } = useAppSelector(state => state.waterCounter);
 
     const handleClick = () => {
         setVisible(!visible);
         dispatch(
-            setCounter({
+            setWaterCount({
                 waterCounter: parseFloat(water),
             })
         );

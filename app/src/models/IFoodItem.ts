@@ -1,7 +1,7 @@
 export interface IFoodItem{
     name: string,
     calories: number,
-    carbohydrates: number,
+    squirrels: number,
     fats: number,
-    squirrels: number
+    carbohydrates: number,
 };
