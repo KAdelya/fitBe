@@ -10,7 +10,7 @@ export const foodItems = [
         name: 'cheese',
         calories: 350,
         squirrels: 22.2,
-        fats: 27,
+        fats: 27.0,
         carbohydrates: 4.7
     },
     {

@@ -35,21 +35,27 @@
             margin-top: 0
 
         li
+            width: 80%
             list-style-type: none
             padding: 0
             margin: 0
+            display: grid
             font-weight: 400
-            display: flex
+            grid-template-rows: 1fr
+            grid-template-columns: 2fr 10fr
+            grid-template-areas: "name info"
         
             h3
+                grid-area: name
                 padding: 0
-                margin: auto
+                margin: auto 0
 
         &__item
+            grid-area: info
             width: 100%
             display: flex
             padding: 0 10%
-            margin: auto
+            margin: auto 0
             justify-content: space-between
             font-size: 14px
             pre
