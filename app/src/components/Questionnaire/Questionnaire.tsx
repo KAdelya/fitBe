@@ -66,14 +66,14 @@ export const Questionnaire = () => {
                         </div>
                     </div>
                     <div className={styles.question_page__block}>
-                        <label>Your name</label>
+                        <label>Your name:</label>
                         <input
                             value={form.userName}
                             name="userName"
                             onChange={update} />
                     </div>
                     <div className={styles.question_page__block}>
-                        <label>Your surname</label>
+                        <label>Your surname:</label>
                         <input
                             value={form.userSurname}
                             name="userSurname"
@@ -81,7 +81,7 @@ export const Questionnaire = () => {
                         />
                     </div>
                     <div className={styles.question_page__block}>
-                        <label>Your weight (kg)</label>
+                        <label>Your weight (kg):</label>
                         <input
                             value={form.currentWeight}
                             name="currentWeight"
@@ -89,7 +89,7 @@ export const Questionnaire = () => {
                         />
                     </div>
                     <div className={styles.question_page__block}>
-                        <label>Your desired weight (kg)</label>
+                        <label>Your desired weight (kg):</label>
                         <input
                             value={form.desiredWeight}
                             name="desiredWeight"
@@ -105,11 +105,11 @@ export const Questionnaire = () => {
                         <input name="growth" />
                     </div>
                     <div className={styles.question_page__block}>
-                        <label>Activity</label>
+                        <label>Activity:</label>
                         <input name="activity" />
                     </div>
                     <div className={styles.question_page__block}>
-                        <label>Desired number of workouts per week</label>
+                        <label>Desired number of workouts per week:</label>
                         <input />
                     </div>
                 </div>
