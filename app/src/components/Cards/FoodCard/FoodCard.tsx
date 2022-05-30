@@ -21,16 +21,16 @@ const FoodCard: FC<ITitle> = ({ title }) => {
                 dispatch(addFoodItem
                     ({
                         name: foodItems[i].name,
-                        calories: Math.round(foodItems[i].calories) / 100 * parseFloat(weight),
-                        carbohydrates: Math.round(foodItems[i].carbohydrates) / 100 * parseFloat(weight),
-                        fats: Math.round(foodItems[i].fats) / 100 * parseFloat(weight),
-                        squirrels: Math.round(foodItems[i].squirrels) / 100 * parseFloat(weight)
+                        calories: Math.round((foodItems[i].calories) / 100 * parseFloat(weight)),
+                        carbohydrates: Math.round((foodItems[i].carbohydrates) / 100 * parseFloat(weight)),
+                        fats: Math.round((foodItems[i].fats) / 100 * parseFloat(weight)),
+                        squirrels: Math.round((foodItems[i].squirrels) / 100 * parseFloat(weight))
                     }));
                     dispatch(setCalories({
-                        calories: Math.round(foodItems[i].calories) / 100 * parseFloat(weight),
-                        carbohydrates: Math.round(foodItems[i].carbohydrates) / 100 * parseFloat(weight),
-                        fats: Math.round(foodItems[i].fats) / 100 * parseFloat(weight),
-                        squirrels: Math.round(foodItems[i].squirrels) / 100 * parseFloat(weight)
+                        calories: Math.round((foodItems[i].calories) / 100 * parseFloat(weight)),
+                        carbohydrates: Math.round((foodItems[i].carbohydrates) / 100 * parseFloat(weight)),
+                        fats: Math.round((foodItems[i].fats) / 100 * parseFloat(weight)),
+                        squirrels: Math.round((foodItems[i].squirrels) / 100 * parseFloat(weight))
                     }));
                     setName('');
                     setWeight('');
@@ -70,9 +70,15 @@ const FoodCard: FC<ITitle> = ({ title }) => {
                     {visible ?
                         <>
                             <h2>Title:</h2>
-                            <input value={name} onChange={(e) => setName(e.target.value)} />
+                            <input 
+                                type="text"
+                                value={name} 
+                                onChange={(e) => setName(e.target.value)} />
                             <h2>Weight:</h2>
-                            <input value={weight} onChange={(e) => setWeight(e.target.value)} />
+                            <input 
+                                type="number"
+                                value={weight} 
+                                onChange={(e) => setWeight(e.target.value)} />
                             <CustomButton>
                                 <button onClick={() => handleCreated(name, weight)}>ADD</button>
                             </CustomButton></>

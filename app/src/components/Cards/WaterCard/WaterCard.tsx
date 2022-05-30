@@ -36,7 +36,10 @@ const WaterCard = () => {
                 {visible ?
                     <>
                         <h2>Number(ml):</h2>
-                        <input value={water}  type="number" onChange={(e) => setWater(e.target.value)} />
+                        <input 
+                            value={water}
+                            type="number"
+                            onChange={(e) => setWater(e.target.value)} />
                         <CustomButton>
                             <button onClick={() => handleClick()}>ADD</button>
                         </CustomButton></>

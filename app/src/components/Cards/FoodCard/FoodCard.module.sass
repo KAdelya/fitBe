@@ -8,17 +8,21 @@
         transform: translateY(-2px)
     &__input
         display: flex
-        padding: 0 10%
+        padding: 0 5%
+        h2
+            margin: auto 0
+            font-size: calc(10px + 10 * (100vw / 1280))
         input
             width: 90%
+            border: none
             margin: 1em
-            padding: 1.2em 1em
+            padding: 1% 1em
             border-radius: 12px
         button
-            margin-top: 1em
+            margin-top: 0.5em
 
     &__top
-        padding: 1.3em 5% 1.3em
+        padding: 1.3em 5% 0.5em
         display: flex
         justify-content: space-between
         h3
@@ -28,7 +32,7 @@
 
     &__list
         color: white
-        padding: 0 2%
+        padding: 0 1.5%
         margin: 0
         ul
             padding-top: 0
@@ -46,6 +50,7 @@
             grid-template-areas: "name info"
         
             h3
+                font-size: calc(8px + 8 * (100vw / 1280))
                 grid-area: name
                 padding: 0
                 margin: auto 0
@@ -59,6 +64,7 @@
             justify-content: space-between
             font-size: 14px
             pre
+                font-size: calc(6px + 8 * (100vw / 1280))
                 padding: 0
 
     &__icon
