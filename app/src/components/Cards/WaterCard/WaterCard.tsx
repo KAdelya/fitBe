@@ -22,18 +22,17 @@ const WaterCard = () => {
     };
     
     return (
-        <div className={styles.food_card}>
-            <div className={styles.food_card__top}>
+        <div className={styles.water_card}>
+            <div className={styles.water_card__top}>
                 <h3>Water tracker</h3>
-
-                <h2>{waterCounter}</h2>
-                <div className={styles.food_card__icon}>
+                <pre>{waterCounter}</pre>
+                <div className={styles.water_card__icon}>
                     <button onClick={() => setVisible(!visible)}>
                         <h2>&#43;</h2>
                     </button>
                 </div>
             </div>
-            <div className={styles.food_card__input}>
+            <div className={styles.water_card__input}>
                 {visible ?
                     <>
                         <h2>Number(ml):</h2>

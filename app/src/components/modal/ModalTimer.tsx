@@ -3,6 +3,7 @@ import timer from '../../assets/images/time.svg';
 import { useState } from 'react';
 import { useAppDispatch } from '../../utils/redux-hooks';
 import { setRoundsCount, setWorkTime } from '../../redux/slices/timerSlice';
+import MainCustomBtn from '../ui/button/ButtonLayout/ButtonLayout';
 
 export const ModalTimer = () => {
     const [value_work, setValueWork] = useState('');
@@ -42,7 +43,11 @@ export const ModalTimer = () => {
                         <p>ROUNDS</p>
                         <input value={value_rounds} onChange={event => setValueRounds(event.target.value)} />
                     </div>
-                    <button onClick={() => handleTime(Number(value_work), Number(value_rounds))}>set</button>
+                    <div className={styles.set_time_block__button}>
+                        <MainCustomBtn>
+                            <button onClick={() => handleTime(Number(value_work), Number(value_rounds))}>SET</button>
+                        </MainCustomBtn>
+                    </div>
                 </div>
             </div>
         </div>

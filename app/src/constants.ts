@@ -1,3 +1,5 @@
+import styled from "styled-components";
+
 export const  ADD_TASK = 'ADD_TASK';
 
 export const REACT_APP_FIREBASE_API_KEY = 'AIzaSyA0fvCh-aT77nvqfLSgHlCpGM_wcbNzTOI';
@@ -54,3 +56,10 @@ export const lightTheme = {
     textColor: 'white',
     boxShadow: '0px 4px 61px rgba(13, 1, 1, 0.99)'
 };
+
+export const MenuWrapper = styled.div`
+transition: all 0.50s linear;
+background-color: ${props => props.theme.bgColor};
+width: 100%;
+height: 100%;
+`;

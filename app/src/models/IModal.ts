@@ -1,5 +1,5 @@
 export interface IModal {
-    close: any;
-    open: any;
+    close: Function;
+    open: boolean;
     button: string;
 }

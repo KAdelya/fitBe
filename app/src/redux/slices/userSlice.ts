@@ -1,18 +1,16 @@
 import {createSlice} from '@reduxjs/toolkit';
-import { number } from 'yup';
 import { IUser } from '../../models/IUser';
 
 const initialState: IUser = {
-    token: null,
-    id: null,
-    userEmail: null,
-    userName: null,
-    userSurname: null,
-    avatar: null,
-    weight: null,
+    token: '',
+    id: '',
+    userEmail: '',
+    userName: '',
+    userSurname: '',
+    avatar: '',
+    weight: '',
     spendingHours: 0,
 };
-
 
 const userSlice = createSlice({
     name: 'user',
@@ -32,13 +30,13 @@ const userSlice = createSlice({
             state.avatar = action.payload.avatar;
         },
         removeUser(state) {
-            state.token = null;
-            state.id = null;
-            state.userEmail = null;
-            state.userName = null;
-            state.userSurname = null;
-            state.avatar = null;
-            state.weight = null;
+            state.token = '';
+            state.id = '';
+            state.userEmail = '';
+            state.userName = '';
+            state.userSurname = '';
+            state.avatar = '';
+            state.weight = '';
             state.spendingHours = 0;
         },
     },
