@@ -54,9 +54,11 @@ const Todods = () => {
                     {visible ?
                         <div className={styles.todo_notice__input__visible}>
                             <input value={text} onChange={((e) => setText(e.target.value))} />
-                            <MainCustomBtn>
-                                <button onClick={() => handleCreate(text)}>ADD</button>
-                            </MainCustomBtn>
+                            <div className={styles.todo_notice__input__visible__button}>
+                                <MainCustomBtn>
+                                    <button onClick={() => handleCreate(text)}>ADD</button>
+                                </MainCustomBtn>
+                            </div>
                         </div> : <></>}
                 </div>
             </section>
