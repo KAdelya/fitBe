@@ -9,27 +9,19 @@ import { setUser } from '../../redux/slices/userSlice';
 import { onValue, ref, update } from 'firebase/database';
 import { NavLink } from 'react-router-dom';
 import styles from './Profil.module.sass';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { db } from '../..';
+import { setInvisible } from '../../redux/slices/ActivitySlice';
 
 
 const Profil = () => {
     const { userEmail, userName,
         userSurname, id, token,
         weight, spendingHours } = useAppSelector(state => state.user);
-    const show = useAppSelector((state) => state.modal.show);
     const { waterCounter } = useAppSelector(state => state.waterCounter);
     const { calories } = useAppSelector(state => state.calories);
+    const [visibleModal, setInvisible] = useState(false);
     const dispatch = useAppDispatch();
-
-
-    const handleClose = () => {
-        dispatch(
-            setModal({
-                show: false,
-            })
-        );
-    };
 
     useEffect(() => {
         const dbRef = (ref(db, `/${id}`));
@@ -106,12 +98,12 @@ const Profil = () => {
                     </div>
                 </div>
             </section>
-            {show ?
+            {visibleModal ?
                 <ModalLayout
-                    close={handleClose}
-                    open={show}
+                    close={() => setInvisible(false)}
+                    open={visibleModal}
                     button="START">
-                    <ModalWelcome ccal={0} />
+                    <ModalWelcome/>
                 </ModalLayout>
                 : <></>}
         </div>

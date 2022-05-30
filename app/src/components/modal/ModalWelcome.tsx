@@ -1,11 +1,11 @@
 import styles from '../Containers/ModalContainer/ModalContainer.module.sass';
 import logo_black from '../../assets/images/logo_black.svg';
-import { FC } from 'react';;
+import { useAppSelector } from '../../utils/redux-hooks';
 
-interface Props {
-    ccal: number
-}
-export const ModalWelcome: FC<Props> = ({ ccal }) => {
+
+
+export const ModalWelcome = () => {
+    const { generalCalories} = useAppSelector(state => state.activity);
     return (
         <div className={styles.welcome_modal}>
             <div className={styles.welcome_modal__logo}>
@@ -15,7 +15,8 @@ export const ModalWelcome: FC<Props> = ({ ccal }) => {
                 Welcome to Befit!
             </div>
             <div className={styles.welcome_modal__info}>
-                <div className={styles.welcome_modal__info__content}>Based on the registration data, we advise you consume at least {ccal} cal</div>
+                <div className={styles.welcome_modal__info__content}>
+                    Based on the registration data, we advise you consume at least {generalCalories} cal</div>
             </div>
         </div>
     );

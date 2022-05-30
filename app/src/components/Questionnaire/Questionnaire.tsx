@@ -5,6 +5,7 @@ import MainCustomBtn from '../ui/button/ButtonLayout/ButtonLayout';
 import { useAppDispatch, useAppSelector } from '../../utils/redux-hooks';
 import { setUser } from '../../redux/slices/userSlice';
 import { CreateUser } from '../../services/user.service';
+import { setGeneralCalories, setInfo } from '../../redux/slices/ActivitySlice';
 
 export const Questionnaire = () => {
     const navigate = useNavigate();
@@ -16,6 +17,8 @@ export const Questionnaire = () => {
         userSurname: '',
         currentWeight: '',
         desiredWeight: '',
+        age: '',
+        height: '',
     });
 
     const submit = (e: any) => {
@@ -28,9 +31,15 @@ export const Questionnaire = () => {
             token: token,
             weight: form.currentWeight,
         }));
-        CreateUser(id, userEmail, form.userName, 
+        CreateUser(id, userEmail, form.userName,
             form.userSurname, form.currentWeight, form.desiredWeight);
         navigate('/user');
+        dispatch(setInfo({
+            weight: form.currentWeight,
+            height: form.height,
+            age: form.age,
+        }));
+        dispatch(setGeneralCalories());
     };
 
     const update = (e: any) => {
@@ -39,7 +48,7 @@ export const Questionnaire = () => {
             [e.target.name]: e.target.value
         });
     };
-    
+
     return (
         <div>
             <form onSubmit={submit}>
@@ -84,6 +93,7 @@ export const Questionnaire = () => {
                         <label>Your weight (kg):</label>
                         <input
                             value={form.currentWeight}
+                            type="number"
                             name="currentWeight"
                             onChange={update}
                         />
@@ -92,25 +102,38 @@ export const Questionnaire = () => {
                         <label>Your desired weight (kg):</label>
                         <input
                             value={form.desiredWeight}
+                            type="number"
                             name="desiredWeight"
                             onChange={update}
                         />
                     </div>
                     <div className={styles.question_page__block}>
                         <label>Your age:</label>
-                        <input name="age" />
+                        <input
+                            value={form.age}
+                            type="number"
+                            name="age"
+                            onChange={update}
+                        />
                     </div>
                     <div className={styles.question_page__block}>
                         <label>Your height (cm):</label>
                         <input name="growth" />
+                        <input
+                            value={form.height}
+                            type="number"
+                            name="height"
+                            onChange={update}
+                        />
                     </div>
                     <div className={styles.question_page__block}>
                         <label>Activity:</label>
-                        <input name="activity" />
-                    </div>
-                    <div className={styles.question_page__block}>
-                        <label>Desired number of workouts per week:</label>
-                        <input />
+                        <select>
+                            <option value="" disabled selected>Activity level</option>
+                            <option>Low level</option>
+                            <option>Average level</option>
+                            <option>High level</option>
+                        </select>
                     </div>
                 </div>
                 <div className={styles.question_page__save}>
