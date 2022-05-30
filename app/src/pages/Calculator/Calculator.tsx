@@ -1,5 +1,6 @@
 import styles from '../Calculator/Calculator.module.sass';
 import FoodCard from '../../components/Cards/FoodCard/FoodCard';
+import WaterCard from '../../components/Cards/WaterCard/WaterCard';
 const Calculator = () => {
     return (
         <div>
@@ -24,11 +25,11 @@ const Calculator = () => {
                     </div>
                 </div>
                 <div className={styles.calculator_page__food_blocks}>
+                    <WaterCard/>
                     <FoodCard title='Breakfast' />
                     <FoodCard title='Lunch' />
                     <FoodCard title='Dinner' />
                     <FoodCard title='Snack/Other' />
-                    <FoodCard title='Water tracker' />
                 </div>
             </section>
         </div>

@@ -14,20 +14,23 @@ const todoSlice = createSlice({
     reducers: {
         addTodo(state, action) {
             state.push({
-              title: action.payload.title,
-              date: new Date().toDateString(),
-              completed: false,
+                title: action.payload.title,
+                date: new Date().toDateString(),
+                completed: false,
             });
         },
-        markTodo(state, action){
+        markTodo(state, action) {
             state[action.payload.index].completed = true;
         },
-        removeTodo(state, action){
+        removeTodo(state, action) {
             state = state.splice(action.payload.index, 1);
         },
+        deleteTodos(state) {
+            state = [];
+        }
     },
 });
 
-export const {addTodo, markTodo, removeTodo} = todoSlice.actions;
+export const { addTodo, markTodo, removeTodo, deleteTodos } = todoSlice.actions;
 
 export default todoSlice.reducer;
