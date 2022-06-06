@@ -1,68 +1,45 @@
 import { useState } from 'react';
-import { setUser } from '../../redux/slices/userSlice';
-import { useAppDispatch, useAppSelector } from '../../utils/redux-hooks';
-
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { storage } from '../..';
+import no_avatar from '../../assets/images/no_avatar.png';
 
 const Test = () => {
+  const [image, setImage] = useState<any>();
+  const [url, setUrl] = useState<any>(no_avatar);
+  const [progress, setProgress] = useState(0);
 
-  // const dispatch = useAppDispatch();
-  // const {userName, userSurname} = useAppSelector(state => state.user);
-  // const [form, setForm] = useState({
-  //   token: '',
-  //   id: '',
-  //   userEmail: '',
-  //   userName:  '',
-  //   userSurname: '',
-  //   avatar: '',
-  //   weight: '',
-  // });
+  const handleImageChange = (e: any) => {
+    if (e.target.files[0]) {
+      setImage(e.target.files[0]);
+    }
+  };
 
-  
-  // const submit = (e: any) => {
-  //   e.preventDefault();
-  //   dispatch(setUser({
-  //     userName: form.userName,
-  //     userSurname: form.userSurname,
-  //   }));
-
-  // };
-
-  // const update = (e: any) => {
-  //   setForm({
-  //     ...form,
-  //     [e.target.name]: e.target.value
-  //   });
-  // };
-
+  const handleSubmit = () => {
+    const imageRef = ref(storage,`/avatar`);
+    uploadBytes(imageRef, image)
+      .then(() => {
+        getDownloadURL(imageRef)
+          .then((url) => {
+            setUrl(url);
+          })
+          .catch((error) => {
+            console.log(error.message, 'error getting the image url');
+          });
+        setImage(null);
+      },)
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
   return (
-    <>
-    {/* <form onSubmit={submit}>
-      <label>
-       Имя:
-        <input
-          value={form.userName}
-          name="userName"
-          onChange={update}
-        />
-      </label>
-      
-    <label>
-        Пароль:
-        <input
-          value={form.userSurname}
-          name="userSurname"
-          onChange={update}
-        />
-      </label>
-
-      <button>Отправить</button>
-    </form>
-    
-    <button onClick={() => console.log(userName, userSurname)}>check</button> */}
-    text
-    </>
+    <div>
+      <div className="App">
+      <img src={url} alt='ava'/>
+      <input type="file" onChange={handleImageChange} />
+      <button onClick={handleSubmit}>Submit</button>
+    </div>
+    </div>
   );
 };
 
-
- export default Test;
+export default Test;

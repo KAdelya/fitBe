@@ -1,5 +1,6 @@
 import {createSlice} from '@reduxjs/toolkit';
 import { IUser } from '../../models/IUser';
+import no_avatar from '../../assets/images/no_avatar.png';
 
 const initialState: IUser = {
     token: '',
@@ -22,7 +23,6 @@ const userSlice = createSlice({
             state.userEmail = action.payload.userEmail;
             state.userName = action.payload.userName;
             state.userSurname = action.payload.userSurname;
-            state.avatar = action.payload.avatar;
             state.weight = action.payload.weight;
             state.spendingHours = action.payload.spendingHours;
         },

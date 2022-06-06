@@ -4,14 +4,14 @@ import MainCustomBtn from '../../components/ui/button/ButtonLayout/ButtonLayout'
 import { useAppDispatch, useAppSelector } from '../../utils/redux-hooks';
 import { ModalWelcome } from '../../components/Modal/ModalWelcome';
 import no_avatar from '../../assets/images/no_avatar.png';
-import { setModal } from '../../redux/slices/modalSlice';
-import { setUser } from '../../redux/slices/userSlice';
+import { setAvatar, setUser } from '../../redux/slices/userSlice';
 import { onValue, ref, update } from 'firebase/database';
 import { NavLink } from 'react-router-dom';
 import styles from './Profil.module.sass';
 import { useEffect, useState } from 'react';
 import { db } from '../..';
-import { setInvisible } from '../../redux/slices/ActivitySlice';
+import { ref as refStor, getDownloadURL, uploadBytes } from 'firebase/storage';
+import { storage } from '../../index';
 
 
 const Profil = () => {
@@ -45,22 +45,60 @@ const Profil = () => {
             },
         }).catch((error) => { console.log(error); });
     }
+    // here picture code
 
+    const [image, setImage] = useState<any>();
+    const [url, setUrl] = useState<any>(no_avatar);
+    const [progress, setProgress] = useState(0);
+
+    const handleImageChange = (e: any) => {
+        if (e.target.files[0]) {
+            setImage(e.target.files[0]);
+        }
+    };
+
+    const handleSubmit = () => {
+        const imageRef = refStor(storage, `${id}/avatar`);
+        uploadBytes(imageRef, image)
+            .then(() => {
+                getDownloadURL(imageRef)
+                    .then((url) => {
+                        setUrl(url);
+                    })
+                    .catch((error) => {
+                        console.log(error.message, 'error getting the image url');
+                    });
+                setImage(null);
+            })
+            .catch((error) => {
+                console.log(error.message);
+            });
+    };
+    const saveToLocalDb = () => {
+        setUrl(dispatch(setAvatar({ avatar: url })));
+
+    };
     return (
         <div>
             <section className={styles.profil_page}>
                 <div className={styles.profil_page__avatar}>
+
                     <div className={styles.profil_page__avatar__img}>
-                        <img src={no_avatar} alt="avatar" />
-                        {/* <input type="file" onChange={formHandler}/> */}
+                        <img src={url} alt="avatar" onChange={saveToLocalDb} />
+                    </div>
+                    <div className={styles.profil_page__avatar__input}>
+                        
+                        <label className="upload-file__label">
+                        <input type="file" onChange={handleImageChange} />
+                            <span>SELECT PHOTO</span>
+                        </label>
                     </div>
                     <div className={styles.profil_page__avatar__button}>
-                        {/* <input type="file" onChange={handleChange} /> */}
                         <CustomBtnLayout>
-                            <button>EDIT AVATAR</button>
+                            <button onClick={handleSubmit}>EDIT AVATAR</button>
                         </CustomBtnLayout>
-                        {/* <h3>Uploaded {progress} %</h3> */}
                     </div>
+
                 </div>
                 <div className={styles.profil_page__info}>
                     <h1>{userEmail}</h1>
@@ -103,7 +141,7 @@ const Profil = () => {
                     close={() => setInvisible(false)}
                     open={visibleModal}
                     button="START">
-                    <ModalWelcome/>
+                    <ModalWelcome />
                 </ModalLayout>
                 : <></>}
         </div>

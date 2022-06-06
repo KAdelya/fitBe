@@ -93,7 +93,6 @@ export const Questionnaire = () => {
                         <label>Your weight (kg):</label>
                         <input
                             value={form.currentWeight}
-                            type="number"
                             name="currentWeight"
                             onChange={update}
                         />

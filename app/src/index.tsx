@@ -12,7 +12,7 @@ import { Provider } from 'react-redux';
 import { getStorage } from 'firebase/storage';
 import { PersistGate } from 'redux-persist/integration/react';
 
-const app = initializeApp({
+export const app = initializeApp({
     apiKey: constants.REACT_APP_FIREBASE_API_KEY,
     authDomain: constants.REACT_APP_FIREBASE_AUTH_DOMAIN,
     databaseURL: constants.REACT_APP_FIREBASE_DATABASE_URL,

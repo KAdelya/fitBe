@@ -1,6 +1,8 @@
 import styles from '../Calculator/Calculator.module.sass';
 import FoodCard from '../../components/Cards/FoodCard/FoodCard';
+import Card from '../../components/Cards/FoodCard/Card';
 import WaterCard from '../../components/Cards/WaterCard/WaterCard';
+
 import { useAppSelector } from '../../utils/redux-hooks';
 
 const Calculator = () => {
@@ -30,9 +32,9 @@ const Calculator = () => {
                 <div className={styles.calculator_page__food_blocks}>
                     <WaterCard/>
                     <FoodCard title='Breakfast' />
-                    <FoodCard title='Lunch' />
-                    <FoodCard title='Dinner' />
-                    <FoodCard title='Snack/Other' />
+                    <Card title='Lunch' />
+                    <Card title='Dinner' />
+                    <Card title='Snack/Other' />
                 </div>
             </section>
         </div>
