@@ -17,7 +17,7 @@ import { storage } from '../../index';
 const Profil = () => {
     const { userEmail, userName,
         userSurname, id, token,
-        weight, spendingHours } = useAppSelector(state => state.user);
+        weight, spendingHours, avatar } = useAppSelector(state => state.user);
     const { waterCounter } = useAppSelector(state => state.waterCounter);
     const { calories } = useAppSelector(state => state.calories);
     const [visibleModal, setInvisible] = useState(false);
@@ -49,7 +49,6 @@ const Profil = () => {
 
     const [image, setImage] = useState<any>();
     const [url, setUrl] = useState<any>(no_avatar);
-    const [progress, setProgress] = useState(0);
 
     const handleImageChange = (e: any) => {
         if (e.target.files[0]) {
@@ -64,6 +63,7 @@ const Profil = () => {
                 getDownloadURL(imageRef)
                     .then((url) => {
                         setUrl(url);
+                        dispatch(setAvatar({avatar: url}));
                     })
                     .catch((error) => {
                         console.log(error.message, 'error getting the image url');
@@ -74,17 +74,17 @@ const Profil = () => {
                 console.log(error.message);
             });
     };
-    const saveToLocalDb = () => {
-        setUrl(dispatch(setAvatar({ avatar: url })));
-
-    };
     return (
         <div>
             <section className={styles.profil_page}>
                 <div className={styles.profil_page__avatar}>
 
                     <div className={styles.profil_page__avatar__img}>
-                        <img src={url} alt="avatar" onChange={saveToLocalDb} />
+                      
+                        {(avatar === '')?
+                        <><img src={no_avatar} alt="avatar" /></>
+                        :
+                        <><img src={avatar} alt="avatar" /></>}
                     </div>
                     <div className={styles.profil_page__avatar__input}>
                         
